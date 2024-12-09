@@ -98,13 +98,15 @@ class TorrentTile extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     const WidgetSpan(
-                        child: Icon(
-                      HugeIcons.strokeRoundedArrowUp01,
-                      color: Colors.green,
-                    )),
+                      child: Icon(
+                        HugeIcons.strokeRoundedArrowUp01,
+                        color: Colors.green,
+                      ),
+                    ),
                     TextSpan(
-                        text: torrent.seeders,
-                        style: const TextStyle(color: Colors.green))
+                      text: torrent.seeders,
+                      style: const TextStyle(color: Colors.green),
+                    )
                   ],
                 ),
               ),
@@ -113,13 +115,15 @@ class TorrentTile extends StatelessWidget {
               text: TextSpan(
                 children: [
                   const WidgetSpan(
-                      child: Icon(
-                    HugeIcons.strokeRoundedArrowUp01,
-                    color: Colors.redAccent,
-                  )),
+                    child: Icon(
+                      HugeIcons.strokeRoundedArrowDown01,
+                      color: Colors.redAccent,
+                    ),
+                  ),
                   TextSpan(
-                      text: torrent.leechers,
-                      style: const TextStyle(color: Colors.redAccent))
+                    text: torrent.leechers,
+                    style: const TextStyle(color: Colors.redAccent),
+                  )
                 ],
               ),
             ),
