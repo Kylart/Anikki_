@@ -10,9 +10,10 @@ import 'package:pkce/pkce.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:anikki/app/provider_auth/bloc/provider_auth_bloc.dart';
+import 'package:anikki/app/provider_auth/widgets/connected_dialog.dart';
+import 'package:anikki/app/provider_auth/widgets/kitsu_dialog.dart';
 import 'package:anikki/app/provider_auth/widgets/token_input.dart';
 import 'package:anikki/core/core.dart';
-import 'package:anikki/app/provider_auth/widgets/connected_dialog.dart';
 import 'package:anikki/domain/domain.dart';
 
 Future<void> loginToProvider(
@@ -22,7 +23,7 @@ Future<void> loginToProvider(
   await switch (provider) {
     WatchListProvider.anilist => _loginToAnilist(context),
     WatchListProvider.mal => _loginToMal(context),
-    WatchListProvider.kitsu => throw UnimplementedError(),
+    WatchListProvider.kitsu => _loginToKitsu(context),
   };
 }
 
@@ -170,4 +171,18 @@ Future<void> _loginToMal(BuildContext context) async {
   box.watch(key: boxKey).listen(onMalAuthKeyUpdated);
 
   launchUrl(authorizationUrl, mode: LaunchMode.externalApplication);
+}
+
+Future<void> _loginToKitsu(BuildContext context) async {
+  await showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return Dialog(
+        child: KitsuDialog(
+          showConnected: _showConnected,
+        ),
+      );
+    },
+  );
 }
