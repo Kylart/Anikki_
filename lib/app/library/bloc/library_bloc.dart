@@ -132,13 +132,11 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
       LibraryFileAdded event, Emitter<LibraryState> emit) async {
     if (state.runtimeType != LibraryLoaded) return;
 
-    final file = await LocalFile.createAndSearchMedia(event.path);
-
     /// Find `file` in existing entries if any
     final currentState = state as LibraryLoaded;
-    final entries = repository.addFileToEntries(
+    final entries = await repository.addFileToEntries(
       currentState.entries,
-      file,
+      event.path,
     );
 
     emit(
