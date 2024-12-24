@@ -54,14 +54,38 @@ class LocalStorageRepository {
     return results;
   }
 
-  /// Add a given [LocalFile] to the given [LibraryEntries] accordingly. Handles
+  /// Add a given path to the given [LibraryEntries] accordingly. Handles
   /// existing / matching entries and returns the updated list
-  List<LibraryEntry> addFileToEntries(
-      List<LibraryEntry> entries, LocalFile file) {
+  Future<List<LibraryEntry>> addFileToEntries(
+    List<LibraryEntry> entries,
+    String filepath,
+  ) async {
     final result = List<LibraryEntry>.from(entries);
+
+    var file = LocalFile(path: filepath);
+
+    final info = await anilist.infoFromMultiple(
+      _getUniqNames([file]),
+    );
+    final anilistInfo = anilist.getInfoFromInfo(
+      _getTitleFromEntryTitle(file) ?? file.title!,
+      info,
+    );
+
+    final media = await tmdb.hydrateMediaWithTmdb(
+      Media(
+        anilistInfo: anilistInfo,
+      ),
+      file.season != null ? anilistInfo?.title?.english ?? file.title : null,
+    );
+
+    file = file.copyWith(
+      media: media,
+    );
+
     final existsIndex = result.indexWhere(
       (element) => file.media != null
-          ? element.media?.anilistInfo?.id == file.media?.anilistInfo?.id
+          ? element.media?.id == file.media?.id
           : element.entries.first.title == file.title,
     );
 
