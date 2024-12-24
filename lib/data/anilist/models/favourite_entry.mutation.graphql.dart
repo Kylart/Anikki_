@@ -45,7 +45,7 @@ class Variables$Mutation$ToggleFavourite {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$ToggleFavourite) ||
+    if (other is! Variables$Mutation$ToggleFavourite ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -155,7 +155,7 @@ class Mutation$ToggleFavourite {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$ToggleFavourite) ||
+    if (other is! Mutation$ToggleFavourite ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -425,7 +425,7 @@ class Mutation$ToggleFavourite$ToggleFavourite {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$ToggleFavourite$ToggleFavourite) ||
+    if (other is! Mutation$ToggleFavourite$ToggleFavourite ||
         runtimeType != other.runtimeType) {
       return false;
     }

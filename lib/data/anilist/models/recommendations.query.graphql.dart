@@ -44,7 +44,7 @@ class Variables$Query$Recommendations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Recommendations) ||
+    if (other is! Variables$Query$Recommendations ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -153,7 +153,7 @@ class Query$Recommendations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Recommendations) || runtimeType != other.runtimeType) {
+    if (other is! Query$Recommendations || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -576,7 +576,7 @@ class Query$Recommendations$Page {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Recommendations$Page) ||
+    if (other is! Query$Recommendations$Page ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -768,7 +768,7 @@ class Query$Recommendations$Page$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Recommendations$Page$pageInfo) ||
+    if (other is! Query$Recommendations$Page$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -918,7 +918,7 @@ class Query$Recommendations$Page$recommendations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Recommendations$Page$recommendations) ||
+    if (other is! Query$Recommendations$Page$recommendations ||
         runtimeType != other.runtimeType) {
       return false;
     }

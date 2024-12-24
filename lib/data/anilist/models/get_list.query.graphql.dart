@@ -45,7 +45,7 @@ class Variables$Query$GetLists {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetLists) ||
+    if (other is! Variables$Query$GetLists ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -156,7 +156,7 @@ class Query$GetLists {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetLists) || runtimeType != other.runtimeType) {
+    if (other is! Query$GetLists || runtimeType != other.runtimeType) {
       return false;
     }
     final l$MediaListCollection = MediaListCollection;
@@ -653,7 +653,7 @@ class Query$GetLists$MediaListCollection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetLists$MediaListCollection) ||
+    if (other is! Query$GetLists$MediaListCollection ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -818,7 +818,7 @@ class Query$GetLists$MediaListCollection$lists {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetLists$MediaListCollection$lists) ||
+    if (other is! Query$GetLists$MediaListCollection$lists ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1072,7 +1072,7 @@ class Query$GetLists$MediaListCollection$lists$entries {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetLists$MediaListCollection$lists$entries) ||
+    if (other is! Query$GetLists$MediaListCollection$lists$entries ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1352,8 +1352,7 @@ class Query$GetLists$MediaListCollection$lists$entries$startedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetLists$MediaListCollection$lists$entries$startedAt) ||
+    if (other is! Query$GetLists$MediaListCollection$lists$entries$startedAt ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1526,8 +1525,8 @@ class Query$GetLists$MediaListCollection$lists$entries$completedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetLists$MediaListCollection$lists$entries$completedAt) ||
+    if (other
+            is! Query$GetLists$MediaListCollection$lists$entries$completedAt ||
         runtimeType != other.runtimeType) {
       return false;
     }

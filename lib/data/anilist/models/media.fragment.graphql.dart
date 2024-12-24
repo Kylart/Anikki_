@@ -245,7 +245,7 @@ class Fragment$media {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$media || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1055,7 +1055,7 @@ class Fragment$media$title {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media$title) || runtimeType != other.runtimeType) {
+    if (other is! Fragment$media$title || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userPreferred = userPreferred;
@@ -1233,7 +1233,7 @@ class Fragment$media$coverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media$coverImage) ||
+    if (other is! Fragment$media$coverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1403,8 +1403,7 @@ class Fragment$media$trailer {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media$trailer) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Fragment$media$trailer || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1572,7 +1571,7 @@ class Fragment$media$streamingEpisodes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media$streamingEpisodes) ||
+    if (other is! Fragment$media$streamingEpisodes ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1733,7 +1732,7 @@ class Fragment$media$nextAiringEpisode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$media$nextAiringEpisode) ||
+    if (other is! Fragment$media$nextAiringEpisode ||
         runtimeType != other.runtimeType) {
       return false;
     }

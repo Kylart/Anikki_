@@ -43,7 +43,7 @@ class Variables$Mutation$DeleteEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$DeleteEntry) ||
+    if (other is! Variables$Mutation$DeleteEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -153,7 +153,7 @@ class Mutation$DeleteEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$DeleteEntry) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$DeleteEntry || runtimeType != other.runtimeType) {
       return false;
     }
     final l$DeleteMediaListEntry = DeleteMediaListEntry;
@@ -443,7 +443,7 @@ class Mutation$DeleteEntry$DeleteMediaListEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$DeleteEntry$DeleteMediaListEntry) ||
+    if (other is! Mutation$DeleteEntry$DeleteMediaListEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }

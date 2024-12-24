@@ -167,7 +167,7 @@ class Variables$Mutation$UpdateEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UpdateEntry) ||
+    if (other is! Variables$Mutation$UpdateEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -420,7 +420,7 @@ class Mutation$UpdateEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateEntry) || runtimeType != other.runtimeType) {
+    if (other is! Mutation$UpdateEntry || runtimeType != other.runtimeType) {
       return false;
     }
     final l$SaveMediaListEntry = SaveMediaListEntry;
@@ -825,7 +825,7 @@ class Mutation$UpdateEntry$SaveMediaListEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UpdateEntry$SaveMediaListEntry) ||
+    if (other is! Mutation$UpdateEntry$SaveMediaListEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }

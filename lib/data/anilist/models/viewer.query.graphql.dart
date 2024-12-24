@@ -47,7 +47,7 @@ class Query$Viewer {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Viewer) || runtimeType != other.runtimeType) {
+    if (other is! Query$Viewer || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Viewer = Viewer;
@@ -469,7 +469,7 @@ class Query$Viewer$Viewer {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Viewer$Viewer) || runtimeType != other.runtimeType) {
+    if (other is! Query$Viewer$Viewer || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -678,7 +678,7 @@ class Query$Viewer$Viewer$avatar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Viewer$Viewer$avatar) ||
+    if (other is! Query$Viewer$Viewer$avatar ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -828,7 +828,7 @@ class Query$Viewer$Viewer$options {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Viewer$Viewer$options) ||
+    if (other is! Query$Viewer$Viewer$options ||
         runtimeType != other.runtimeType) {
       return false;
     }
