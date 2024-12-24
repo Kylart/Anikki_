@@ -682,10 +682,10 @@ packages:
     dependency: "direct dev"
     description:
       name: graphql_codegen
-      sha256: "1ff90994e84b28e2b8c94b3e1543a2e8f02666eb06d70a106c01590a87bc0e2b"
+      sha256: e472c0aa18f11bdf5e58cef9222ab43fd126a403d1881032427dcf641c5689d1
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.1"
   graphs:
     dependency: transitive
     description:

@@ -43,8 +43,7 @@ class Variables$Query$Search {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Search) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$Search || runtimeType != other.runtimeType) {
       return false;
     }
     final l$search = search;
@@ -173,7 +172,7 @@ class Query$Search {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search) || runtimeType != other.runtimeType) {
+    if (other is! Query$Search || runtimeType != other.runtimeType) {
       return false;
     }
     final l$anime = anime;
@@ -875,7 +874,7 @@ class Query$Search$anime {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$anime) || runtimeType != other.runtimeType) {
+    if (other is! Query$Search$anime || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -1050,7 +1049,7 @@ class Query$Search$anime$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$anime$pageInfo) ||
+    if (other is! Query$Search$anime$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1190,8 +1189,7 @@ class Query$Search$characters {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$characters) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$Search$characters || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -1370,7 +1368,7 @@ class Query$Search$characters$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$characters$pageInfo) ||
+    if (other is! Query$Search$characters$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1535,7 +1533,7 @@ class Query$Search$characters$results {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$characters$results) ||
+    if (other is! Query$Search$characters$results ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1735,7 +1733,7 @@ class Query$Search$characters$results$name {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$characters$results$name) ||
+    if (other is! Query$Search$characters$results$name ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1878,7 +1876,7 @@ class Query$Search$characters$results$image {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$characters$results$image) ||
+    if (other is! Query$Search$characters$results$image ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2028,7 +2026,7 @@ class Query$Search$staff {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$staff) || runtimeType != other.runtimeType) {
+    if (other is! Query$Search$staff || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -2207,7 +2205,7 @@ class Query$Search$staff$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$staff$pageInfo) ||
+    if (other is! Query$Search$staff$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2377,7 +2375,7 @@ class Query$Search$staff$results {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$staff$results) ||
+    if (other is! Query$Search$staff$results ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2587,7 +2585,7 @@ class Query$Search$staff$results$name {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$staff$results$name) ||
+    if (other is! Query$Search$staff$results$name ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2728,7 +2726,7 @@ class Query$Search$staff$results$image {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Search$staff$results$image) ||
+    if (other is! Query$Search$staff$results$image ||
         runtimeType != other.runtimeType) {
       return false;
     }

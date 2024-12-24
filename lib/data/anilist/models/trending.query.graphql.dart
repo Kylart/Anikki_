@@ -43,7 +43,7 @@ class Variables$Query$Trending {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$Trending) ||
+    if (other is! Variables$Query$Trending ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -150,7 +150,7 @@ class Query$Trending {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Trending) || runtimeType != other.runtimeType) {
+    if (other is! Query$Trending || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -552,7 +552,7 @@ class Query$Trending$Page {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Trending$Page) || runtimeType != other.runtimeType) {
+    if (other is! Query$Trending$Page || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -740,7 +740,7 @@ class Query$Trending$Page$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Trending$Page$pageInfo) ||
+    if (other is! Query$Trending$Page$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -885,7 +885,7 @@ class Query$Trending$Page$mediaTrends {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Trending$Page$mediaTrends) ||
+    if (other is! Query$Trending$Page$mediaTrends ||
         runtimeType != other.runtimeType) {
       return false;
     }

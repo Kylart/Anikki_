@@ -70,7 +70,7 @@ class Variables$Query$AiringSchedule {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$AiringSchedule) ||
+    if (other is! Variables$Query$AiringSchedule ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -216,7 +216,7 @@ class Query$AiringSchedule {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringSchedule) || runtimeType != other.runtimeType) {
+    if (other is! Query$AiringSchedule || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -666,7 +666,7 @@ class Query$AiringSchedule$Page {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringSchedule$Page) ||
+    if (other is! Query$AiringSchedule$Page ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -858,7 +858,7 @@ class Query$AiringSchedule$Page$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringSchedule$Page$pageInfo) ||
+    if (other is! Query$AiringSchedule$Page$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1023,7 +1023,7 @@ class Query$AiringSchedule$Page$airingSchedules {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringSchedule$Page$airingSchedules) ||
+    if (other is! Query$AiringSchedule$Page$airingSchedules ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1228,7 +1228,7 @@ class Variables$Query$AiringScheduleWithIds {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$AiringScheduleWithIds) ||
+    if (other is! Variables$Query$AiringScheduleWithIds ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1403,7 +1403,7 @@ class Query$AiringScheduleWithIds {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringScheduleWithIds) ||
+    if (other is! Query$AiringScheduleWithIds ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1879,7 +1879,7 @@ class Query$AiringScheduleWithIds$Page {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringScheduleWithIds$Page) ||
+    if (other is! Query$AiringScheduleWithIds$Page ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2072,7 +2072,7 @@ class Query$AiringScheduleWithIds$Page$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringScheduleWithIds$Page$pageInfo) ||
+    if (other is! Query$AiringScheduleWithIds$Page$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2237,7 +2237,7 @@ class Query$AiringScheduleWithIds$Page$airingSchedules {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AiringScheduleWithIds$Page$airingSchedules) ||
+    if (other is! Query$AiringScheduleWithIds$Page$airingSchedules ||
         runtimeType != other.runtimeType) {
       return false;
     }

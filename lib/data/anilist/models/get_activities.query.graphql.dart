@@ -59,7 +59,7 @@ class Variables$Query$GetActivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetActivities) ||
+    if (other is! Variables$Query$GetActivities ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -190,7 +190,7 @@ class Query$GetActivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities) || runtimeType != other.runtimeType) {
+    if (other is! Query$GetActivities || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -681,7 +681,7 @@ class Query$GetActivities$Page {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page) ||
+    if (other is! Query$GetActivities$Page ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -899,7 +899,7 @@ class Query$GetActivities$Page$pageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page$pageInfo) ||
+    if (other is! Query$GetActivities$Page$pageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1063,7 +1063,7 @@ class Query$GetActivities$Page$activities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page$activities) ||
+    if (other is! Query$GetActivities$Page$activities ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1287,7 +1287,7 @@ class Query$GetActivities$Page$activities$$ListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page$activities$$ListActivity) ||
+    if (other is! Query$GetActivities$Page$activities$$ListActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1466,7 +1466,7 @@ class Query$GetActivities$Page$activities$$TextActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page$activities$$TextActivity) ||
+    if (other is! Query$GetActivities$Page$activities$$TextActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1568,7 +1568,7 @@ class Query$GetActivities$Page$activities$$MessageActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetActivities$Page$activities$$MessageActivity) ||
+    if (other is! Query$GetActivities$Page$activities$$MessageActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
