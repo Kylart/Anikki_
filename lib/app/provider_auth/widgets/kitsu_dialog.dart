@@ -7,7 +7,6 @@ import 'package:http/http.dart';
 
 import 'package:anikki/app/provider_auth/bloc/provider_auth_bloc.dart';
 import 'package:anikki/core/core.dart';
-import 'package:anikki/core/helpers/kitsu/kitsu_client.dart';
 import 'package:anikki/core/widgets/loading_widget.dart';
 import 'package:anikki/domain/domain.dart';
 
@@ -28,7 +27,7 @@ class _KitsuDialogState extends State<KitsuDialog> {
 
   final provider = WatchListProvider.kitsu;
   String? get boxKey => UserRepository.tokenKey[provider];
-  final uri = Uri.parse('${KitsuClient.baseUrl}/token');
+  final uri = Uri.parse('$kitsuApiBaseUrl/oauth/token');
 
   late final TextEditingController usernameController;
   late final TextEditingController passwordController;
@@ -86,6 +85,8 @@ class _KitsuDialogState extends State<KitsuDialog> {
       await box.put(boxKey, jsonEncode(parsedResponse));
 
       if (context.mounted) {
+        Navigator.of(context).pop();
+
         BlocProvider.of<ProviderAuthBloc>(context).add(
           ProviderAuthLoginRequested(provider),
         );
