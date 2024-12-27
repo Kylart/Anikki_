@@ -136,8 +136,8 @@ void main() async {
         ],
         setUp: () {
           repository = MockLocalStorageRepository();
-          when(() => repository.addFileToEntries(const [], mockFile))
-              .thenAnswer((_) => [mockEntry]);
+          when(() => repository.addFileToEntries(const [], mockFile.path))
+              .thenAnswer((_) async => [mockEntry]);
 
           bloc = LibraryBloc(repository);
         },
@@ -169,8 +169,9 @@ void main() async {
         setUp: () {
           repository = MockLocalStorageRepository();
           when(
-            () => repository.addFileToEntries([libraryEntries.first], mockFile),
-          ).thenAnswer((_) => [libraryEntries.first, mockEntry]);
+            () => repository
+                .addFileToEntries([libraryEntries.first], mockFile.path),
+          ).thenAnswer((_) async => [libraryEntries.first, mockEntry]);
 
           bloc = LibraryBloc(repository);
         },
@@ -219,9 +220,9 @@ void main() async {
           repository = MockLocalStorageRepository();
           when(
             () => repository.addFileToEntries(
-                libraryEntries.sublist(0, 2), mockFile),
+                libraryEntries.sublist(0, 2), mockFile.path),
           ).thenAnswer(
-            (_) => [
+            (_) async => [
               libraryEntries.first,
               LibraryEntry(
                 media: media,
