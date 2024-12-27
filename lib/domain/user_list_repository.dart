@@ -239,7 +239,7 @@ class UserListRepository {
       case WatchListProvider.mal:
         return watchList;
       case WatchListProvider.kitsu:
-        throw UnimplementedError();
+        return watchList;
     }
   }
 }
