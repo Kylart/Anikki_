@@ -45,6 +45,19 @@ class _FavouriteButtonState extends State<FavouriteButton> {
 
   @override
   Widget build(BuildContext context) {
+    final watchListBloc = BlocProvider.of<WatchListBloc>(context, listen: true);
+    final canAddFavouriteProviders = [
+      WatchListProvider.anilist,
+    ];
+
+    final hasFavouriteProvider = canAddFavouriteProviders.any(
+      (provider) => watchListBloc.state.watchLists[provider] != null,
+    );
+
+    if (!hasFavouriteProvider) {
+      return const SizedBox();
+    }
+
     return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
         if (isToggleFavouriteLoading && state is HomeLoaded) {
@@ -71,7 +84,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
 
             isToggleFavouriteLoading = true;
 
-            BlocProvider.of<WatchListBloc>(context).add(
+            watchListBloc.add(
               WatchListToggleFavourite(
                 media: widget.media,
               ),
