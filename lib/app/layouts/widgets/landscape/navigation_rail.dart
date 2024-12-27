@@ -79,15 +79,21 @@ class _AnikkiNavigationRailState extends State<AnikkiNavigationRail> {
   List<_NavigationRailItem> get externalLinkItems => [
         _NavigationRailItem(
           expanded: expanded,
-          icon: SimpleIcons.anilist,
-          text: 'Go to AniList',
+          icon: WatchListProvider.anilist.icon,
+          text: 'Go to ${WatchListProvider.anilist.title}',
           onClick: () => openInBrowser('https://anilist.co'),
         ),
         _NavigationRailItem(
           expanded: expanded,
-          icon: SimpleIcons.myanimelist,
-          text: 'Go to MyAnimeList',
+          icon: WatchListProvider.mal.icon,
+          text: 'Go to ${WatchListProvider.mal.title}',
           onClick: () => openInBrowser('https://myanimelist.net'),
+        ),
+        _NavigationRailItem(
+          expanded: expanded,
+          icon: WatchListProvider.kitsu.icon,
+          text: 'Go to ${WatchListProvider.kitsu.title}',
+          onClick: () => openInBrowser('https://kitsu.app'),
         ),
         _NavigationRailItem(
           expanded: expanded,
