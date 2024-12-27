@@ -4,12 +4,14 @@ import 'package:mocktail/mocktail.dart';
 import 'package:anikki/domain/domain.dart';
 
 import '../fixtures/anilist.dart';
+import '../fixtures/kitsu.dart';
 import '../fixtures/mal.dart';
 
 void main() {
   group('unit test: UserRepository', () {
     late MockAnilist anilist;
     late MockMal mal;
+    late MockKitsu kitsu;
     late UserRepository repository;
 
     group('getCurrentUser method', () {
@@ -17,11 +19,13 @@ void main() {
         setUp(() {
           anilist = MockAnilist();
           mal = MockMal();
+          kitsu = MockKitsu();
           when(() => anilist.getMe()).thenAnswer((_) async => anilistUserMock);
 
           repository = UserRepository(
             anilist: anilist,
             mal: mal,
+            kitsu: kitsu,
           );
         });
 
@@ -38,12 +42,10 @@ void main() {
         setUp(() {
           anilist = MockAnilist();
           mal = MockMal();
+          kitsu = MockKitsu();
           when(() => anilist.getMe()).thenThrow(exception);
 
-          repository = UserRepository(
-            anilist: anilist,
-            mal: mal,
-          );
+          repository = UserRepository(anilist: anilist, mal: mal, kitsu: kitsu);
         });
 
         test('returns null', () async {

@@ -5,6 +5,7 @@ import 'package:anikki/core/core.dart';
 import 'package:anikki/domain/domain.dart';
 
 import '../fixtures/anilist.dart';
+import '../fixtures/kitsu.dart';
 import '../fixtures/mal.dart';
 import '../fixtures/tmdb.dart';
 
@@ -12,6 +13,7 @@ void main() {
   group('unit test: UserListRepository', () {
     late MockAnilist anilist;
     late MockMal mal;
+    late MockKitsu kitsu;
     late MockTmdb tmdb;
     late UserListRepository repository;
 
@@ -21,6 +23,7 @@ void main() {
           tmdb = MockTmdb();
           anilist = MockAnilist();
           mal = MockMal();
+          kitsu = MockKitsu();
           when(
             () => anilist.updateEntry(
               episode: 1,
@@ -40,6 +43,7 @@ void main() {
           repository = UserListRepository(
             anilist: anilist,
             mal: mal,
+            kitsu: kitsu,
             tmdb: tmdb,
           );
         });
@@ -69,6 +73,8 @@ void main() {
         setUp(() {
           tmdb = MockTmdb();
           mal = MockMal();
+
+          kitsu = MockKitsu();
           anilist = MockAnilist();
           when(
             () => anilist.updateEntry(
@@ -81,6 +87,7 @@ void main() {
           repository = UserListRepository(
             anilist: anilist,
             mal: mal,
+            kitsu: kitsu,
             tmdb: tmdb,
           );
         });
@@ -106,6 +113,7 @@ void main() {
         setUp(() {
           tmdb = MockTmdb();
           mal = MockMal();
+          kitsu = MockKitsu();
           anilist = MockAnilist();
           when(
             () => anilist.getWatchLists(),
@@ -116,6 +124,7 @@ void main() {
           repository = UserListRepository(
             anilist: anilist,
             mal: mal,
+            kitsu: kitsu,
             tmdb: tmdb,
           );
         });
@@ -133,6 +142,8 @@ void main() {
         setUp(() {
           tmdb = MockTmdb();
           mal = MockMal();
+
+          kitsu = MockKitsu();
           anilist = MockAnilist();
           when(
             () => anilist.getWatchLists(),
@@ -141,6 +152,7 @@ void main() {
           repository = UserListRepository(
             anilist: anilist,
             mal: mal,
+            kitsu: kitsu,
             tmdb: tmdb,
           );
         });

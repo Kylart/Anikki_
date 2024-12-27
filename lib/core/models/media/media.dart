@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:anikki/core/bloc_provider.dart';
 import 'package:anikki/core/core.dart';
 import 'package:anikki/data/kitsu/models/schema.graphql.dart';
 import 'package:anitomy/anitomy.dart';
