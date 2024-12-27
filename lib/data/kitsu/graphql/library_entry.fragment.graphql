@@ -1,0 +1,17 @@
+fragment kitsuLibraryEntry on LibraryEntry {
+	createdAt
+	progressedAt
+	finishedAt
+	media {
+		...kitsuAnimeMedia
+	}
+	id
+	nsfw
+	status
+	reconsuming
+	reconsumeCount
+	rating
+	notes
+	private
+	progress
+}

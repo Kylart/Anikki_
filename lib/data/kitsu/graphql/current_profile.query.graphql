@@ -1,0 +1,11 @@
+query KitsuCurrentProfile {
+  currentProfile {
+    name
+    id
+    avatarImage {
+      original {
+        url
+      }
+    }
+  }
+}

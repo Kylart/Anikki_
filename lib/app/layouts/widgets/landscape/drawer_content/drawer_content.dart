@@ -81,6 +81,14 @@ List<DrawerAction> _buildLinks(Media? media) => [
           label: 'See on MyAnimeList',
           icon: SimpleIcons.myanimelist,
         ),
+      if (media?.kitsuInfo?.slug != null)
+        DrawerAction(
+          onPressed: (context) => openInBrowser(
+            'https://kitsu.app/anime/${media?.kitsuInfo?.slug}',
+          ),
+          label: 'See on Kitsu',
+          icon: SimpleIcons.kitsu,
+        ),
       if (media?.tmdbInfo?.id != null)
         DrawerAction(
           onPressed: (context) => openInBrowser(

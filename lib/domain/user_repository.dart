@@ -7,6 +7,7 @@ class UserRepository {
   const UserRepository({
     required this.anilist,
     required this.mal,
+    required this.kitsu,
   });
 
   /// The [Anilist] API to use for this repository
@@ -14,6 +15,9 @@ class UserRepository {
 
   /// The [Mal] API to use for this repository
   final Mal mal;
+
+  /// The [Kitsu] API to use for this repository
+  final Kitsu kitsu;
 
   /// The key used to store the auth token given from the provider
   static const tokenKey = {
@@ -53,6 +57,19 @@ class UserRepository {
       return null;
     } catch (e) {
       logger.warning('Could not find currently authenticated user on MAL', e);
+      return null;
+    }
+  }
+
+  /// Returns the current user if any
+  Future<KitsuUser?> getKitsuCurrentUser() async {
+    try {
+      return await kitsu.getMe();
+    } on KitsuGetUserException catch (e) {
+      logger.warning('Could not find currently authenticated user on Kitsu', e);
+      return null;
+    } catch (e) {
+      logger.warning('Could not find currently authenticated user on Kitsu', e);
       return null;
     }
   }

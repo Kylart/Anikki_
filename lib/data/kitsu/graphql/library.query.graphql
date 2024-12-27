@@ -1,0 +1,16 @@
+# Write your query or mutation here
+query KitsuLibrary($limit: Int!) {
+	currentProfile {
+		library {
+			all(mediaType: ANIME, first: $limit) {
+        pageInfo {
+					endCursor
+					hasNextPage
+				}
+				nodes {
+					...kitsuLibraryEntry
+				}
+			}
+		}
+	}
+}

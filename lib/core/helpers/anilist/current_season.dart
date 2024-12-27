@@ -3,6 +3,10 @@ import 'package:anikki/data/data.dart';
 Enum$MediaSeason currentSeason() {
   final month = DateTime.now().month;
 
+  return getSeasonFromMonth(month);
+}
+
+Enum$MediaSeason getSeasonFromMonth(int month) {
   if (month <= 3) {
     return Enum$MediaSeason.WINTER;
   } else if (month <= 6) {

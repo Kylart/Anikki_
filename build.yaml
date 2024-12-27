@@ -3,6 +3,9 @@ targets:
     builders:
       graphql_codegen:
         options:
+          scopes:
+            - lib/data/anilist/graphql/**.graphql
+            - lib/data/kitsu/graphql/**.graphql
           clients:
             - graphql
           outputDirectory: ../models
