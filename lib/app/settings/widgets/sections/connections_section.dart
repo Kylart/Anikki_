@@ -21,13 +21,13 @@ class ConnectionsSection extends AbstractSettingsSection {
                     final connected = switch (provider) {
                       WatchListProvider.anilist => state.anilistUser != null,
                       WatchListProvider.mal => state.malUser != null,
-                      WatchListProvider.kitsu => false,
+                      WatchListProvider.kitsu => state.kitsuUser != null,
                     };
 
                     final username = switch (provider) {
                       WatchListProvider.anilist => state.anilistUser?.name,
                       WatchListProvider.mal => state.malUser?.name,
-                      WatchListProvider.kitsu => null,
+                      WatchListProvider.kitsu => state.kitsuUser?.name,
                     };
 
                     return Column(

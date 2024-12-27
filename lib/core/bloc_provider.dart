@@ -1,4 +1,3 @@
-import 'package:anikki/core/helpers/mal/mal_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,6 +25,8 @@ class AnikkiBlocProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     final anilist = Anilist(client: getAnilistClient());
     final mal = Mal(MalClient());
+    final kitsu = Kitsu(getKitsuClient());
+
     final nyaa = Nyaa();
     final files = Files();
 
@@ -39,11 +40,13 @@ class AnikkiBlocProvider extends StatelessWidget {
     final userListRepository = UserListRepository(
       anilist: anilist,
       mal: mal,
+      kitsu: kitsu,
       tmdb: tmdb,
     );
     final userRepository = UserRepository(
       anilist: anilist,
       mal: mal,
+      kitsu: kitsu,
     );
     const videoPlayerRepository = VideoPlayerRepository();
     final feedRepository = FeedRepository(

@@ -26,6 +26,7 @@ class ProviderAuthBloc extends Bloc<ProviderAuthEvent, ProviderAuthState> {
       ProviderAuthState(
         anilistUser: await repository.getAnilistCurrentUser(),
         malUser: await repository.getMalCurrentUser(),
+        kitsuUser: await repository.getKitsuCurrentUser(),
       ),
     );
   }
@@ -42,6 +43,9 @@ class ProviderAuthBloc extends Bloc<ProviderAuthEvent, ProviderAuthState> {
         malUser: event.provider == WatchListProvider.mal
             ? await repository.getMalCurrentUser()
             : state.malUser,
+        kitsuUser: event.provider == WatchListProvider.kitsu
+            ? await repository.getKitsuCurrentUser()
+            : state.kitsuUser,
       ),
     );
   }
@@ -59,6 +63,8 @@ class ProviderAuthBloc extends Bloc<ProviderAuthEvent, ProviderAuthState> {
             ? null
             : state.anilistUser,
         malUser: event.provider == WatchListProvider.mal ? null : state.malUser,
+        kitsuUser:
+            event.provider == WatchListProvider.kitsu ? null : state.kitsuUser,
       ),
     );
   }

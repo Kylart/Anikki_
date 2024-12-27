@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:anikki/core/core.dart';
-import 'package:anikki/core/helpers/mal/mal_client.dart';
 import 'package:anikki/data/data.dart';
 
 export 'exceptions/exceptions.dart';

@@ -128,7 +128,7 @@ class WatchListView extends StatelessWidget {
                     provider: provider,
                   ),
                 );
-              } else if (state.isNotEmpty) {
+              } else {
                 body = _WatchListCompleteView(state);
               }
             }

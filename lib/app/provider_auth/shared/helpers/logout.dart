@@ -101,12 +101,12 @@ void _logoutFromAnilist(BuildContext context) {
 
 void _logoutFromMal(BuildContext context) {
   BlocProvider.of<ProviderAuthBloc>(context).add(
-    ProviderAuthLogoutRequested(WatchListProvider.anilist),
+    ProviderAuthLogoutRequested(WatchListProvider.mal),
   );
 }
 
 void _logoutFromKitsu(BuildContext context) {
   BlocProvider.of<ProviderAuthBloc>(context).add(
-    ProviderAuthLogoutRequested(WatchListProvider.anilist),
+    ProviderAuthLogoutRequested(WatchListProvider.kitsu),
   );
 }

@@ -5,6 +5,8 @@ mixin MediaEpisodes on IMedia {
       anilistInfo?.episodes ??
       anilistInfo?.nextAiringEpisode?.episode ??
       malInfo?.numEpisodes ??
+      kitsuInfo?.episodeCount ??
+      kitsuInfo?.episodes.nodes?.length ??
       tmdbInfo?.numberOfEpisodes ??
       tmdbInfo?.tmdbSeasons?.fold<int>(
         0,

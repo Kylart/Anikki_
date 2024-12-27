@@ -4,3 +4,4 @@ export 'files.dart';
 export 'nyaa/nyaa.dart';
 export 'tmdb/tmdb.dart';
 export 'mal/mal.dart';
+export 'kitsu/kitsu.dart';

@@ -1,0 +1,48 @@
+fragment kitsuAnimeMedia on Media {
+	... on Anime {
+		id
+		startDate
+		endDate
+    slug
+# 		description
+		status
+		season
+		episodeCount
+		subtype
+		youtubeTrailerVideoId
+		titles {
+			original
+			canonical
+			alternatives
+			translated
+		}
+		categories(first: 5) {
+			nodes {
+				slug
+			}
+		}
+		episodes(first: 200) {
+			nodes {
+				number
+				thumbnail {
+					original {
+						url
+					}
+				}
+				titles {
+					canonical
+				}
+			}
+		}
+		posterImage {
+			original {
+				url
+			}
+		}
+		bannerImage {
+			original {
+				url
+			}
+		}
+	}
+}

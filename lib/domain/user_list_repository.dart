@@ -9,6 +9,7 @@ class UserListRepository {
     required this.anilist,
     required this.tmdb,
     required this.mal,
+    required this.kitsu,
   });
 
   /// The [Anilist] object to use to interact with Anilist.
@@ -16,6 +17,9 @@ class UserListRepository {
 
   /// The [Mal] object to use to interact with MyAnimeList.
   final Mal mal;
+
+  /// The [Kitsu] object to use to interact with Kitsu.
+  final Kitsu kitsu;
 
   /// The [TMDB] object to use to interact with TMDB.
   final Tmdb tmdb;
@@ -81,7 +85,12 @@ class UserListRepository {
           status: status,
         );
       case WatchListProvider.kitsu:
-        throw UnimplementedError();
+        if (media.kitsuInfo == null) return false;
+
+        return kitsu.updateEntry(
+          mediaId: media.kitsuInfo!.id,
+          episode: episode,
+        );
     }
   }
 
@@ -118,7 +127,7 @@ class UserListRepository {
           await anilist.getWatchLists(),
         ),
       WatchListProvider.mal => await mal.getWatchList(),
-      WatchListProvider.kitsu => throw UnimplementedError(),
+      WatchListProvider.kitsu => await kitsu.getWatchList(),
     };
   }
 
@@ -149,6 +158,9 @@ class UserListRepository {
           progress: entry.progress,
           media: await tmdb.hydrateMediaWithTmdb(
             entry.media,
+            entry.media.season != null
+                ? entry.media.anilistInfo?.title?.english ?? entry.media.title
+                : null,
           ),
         ),
     ];

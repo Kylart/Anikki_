@@ -151,10 +151,7 @@ class WatchListBloc extends AutoRefreshBloc<WatchListEvent, WatchListState> {
         WatchListError(
           watchLists: state.watchLists,
           currentProvider: state.currentProvider,
-          connected: {
-            ...state.connected,
-            event.provider: false,
-          },
+          connected: state.connected,
           message: e.error ?? 'Something went wrong...',
         ),
       );
@@ -163,10 +160,7 @@ class WatchListBloc extends AutoRefreshBloc<WatchListEvent, WatchListState> {
         WatchListError(
           watchLists: state.watchLists,
           currentProvider: state.currentProvider,
-          connected: {
-            ...state.connected,
-            event.provider: false,
-          },
+          connected: state.connected,
           message: e.toString(),
         ),
       );
