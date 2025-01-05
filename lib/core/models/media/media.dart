@@ -100,10 +100,7 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
   Enum$MediaSeason? get season =>
       anilistInfo?.season ??
       malInfo?.startSeason?.anilistSeason ??
-      (DateTime.tryParse(
-                kitsuInfo!.startDate!,
-              )?.month ==
-              null
+      (kitsuInfo?.startDate == null
           ? null
           : getSeasonFromMonth(
               DateTime.parse(
