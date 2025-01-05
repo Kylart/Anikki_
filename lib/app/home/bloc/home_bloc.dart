@@ -90,6 +90,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     } on AnilistGetListException catch (e) {
+      logger.error(e.toString(), e);
+
       emit(
         HomeError(
           entries: state.entries,
@@ -101,6 +103,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     } on AnilistGetTrendingException catch (e) {
+      logger.error(e.toString(), e);
+
       emit(
         HomeError(
           entries: entries ?? state.entries,
@@ -112,6 +116,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     } catch (e) {
+      logger.error(e.toString(), e);
+
       emit(
         HomeError(
           entries: entries ?? state.entries,
