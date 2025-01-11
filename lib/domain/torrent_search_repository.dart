@@ -24,6 +24,6 @@ class TorrentSearchRepository {
 
     if (episode != null) term += ' $episode';
 
-    return term;
+    return sanitizeName(term);
   }
 }
