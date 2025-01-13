@@ -185,9 +185,10 @@ class LocalStorageRepository {
     }
   }
 
-  String? _getTitleFromEntryTitle(LocalFile entry) => entry.season != null
-      ? '${entry.title} Season ${entry.season}'
-      : entry.title;
+  String? _getTitleFromEntryTitle(LocalFile entry) =>
+      !<int?>{null, 0, 1}.contains(entry.season)
+          ? '${entry.title} Season ${entry.season}'
+          : entry.title;
 
   /// Returns a [Set] of unique names from given [LocalFile]s
   List<String> _getUniqNames(List<LocalFile> files) {
