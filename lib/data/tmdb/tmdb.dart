@@ -95,22 +95,10 @@ class Tmdb {
       final title = searchTitle ?? parsedTitle.title ?? initialMedia.title!;
 
       final tmdbInfo = await getDetails(sanitizeName(title));
-      // final synonyms = initialMedia.synonyms;
 
-      // if (tmdbInfo == null && synonyms != null && synonyms.isNotEmpty) {
-      //   final currentTitleIndex = synonyms.indexOf(title);
-      //   late final String nextTitle;
-
-      //   if (currentTitleIndex == synonyms.length - 1) return initialMedia;
-
-      //   if (currentTitleIndex == -1) {
-      //     nextTitle = synonyms.first;
-      //   } else {
-      //     nextTitle = synonyms.elementAt(currentTitleIndex + 1);
-      //   }
-
-      //   return hydrateMediaWithTmdb(initialMedia, nextTitle);
-      // }
+      if (searchTitle != null && tmdbInfo == null) {
+        return hydrateMediaWithTmdb(initialMedia);
+      }
 
       return initialMedia.copyWith(
         tmdbInfo: tmdbInfo,
