@@ -60,7 +60,7 @@ class _HomeCarouselState extends State<_HomeCarousel> {
                   widget.entries.elementAt(index % widget.entries.length);
 
               BlocProvider.of<HomeBloc>(context).add(
-                HomeCurrentMediaChanged(entry),
+                HomeCurrentIndexChanged(index),
               );
 
               BlocProvider.of<LayoutBloc>(context).add(

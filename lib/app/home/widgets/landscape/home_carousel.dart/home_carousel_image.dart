@@ -19,7 +19,7 @@ class _HomeCarouselImage extends StatelessWidget {
   final double reducedHeight;
   final MediaListEntry entry;
   final double itemAspectRatio;
-  final void Function(int index, {bool resetTimer}) goToItem;
+  final void Function(int index) goToItem;
 
   final radius = const Radius.circular(8.0);
 
@@ -54,10 +54,7 @@ class _HomeCarouselImage extends StatelessWidget {
             ),
           ),
           child: InkWell(
-            onTap: () => goToItem(
-              realIndex,
-              resetTimer: true,
-            ),
+            onTap: () => goToItem(realIndex),
             child: AspectRatio(
               aspectRatio: itemAspectRatio,
             ),

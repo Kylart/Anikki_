@@ -7,25 +7,30 @@ sealed class HomeEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-final class HomeCurrentMediaChanged extends HomeEvent {
-  const HomeCurrentMediaChanged(this.entry);
+final class HomeCurrentIndexChanged extends HomeEvent {
+  const HomeCurrentIndexChanged(this.index);
 
-  final MediaListEntry? entry;
+  final int index;
 
   @override
   List<Object?> get props => [
-        entry,
+        index,
       ];
 }
 
 final class HomeCurrentBackgroundUrlChanged extends HomeEvent {
-  const HomeCurrentBackgroundUrlChanged(this.url);
+  const HomeCurrentBackgroundUrlChanged({
+    this.url,
+    this.resetTimer = true,
+  });
 
   final String? url;
+  final bool resetTimer;
 
   @override
   List<Object?> get props => [
         url,
+        resetTimer,
       ];
 }
 

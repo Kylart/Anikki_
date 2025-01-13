@@ -39,7 +39,7 @@ class _HomeTitleCarouselImageState extends State<_HomeTitleCarouselImage> {
       onTap: () {
         BlocProvider.of<HomeBloc>(context).add(
           HomeCurrentBackgroundUrlChanged(
-            widget.url,
+            url: widget.url,
           ),
         );
       },
