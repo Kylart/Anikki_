@@ -5,16 +5,14 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
 
-import 'package:anikki/app/watch_list/bloc/watch_list_bloc.dart';
 import 'package:anikki/app/home/bloc/home_bloc.dart';
 import 'package:anikki/app/home/widgets/landscape/favourite_button.dart';
+import 'package:anikki/app/watch_list/bloc/watch_list_bloc.dart';
 import 'package:anikki/core/core.dart';
-import 'package:anikki/data/data.dart';
 
 part 'home_carousel_actions.dart';
 part 'home_carousel_container.dart';
@@ -40,28 +38,23 @@ class HomeCarousel extends StatefulWidget {
   State<HomeCarousel> createState() => _HomeCarouselState();
 }
 
-class _HomeCarouselState extends State<HomeCarousel> {
+class _HomeCarouselState extends State<HomeCarousel>
+    with WidgetsBindingObserver {
   final itemAspectRatio = 9 / 14;
   int? dragDirection;
 
-  Timer? timer;
   late final ScrollController scrollController;
   late final ListController listController;
 
-  final toNextDuration = const Duration(seconds: 15);
   final itemAnimationDuration = const Duration(milliseconds: 300);
 
-  int currentIndex = 0;
-  int get currentEntryIndex => currentIndex % widget.entries.length;
-  MediaListEntry get currentEntry =>
-      widget.entries.elementAt(currentEntryIndex);
-  Media get currentMedia => currentEntry.media;
-
   @override
-  void initState() {
+  void initState() async {
     scrollController = ScrollController();
     listController = ListController();
-    init();
+
+    final state = BlocProvider.of<HomeBloc>(context).state;
+    animateToItem(state.currentIndex, delayed: true);
 
     super.initState();
   }
@@ -70,107 +63,44 @@ class _HomeCarouselState extends State<HomeCarousel> {
   void dispose() {
     scrollController.dispose();
     listController.dispose();
-    timer?.cancel();
     super.dispose();
   }
 
   @override
-  void didUpdateWidget(covariant HomeCarousel oldWidget) {
-    super.didUpdateWidget(oldWidget);
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      final state = BlocProvider.of<HomeBloc>(context).state;
 
-    if (oldWidget.entries.length != widget.entries.length &&
-        !const DeepCollectionEquality()
-            .equals(oldWidget.entries, widget.entries)) {
-      init();
+      animateToItem(state.currentIndex);
     }
   }
 
-  void init() {
-    setInitialIndex();
-    updateCurrentMedia();
-    setTimer();
-
-    if (currentIndex != 0) {
-      SchedulerBinding.instance.addPostFrameCallback(
-        (_) => goToItem(currentIndex),
-      );
-    }
-  }
-
-  void setTimer() {
-    timer?.cancel();
-    timer = Timer.periodic(
-      toNextDuration,
-      (_) {
-        goToItem(currentIndex + 1);
-        updateCurrentMedia();
-      },
-    );
-  }
-
-  void setInitialIndex() {
-    final homeBloc = BlocProvider.of<HomeBloc>(context);
-
-    currentIndex = max(
-      widget.entries.indexWhere(
-        (element) =>
-            element.media.anilistInfo?.id ==
-            homeBloc.state.currentMedia?.anilistInfo?.id,
-      ),
-      0,
-    );
-  }
-
-  void updateCurrentMedia() {
-    BlocProvider.of<HomeBloc>(context).add(
-      HomeCurrentMediaChanged(currentEntry),
-    );
-
-    updateCurrentBackgroundUrl();
-  }
-
-  void updateCurrentBackgroundUrl() {
-    String? imageUrl;
-
-    final images = currentMedia.tmdbInfo?.images!.backdrops
-        ?.where((image) => image.filePath != null)
-        .toList()
-      ?..shuffle();
-
-    if (images != null && images.isNotEmpty) {
-      final image = images.first;
-
-      if (image.filePath != null) {
-        imageUrl = getTmdbImageUrl(image.filePath!);
-      }
-    }
-
-    imageUrl ??= currentMedia.bannerImage ?? currentMedia.coverImage;
-
-    BlocProvider.of<HomeBloc>(context).add(
-      HomeCurrentBackgroundUrlChanged(imageUrl),
-    );
-  }
-
-  void goToItem(int index, {bool resetTimer = false}) {
+  void goToItem(int index) {
     if (!mounted) return;
     if (index < 0) return;
 
-    if (resetTimer) {
-      setTimer();
-    }
+    BlocProvider.of<HomeBloc>(context).add(
+      HomeCurrentIndexChanged(index),
+    );
+  }
 
-    setState(() {
-      currentIndex = index;
-      updateCurrentMedia();
-    });
-
+  Future<void> animateToItem(
+    int index, {
+    bool delayed = false,
+  }) async {
     if (!listController.isAttached) return;
+
+    if (delayed) {
+      await Future.delayed(
+        const Duration(milliseconds: 100),
+        () => animateToItem(index),
+      );
+    }
 
     listController.animateToItem(
       curve: (estimatedDistance) => Curves.linear,
       duration: (estimatedDistance) => itemAnimationDuration,
-      index: currentIndex,
+      index: index,
       scrollController: scrollController,
       alignment: 0.0,
     );
@@ -182,108 +112,122 @@ class _HomeCarouselState extends State<HomeCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return _HomeCarouselContainer(
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: GestureDetector(
-              onHorizontalDragUpdate: (details) {
-                dragDirection = details.delta.dx.sign.toInt();
-              },
-              onHorizontalDragEnd: (details) {
-                if (dragDirection == null) return;
+    return BlocConsumer<HomeBloc, HomeState>(
+      listenWhen: (previous, current) =>
+          previous.runtimeType != current.runtimeType ||
+          previous.currentIndex != current.currentIndex,
+      listener: (context, state) async {
+        animateToItem(state.currentIndex);
+      },
+      builder: (context, state) {
+        final currentEntryIndex = state.currentIndex % widget.entries.length;
+        final currentEntry = widget.entries.elementAtOrNull(currentEntryIndex);
 
-                goToItem(
-                  currentIndex - dragDirection!,
-                  resetTimer: true,
-                );
-                dragDirection = null;
-              },
-              child: SuperListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                listController: listController,
-                controller: scrollController,
-                itemCount: 10000000,
-                itemBuilder: (context, index) {
-                  final i = index % widget.entries.length;
-                  final entry = widget.entries.elementAt(i);
+        if (currentEntry == null) {
+          return const SizedBox();
+        }
 
-                  return _HomeCarouselImage(
-                    goToItem: goToItem,
-                    realIndex: index,
-                    currentIndex: currentIndex,
-                    itemAnimationDuration: itemAnimationDuration,
-                    cardSize: cardSize,
-                    reducedHeight: reducedHeight,
-                    itemAspectRatio: itemAspectRatio,
-                    entry: entry,
-                  );
-                },
-              ),
-            ),
-          ),
-          Positioned(
-            top: 0,
-            left: cardSize.height * itemAspectRatio + _horizontalPadding,
-            width: cardSize.width -
-                (cardSize.height * itemAspectRatio + _horizontalPadding),
-            height: titleHeight,
-            child: Container(
-              constraints: BoxConstraints(
-                maxHeight: cardSize.height - reducedHeight,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  right: _horizontalPadding,
-                  left: _horizontalPadding,
-                  top: 4.0,
-                  bottom: 16.0,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: _HomeCarouselTitle(
-                              currentMedia: currentEntry.media,
-                            ),
-                          ),
-                          _HomeCarouselNavigation(
-                            text:
-                                '${currentEntryIndex + 1} / ${widget.entries.length}',
-                            onNext: () => goToItem(
-                              currentIndex + 1,
-                              resetTimer: true,
-                            ),
-                            onPrevious: () => goToItem(
-                              currentIndex - 1,
-                              resetTimer: true,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    _HomeCarouselActions(
-                      media: currentEntry.media,
-                      numberOfItems: widget.entries.length,
-                      goToItem: goToItem,
-                      onRemoved: () {
-                        goToItem(currentIndex);
-                      },
-                    ),
-                  ],
+        return _HomeCarouselContainer(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: GestureDetector(
+                  onHorizontalDragUpdate: (details) {
+                    dragDirection = details.delta.dx.sign.toInt();
+                  },
+                  onHorizontalDragEnd: (details) {
+                    if (dragDirection == null) return;
+
+                    goToItem(
+                      state.currentIndex - dragDirection!,
+                    );
+                    dragDirection = null;
+                  },
+                  child: SuperListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    listController: listController,
+                    controller: scrollController,
+                    itemCount: 10000000,
+                    itemBuilder: (context, index) {
+                      final i = index % widget.entries.length;
+                      final entry = widget.entries.elementAt(i);
+
+                      return _HomeCarouselImage(
+                        goToItem: goToItem,
+                        realIndex: index,
+                        currentIndex: state.currentIndex,
+                        itemAnimationDuration: itemAnimationDuration,
+                        cardSize: cardSize,
+                        reducedHeight: reducedHeight,
+                        itemAspectRatio: itemAspectRatio,
+                        entry: entry,
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                top: 0,
+                left: cardSize.height * itemAspectRatio + _horizontalPadding,
+                width: cardSize.width -
+                    (cardSize.height * itemAspectRatio + _horizontalPadding),
+                height: titleHeight,
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxHeight: cardSize.height - reducedHeight,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      right: _horizontalPadding,
+                      left: _horizontalPadding,
+                      top: 4.0,
+                      bottom: 16.0,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: _HomeCarouselTitle(
+                                  currentMedia: currentEntry.media,
+                                ),
+                              ),
+                              _HomeCarouselNavigation(
+                                text:
+                                    '${currentEntryIndex + 1} / ${widget.entries.length}',
+                                onNext: () => goToItem(
+                                  state.currentIndex + 1,
+                                ),
+                                onPrevious: () => goToItem(
+                                  state.currentIndex - 1,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        _HomeCarouselActions(
+                          media: currentEntry.media,
+                          numberOfItems: widget.entries.length,
+                          goToItem: goToItem,
+                          onRemoved: () {
+                            goToItem(state.currentIndex);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

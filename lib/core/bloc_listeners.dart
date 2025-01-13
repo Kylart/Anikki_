@@ -128,20 +128,36 @@ class BlocListeners extends StatelessWidget {
         ),
         BlocListener<WatchListBloc, WatchListState>(
           listenWhen: (previous, current) =>
-              previous.watchLists != current.watchLists ||
-              previous.currentProvider != current.currentProvider,
+              current is WatchListLoaded &&
+              previous.watchList != null &&
+              previous.watchList != current.watchList,
           listener: (context, state) {
-            if (state is WatchListLoaded) {
-              BlocProvider.of<HomeBloc>(context).add(
-                HomeRefreshed(
-                  watchList: state.watchList,
-                  watchListProvider: state.currentProvider,
-                  requestedType: state.watchList?.isNotEmpty == true
-                      ? HomeMediaType.following
-                      : null,
-                ),
-              );
-            }
+            if (state is! WatchListLoaded) return;
+
+            BlocProvider.of<HomeBloc>(context).add(
+              HomeRefreshed(
+                watchList: state.watchList,
+                watchListProvider: state.currentProvider,
+                requestedType: null,
+              ),
+            );
+          },
+        ),
+        BlocListener<WatchListBloc, WatchListState>(
+          listenWhen: (previous, current) =>
+              current is WatchListLoaded &&
+              previous.watchList == null &&
+              current.watchList != null,
+          listener: (context, state) {
+            if (state is! WatchListLoaded) return;
+
+            BlocProvider.of<HomeBloc>(context).add(
+              HomeRefreshed(
+                watchList: state.watchList,
+                watchListProvider: state.currentProvider,
+                requestedType: HomeMediaType.following,
+              ),
+            );
           },
         ),
         BlocListener<WatchListBloc, WatchListState>(

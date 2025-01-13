@@ -10,7 +10,7 @@ class _HomeCarouselActions extends StatefulWidget {
 
   final Media media;
   final int numberOfItems;
-  final void Function(int index, {bool resetTimer}) goToItem;
+  final void Function(int index) goToItem;
   final void Function() onRemoved;
 
   @override
@@ -48,7 +48,6 @@ class _HomeCarouselActionsState extends State<_HomeCarouselActions> {
           FilledButton.tonalIcon(
             onPressed: () => widget.goToItem(
               Random().nextInt(widget.numberOfItems - 1),
-              resetTimer: true,
             ),
             style: ButtonStyle(
               padding: WidgetStateProperty.all<EdgeInsets>(
