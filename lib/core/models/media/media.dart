@@ -77,7 +77,7 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
         );
   }
 
-  List<String>? get synonyms => {
+  List<String>? get synonyms => <String?>{
         title,
 
         /// Full english name
@@ -94,7 +94,7 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
         ...(malInfo?.alternativeTitles?.synonyms ?? []),
         tmdbInfo?.name,
 
-        kitsuInfo?.titles.alternatives
+        ...(kitsuInfo?.titles.alternatives ?? [])
       }.whereType<String>().toList();
 
   Enum$MediaSeason? get season =>

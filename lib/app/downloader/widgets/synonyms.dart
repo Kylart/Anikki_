@@ -8,39 +8,54 @@ import 'package:hugeicons/hugeicons.dart';
 import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/layouts/shared/helpers/helpers.dart';
 
-class Synonyms extends StatelessWidget {
+class Synonyms extends StatefulWidget {
   const Synonyms({
     super.key,
     required this.state,
   });
 
+  final DownloaderSuccess state;
+
+  @override
+  State<Synonyms> createState() => _SynonymsState();
+}
+
+class _SynonymsState extends State<Synonyms> {
+  String? currentSelection;
+
   List<String> get synonyms => {
         /// Anitomy parsed name
-        state.entry?.entries.first.title,
+        widget.state.entry?.entries.first.title,
 
-        ...(state.entry?.media?.synonyms ?? []),
+        ...(widget.state.media?.synonyms ?? []),
+        ...(widget.state.entry?.media?.synonyms ?? []),
       }.whereType<String>().toList();
-
-  final DownloaderSuccess state;
 
   @override
   Widget build(BuildContext context) {
     void onSelected(value) {
       BlocProvider.of<DownloaderBloc>(context).add(
         DownloaderRequested(
-          media: state.media,
-          entry: state.entry,
+          media: widget.state.media,
+          entry: widget.state.entry,
           title: value,
-          isStreaming: state.isStreaming,
-          episode: state.episode,
+          isStreaming: widget.state.isStreaming,
+          episode: widget.state.episode,
         ),
       );
+
+      setState(() {
+        currentSelection = value;
+      });
     }
 
     if (context.landscape) {
       return DropdownMenu(
         inputDecorationTheme: const InputDecorationTheme(
           contentPadding: EdgeInsets.symmetric(horizontal: 12.0),
+        ),
+        controller: TextEditingController(
+          text: currentSelection,
         ),
         width: 300,
         hintText: 'Other names',
