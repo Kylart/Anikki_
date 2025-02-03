@@ -11,7 +11,7 @@ void main() {
       Anitaku(),
       Gogoanime(),
       Anify(),
-      Zoro(),
+      // Zoro(),
     ];
 
     late List<AnimeResult> searchResult;
