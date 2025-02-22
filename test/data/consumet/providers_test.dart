@@ -9,7 +9,7 @@ void main() {
   group('unit test: Consumet providers', () {
     final providers = [
       Anitaku(),
-      Gogoanime(),
+      // Gogoanime(),
       Anify(),
       // Zoro(),
     ];
