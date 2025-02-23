@@ -49,7 +49,7 @@ class _HomeCarouselState extends State<HomeCarousel>
   final itemAnimationDuration = const Duration(milliseconds: 300);
 
   @override
-  void initState() async {
+  void initState() {
     scrollController = ScrollController();
     listController = ListController();
 
