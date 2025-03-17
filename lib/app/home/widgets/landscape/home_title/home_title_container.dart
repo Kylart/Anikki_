@@ -32,7 +32,7 @@ class _HomeTitleContainer extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: borderRadius,
-              color: context.colorScheme.surface.withOpacity(0.3),
+              color: context.colorScheme.surface.withValues(alpha: 0.3),
             ),
             child: child,
           ),

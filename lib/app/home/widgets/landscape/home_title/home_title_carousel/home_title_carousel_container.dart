@@ -24,7 +24,7 @@ class HomeTitleCarouselContainer extends StatelessWidget {
         maxWidth: minWidth,
       ),
       decoration: BoxDecoration(
-        color: context.colorScheme.surface.withOpacity(0.3),
+        color: context.colorScheme.surface.withValues(alpha: 0.3),
         borderRadius: borderRadius,
       ),
       child: ClipRRect(

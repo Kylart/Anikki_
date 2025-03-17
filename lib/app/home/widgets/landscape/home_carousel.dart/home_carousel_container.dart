@@ -8,7 +8,7 @@ class _HomeCarouselContainer extends StatelessWidget {
   final Widget child;
 
   BorderSide _getBorder(BuildContext context) => BorderSide(
-        color: context.colorScheme.outline.withOpacity(0.1),
+        color: context.colorScheme.outline.withValues(alpha: 0.1),
       );
 
   @override
@@ -25,8 +25,8 @@ class _HomeCarouselContainer extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                context.colorScheme.surface.withOpacity(0.3),
-                context.colorScheme.surface.withOpacity(0.2),
+                context.colorScheme.surface.withValues(alpha: 0.3),
+                context.colorScheme.surface.withValues(alpha: 0.2),
               ],
             ),
             borderRadius: const BorderRadius.only(

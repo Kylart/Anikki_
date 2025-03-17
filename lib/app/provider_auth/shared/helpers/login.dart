@@ -72,7 +72,7 @@ Future<void> _loginToAnilist(BuildContext context) async {
 
     if (context.mounted) {
       await showDialog(
-        barrierColor: context.colorScheme.surface.withOpacity(0.8),
+        barrierColor: context.colorScheme.surface.withValues(alpha: 0.8),
         context: context,
         builder: (context) => const TokenInput(),
       );

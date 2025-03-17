@@ -61,7 +61,7 @@ class HomeSideMenu extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(8.0),
             ),
-            color: context.colorScheme.surface.withOpacity(0.2),
+            color: context.colorScheme.surface.withValues(alpha: 0.2),
           ),
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {

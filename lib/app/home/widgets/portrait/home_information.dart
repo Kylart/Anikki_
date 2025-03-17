@@ -38,7 +38,7 @@ class _HomeInformation extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               width: 1,
-              color: context.colorScheme.onSurface.withOpacity(0.3),
+              color: context.colorScheme.onSurface.withValues(alpha: 0.3),
             ),
           if (media?.season != null)
             Expanded(

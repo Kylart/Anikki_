@@ -35,12 +35,14 @@ class _HomeTitleCard extends StatelessWidget {
       child: Container(
         key: ValueKey(media),
         decoration: BoxDecoration(
-          color: context.colorScheme.surfaceContainerHighest.withOpacity(0.5),
+          color: context.colorScheme.surfaceContainerHighest
+              .withValues(alpha: 0.5),
           borderRadius: BorderRadius.all(
             Radius.circular(12.0),
           ),
           border: Border.all(
-            color: context.colorScheme.surfaceContainerHighest.withOpacity(0.7),
+            color: context.colorScheme.surfaceContainerHighest
+                .withValues(alpha: 0.7),
             width: 4,
           ),
         ),

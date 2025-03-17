@@ -30,7 +30,7 @@ class PlayerControlsVolumeBar extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: FAProgressBar(
                       animatedDuration: const Duration(milliseconds: 150),
-                      progressColor: Colors.white.withOpacity(0.9),
+                      progressColor: Colors.white.withValues(alpha: 0.9),
                       size: 22,
                       displayTextStyle:
                           const TextStyle(color: Colors.black, fontSize: 8),
