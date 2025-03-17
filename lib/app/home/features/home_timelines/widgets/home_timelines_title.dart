@@ -16,7 +16,7 @@ class HomeTimelinesTitle extends StatelessWidget {
       builder: (context, state) {
         return SectionTitle(
           text: state.type.title,
-          color: context.colorScheme.primaryContainer.withOpacity(0.2),
+          color: context.colorScheme.primaryContainer.withValues(alpha: 0.2),
           actions: [
             ToggleButtons(
               borderRadius: const BorderRadius.all(Radius.circular(12.0)),

@@ -16,7 +16,7 @@ class HomeLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = context.colorScheme.surfaceContainerHighest;
-    final textColor = context.colorScheme.onSurface.withOpacity(0.5);
+    final textColor = context.colorScheme.onSurface.withValues(alpha: 0.5);
 
     return Stack(
       children: [

@@ -29,8 +29,8 @@ class _HomeTitleCarouselImageState extends State<_HomeTitleCarouselImage> {
     return widget.selected
         ? context.colorScheme.secondary
         : hovered
-            ? context.colorScheme.secondary.withOpacity(0.7)
-            : context.colorScheme.outline.withOpacity(0.3);
+            ? context.colorScheme.secondary.withValues(alpha: 0.7)
+            : context.colorScheme.outline.withValues(alpha: 0.3);
   }
 
   @override

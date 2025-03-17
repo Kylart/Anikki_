@@ -39,7 +39,9 @@ void main() async {
   /// Bloc init hooks
   Bloc.observer = observer;
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: storageDirectory,
+    storageDirectory: HydratedStorageDirectory(
+      storageDirectory.path,
+    ),
   );
 
   runApp(

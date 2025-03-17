@@ -62,7 +62,7 @@ class _PlayerMovableControlsState extends State<PlayerMovableControls> {
                   videoBloc.add(const VideoPlayerControlsHovered(false)),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withValues(alpha: 0.7),
                   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                 ),
                 constraints: BoxConstraints(

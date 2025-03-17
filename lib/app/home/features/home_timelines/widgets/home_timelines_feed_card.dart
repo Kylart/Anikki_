@@ -35,7 +35,7 @@ class HomeTimelineFeedCard extends StatelessWidget {
             Radius.circular(12.0),
           ),
           border: Border.all(
-            color: context.colorScheme.outline.withOpacity(0.3),
+            color: context.colorScheme.outline.withValues(alpha: 0.3),
             strokeAlign: BorderSide.strokeAlignCenter,
           ),
         ),

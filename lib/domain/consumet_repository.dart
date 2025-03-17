@@ -34,7 +34,7 @@ class ConsumetRepository {
   /// from a single term and a minimum episode.
   ///
   /// Using an [AnimeProvider], it will takes the first result of the `search` method
-  /// and use it to return a [List<ConsumetEpisode>] that will be in ascending order
+  /// and use it to return a `List<ConsumetEpisode>` that will be in ascending order
   /// starting from the given `minEpisode`.
   Future<List<ConsumetEpisode>> _getEpisodesLinksFromProvider({
     required AnimeProvider provider,
