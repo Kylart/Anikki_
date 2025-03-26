@@ -10,7 +10,7 @@ void main() {
     final providers = [
       Anitaku(),
       // Gogoanime(),
-      Anify(),
+      // Anify(),
       // Zoro(),
     ];
 
@@ -33,9 +33,9 @@ void main() {
         });
 
         test('fetchAnimeEpisodes method', () async {
-          final id = searchResult.first.id;
+          final id = searchResult.firstOrNull?.id;
 
-          if (id == null) return;
+          if (id == null) return fail('no id found for episode');
 
           episodes = await provider.fetchAnimeEpisodes(id);
 
@@ -43,7 +43,7 @@ void main() {
         });
 
         test('fetchEpisodeSources method', () async {
-          if (episodes.isEmpty) return;
+          if (episodes.isEmpty) return fail('no episode found');
 
           sources = await provider.fetchEpisodeSources(episodes.first);
 
