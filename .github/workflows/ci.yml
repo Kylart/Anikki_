@@ -20,6 +20,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Debug build"
@@ -47,6 +51,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Setup build tools"
@@ -82,6 +90,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Config"
@@ -119,6 +131,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Setup build tools"
@@ -170,6 +186,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Setup build tools"
@@ -203,6 +223,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Config"
@@ -230,6 +254,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Config"
@@ -267,6 +295,10 @@ jobs:
       - name: Env setup
         run: |
           echo "ANILIST_ID=${{ secrets.ANILIST_ID }}" > .env
+          echo "ANILIST_ID_LINUX=${{ secrets.ANILIST_ID_LINUX }}" > .env
+          echo "MAL_ID=${{ secrets.MAL_ID }}" > .env
+          echo "TMDB_ACCESS_KEY=${{ secrets.TMDB_ACCESS_KEY }}" > .env
+          echo "TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}" > .env
           cat .env
 
       - name: "Release build"
