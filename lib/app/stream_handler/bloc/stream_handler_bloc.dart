@@ -61,16 +61,30 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
     );
 
     try {
-      final term = event.media.title;
+      var term = event.media.romajiTitle;
+      late List<ConsumetEpisode> sources;
 
-      if (term == null) throw 'No name could be found.';
+      if (term == null) throw 'No romaji name could be found.';
 
-      final sources = await repository.getEpisodeLinks(
+      sources = await repository.getEpisodeLinks(
         sanitizeName(term),
         minEpisode: event.minEpisode ?? 0,
         maxLength: 10,
         dubbed: event.videoType == SubOrDub.dub,
       );
+
+      if (sources.isEmpty) {
+        term = event.media.englishTitle ?? event.media.title;
+
+        if (term == null) throw 'No fallback name could be found.';
+
+        sources = await repository.getEpisodeLinks(
+          sanitizeName(term),
+          minEpisode: event.minEpisode ?? 0,
+          maxLength: 10,
+          dubbed: event.videoType == SubOrDub.dub,
+        );
+      }
 
       if (sources.isEmpty) throw 'Could not find any hosted video.';
 

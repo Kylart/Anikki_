@@ -65,6 +65,15 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
       kitsuInfo?.titles.original ??
       tmdbInfo?.originalName;
 
+  String? get englishTitle =>
+      anilistInfo?.title?.english ??
+      malInfo?.alternativeTitles?.en ??
+      kitsuInfo?.titles.translated ??
+      tmdbInfo?.name;
+
+  String? get romajiTitle =>
+      anilistInfo?.title?.romaji ?? kitsuInfo?.titles.canonical;
+
   @override
   int? get seasonNumber {
     final parsedTitle = Anitomy(inputString: title!);
