@@ -11,10 +11,23 @@ class FavouriteButton extends StatefulWidget {
     super.key,
     required this.media,
     this.filled = true,
+    this.large = false,
   });
 
   final Media media;
   final bool filled;
+  final bool large;
+
+  static bool canShow(BuildContext context) {
+    final watchListBloc = BlocProvider.of<WatchListBloc>(context);
+    final canAddFavouriteProviders = [
+      WatchListProvider.anilist,
+    ];
+
+    return canAddFavouriteProviders.any(
+      (provider) => watchListBloc.state.watchLists[provider] != null,
+    );
+  }
 
   @override
   State<FavouriteButton> createState() => _FavouriteButtonState();
@@ -35,8 +48,8 @@ class _FavouriteButtonState extends State<FavouriteButton> {
 
   Widget _buildLoader(BuildContext context) => Container(
         padding: const EdgeInsets.all(2.0),
-        width: 24,
-        height: 24,
+        width: widget.large ? 32 : 24,
+        height: widget.large ? 32 : 24,
         child: CircularProgressIndicator(
           color: context.colorScheme.onPrimary,
           strokeWidth: 2.0,
@@ -46,15 +59,8 @@ class _FavouriteButtonState extends State<FavouriteButton> {
   @override
   Widget build(BuildContext context) {
     final watchListBloc = BlocProvider.of<WatchListBloc>(context, listen: true);
-    final canAddFavouriteProviders = [
-      WatchListProvider.anilist,
-    ];
 
-    final hasFavouriteProvider = canAddFavouriteProviders.any(
-      (provider) => watchListBloc.state.watchLists[provider] != null,
-    );
-
-    if (!hasFavouriteProvider) {
+    if (!FavouriteButton.canShow(context)) {
       return const SizedBox();
     }
 
@@ -72,6 +78,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
             secondChild: Icon(
               isFavourite ? Icons.favorite : HugeIcons.strokeRoundedFavourite,
               color: isFavourite ? Colors.red : null,
+              size: widget.large ? 24 : null,
             ),
             crossFadeState: isToggleFavouriteLoading
                 ? CrossFadeState.showFirst

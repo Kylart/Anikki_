@@ -8,6 +8,7 @@ import 'package:hugeicons/hugeicons.dart';
 
 import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/home/bloc/home_bloc.dart';
+import 'package:anikki/app/home/widgets/landscape/favourite_button.dart';
 import 'package:anikki/app/home/widgets/landscape/home_title/home_title_carousel/home_title_carousel.dart';
 import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/core/core.dart';

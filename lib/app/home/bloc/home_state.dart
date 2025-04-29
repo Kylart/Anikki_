@@ -1,14 +1,15 @@
 part of 'home_bloc.dart';
 
 enum HomeMediaType {
-  following('currently following animes'),
-  toStart('planned animes'),
-  trending('trending animes'),
-  recommendations('recommended animes');
+  following('Following', HugeIcons.strokeRoundedAllBookmark),
+  toStart('To Start', HugeIcons.strokeRoundedBookmarkAdd02),
+  trending('Trending', HugeIcons.strokeRoundedFire),
+  recommendations('Recommended', HugeIcons.strokeRoundedThumbsUp);
 
   final String title;
+  final IconData icon;
 
-  const HomeMediaType(this.title);
+  const HomeMediaType(this.title, this.icon);
 }
 
 sealed class HomeState extends Equatable {
