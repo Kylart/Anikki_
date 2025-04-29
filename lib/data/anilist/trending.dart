@@ -19,6 +19,8 @@ mixin AnilistTrending on AnilistClient {
               ?.whereType<Query$Trending$Page$mediaTrends>()
               .toList() ??
           [];
+    } on AnilistGetTrendingException {
+      rethrow;
     } catch (e) {
       throw AnilistGetTrendingException(error: e.toString());
     }
