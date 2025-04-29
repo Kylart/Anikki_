@@ -3,6 +3,7 @@ part of 'home_title.dart';
 enum HomeActionType {
   icon,
   iconAndText,
+  favouriteButton,
 }
 
 class HomeAction {
@@ -31,7 +32,7 @@ class HomeTitleActions extends StatelessWidget {
 
   final Media media;
 
-  List<HomeAction> get actions => [
+  List<HomeAction> _buildActions(BuildContext context) => [
         HomeAction(
           type: HomeActionType.iconAndText,
           onPressed: (context) => VideoPlayerRepository.playAnyway(
@@ -75,6 +76,12 @@ class HomeTitleActions extends StatelessWidget {
           icon: HugeIcons.strokeRoundedTaskEdit01,
           text: 'Update list entry',
         ),
+        if (FavouriteButton.canShow(context))
+          HomeAction(
+            type: HomeActionType.favouriteButton,
+            onPressed: (context) {},
+            icon: Icons.question_mark,
+          ),
         HomeAction(
           type: HomeActionType.icon,
           onPressed: (context) {
@@ -93,7 +100,7 @@ class HomeTitleActions extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        for (final action in actions) ...[
+        for (final action in _buildActions(context)) ...[
           switch (action.type) {
             HomeActionType.iconAndText => FilledButton.tonalIcon(
                 style: ButtonStyle(
@@ -123,6 +130,10 @@ class HomeTitleActions extends StatelessWidget {
                   action.icon,
                   size: 26,
                 ),
+              ),
+            HomeActionType.favouriteButton => FavouriteButton(
+                media: media,
+                large: true,
               ),
           },
           const SizedBox(

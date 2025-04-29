@@ -6,10 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:anikki/app/home/bloc/home_bloc.dart';
 import 'package:anikki/app/home/widgets/landscape/background_image.dart';
-import 'package:anikki/app/home/widgets/landscape/home_carousel.dart/home_carousel.dart';
+import 'package:anikki/app/home/widgets/landscape/home_carousel/home_carousel.dart';
+import 'package:anikki/app/home/widgets/landscape/home_carousel/home_carousel_container.dart';
+import 'package:anikki/app/home/widgets/landscape/home_carousel/home_carousel_title.dart/home_carousel_title.dart';
 import 'package:anikki/app/home/widgets/landscape/home_loader.dart';
-import 'package:anikki/app/home/widgets/landscape/home_side_menu.dart';
 import 'package:anikki/app/home/widgets/landscape/home_title/home_title.dart';
+import 'package:anikki/core/core.dart';
 import 'package:anikki/core/widgets/error_widget.dart';
 
 class HomeViewLandscape extends StatelessWidget {
@@ -30,8 +32,12 @@ class HomeViewLandscape extends StatelessWidget {
 
         final screenSize = MediaQuery.of(context).size;
         final carouselSize = Size(
-          max(screenSize.width / 1.8, 500).toDouble(),
+          max(screenSize.width / 4, 375).toDouble(),
           max(screenSize.height / 2.5, 200).toDouble(),
+        );
+        final actionBarSize = Size(
+          carouselSize.width,
+          50,
         );
         final maxTitleSize = Size(
           max(700, screenSize.width / 1.5),
@@ -75,23 +81,39 @@ class HomeViewLandscape extends StatelessWidget {
                   end: 0,
                   begin: -0.5,
                 ),
-            Positioned(
-              right: 0.0,
-              bottom: carouselSize.height + 24.0,
-              child: HomeSideMenu(
-                loading: loading,
-              ),
-            ),
             if (state.entries.isNotEmpty)
               Positioned(
                 right: 0,
                 bottom: 0,
                 width: carouselSize.width,
-                height: carouselSize.height,
-                child: HomeCarousel(
-                  entries: state.entries,
-                  height: carouselSize.height,
-                  width: carouselSize.width,
+                height: carouselSize.height + actionBarSize.height,
+                child: HomeCarouselContainer(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(left: 16.0, right: 8.0),
+                          child: HomeCarouselTitle(loading: loading),
+                        ),
+                      ),
+                      Divider(
+                        height: 1.0,
+                        color: context.colorScheme.onSurface.withValues(
+                          alpha: 0.1,
+                        ),
+                      ),
+                      SizedBox(
+                        width: carouselSize.width,
+                        height: carouselSize.height,
+                        child: HomeCarousel(
+                          entries: state.entries,
+                          height: carouselSize.height,
+                          width: carouselSize.width,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )
                   .animate()

@@ -1,7 +1,11 @@
-part of 'home_carousel.dart';
+import 'dart:ui';
 
-class _HomeCarouselContainer extends StatelessWidget {
-  const _HomeCarouselContainer({
+import 'package:anikki/core/core.dart';
+import 'package:flutter/material.dart';
+
+class HomeCarouselContainer extends StatelessWidget {
+  const HomeCarouselContainer({
+    super.key,
     required this.child,
   });
 
