@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 import 'package:anikki/core/core.dart';
 import 'package:anikki/data/data.dart';
@@ -166,6 +168,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     } on AnilistGetTrendingException catch (e) {
+      logger.error(e.toString(), e);
+
+      emit(
+        HomeError(
+          entries: entries ?? state.entries,
+          currentBackgroundUrl: state.currentBackgroundUrl,
+          currentIndex: state.currentIndex,
+          watchListProvider: event.watchListProvider ?? state.watchListProvider,
+          type: state.type,
+          message: e.error ?? e.cause,
+        ),
+      );
+    } on AnilistGetRecommendationsException catch (e) {
       logger.error(e.toString(), e);
 
       emit(

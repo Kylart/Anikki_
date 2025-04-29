@@ -22,6 +22,8 @@ mixin AnilistRecommendations on AnilistClient {
               ?.whereType<Query$Recommendations$Page$recommendations>()
               .toList() ??
           [];
+    } on AnilistGetRecommendationsException {
+      rethrow;
     } catch (e) {
       throw AnilistGetRecommendationsException(error: e.toString());
     }
