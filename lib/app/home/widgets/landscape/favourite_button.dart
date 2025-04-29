@@ -48,8 +48,8 @@ class _FavouriteButtonState extends State<FavouriteButton> {
 
   Widget _buildLoader(BuildContext context) => Container(
         padding: const EdgeInsets.all(2.0),
-        width: widget.large ? 32 : 24,
-        height: widget.large ? 32 : 24,
+        width: widget.large ? 28 : 24,
+        height: widget.large ? 28 : 24,
         child: CircularProgressIndicator(
           color: context.colorScheme.onPrimary,
           strokeWidth: 2.0,
@@ -78,7 +78,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
             secondChild: Icon(
               isFavourite ? Icons.favorite : HugeIcons.strokeRoundedFavourite,
               color: isFavourite ? Colors.red : null,
-              size: widget.large ? 24 : null,
+              size: widget.large ? 26 : null,
             ),
             crossFadeState: isToggleFavouriteLoading
                 ? CrossFadeState.showFirst
@@ -98,14 +98,24 @@ class _FavouriteButtonState extends State<FavouriteButton> {
             );
           }
 
+          final style = widget.large
+              ? ButtonStyle(
+                  padding: WidgetStateProperty.all<EdgeInsets>(
+                    const EdgeInsets.all(12.0),
+                  ),
+                )
+              : null;
+
           return widget.filled
               ? IconButton.filled(
                   onPressed: onPressed,
                   icon: icon,
+                  style: style,
                 )
               : IconButton(
                   onPressed: onPressed,
                   icon: icon,
+                  style: style,
                 );
         }),
       ),
