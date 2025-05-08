@@ -9,7 +9,7 @@ class TorrentSearchRepository {
   final Nyaa nyaa;
 
   /// Search `nyaa.si` for torrents using the given `term`.
-  Future<List<NyaaTorrent>> searchNyaa(String term) async {
+  Future<List<TorrentSource>> searchNyaa(String term) async {
     return await nyaa.search(term);
   }
 

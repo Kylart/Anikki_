@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 
 import 'package:anikki/core/core.dart';
 import 'package:anikki/data/data.dart';
+import 'package:anikki/data/nyaa/errors/nyaa_cannot_connect_exception.dart';
 import 'package:anikki/domain/domain.dart';
 
 part 'downloader_event.dart';
@@ -65,6 +66,13 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
           isStreaming: event.isStreaming,
         ),
       );
+    } on NyaaCannotConnectException catch (e) {
+      emit(
+        DownloaderError(
+          term: term,
+          message: e.message,
+        ),
+      );
     } catch (e) {
       emit(DownloaderError(term: term, message: e.toString()));
     }
@@ -94,13 +102,13 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
     );
   }
 
-  List<NyaaTorrent> _filterTorrents(
-    List<NyaaTorrent> torrents, {
+  List<TorrentSource> _filterTorrents(
+    List<TorrentSource> torrents, {
     int? episode,
   }) {
     if (filter.showAll) return torrents;
 
-    List<NyaaTorrent> result = torrents;
+    List<TorrentSource> result = torrents;
 
     if (filter.more != null) {
       result = result

@@ -6,6 +6,6 @@ class HtmlResult {
     required this.maxPage,
   });
 
-  final List<NyaaTorrent> torrents;
+  final List<TorrentSource> torrents;
   final int maxPage;
 }

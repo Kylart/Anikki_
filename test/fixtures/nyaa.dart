@@ -1,3 +1,4 @@
+import 'package:anikki/core/core.dart';
 import 'package:anitomy/anitomy.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -5,7 +6,7 @@ import 'package:anikki/data/data.dart';
 
 class MockNyaa extends Mock implements Nyaa {}
 
-final NyaaTorrent torrentMock = NyaaTorrent(
+final TorrentSource torrentMock = TorrentSource(
   id: '1051864',
   name: '[Tsundere] Sakura Trick - 01 [1080p]',
   date: '1530282871000',
@@ -22,8 +23,8 @@ final NyaaTorrent torrentMock = NyaaTorrent(
   ),
 );
 
-final List<NyaaTorrent> torrentMocks = [
-  NyaaTorrent(
+final List<TorrentSource> torrentMocks = [
+  TorrentSource(
     id: '1',
     name: '[Tsundere] Sakura Trick - 01 [1080p]',
     date: '1530282871000',
@@ -39,7 +40,7 @@ final List<NyaaTorrent> torrentMocks = [
       inputString: '[Tsundere] Sakura Trick - 01 [1080p]',
     ),
   ),
-  NyaaTorrent(
+  TorrentSource(
     id: '2',
     name: '[Tsundere] Sakura Trick - 01 [720p]',
     date: '1530282871000',
@@ -55,7 +56,7 @@ final List<NyaaTorrent> torrentMocks = [
       inputString: '[Tsundere] Sakura Trick - 01 [720p]',
     ),
   ),
-  NyaaTorrent(
+  TorrentSource(
     id: '3',
     name: '[Tsundere] Sakura Trick - 02 [1080p]',
     date: '1530282871000',
@@ -71,7 +72,7 @@ final List<NyaaTorrent> torrentMocks = [
       inputString: '[Tsundere] Sakura Trick - 02 [1080p]',
     ),
   ),
-  NyaaTorrent(
+  TorrentSource(
     id: '4',
     name: '[Tsundere] Sakura Trick - 02 [720p]',
     date: '1530282871000',
@@ -87,7 +88,7 @@ final List<NyaaTorrent> torrentMocks = [
       inputString: '[Tsundere] Sakura Trick - 02 [720p]',
     ),
   ),
-  NyaaTorrent(
+  TorrentSource(
     id: '5',
     name: '[Tsundere] Sakura Trick - 02',
     date: '1530282871000',
@@ -103,7 +104,7 @@ final List<NyaaTorrent> torrentMocks = [
       inputString: '[Tsundere] Sakura Trick - 02',
     ),
   ),
-  NyaaTorrent(
+  TorrentSource(
     id: '6',
     name: '[SubsPlease] Sakura Trick',
     date: '1530282871000',
