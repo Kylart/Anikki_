@@ -26,5 +26,6 @@ GraphQLClient getAnilistClient() {
     link: link,
     // The default store is the InMemoryStore, which does NOT persist to disk
     cache: GraphQLCache(),
+    queryRequestTimeout: const Duration(seconds: 30),
   );
 }
