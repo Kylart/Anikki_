@@ -26,6 +26,7 @@ const kQbitTorrentStatuses = {
   'downloading': 'Downloading',
   'metaDL': 'Fetching metadata',
   'pausedDL': 'Paused',
+  'stoppedDL': 'Stopped',
   'queuedDL': 'Queued',
   'stalledDL': 'Downloading - No peer connection',
   'checkingDL': 'Checking',
@@ -230,11 +231,7 @@ class QBitTorrentRepository extends TorrentRepository {
     return true;
   }
 
-  /// Resume a paused torrent
-  ///
-  /// Doc: https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#resume-torrents
-  @override
-  Future<bool> startTorrent(Torrent torrent) async {
+  Future<bool> _startTorrentOlderVersion(Torrent torrent) async {
     await _post(
       ApiName.torrents,
       qbit.TorrentsMethod.resume.name,
@@ -246,14 +243,58 @@ class QBitTorrentRepository extends TorrentRepository {
     return true;
   }
 
+  Future<bool> _startTorrent50Version(Torrent torrent) async {
+    await _post(
+      ApiName.torrents,
+      qbit.TorrentsMethod.start.name,
+      {
+        'hashes': torrent.hash,
+      },
+    );
+
+    return true;
+  }
+
+  /// Resume a paused torrent
+  ///
+  /// Doc: https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#resume-torrents
   @override
-  Future<bool> stopTorrent(Torrent torrent) async {
+  Future<bool> startTorrent(Torrent torrent) async {
+    await _startTorrent50Version(torrent).catchError(
+      (_) => _startTorrentOlderVersion(torrent),
+    );
+
+    return true;
+  }
+
+  Future<bool> _pauseTorrentOlderVersion(Torrent torrent) async {
     await _post(
       ApiName.torrents,
       qbit.TorrentsMethod.pause.name,
       {
         'hashes': torrent.hash,
       },
+    );
+
+    return true;
+  }
+
+  Future<bool> _pauseTorrent50Version(Torrent torrent) async {
+    await _post(
+      ApiName.torrents,
+      qbit.TorrentsMethod.stop.name,
+      {
+        'hashes': torrent.hash,
+      },
+    );
+
+    return true;
+  }
+
+  @override
+  Future<bool> stopTorrent(Torrent torrent) async {
+    await _pauseTorrent50Version(torrent).catchError(
+      (_) => _pauseTorrentOlderVersion(torrent),
     );
 
     return true;
