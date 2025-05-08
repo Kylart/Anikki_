@@ -1,3 +1,4 @@
+import 'package:anikki/core/core.dart';
 import 'package:test/test.dart';
 
 import 'package:anikki/data/data.dart';
@@ -26,7 +27,7 @@ void main() async {
             torrent,
             allOf([
               anything,
-              isA<NyaaTorrent>(),
+              isA<TorrentSource>(),
             ]));
       }
     });

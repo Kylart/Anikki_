@@ -23,7 +23,7 @@ class AnimeInformationRepository {
       _searchAnilist(term),
     ]);
 
-    final torrents = results.first as List<NyaaTorrent>;
+    final torrents = results.first as List<TorrentSource>;
     final anilistResult = results.last as Map<AnilistSearchPart, List<Object>>;
 
     return SearchResult(
@@ -38,7 +38,7 @@ class AnimeInformationRepository {
     );
   }
 
-  Future<List<NyaaTorrent>> _searchNyaa(String term) async {
+  Future<List<TorrentSource>> _searchNyaa(String term) async {
     try {
       return await nyaa.search(term);
     } on NyaaNoResultException {

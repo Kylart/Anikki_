@@ -7,7 +7,6 @@ import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/downloader/widgets/stream_placeholder.dart';
 import 'package:anikki/app/torrent/bloc/torrent_bloc.dart';
 import 'package:anikki/core/core.dart';
-import 'package:anikki/data/data.dart';
 
 class TorrentTile extends StatelessWidget {
   const TorrentTile({
@@ -15,7 +14,7 @@ class TorrentTile extends StatelessWidget {
     required this.torrent,
   });
 
-  final NyaaTorrent torrent;
+  final TorrentSource torrent;
 
   @override
   Widget build(BuildContext context) {

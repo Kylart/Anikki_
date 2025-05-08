@@ -1,6 +1,8 @@
-part of 'models.dart';
+import 'dart:convert';
 
-class NyaaTorrent {
+import 'package:anitomy/anitomy.dart';
+
+class TorrentSource {
   String id;
   String name;
   String date;
@@ -13,7 +15,7 @@ class NyaaTorrent {
   String status;
   Anitomy parsed;
 
-  NyaaTorrent({
+  TorrentSource({
     required this.id,
     required this.name,
     required this.date,
@@ -27,7 +29,7 @@ class NyaaTorrent {
     required this.parsed,
   });
 
-  NyaaTorrent copyWith({
+  TorrentSource copyWith({
     String? id,
     String? name,
     String? date,
@@ -40,7 +42,7 @@ class NyaaTorrent {
     String? status,
     Anitomy? parsed,
   }) {
-    return NyaaTorrent(
+    return TorrentSource(
       id: id ?? this.id,
       name: name ?? this.name,
       date: date ?? this.date,
@@ -71,8 +73,8 @@ class NyaaTorrent {
     };
   }
 
-  factory NyaaTorrent.fromMap(Map<String, dynamic> map) {
-    return NyaaTorrent(
+  factory TorrentSource.fromMap(Map<String, dynamic> map) {
+    return TorrentSource(
       id: map['id'] as String,
       name: map['name'] as String,
       date: map['date'] as String,
@@ -89,8 +91,8 @@ class NyaaTorrent {
 
   String toJson() => json.encode(toMap());
 
-  factory NyaaTorrent.fromJson(String source) =>
-      NyaaTorrent.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TorrentSource.fromJson(String source) =>
+      TorrentSource.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -98,7 +100,7 @@ class NyaaTorrent {
   }
 
   @override
-  bool operator ==(covariant NyaaTorrent other) {
+  bool operator ==(covariant TorrentSource other) {
     if (identical(this, other)) return true;
 
     return other.id == id &&

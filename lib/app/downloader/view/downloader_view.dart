@@ -20,9 +20,12 @@ class DownloaderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DownloaderBloc, DownloaderState>(
       builder: (context, state) => switch (state) {
-        DownloaderError() => CustomErrorWidget(
-            title: 'Could not find results for ${state.term}',
-            description: state.message,
+        DownloaderError() => Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: CustomErrorWidget(
+              title: 'Could not find results for ${state.term}',
+              description: state.message,
+            ),
           ),
         DownloaderLoading() => const Center(
             child: LoadingWidget(

@@ -64,13 +64,13 @@ final class DownloaderSuccess extends DownloaderState {
   final String term;
 
   /// All torrents found with `term`.
-  final List<NyaaTorrent> torrents;
+  final List<TorrentSource> torrents;
 
   /// [DownloaderFilter] to keep track of what filters are used for this state.
   final DownloaderFilter filter;
 
   /// Filtered `torrents`.
-  final List<NyaaTorrent> filteredTorrents;
+  final List<TorrentSource> filteredTorrents;
 
   /// [Media] used for this state. Used for data.
   final Media? media;
@@ -114,8 +114,8 @@ final class DownloaderSuccess extends DownloaderState {
 
   DownloaderSuccess copyWith({
     String? term,
-    List<NyaaTorrent>? torrents,
-    List<NyaaTorrent>? filteredTorrents,
+    List<TorrentSource>? torrents,
+    List<TorrentSource>? filteredTorrents,
     DownloaderFilter? filter,
     Media? media,
     LibraryEntry? entry,
