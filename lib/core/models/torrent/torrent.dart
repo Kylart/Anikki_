@@ -1,7 +1,7 @@
 part of 'models.dart';
 
-class Torrent {
-  Torrent({
+class Torrent extends Equatable {
+  const Torrent({
     required this.magnet,
     required this.id,
     required this.hash,
@@ -9,6 +9,12 @@ class Torrent {
     required this.status,
     required this.path,
     required this.name,
+    this.sizeDownloaded,
+    this.totalSize,
+    this.ratio,
+    this.leechers,
+    this.seeders,
+    this.estimatedTimeToFinish,
   });
 
   final String magnet;
@@ -18,6 +24,12 @@ class Torrent {
   final String status;
   final String path;
   final String name;
+  final int? sizeDownloaded;
+  final int? totalSize;
+  final double? ratio;
+  final int? leechers;
+  final int? seeders;
+  final Duration? estimatedTimeToFinish;
 
   Torrent copyWith({
     String? magnet,
@@ -27,6 +39,12 @@ class Torrent {
     String? status,
     String? path,
     String? name,
+    int? sizeDownloaded,
+    int? totalSize,
+    double? ratio,
+    int? leechers,
+    int? seeders,
+    Duration? estimatedTimeToFinish,
   }) {
     return Torrent(
       magnet: magnet ?? this.magnet,
@@ -36,6 +54,13 @@ class Torrent {
       status: status ?? this.status,
       path: path ?? this.path,
       name: name ?? this.name,
+      sizeDownloaded: sizeDownloaded ?? this.sizeDownloaded,
+      totalSize: totalSize ?? this.totalSize,
+      ratio: ratio ?? this.ratio,
+      leechers: leechers ?? this.leechers,
+      seeders: seeders ?? this.seeders,
+      estimatedTimeToFinish:
+          estimatedTimeToFinish ?? this.estimatedTimeToFinish,
     );
   }
 
@@ -48,6 +73,12 @@ class Torrent {
       'status': status,
       'path': path,
       'name': name,
+      'sizeDownloaded': sizeDownloaded,
+      'totalSize': totalSize,
+      'ratio': ratio,
+      'leechers': leechers,
+      'seeders': seeders,
+      'estimatedTimeToFinish': estimatedTimeToFinish?.inSeconds,
     };
   }
 
@@ -60,6 +91,14 @@ class Torrent {
       status: map['status'] as String,
       path: map['path'] as String,
       name: map['name'] as String,
+      sizeDownloaded: map['sizeDownloaded'] as int?,
+      totalSize: map['totalSize'] as int?,
+      ratio: map['ratio'] as double?,
+      leechers: map['leechers'] as int?,
+      seeders: map['seeders'] as int?,
+      estimatedTimeToFinish: map['estimatedTimeToFinish'] != null
+          ? Duration(seconds: map['estimatedTimeToFinish'] as int)
+          : null,
     );
   }
 
@@ -69,31 +108,22 @@ class Torrent {
       Torrent.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() {
-    return 'Torrent(magnet: $magnet, id: $id, hash: $hash, progress: $progress, status: $status, path: $path, name: $name)';
-  }
+  List<Object?> get props => [
+        magnet,
+        id,
+        hash,
+        progress,
+        status,
+        path,
+        name,
+        sizeDownloaded,
+        totalSize,
+        ratio,
+        leechers,
+        seeders,
+        estimatedTimeToFinish,
+      ];
 
   @override
-  bool operator ==(covariant Torrent other) {
-    if (identical(this, other)) return true;
-
-    return other.magnet == magnet &&
-        other.id == id &&
-        other.hash == hash &&
-        other.progress == progress &&
-        other.status == status &&
-        other.path == path &&
-        other.name == name;
-  }
-
-  @override
-  int get hashCode {
-    return magnet.hashCode ^
-        id.hashCode ^
-        hash.hashCode ^
-        progress.hashCode ^
-        status.hashCode ^
-        path.hashCode ^
-        name.hashCode;
-  }
+  bool get stringify => true;
 }
