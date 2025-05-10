@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:anikki/core/core.dart';
-import 'package:anikki/data/kitsu/models/schema.graphql.dart';
 import 'package:anitomy/anitomy.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:anikki/core/core.dart';
 import 'package:anikki/data/data.dart';
+import 'package:anikki/data/kitsu/models/schema.graphql.dart';
 
 part 'media_episodes.dart';
 part 'media_images.dart';
@@ -227,5 +227,56 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
       kitsuInfo: kitsuInfo ?? this.kitsuInfo,
       tmdbInfo: tmdbInfo ?? this.tmdbInfo,
     );
+  }
+
+  static Future<List<Media>> fromNames(
+    List<String> names, {
+    Anilist? anilist,
+    Tmdb? tmdb,
+  }) async {
+    // Parse the titles using Anitomy
+    final parsedTitles = names.map((name) {
+      final parsedTitle = Anitomy(inputString: name);
+      return parsedTitle.title ?? name;
+    }).toList();
+
+    // Use provided Anilist instance or create a new one
+    final anilistClient = anilist ??
+        Anilist(
+          client: getAnilistClient(
+            timeout: const Duration(
+              seconds: 5,
+            ),
+          ),
+        );
+
+    var anilistInfos = const <String, Fragment$media>{};
+
+    try {
+      anilistInfos = await anilistClient.infoFromMultiple(parsedTitles);
+    } catch (_) {}
+
+    // Use provided Tmdb instance or create a new one
+    final tmdbClient = tmdb ?? Tmdb();
+    var tmdbInfos = <TmdbTvDetails?>[];
+
+    try {
+      tmdbInfos = await Future.wait(
+        parsedTitles.map((title) => tmdbClient.getDetails(title)).toList(),
+      );
+    } catch (_) {}
+
+    // Return a list of Media instances
+    return List<Media>.generate(names.length, (index) {
+      final titleToSearch = parsedTitles[index];
+      final anilistInfo =
+          anilistClient.getInfoFromInfo(titleToSearch, anilistInfos);
+      final tmdbInfo = tmdbInfos.elementAtOrNull(index);
+
+      return Media(
+        anilistInfo: anilistInfo,
+        tmdbInfo: tmdbInfo,
+      );
+    });
   }
 }
