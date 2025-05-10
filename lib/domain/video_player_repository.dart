@@ -102,14 +102,21 @@ class VideoPlayerRepository {
           if (media == null && file?.media == null) return;
           if (progress < kVideoMinCompletedProgress) return;
 
-          media ??= (await LocalFile.createAndSearchMedia(mkMedia.uri)).media;
+          final currentFile = await LocalFile.createAndSearchMedia(mkMedia.uri);
+
+          media ??= currentFile.media;
 
           if (media == null) return;
+
+          final episode = currentFile.episode ??
+              int.tryParse(
+                mkMedia.extras?['title']?.split('Episode ')?.lastOrNull,
+              );
 
           watchListBloc.add(
             WatchListWatched(
               media: media!,
-              episode: file?.episode,
+              episode: episode,
             ),
           );
         },
