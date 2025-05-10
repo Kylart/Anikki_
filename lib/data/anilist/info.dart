@@ -7,7 +7,8 @@ mixin AnilistInfo on AnilistClient {
   }
 
   Future<Map<String, Fragment$media>> infoFromMultiple(
-      List<String> names) async {
+    List<String> names,
+  ) async {
     Map<String, Fragment$media> results = {};
 
     int currentIndex = 0;
