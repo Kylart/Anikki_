@@ -117,6 +117,8 @@ class Nyaa {
         data: response.body,
         baseUrl: baseUrl,
       );
+    } on NyaaNoResultException {
+      rethrow;
     } on HandshakeException {
       throw NyaaCannotConnectException(
         'Anikki cannot access Nyaa, it might be down or blocked by your connection.',
