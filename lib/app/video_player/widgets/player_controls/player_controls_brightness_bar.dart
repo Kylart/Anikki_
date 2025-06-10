@@ -16,7 +16,7 @@ class PlayerControlsBrightnessBar extends StatelessWidget {
       opacity: show ? 1 : 0,
       duration: const Duration(milliseconds: 300),
       child: StreamBuilder(
-        stream: screenBrightness.onCurrentBrightnessChanged,
+        stream: screenBrightness.onApplicationScreenBrightnessChanged,
         builder: (context, snapshot) {
           if (snapshot.data == null) return const SizedBox();
 
