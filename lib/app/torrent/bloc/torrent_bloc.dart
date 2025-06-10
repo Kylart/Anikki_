@@ -87,12 +87,26 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
   }
 
   Future<void> _onDataRequested(
-      TorrentDataRequested event, Emitter<TorrentState> emit) async {
+    TorrentDataRequested event,
+    Emitter<TorrentState> emit,
+  ) async {
     if (repository is EmptyRepository) return;
 
     try {
-      final torrents = await repository.getTorrents();
+      var torrents = await repository.getTorrents();
       final loaded = TorrentLoaded(torrents);
+
+      final medias = await Media.fromNames(
+        loaded.torrents.map((e) => e.name).toList(),
+        useCache: true,
+      );
+
+      for (var i = 0; i < loaded.torrents.length; i++) {
+        final torrent = loaded.torrents[i];
+        final media = medias[i];
+
+        torrents[i] = torrent.copyWith(media: media);
+      }
 
       emit(loaded.torrents.isEmpty ? TorrentEmpty() : loaded);
     } on UserIsBannedError {
