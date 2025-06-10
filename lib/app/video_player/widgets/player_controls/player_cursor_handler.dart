@@ -158,10 +158,10 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
             });
           }
 
-          final currentBrightness = await screenBrightness.current;
+          final currentBrightness = await screenBrightness.application;
           final newBrightness = ((currentBrightness * 100 - delta) / 100.0);
 
-          screenBrightness.setScreenBrightness(
+          screenBrightness.setApplicationScreenBrightness(
             max(min(newBrightness, 1), 0),
           );
         } else {
