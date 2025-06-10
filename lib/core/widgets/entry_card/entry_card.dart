@@ -22,11 +22,13 @@ class EntryCard extends StatefulWidget {
     required this.media,
     this.libraryEntry,
     this.text,
+    this.body,
   });
 
   final Media media;
   final LibraryEntry? libraryEntry;
   final String? text;
+  final Widget? body;
 
   @override
   State<EntryCard> createState() => _EntryCardState();
@@ -145,7 +147,11 @@ class _EntryCardState extends State<EntryCard>
                         animation: animation,
                       ),
                     ),
-                    if (widget.text != null)
+                    if (widget.body != null)
+                      Positioned.fill(
+                        child: widget.body!,
+                      )
+                    else if (widget.text != null)
                       Positioned(
                         right: 10,
                         bottom: 10,
