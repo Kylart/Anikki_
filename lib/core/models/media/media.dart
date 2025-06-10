@@ -231,13 +231,18 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
 
   static Future<List<Media>> fromNames(
     List<String> names, {
+    bool useCache = false,
     Anilist? anilist,
     Tmdb? tmdb,
   }) async {
     // Parse the titles using Anitomy
     final parsedTitles = names.map((name) {
       final parsedTitle = Anitomy(inputString: name);
-      return parsedTitle.title ?? name;
+      final title = sanitizeName(parsedTitle.title ?? name);
+
+      return !<int?>{null, 0, 1}.contains(parsedTitle.season)
+          ? '$title Season ${parsedTitle.season}'
+          : title;
     }).toList();
 
     // Use provided Anilist instance or create a new one
@@ -253,7 +258,10 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
     var anilistInfos = const <String, Fragment$media>{};
 
     try {
-      anilistInfos = await anilistClient.infoFromMultiple(parsedTitles);
+      anilistInfos = await anilistClient.infoFromMultiple(
+        parsedTitles,
+        useCache: useCache,
+      );
     } catch (_) {}
 
     // Use provided Tmdb instance or create a new one
