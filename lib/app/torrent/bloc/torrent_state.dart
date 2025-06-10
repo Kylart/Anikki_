@@ -5,6 +5,9 @@ sealed class TorrentState extends Equatable {
 
   @override
   List<Object> get props => [];
+
+  @override
+  bool get stringify => true;
 }
 
 final class TorrentInitial extends TorrentState {}

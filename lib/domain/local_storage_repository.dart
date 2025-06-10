@@ -65,7 +65,7 @@ class LocalStorageRepository {
     var file = LocalFile(path: filepath);
 
     final info = await anilist.infoFromMultiple(
-      _getUniqNames([file]),
+      _getUniqNames([file]).toList(),
     );
     final anilistInfo = anilist.getInfoFromInfo(
       _getTitleFromEntryTitle(file) ?? file.title!,
@@ -155,7 +155,7 @@ class LocalStorageRepository {
 
     try {
       final entryNames = _getUniqNames(files);
-      final info = await anilist.infoFromMultiple(entryNames);
+      final info = await anilist.infoFromMultiple(entryNames.toList());
 
       for (int index = 0; index < results.length; index++) {
         final entry = results[index];
@@ -191,8 +191,8 @@ class LocalStorageRepository {
           : entry.title;
 
   /// Returns a [Set] of unique names from given [LocalFile]s
-  List<String> _getUniqNames(List<LocalFile> files) {
-    final List<String> entryNames = [];
+  Set<String> _getUniqNames(List<LocalFile> files) {
+    final entryNames = <String>{};
 
     for (final entry in files) {
       final title = _getTitleFromEntryTitle(entry);

@@ -4,7 +4,9 @@ import 'package:hive/hive.dart';
 import 'package:anikki/core/models/watch_list_provider.dart';
 import 'package:anikki/domain/domain.dart';
 
-GraphQLClient getAnilistClient() {
+GraphQLClient getAnilistClient({
+  Duration timeout = const Duration(seconds: 30),
+}) {
   final httpLink = HttpLink(
     'https://graphql.anilist.co',
   );
@@ -26,6 +28,6 @@ GraphQLClient getAnilistClient() {
     link: link,
     // The default store is the InMemoryStore, which does NOT persist to disk
     cache: GraphQLCache(),
-    queryRequestTimeout: const Duration(seconds: 30),
+    queryRequestTimeout: timeout,
   );
 }
