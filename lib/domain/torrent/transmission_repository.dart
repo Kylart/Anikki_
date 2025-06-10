@@ -175,7 +175,7 @@ class TransmissionRepository extends TorrentRepository {
             status: _getStatus(e.status ?? 0),
             path: normalize(join(e.downloadDir ?? '', e.name)),
             name: e.name ?? 'Unknown',
-            sizeDownloaded: e.sizeWhenDone,
+            sizeDownloaded: e.downloadedEver,
             totalSize: e.totalSize,
             ratio: e.uploadRatio,
             leechers: e.peersGettingFromUs,

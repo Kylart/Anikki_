@@ -185,7 +185,7 @@ class QBitTorrentRepository extends TorrentRepository {
             status: _getStatus(e.state ?? 'Unknown'),
             path: e.contentPath ?? '',
             name: e.name ?? 'Unknwon',
-            sizeDownloaded: e.size,
+            sizeDownloaded: e.completed,
             totalSize: e.totalSize,
             ratio: e.ratio,
             leechers: e.numLeechs,

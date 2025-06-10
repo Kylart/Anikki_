@@ -9,6 +9,7 @@ class Torrent extends Equatable {
     required this.status,
     required this.path,
     required this.name,
+    this.media,
     this.sizeDownloaded,
     this.totalSize,
     this.ratio,
@@ -16,6 +17,8 @@ class Torrent extends Equatable {
     this.seeders,
     this.estimatedTimeToFinish,
   });
+
+  final Media? media;
 
   final String magnet;
   final String id;
@@ -32,6 +35,7 @@ class Torrent extends Equatable {
   final Duration? estimatedTimeToFinish;
 
   Torrent copyWith({
+    Media? media,
     String? magnet,
     String? id,
     String? hash,
@@ -47,6 +51,7 @@ class Torrent extends Equatable {
     Duration? estimatedTimeToFinish,
   }) {
     return Torrent(
+      media: media ?? this.media,
       magnet: magnet ?? this.magnet,
       id: id ?? this.id,
       hash: hash ?? this.hash,
@@ -66,6 +71,7 @@ class Torrent extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'media': media?.toMap(),
       'magnet': magnet,
       'id': id,
       'hash': hash,
@@ -84,6 +90,9 @@ class Torrent extends Equatable {
 
   factory Torrent.fromMap(Map<String, dynamic> map) {
     return Torrent(
+      media: map['media'] != null
+          ? Media.fromMap(map['media'] as Map<String, dynamic>)
+          : null,
       magnet: map['magnet'] as String,
       id: map['id'] as String,
       hash: map['hash'] as String,
@@ -109,6 +118,7 @@ class Torrent extends Equatable {
 
   @override
   List<Object?> get props => [
+        media,
         magnet,
         id,
         hash,
