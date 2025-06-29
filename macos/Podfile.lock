@@ -8,8 +8,6 @@ PODS:
   - FlutterMacOS (1.0.0)
   - media_kit_libs_macos_video (1.0.4):
     - FlutterMacOS
-  - media_kit_native_event_loop (1.0.0):
-    - FlutterMacOS
   - media_kit_video (0.0.1):
     - FlutterMacOS
   - open_file_mac (0.0.1):
@@ -32,9 +30,11 @@ PODS:
     - FlutterMacOS
   - url_launcher_macos (0.0.1):
     - FlutterMacOS
+  - volume_controller (0.0.1):
+    - FlutterMacOS
   - wakelock_plus (0.0.1):
     - FlutterMacOS
-  - window_manager (0.2.0):
+  - window_manager (0.5.0):
     - FlutterMacOS
 
 DEPENDENCIES:
@@ -43,7 +43,6 @@ DEPENDENCIES:
   - file_picker (from `Flutter/ephemeral/.symlinks/plugins/file_picker/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - media_kit_libs_macos_video (from `Flutter/ephemeral/.symlinks/plugins/media_kit_libs_macos_video/macos`)
-  - media_kit_native_event_loop (from `Flutter/ephemeral/.symlinks/plugins/media_kit_native_event_loop/macos`)
   - media_kit_video (from `Flutter/ephemeral/.symlinks/plugins/media_kit_video/macos`)
   - open_file_mac (from `Flutter/ephemeral/.symlinks/plugins/open_file_mac/macos`)
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
@@ -54,6 +53,7 @@ DEPENDENCIES:
   - share_plus (from `Flutter/ephemeral/.symlinks/plugins/share_plus/macos`)
   - sqflite_darwin (from `Flutter/ephemeral/.symlinks/plugins/sqflite_darwin/darwin`)
   - url_launcher_macos (from `Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos`)
+  - volume_controller (from `Flutter/ephemeral/.symlinks/plugins/volume_controller/macos`)
   - wakelock_plus (from `Flutter/ephemeral/.symlinks/plugins/wakelock_plus/macos`)
   - window_manager (from `Flutter/ephemeral/.symlinks/plugins/window_manager/macos`)
 
@@ -68,8 +68,6 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
   media_kit_libs_macos_video:
     :path: Flutter/ephemeral/.symlinks/plugins/media_kit_libs_macos_video/macos
-  media_kit_native_event_loop:
-    :path: Flutter/ephemeral/.symlinks/plugins/media_kit_native_event_loop/macos
   media_kit_video:
     :path: Flutter/ephemeral/.symlinks/plugins/media_kit_video/macos
   open_file_mac:
@@ -90,6 +88,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/sqflite_darwin/darwin
   url_launcher_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos
+  volume_controller:
+    :path: Flutter/ephemeral/.symlinks/plugins/volume_controller/macos
   wakelock_plus:
     :path: Flutter/ephemeral/.symlinks/plugins/wakelock_plus/macos
   window_manager:
@@ -101,7 +101,6 @@ SPEC CHECKSUMS:
   file_picker: e716a70a9fe5fd9e09ebc922d7541464289443af
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   media_kit_libs_macos_video: b3e2bbec2eef97c285f2b1baa7963c67c753fb82
-  media_kit_native_event_loop: 81fd5b45192b72f8b5b69eaf5b540f45777eb8d5
   media_kit_video: c75b07f14d59706c775778e4dd47dd027de8d1e5
   open_file_mac: 0e554648e2a87ce59e9438e3e5ca3e552e90d89a
   package_info_plus: 12f1c5c2cfe8727ca46cbd0b26677728972d9a5b
@@ -112,8 +111,9 @@ SPEC CHECKSUMS:
   share_plus: 1fa619de8392a4398bfaf176d441853922614e89
   sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
   url_launcher_macos: c82c93949963e55b228a30115bd219499a6fe404
+  volume_controller: 90a5978956cf18ebb7739bf5382fc1b0cfef66d0
   wakelock_plus: 4783562c9a43d209c458cb9b30692134af456269
-  window_manager: 3a1844359a6295ab1e47659b1a777e36773cd6e8
+  window_manager: e25faf20d88283a0d46e7b1a759d07261ca27575
 
 PODFILE CHECKSUM: b6236c6fda4009ab3fddd4f7239b9a7f9f361e5e
 
