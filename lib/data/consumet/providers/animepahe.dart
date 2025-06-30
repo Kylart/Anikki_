@@ -7,7 +7,7 @@ import 'package:anikki/data/consumet/extractors/extractors.dart';
 import 'package:anikki/data/data.dart';
 
 class Animepahe extends AnimeProvider {
-  final baseUrl = 'https://animepahe.com/';
+  final baseUrl = 'https://animepahe.ru/';
   final logo = 'https://animepahe.com/pikacon.ico';
 
   final client = Client();
