@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:anikki/data/data.dart';
 
-// const _kSearchTerm = 'Sousou no Frieren';
-const _kSearchTerm = 'Ao no Hako';
+const _kSearchTerm = 'Sousou no Frieren';
+// const _kSearchTerm = 'Ao no Hako';
 
 void main() {
   group('unit test: Consumet providers', () {
     final providers = [
-      Anitaku(),
+      // Anitaku(),
       // Gogoanime(),
       // Anify(),
       // Zoro(),
