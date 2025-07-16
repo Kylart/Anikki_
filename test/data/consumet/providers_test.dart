@@ -3,15 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:anikki/data/data.dart';
 
 const _kSearchTerm = 'Sousou no Frieren';
-// const _kSearchTerm = 'Ao no Hako';
 
 void main() {
   group('unit test: Consumet providers', () {
     final providers = [
-      // Anitaku(),
-      // Gogoanime(),
-      // Anify(),
-      // Zoro(),
+      Hianimez(),
     ];
 
     late List<AnimeResult> searchResult;
@@ -45,7 +41,9 @@ void main() {
         test('fetchEpisodeSources method', () async {
           if (episodes.isEmpty) return fail('no episode found');
 
-          sources = await provider.fetchEpisodeSources(episodes.first);
+          sources = await provider.fetchEpisodeSources(
+            episodes.first,
+          );
 
           expect(sources.sources, isNotEmpty);
         });

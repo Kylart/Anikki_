@@ -11,5 +11,6 @@ abstract class AnimeProvider {
   Future<AnimeSource> fetchEpisodeSources(
     AnimeEpisode episode, {
     StreamingServers server = StreamingServers.vidstreaming,
+    bool dubbed = false,
   });
 }

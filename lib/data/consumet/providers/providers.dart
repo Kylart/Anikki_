@@ -1,4 +1,3 @@
 export 'anify.dart';
 export 'anitaku.dart';
-export 'gogoanime.dart';
-export 'zoro.dart';
+export 'hianimez.dart';

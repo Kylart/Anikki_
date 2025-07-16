@@ -8,10 +8,9 @@ class ConsumetRepository {
   ConsumetRepository({List<AnimeProvider>? providers}) {
     this.providers = providers ??
         [
-          Gogoanime(),
+          Hianimez(),
           Anify(),
           Anitaku(),
-          Zoro(),
         ];
   }
 
@@ -78,7 +77,10 @@ class ConsumetRepository {
 
       logger.verbose('Retrieving link for episode ${episode.number}', episode);
 
-      final links = await provider.fetchEpisodeSources(episode);
+      final links = await provider.fetchEpisodeSources(
+        episode,
+        dubbed: dubbed,
+      );
       final link = _getBestLink(links.sources);
 
       logger.verbose('Retrieved link for episode ${episode.number}', episode);

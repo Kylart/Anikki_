@@ -21,24 +21,33 @@ class _PlayerControlsSubtitlesState extends State<PlayerControlsSubtitles> {
       playlist.index,
     );
 
-    final currentMediaSubtitles = currentMedia.extras?['subtitles'];
+    final currentMediaSubtitles =
+        currentMedia.extras?['subtitles'] as List<VideoSubtitle>?;
 
     if (currentMediaSubtitles == null) return;
-
     if (loadedMediaSubtitles.contains(currentMedia)) return;
 
-    for (final subtitle in currentMediaSubtitles as List<VideoSubtitle>) {
+    for (final subtitle in currentMediaSubtitles) {
       await widget.player.setSubtitleTrack(
         SubtitleTrack.uri(
           subtitle.url,
-          title: subtitle.id,
-          language: subtitle.lang.substring(0, 2).toLowerCase(),
+          title: subtitle.id ?? subtitle.lang,
+          language: subtitle.lang,
         ),
       );
     }
 
+    final subtitles = widget.player.state.tracks.subtitle;
+    final defaultSubtitle = currentMediaSubtitles.firstWhere(
+      (track) => track.isDefault,
+      orElse: () => currentMediaSubtitles.first,
+    );
+
     await widget.player.setSubtitleTrack(
-      widget.player.state.tracks.subtitle.first,
+      subtitles.firstWhere(
+        (track) => track.language == defaultSubtitle.lang,
+        orElse: () => subtitles.first,
+      ),
     );
 
     loadedMediaSubtitles.add(currentMedia);

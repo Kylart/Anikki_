@@ -21,6 +21,7 @@ enum StreamingServers {
   vidcloud,
   streamtape,
   vizcloud,
+  rapidcloud,
 
   // same as vizcloud
   mycloud,

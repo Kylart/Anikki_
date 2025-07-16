@@ -49,6 +49,10 @@ class Anitaku implements AnimeProvider {
 
   @override
   Future<List<AnimeEpisode>> fetchAnimeEpisodes(String id) async {
+    if (id.contains('-episode-')) {
+      id = id.split('-episode-').first;
+    }
+
     if (!id.contains(baseUrl)) id = '$baseUrl/series/$id/';
 
     final res = await client.get(Uri.parse(id));
@@ -137,6 +141,7 @@ class Anitaku implements AnimeProvider {
   Future<AnimeSource> fetchEpisodeSources(
     AnimeEpisode episode, {
     StreamingServers server = StreamingServers.vidstreaming,
+    bool dubbed = false,
   }) async {
     final res = await client.get(
       Uri.parse(episode.url ?? '$baseUrl/series/${episode.id}/'),

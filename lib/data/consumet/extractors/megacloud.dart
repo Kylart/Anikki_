@@ -1,17 +1,58 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:anikki/data/consumet/utils/utils.dart';
-import 'package:anikki/data/data.dart';
-import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
-import 'package:encrypt/encrypt.dart';
+import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:http/http.dart';
 
-const megacloud = (
-  script: "https://megacloud.tv/js/player/a/prod/e1-player.min.js?v=",
-  sources: "https://megacloud.tv/embed-2/ajax/e-1/getSources?id=",
-);
+import 'package:anikki/data/data.dart';
+
+Uint8List _evpBytesToKey(
+    Uint8List password, Uint8List salt, int keyLen, int ivLen) {
+  final totalLen = keyLen + ivLen;
+  Uint8List derived = Uint8List(0);
+  Uint8List previous = Uint8List(0);
+
+  while (derived.length < totalLen) {
+    final md5Text =
+        md5.convert(Uint8List.fromList(previous + password + salt)).bytes;
+    derived = Uint8List.fromList(derived + md5Text);
+    previous = Uint8List.fromList(md5Text);
+  }
+
+  return derived.sublist(0, totalLen);
+}
+
+String decryptOpenSsl(String base64Encrypted, String hexPassword) {
+  final encryptedBytes = base64.decode(base64Encrypted);
+
+  if (utf8.decode(encryptedBytes.sublist(0, 8)) != 'Salted__') {
+    throw Exception("Invalid OpenSSL salt header");
+  }
+
+  final salt = encryptedBytes.sublist(8, 16);
+  final ciphertext = encryptedBytes.sublist(16);
+  final password = Uint8List.fromList(hexPassword.codeUnits);
+
+  final keyIv = _evpBytesToKey(password, Uint8List.fromList(salt), 32, 16);
+  final key = keyIv.sublist(0, 32);
+  final iv = keyIv.sublist(32, 48);
+
+  final encrypter = encrypt.Encrypter(
+    encrypt.AES(
+      encrypt.Key(key),
+      mode: encrypt.AESMode.cbc,
+      padding: 'PKCS7',
+    ),
+  );
+
+  final decrypted = encrypter.decryptBytes(
+    encrypt.Encrypted(Uint8List.fromList(ciphertext)),
+    iv: encrypt.IV(iv),
+  );
+
+  return utf8.decode(decrypted);
+}
 
 class MegaCloud extends Extractor {
   final client = Client();
@@ -19,161 +60,59 @@ class MegaCloud extends Extractor {
 
   @override
   Future<List<VideoSource>> extract(Uri uri) async {
-    final videoId =
-        uri.toString().split('/').lastOrNull?.split('?').firstOrNull;
-    var res = await client
-        .get(Uri.parse(megacloud.sources + (videoId ?? '')), headers: {
-      'Accept': '*/*',
-      'X-Requested-With': 'XMLHttpRequest',
-      'User-Agent': userAgent,
-      'Referer': uri.toString(),
-    });
-
-    final srcData = json.decode(res.body);
-
-    final subtitles = (srcData['tracks'] as List)
-        .mapIndexed(
-          (index, s) => VideoSubtitle(
-            url: s['file']!,
-            id: s['label'],
-            lang: s['label'] ?? 'Thumbnails',
-            isDefault: s['label'] != null && index == 0,
-          ),
-        )
-        .where((element) => element.lang != 'Thumbnails')
-        .toList();
-
-    final encryptedString = srcData['sources'];
-    if (!srcData['encrypted'] && encryptedString is List) {
-      return encryptedString
-          .map(
-            (e) => VideoSource(
-              url: e['file'],
-              isM3U8: e['file'].toString().contains('.m3u8'),
-              subtitles: subtitles,
-            ),
-          )
-          .toList();
-    }
-
-    res = await client.get(
-      Uri.parse(megacloud.script + DateTime.now().toString()),
-    );
-
-    final text = res.body;
-
-    if (text.isEmpty) throw "Couldn't fetch script to decrypt resource";
-
-    final vars = _extractVariables(text);
-    final (secret, encryptedSource) = _getSecret(encryptedString, vars);
-    final decrypted = _decrypt(encryptedSource, secret);
-
-    final sources = json.decode(decrypted) as List;
-    return sources
-        .map(
-          (e) => VideoSource(
-            url: e['file'],
-            isM3U8: e['file'].toString().contains('.m3u8'),
-            subtitles: subtitles,
-          ),
-        )
-        .toList();
-  }
-
-  String _matchingKey(String value, String script) {
-    final regex = RegExp(',$value=((?:0x)?([0-9a-fA-F]+))');
-    final match = regex.firstMatch(script);
-    if (match != null) {
-      return match.group(1)!.replaceFirst(RegExp(r'^0x'), '');
-    } else {
-      throw Exception('Failed to match the key');
-    }
-  }
-
-  List<List<int>> _extractVariables(String text) {
-    final regex = RegExp(
-        r"case\s*0x[0-9a-f]+:(?![^;]*=partKey)\s*\w+\s*=\s*(\w+)\s*,\s*\w+\s*=\s*(\w+);");
-    final matches = regex.allMatches(text);
-
-    final vars = matches
-        .map((match) {
-          final matchKey1 = _matchingKey(match.group(1)!, text);
-          final matchKey2 = _matchingKey(match.group(2)!, text);
-
-          try {
-            return [
-              int.parse(matchKey1, radix: 16),
-              int.parse(matchKey2, radix: 16)
-            ];
-          } catch (e) {
-            return <int>[];
-          }
-        })
-        .where((pair) => pair.isNotEmpty)
-        .toList();
-
-    return vars;
-  }
-
-  (String secret, String encryptedSource) _getSecret(
-    String encryptedString,
-    List<List<int>> values,
-  ) {
-    String secret = "";
-    String encryptedSource = "";
-    List<String> encryptedSourceArray = encryptedString.split("");
-    int currentIndex = 0;
-
-    for (List<int> index in values) {
-      int start = index[0] + currentIndex;
-      int end = start + index[1];
-
-      for (int i = start; i < end; i++) {
-        secret += encryptedString[i];
-        encryptedSourceArray[i] = "";
-      }
-      currentIndex += index[1];
-    }
-
-    encryptedSource = encryptedSourceArray.join("");
-
-    return (
-      secret,
-      encryptedSource,
-    );
-  }
-
-  String _decrypt(String encrypted, String keyOrSecret) {
-    late Uint8List key;
-    late Uint8List iv;
-    late Uint8List contents;
-
-    final cypher = base64.decode(encrypted);
-    final salt = cypher.sublist(8, 16);
-    final password = List<int>.from(utf8.encode(keyOrSecret)) + salt;
-
-    final md5Hashes = <List<int>>[];
-    var digest = Uint8List.fromList(password);
-    for (int i = 0; i < 3; i++) {
-      md5Hashes.add(md5.convert(digest).bytes);
-      digest = Uint8List.fromList([...md5Hashes[i], ...password]);
-    }
-    key = Uint8List.fromList([...md5Hashes[0], ...md5Hashes[1]]);
-    iv = Uint8List.fromList(md5Hashes[2]);
-    contents = cypher.sublist(16);
-
-    final encrypter = Encrypter(
-      AES(
-        Key(key),
-        mode: AESMode.cbc,
+    final response = await client.get(
+      Uri.parse(
+        'https://raw.githubusercontent.com/itzzzme/megacloud-keys/refs/heads/main/key.txt',
       ),
     );
 
-    final decrypted = encrypter.decrypt(
-      Encrypted(contents),
-      iv: IV(iv),
-    );
+    final key = response.body.trim();
+    final match = RegExp(r'/([^/?]+)\?').firstMatch(uri.toString());
+    final sourceId = match?.group(1);
+    if (sourceId == null) {
+      throw Exception('Unable to extract sourceId from embed URL');
+    }
 
-    return decrypted;
+    final megacloudUrl = Uri.parse(
+      'https://megacloud.blog/embed-2/v2/e-1/getSources?id=$sourceId',
+    );
+    final res = await client.get(megacloudUrl);
+    final rawSourceData = jsonDecode(res.body) as Map<String, dynamic>;
+
+    final encrypted = rawSourceData['sources'] as String?;
+    if (encrypted == null) {
+      throw Exception('Encrypted source missing in response');
+    }
+
+    final plaintext = decryptOpenSsl(encrypted, key);
+    final decodedSources = jsonDecode(plaintext) as List<dynamic>;
+
+    final subtitles = <VideoSubtitle>[
+      for (final subtitle in rawSourceData['tracks'] as List<dynamic>)
+        if (subtitle['kind'] == 'captions')
+          VideoSubtitle(
+            url: subtitle['file'] as String,
+            lang: subtitle['label'] as String,
+            isDefault: subtitle['default'] as bool? ?? false,
+          ),
+    ];
+
+    final introStart = rawSourceData['intro']['start'] as int?;
+    final introEnd = rawSourceData['intro']['end'] as int?;
+    final outroStart = rawSourceData['outro']['start'] as int?;
+    final outroEnd = rawSourceData['outro']['end'] as int?;
+
+    return <VideoSource>[
+      for (final source in decodedSources)
+        VideoSource(
+          url: source['file'] as String,
+          isM3U8: source['file'].toString().endsWith('.m3u8'),
+          subtitles: subtitles,
+          introStart: introStart,
+          introEnd: introEnd,
+          outroStart: outroStart,
+          outroEnd: outroEnd,
+        ),
+    ];
   }
 }

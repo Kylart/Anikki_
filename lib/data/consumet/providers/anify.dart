@@ -88,6 +88,7 @@ class Anify implements AnimeProvider {
   Future<AnimeSource> fetchEpisodeSources(
     AnimeEpisode episode, {
     StreamingServers server = StreamingServers.vidstreaming,
+    bool dubbed = false,
   }) async {
     final res = await client.get(
       Uri.parse(baseUrl).replace(
