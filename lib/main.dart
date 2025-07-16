@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:media_kit/media_kit.dart';
+import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:protocol_handler/protocol_handler.dart';
 
@@ -17,10 +18,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
 
-  final storageDirectory =
+  final appDir = await getApplicationDocumentsDirectory();
+  final storageDirectoryPath =
       kDebugMode || Platform.environment.containsKey('FLUTTER_TEST')
-          ? await getTemporaryDirectory()
-          : await getApplicationDocumentsDirectory();
+          ? join('anikki', 'test', 'storage', 'bloc')
+          : join('anikki', 'storage', 'bloc');
+  final storageDirectory = Directory(
+    join(appDir.path, storageDirectoryPath),
+  );
 
   await Future.wait([
     /// Storage
