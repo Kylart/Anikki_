@@ -34,7 +34,7 @@ Future<String> _getlibName() async {
 Future<String> _getDylibPath() async {
   final libName = await _getlibName();
 
-  final asset = await rootBundle.load('assets/$libName');
+  final asset = await rootBundle.load('assets/torrest/$libName');
   final applicationsDirectory = await getApplicationDocumentsDirectory();
 
   final dylibPath = join(applicationsDirectory.path, libName);
