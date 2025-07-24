@@ -1,3 +1,6 @@
 [submodule "packages/anitomy/src/lib"]
 	path = packages/anitomy/src/lib
 	url = https://github.com/erengy/anitomy
+[submodule "packages/torrest/src/lib"]
+	path = packages/torrest/src/lib
+	url = https://github.com/i96751414/torrest-cpp

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:media_kit/media_kit.dart';
-import 'package:path/path.dart';
+import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 import 'package:protocol_handler/protocol_handler.dart';
 
@@ -39,6 +40,9 @@ void main() async {
 
     /// Register env variables
     dotenv.load(),
+
+    /// Start Torrest
+    startTorrest(appDir),
   ]);
 
   /// Bloc init hooks

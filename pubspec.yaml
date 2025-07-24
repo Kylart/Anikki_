@@ -29,6 +29,7 @@ dependencies:
   crypto: ^3.0.3
   encrypt: ^5.0.3
   graphql: ^5.1.3
+  ffi: ^2.1.4
   file_picker: ^10.1.9
   flutter_animate: ^4.5.0
   flutter_dotenv: ^5.1.0
@@ -47,6 +48,8 @@ dependencies:
   talker_logger: ^4.6.14
   talker_bloc_logger: ^4.6.14
   tmdb_api: ^2.2.0
+  torrest:
+    path: packages/torrest
   url_launcher: ^6.2.6
   watcher: ^1.1.0
   window_manager: ^0.5.0
@@ -111,6 +114,8 @@ flutter:
     - assets/images/jinrui.png
     - assets/images/angry_gabriel.png
     - assets/videos/tohru.gif
+    - assets/libtorrest-arm64.dylib
+    # - assets/torrest-android-arm64
 
 dart_pre_commit:
   outdated: false

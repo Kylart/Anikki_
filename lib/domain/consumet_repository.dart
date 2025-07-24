@@ -96,9 +96,17 @@ class ConsumetRepository {
               'episodeNumber': episode.number,
               'title': '$term - Episode ${episode.number}',
               'subtitles': link.subtitles,
+              'intro': {
+                'start': link.introStart,
+                'end': link.introEnd,
+              },
+              'outro': {
+                'start': link.outroStart,
+                'end': link.outroEnd,
+              },
             },
           ),
-          number: episode.number!.toInt(),
+          number: episode.number?.toInt() ?? 0,
         ),
       );
     }
