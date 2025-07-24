@@ -1,0 +1,32 @@
+diff --git a/docker/Makefile b/docker/Makefile
+index 5b97fe4..41b68ec 100644
+--- a/docker/Makefile
++++ b/docker/Makefile
+@@ -85,11 +85,11 @@ $(TORREST_WINDOWS_TARGETS) $(LIBTORREST_WINDOWS_TARGETS): CMAKE_FLAGS += -DCMAKE
+ $(TORREST_ANDROID_TARGETS) $(LIBTORREST_ANDROID_TARGETS): CMAKE_FLAGS += -DCMAKE_$(BUILD_TYPE)_LINKER_FLAGS="-static-libstdc++"
+ 
+ $(TORREST_TARGETS) $(LIBTORREST_TARGETS):
+-	mkdir -p "$(ROOT_DIR)/$(BUILD_DIR)/$(PLATFORM)" && \
+-	docker run --rm -u "$$(id -u):$$(id -g)" -v "$(ROOT_DIR):/workspace" -w "/workspace" \
++	mkdir -p "$(ROOT_DIR)/../$(BUILD_DIR)/$(PLATFORM)" && \
++	docker run --rm -u "$$(id -u):$$(id -g)" -v "$(ROOT_DIR)/..:/workspace" -w "/workspace" \
+ 		"$(IMAGE_PREFIX)-$(PLATFORM):$(IMAGE_TAG)" bash -c '\
+ 			cmake -B /tmp/cmake-build -Dtarget_path="/workspace/$(BUILD_DIR)/$(PLATFORM)/" $(CMAKE_FLAGS) $(EXTRA_CMAKE_FLAGS) && \
+-			cmake --build /tmp/cmake-build --target torrest -- -j "$$(nproc)"'
++			cmake --build /tmp/cmake-build --target anitorrest -- -j "$$(nproc)"'
+ 
+ zip: zip-torrest zip-libtorrest
+ zip-torrest: $(ZIP_TORREST_TARGETS)
+diff --git a/src/main.cpp b/src/main.cpp
+index 20faddd..82da2c3 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -31,7 +31,7 @@ typedef torrest::api::SwaggerController SwaggerController;
+ #ifdef _WIN32
+ #define EXPORT_C extern "C" __declspec(dllexport)
+ #else
+-#define EXPORT_C extern "C"
++#define EXPORT_C extern "C" __attribute__((visibility("default")))
+ #endif
+ #else
+ #define EXPORT_C

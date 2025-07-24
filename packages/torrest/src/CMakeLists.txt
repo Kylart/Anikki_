@@ -17,3 +17,9 @@ target_link_libraries(anitorrest PRIVATE torrest)
 set_target_properties(anitorrest PROPERTIES OUTPUT_NAME "anitorrest")
 
 target_compile_definitions(anitorrest PUBLIC DART_SHARED_LIB)
+
+# Copy anitorrest library to target path if specified (for Docker builds)
+if (DEFINED target_path)
+    add_custom_command(TARGET anitorrest POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:anitorrest>" "${target_path}")
+endif ()

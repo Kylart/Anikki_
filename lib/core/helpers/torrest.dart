@@ -19,13 +19,16 @@ Future<String> _getCPUArchitecture() async {
 
 Future<String> _getlibName() async {
   final arch = await _getCPUArchitecture();
+  final baseName = 'libanitorrest';
 
-  if (Platform.isMacOS) {
-    return 'libtorrest-$arch.dylib';
+  if (Platform.isMacOS || Platform.isIOS) {
+    return '$baseName-darwin-$arch.dylib';
   } else if (Platform.isLinux) {
-    return 'libtorrest.so';
+    return '$baseName-linux-$arch.so';
+  } else if (Platform.isAndroid) {
+    return '$baseName-android-$arch.so';
   } else if (Platform.isWindows) {
-    return 'torrest.dll';
+    return '$baseName-windows-$arch.dll';
   }
 
   throw UnsupportedError('Unsupported platform: ${Platform.operatingSystem}');

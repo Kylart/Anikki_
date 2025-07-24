@@ -21,8 +21,15 @@ cmake --build cmake-build --target torrest -- -j "$(nproc)"
 ```
 
 ## Build libanitorrest
+### Locally
 ```shell
 mkdir build && cd build
 cmake ../src
 cmake --build
+```
+
+### From docker
+```shell
+cd src
+./build.sh
 ```
