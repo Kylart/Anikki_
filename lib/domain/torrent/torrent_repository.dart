@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 export 'transmission_repository.dart';
 export 'qbittorrent_repository.dart';
 export 'empty_repository.dart';
+export 'torrest_repository.dart';
 
 abstract class TorrentRepository {
   TorrentRepository({

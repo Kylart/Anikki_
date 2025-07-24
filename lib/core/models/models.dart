@@ -22,5 +22,6 @@ export 'video_player_settings.dart';
 export 'watch_list.dart';
 export 'watch_list_provider.dart';
 export 'torrent/torrent_source.dart';
+export 'torrest_settings.dart';
 
 typedef AnilistListEntry = Query$GetLists$MediaListCollection$lists$entries;

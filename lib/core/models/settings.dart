@@ -23,6 +23,7 @@ class Settings extends Equatable {
     this.librarySettings = const LibrarySettings(),
     this.transmissionSettings = const TransmissionSettings(),
     this.qBitTorrentSettings = const QBitTorrentSettings(),
+    this.torrestSettings = const TorrestSettings(),
     this.videoPlayerSettings = const VideoPlayerSettings(),
     this.streamSettings = const StreamSettings(),
   });
@@ -35,6 +36,7 @@ class Settings extends Equatable {
   final LibrarySettings librarySettings;
   final TransmissionSettings transmissionSettings;
   final QBitTorrentSettings qBitTorrentSettings;
+  final TorrestSettings torrestSettings;
   final VideoPlayerSettings videoPlayerSettings;
 
   final StreamSettings streamSettings;
@@ -47,6 +49,7 @@ class Settings extends Equatable {
     LibrarySettings? librarySettings,
     TransmissionSettings? transmissionSettings,
     QBitTorrentSettings? qBitTorrentSettings,
+    TorrestSettings? torrestSettings,
     VideoPlayerSettings? videoPlayerSettings,
     StreamSettings? streamSettings,
   }) {
@@ -57,6 +60,7 @@ class Settings extends Equatable {
       librarySettings: librarySettings ?? this.librarySettings,
       transmissionSettings: transmissionSettings ?? this.transmissionSettings,
       qBitTorrentSettings: qBitTorrentSettings ?? this.qBitTorrentSettings,
+      torrestSettings: torrestSettings ?? this.torrestSettings,
       videoPlayerSettings: videoPlayerSettings ?? this.videoPlayerSettings,
       streamSettings: streamSettings ?? this.streamSettings,
     );
@@ -74,6 +78,7 @@ class Settings extends Equatable {
       librarySettings,
       transmissionSettings,
       qBitTorrentSettings,
+      torrestSettings,
       videoPlayerSettings,
       streamSettings,
     ];
@@ -87,6 +92,7 @@ class Settings extends Equatable {
       'librarySettings': librarySettings.toMap(),
       'transmissionSettings': transmissionSettings.toMap(),
       'qBitTorrentSettings': qBitTorrentSettings.toMap(),
+      'torrestSettings': torrestSettings.toMap(),
       'videoPlayerSettings': videoPlayerSettings.toMap(),
       'streamSettings': streamSettings.toMap(),
     };
@@ -103,6 +109,8 @@ class Settings extends Equatable {
           map['transmissionSettings'] as Map<String, dynamic>),
       qBitTorrentSettings: QBitTorrentSettings.fromMap(
           map['qBitTorrentSettings'] as Map<String, dynamic>),
+      torrestSettings: TorrestSettings.fromMap(
+          map['torrestSettings'] as Map<String, dynamic>),
       videoPlayerSettings: VideoPlayerSettings.fromMap(
           map['videoPlayerSettings'] as Map<String, dynamic>),
       streamSettings:

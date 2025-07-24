@@ -13,25 +13,39 @@ class TorrentSettingsUpdated extends TorrentEvent {
   TorrentSettingsUpdated({
     this.transmissionSettings,
     this.qBitTorrentSettings,
+    this.torrestSettings,
   }) {
     if (transmissionSettings != null) {
       assert(qBitTorrentSettings == null,
           'Cannot have transmission and qbittorrent settings at the same time.');
+      assert(torrestSettings == null,
+          'Cannot have transmission and torrest settings at the same time.');
     }
 
     if (qBitTorrentSettings != null) {
       assert(transmissionSettings == null,
           'Cannot have transmission and qbittorrent settings at the same time.');
+      assert(torrestSettings == null,
+          'Cannot have transmission and torrest settings at the same time.');
+    }
+
+    if (torrestSettings != null) {
+      assert(transmissionSettings == null,
+          'Cannot have transmission and torrest settings at the same time.');
+      assert(qBitTorrentSettings == null,
+          'Cannot have qbittorrent and torrest settings at the same time.');
     }
   }
 
   final TransmissionSettings? transmissionSettings;
   final QBitTorrentSettings? qBitTorrentSettings;
+  final TorrestSettings? torrestSettings;
 
   @override
   List<Object> get props => [
         if (transmissionSettings != null) transmissionSettings!,
         if (qBitTorrentSettings != null) qBitTorrentSettings!,
+        if (torrestSettings != null) torrestSettings!,
       ];
 }
 

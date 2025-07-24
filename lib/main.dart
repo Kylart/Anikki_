@@ -40,9 +40,6 @@ void main() async {
 
     /// Register env variables
     dotenv.load(),
-
-    /// Start Torrest
-    startTorrest(appDir),
   ]);
 
   /// Bloc init hooks

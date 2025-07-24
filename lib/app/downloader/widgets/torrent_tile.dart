@@ -55,7 +55,7 @@ class TorrentTile extends StatelessWidget {
         bloc.add(
           TorrentAddTorrent(
             magnet: torrent.magnet,
-            stream: true,
+            stream: isStreaming,
             callback: (Torrent torrent) async {
               Navigator.of(context).pop();
 

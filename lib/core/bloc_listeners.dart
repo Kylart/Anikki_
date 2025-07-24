@@ -49,6 +49,9 @@ class BlocListeners extends StatelessWidget {
                       settings.torrentType == TorrentType.qbittorrent
                           ? settings.qBitTorrentSettings
                           : null,
+                  torrestSettings: settings.torrentType == TorrentType.torrest
+                      ? settings.torrestSettings
+                      : null,
                 ),
               );
             }

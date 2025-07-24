@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 
 import 'package:anikki/core/core.dart';
 import 'package:anikki/domain/domain.dart';
+import 'package:path_provider/path_provider.dart';
 
 part 'torrent_event.dart';
 part 'torrent_state.dart';
@@ -16,6 +17,7 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
 
   bool get isTransmission => repository is TransmissionRepository;
   bool get isQBitTorrent => repository is QBitTorrentRepository;
+  bool get isTorrest => repository is TorrestRepository;
   bool get isEmpty => repository is EmptyRepository;
 
   TorrentBloc(this.repository) : super(TorrentInitial()) {
@@ -46,7 +48,9 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
   }
 
   Future<void> _onSettingsUpdated(
-      TorrentSettingsUpdated event, Emitter<TorrentState> emit) async {
+    TorrentSettingsUpdated event,
+    Emitter<TorrentState> emit,
+  ) async {
     if (event.transmissionSettings != null) {
       final settings = event.transmissionSettings as TransmissionSettings;
 
@@ -71,6 +75,21 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
         uri: Uri(
           scheme: settings.scheme,
           host: settings.host,
+          port: settings.port,
+        ),
+      );
+    }
+
+    if (event.torrestSettings != null) {
+      final appDir = await getApplicationDocumentsDirectory();
+      await startTorrest(appDir);
+
+      final settings = event.torrestSettings as TorrestSettings;
+
+      repository = TorrestRepository(
+        uri: Uri(
+          scheme: 'http',
+          host: 'localhost',
           port: settings.port,
         ),
       );

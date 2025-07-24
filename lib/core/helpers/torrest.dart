@@ -54,7 +54,7 @@ Future<Torrest> startTorrest(Directory baseDir) async {
     await _getDylibPath(),
     int.parse(dotenv.env['TORREST_PORT'] ?? '15666'),
     dotenv.env['TORREST_SETTINGS_PATH'] ??
-        join(baseDir.path, 'torrest_settings.json'),
+        join(baseDir.path, 'anikki', 'torrest_settings.json'),
   );
 
   torrest.start();
