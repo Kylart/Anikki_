@@ -35,11 +35,12 @@ Future<String> _getDylibPath() async {
   final libName = await _getlibName();
 
   final asset = await rootBundle.load('assets/torrest/$libName');
-  final applicationsDirectory = await getApplicationDocumentsDirectory();
+  final applicationsDirectory = await getTemporaryDirectory();
 
-  final dylibPath = join(applicationsDirectory.path, libName);
+  final dylibPath = join(applicationsDirectory.path, 'anikki', libName);
   final file = File(dylibPath);
 
+  await file.create(recursive: true);
   await file.writeAsBytes(asset.buffer.asUint8List());
 
   return dylibPath;
