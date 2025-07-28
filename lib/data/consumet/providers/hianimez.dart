@@ -123,50 +123,15 @@ class Hianimez implements AnimeProvider {
     StreamingServers server = StreamingServers.rapidcloud,
     SubOrDub subOrDub = SubOrDub.sub,
   }) async {
-    if (episodeId.startsWith('http')) {
-      final serverUrl = Uri.parse(episodeId);
-
-      return switch (server) {
-        _ => AnimeSource(
-            headers: {
-              'Referer': serverUrl.origin,
-            },
-            sources: await MegaCloud().extract(serverUrl),
-            download: '',
-          )
-      };
-    }
-
     final epId = Uri.parse('$baseUrl/watch/$episodeId').toString();
-    final response = await client.get(
-      Uri.parse(
-          '$ajaxUrl/v2/episode/servers?episodeId=${epId.split("?ep=").elementAtOrNull(1)}'),
+    final category = subOrDub == SubOrDub.sub ? 'sub' : 'dub';
+
+    return AnimeSource(
       headers: {
-        'Referer': epId,
-        "X-Requested-With": "XMLHttpRequest",
+        'Referer': 'https://megaplay.buzz/stream/s-2/$episodeId/$category',
       },
-    );
-
-    final decodedResponse = jsonDecode(response.body);
-    final document = parse(decodedResponse['html']);
-    final serverId = switch (server) {
-      StreamingServers.rapidcloud =>
-        retrieveServerId(document, 1, sub: subOrDub),
-      StreamingServers.vidstreaming =>
-        retrieveServerId(document, 4, sub: subOrDub),
-      _ => throw UnimplementedError(),
-    };
-
-    final serverResponse = await client.get(
-      Uri.parse('$ajaxUrl/v2/episode/sources?id=$serverId'),
-    );
-    final serverData = jsonDecode(serverResponse.body);
-    final link = serverData['link'] as String;
-
-    return _fetchSources(
-      link,
-      server: server,
-      subOrDub: subOrDub,
+      sources: await MegaCloud().extract(Uri.parse(epId)),
+      download: '',
     );
   }
 }

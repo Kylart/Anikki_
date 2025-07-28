@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:html/parser.dart';
 import 'package:http/http.dart';
 
 import 'package:anikki/data/data.dart';
@@ -60,42 +61,60 @@ class MegaCloud extends Extractor {
 
   @override
   Future<List<VideoSource>> extract(Uri uri) async {
-    final response = await client.get(
-      Uri.parse(
-        'https://raw.githubusercontent.com/itzzzme/megacloud-keys/refs/heads/main/key.txt',
-      ),
+    final epId = uri.queryParameters['ep'];
+    final iframe = await client.get(
+      Uri.parse('https://megaplay.buzz/stream/s-2/$epId/sub'),
+      headers: {
+        'Host': "megaplay.buzz",
+        "User-Agent":
+            "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0",
+        'Accept':
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        'DNT': "1",
+        "Sec-GPC": "1",
+        'Connection': "keep-alive",
+        'Referer': "https://megaplay.buzz/api",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1",
+        'Priority': "u=4",
+        'TE': "trailers",
+      },
     );
 
-    final key = response.body.trim();
-    final match = RegExp(r'/([^/?]+)\?').firstMatch(uri.toString());
-    final sourceId = match?.group(1);
-    if (sourceId == null) {
+    final document = parse(iframe.body);
+    final id =
+        document.querySelector('#megaplay-player')?.attributes['data-id'];
+
+    if (id == null) {
       throw Exception('Unable to extract sourceId from embed URL');
     }
 
-    final megacloudUrl = Uri.parse(
-      'https://megacloud.blog/embed-2/v2/e-1/getSources?id=$sourceId',
+    final sources = await client.get(
+      Uri.parse('https://megaplay.buzz/stream/getSources?id=$id&id=$id'),
+      headers: {
+        'Host': "megaplay.buzz",
+        'User-Agent':
+            "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0",
+        'Accept': "application/json, text/javascript, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        'Accept-Encoding': "gzip, deflate, br, zstd",
+        'X-Requested-With': "XMLHttpRequest",
+        'DNT': "1",
+        'Sec-GPC': "1",
+        'Connection': "keep-alive",
+        'Referer': "https://megaplay.buzz/stream/s-2/141679/sub",
+        'Sec-Fetch-Dest': "empty",
+        'Sec-Fetch-Mode': "cors",
+        'Sec-Fetch-Site': "same-origin",
+        'TE': "trailers",
+      },
     );
-    final res = await client.get(megacloudUrl);
-    final rawSourceData = jsonDecode(res.body) as Map<String, dynamic>;
 
-    final encrypted = rawSourceData['sources'] as String?;
-    if (encrypted == null) {
-      throw Exception('Encrypted source missing in response');
-    }
-
-    final plaintext = decryptOpenSsl(encrypted, key);
-    final decodedSources = jsonDecode(plaintext) as List<dynamic>;
-
-    final subtitles = <VideoSubtitle>[
-      for (final subtitle in rawSourceData['tracks'] as List<dynamic>)
-        if (subtitle['kind'] == 'captions')
-          VideoSubtitle(
-            url: subtitle['file'] as String,
-            lang: subtitle['label'] as String,
-            isDefault: subtitle['default'] as bool? ?? false,
-          ),
-    ];
+    final rawSourceData = jsonDecode(sources.body) as Map<String, dynamic>;
 
     final introStart = rawSourceData['intro']['start'] as int?;
     final introEnd = rawSourceData['intro']['end'] as int?;
@@ -103,16 +122,14 @@ class MegaCloud extends Extractor {
     final outroEnd = rawSourceData['outro']['end'] as int?;
 
     return <VideoSource>[
-      for (final source in decodedSources)
-        VideoSource(
-          url: source['file'] as String,
-          isM3U8: source['file'].toString().endsWith('.m3u8'),
-          subtitles: subtitles,
-          introStart: introStart,
-          introEnd: introEnd,
-          outroStart: outroStart,
-          outroEnd: outroEnd,
-        ),
+      VideoSource(
+        url: rawSourceData['sources']['file'] as String,
+        isM3U8: true,
+        introStart: introStart,
+        introEnd: introEnd,
+        outroStart: outroStart,
+        outroEnd: outroEnd,
+      ),
     ];
   }
 }
