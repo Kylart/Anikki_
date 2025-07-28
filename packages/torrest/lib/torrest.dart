@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:ffi';
+import 'dart:io';
+
 import 'package:ffi/ffi.dart';
 
 typedef StartC =
@@ -33,6 +35,12 @@ class Torrest {
       _library.lookupFunction<StartC, StartFunc>('start_async_server');
 
   void start() {
+    final settingsFile = File(settingsPath);
+
+    if (!settingsFile.existsSync()) {
+      settingsFile.createSync(recursive: true);
+    }
+
     _start(
       port,
       settingsPath.toNativeUtf8(),
