@@ -50,7 +50,9 @@ class VideoPlayerRepository {
     required BuildContext context,
     required List<mk.Media> playlist,
     required Media media,
+    Torrent? torrent,
   }) {
+    final torrentBloc = BlocProvider.of<TorrentBloc>(context);
     final videoBloc = BlocProvider.of<VideoPlayerBloc>(context);
     final watchListBloc = BlocProvider.of<WatchListBloc>(context);
 
@@ -59,6 +61,12 @@ class VideoPlayerRepository {
         context: context,
         sources: playlist,
         onVideoComplete: (mkMedia, progress) {
+          if (torrent != null) {
+            torrentBloc.add(
+              TorrentRemoveTorrent(torrent, true),
+            );
+          }
+
           if (progress < kVideoMinCompletedProgress) return;
 
           final episode = mkMedia.extras?['episodeNumber'] as int?;

@@ -55,44 +55,43 @@ class AnikkiBlocProvider extends StatelessWidget {
     );
     final consumetRepository = ConsumetRepository();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ProviderAuthBloc(userRepository),
-        ),
-        BlocProvider(
-          create: (context) => LayoutBloc(),
-        ),
-        BlocProvider(
-          create: (context) => SettingsBloc(),
-        ),
-        BlocProvider(
-          create: (context) => ConnectivityBloc(),
-        ),
-        BlocProvider(
-          create: (context) => DownloaderBloc(torrentSearchRepository),
-        ),
-        BlocProvider(
-          create: (context) => StreamHandlerBloc(consumetRepository),
-        ),
-        BlocProvider(
-          create: (context) => VideoPlayerBloc(videoPlayerRepository),
-        ),
-        BlocProvider(
-          create: (context) => WatchListBloc(userListRepository),
-        ),
-        BlocProvider(
-          create: (context) => HomeBloc(
-            feedRepository: feedRepository,
-            userListRepository: userListRepository,
-          ),
-        ),
-        BlocProvider(
-          create: (context) => SearchBloc(animeSearchRepository),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => SettingsBloc(),
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(
+            create: (context) => ProviderAuthBloc(userRepository),
+          ),
+          BlocProvider(
+            create: (context) => LayoutBloc(),
+          ),
+          BlocProvider(
+            create: (context) => SettingsBloc(),
+          ),
+          BlocProvider(
+            create: (context) => ConnectivityBloc(),
+          ),
+          BlocProvider(
+            create: (context) => DownloaderBloc(torrentSearchRepository),
+          ),
+          BlocProvider(
+            create: (context) => StreamHandlerBloc(consumetRepository),
+          ),
+          BlocProvider(
+            create: (context) => VideoPlayerBloc(videoPlayerRepository),
+          ),
+          BlocProvider(
+            create: (context) => WatchListBloc(userListRepository),
+          ),
+          BlocProvider(
+            create: (context) => HomeBloc(
+              feedRepository: feedRepository,
+              userListRepository: userListRepository,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => SearchBloc(animeSearchRepository),
+          ),
           BlocProvider(
             create: (context) {
               final settingsBloc = BlocProvider.of<SettingsBloc>(context);
@@ -105,6 +104,7 @@ class AnikkiBlocProvider extends StatelessWidget {
             },
           ),
           BlocProvider(
+            lazy: false,
             create: (context) {
               final settingsBloc = BlocProvider.of<SettingsBloc>(context);
               final settings = settingsBloc.state.settings;
@@ -120,6 +120,9 @@ class AnikkiBlocProvider extends StatelessWidget {
                         settings.torrentType == TorrentType.qbittorrent
                             ? settings.qBitTorrentSettings
                             : null,
+                    torrestSettings: settings.torrentType == TorrentType.torrest
+                        ? settings.torrestSettings
+                        : null,
                   ),
                 );
             },

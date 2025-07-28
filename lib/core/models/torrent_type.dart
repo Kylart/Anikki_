@@ -1,7 +1,7 @@
 enum TorrentType {
   transmission('Transmission'),
   qbittorrent('QBitTorrent'),
-  torrest('Torrest'),
+  torrest('Anikki torrent'),
   none('None');
 
   final String title;

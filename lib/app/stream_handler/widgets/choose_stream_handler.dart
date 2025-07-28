@@ -67,10 +67,9 @@ class ChooseStreamHandler extends StatelessWidget {
                     size: 72,
                     color: Color(0xFF2F67BA),
                   ),
-                TorrentType.torrest => const Icon(
-                    CustomIcons.qbittorrent,
-                    size: 72,
-                    color: Color(0xFF000000),
+                TorrentType.torrest => const CircleAvatar(
+                    radius: 36,
+                    backgroundImage: AssetImage('assets/logo.png'),
                   ),
                 TorrentType.none => const SizedBox(),
               },

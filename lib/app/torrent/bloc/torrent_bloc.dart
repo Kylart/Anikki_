@@ -5,7 +5,6 @@ import 'package:equatable/equatable.dart';
 
 import 'package:anikki/core/core.dart';
 import 'package:anikki/domain/domain.dart';
-import 'package:path_provider/path_provider.dart';
 
 part 'torrent_event.dart';
 part 'torrent_state.dart';
@@ -81,18 +80,35 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
     }
 
     if (event.torrestSettings != null) {
-      final appDir = await getApplicationDocumentsDirectory();
-      await startTorrest(appDir);
-
       final settings = event.torrestSettings as TorrestSettings;
 
-      repository = TorrestRepository(
-        uri: Uri(
-          scheme: 'http',
-          host: 'localhost',
-          port: settings.port,
-        ),
-      );
+      if (settings.port != repository.uri.port) {
+        // Shutdown torrest if port is changed because we need to restart it
+        if (repository is TorrestRepository) {
+          await (repository as TorrestRepository)
+              .shutDown()
+              .catchError((e) => logger.warning('Failed to shut down torrest'));
+        }
+
+        if (settings.port != repository.uri.port) {
+          await TorrestRepository.startServer(
+            settings.port,
+          );
+
+          repository = TorrestRepository(
+            uri: Uri(
+              scheme: 'http',
+              host: 'localhost',
+              port: settings.port,
+            ),
+          );
+        }
+      }
+
+      if (settings.downloadPath != null) {
+        await (repository as TorrestRepository)
+            .setDownloadPath(settings.downloadPath!);
+      }
     }
 
     if (repository is EmptyRepository) return;
@@ -141,28 +157,36 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
   }
 
   Future<void> _onPauseTorrent(
-      TorrentPauseTorrent event, Emitter<TorrentState> emit) async {
+    TorrentPauseTorrent event,
+    Emitter<TorrentState> emit,
+  ) async {
     await repository.stopTorrent(event.torrent);
 
     add(TorrentDataRequested());
   }
 
   Future<void> _onStartTorrent(
-      TorrentStartTorrent event, Emitter<TorrentState> emit) async {
+    TorrentStartTorrent event,
+    Emitter<TorrentState> emit,
+  ) async {
     await repository.startTorrent(event.torrent);
 
     add(TorrentDataRequested());
   }
 
   Future<void> _onRemoveTorrent(
-      TorrentRemoveTorrent event, Emitter<TorrentState> emit) async {
+    TorrentRemoveTorrent event,
+    Emitter<TorrentState> emit,
+  ) async {
     await repository.removeTorrent(event.torrent, event.removeFile);
 
     add(TorrentDataRequested());
   }
 
   Future<void> _onAddTorrent(
-      TorrentAddTorrent event, Emitter<TorrentState> emit) async {
+    TorrentAddTorrent event,
+    Emitter<TorrentState> emit,
+  ) async {
     final torrent = await repository.addTorrent(event.magnet);
 
     if (event.stream) {

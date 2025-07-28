@@ -12,7 +12,6 @@ import 'package:anikki/app/stream_handler/bloc/stream_handler_bloc.dart';
 import 'package:anikki/app/stream_handler/stream_handler.dart';
 import 'package:anikki/app/torrent/bloc/torrent_bloc.dart';
 import 'package:anikki/core/core.dart';
-import 'package:anikki/domain/domain.dart';
 
 class BlocListeners extends StatelessWidget {
   const BlocListeners({
@@ -33,28 +32,21 @@ class BlocListeners extends StatelessWidget {
             /// Torrent listener
             final torrentBloc = BlocProvider.of<TorrentBloc>(context);
 
-            if (torrentBloc.repository is EmptyRepository &&
-                    settings.torrentType != TorrentType.none ||
-                torrentBloc.repository is TransmissionRepository &&
-                    settings.torrentType != TorrentType.transmission ||
-                torrentBloc.repository is QBitTorrentRepository &&
-                    settings.torrentType != TorrentType.qbittorrent) {
-              torrentBloc.add(
-                TorrentSettingsUpdated(
-                  transmissionSettings:
-                      settings.torrentType == TorrentType.transmission
-                          ? settings.transmissionSettings
-                          : null,
-                  qBitTorrentSettings:
-                      settings.torrentType == TorrentType.qbittorrent
-                          ? settings.qBitTorrentSettings
-                          : null,
-                  torrestSettings: settings.torrentType == TorrentType.torrest
-                      ? settings.torrestSettings
-                      : null,
-                ),
-              );
-            }
+            torrentBloc.add(
+              TorrentSettingsUpdated(
+                transmissionSettings:
+                    settings.torrentType == TorrentType.transmission
+                        ? settings.transmissionSettings
+                        : null,
+                qBitTorrentSettings:
+                    settings.torrentType == TorrentType.qbittorrent
+                        ? settings.qBitTorrentSettings
+                        : null,
+                torrestSettings: settings.torrentType == TorrentType.torrest
+                    ? settings.torrestSettings
+                    : null,
+              ),
+            );
           },
         ),
         BlocListener<ConnectivityBloc, ConnectivityState>(

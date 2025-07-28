@@ -1,3 +1,4 @@
+import 'package:anikki/app/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -21,17 +22,27 @@ class TorrentTile extends StatelessWidget {
     return ListTile(
       dense: true,
       onTap: () async {
+        final bloc = BlocProvider.of<TorrentBloc>(context);
         final state = BlocProvider.of<DownloaderBloc>(context).state;
+        final settings = BlocProvider.of<SettingsBloc>(context).state.settings;
 
         final isStreaming =
             state is DownloaderSuccess ? state.isStreaming : false;
         final media = state is DownloaderSuccess ? state.media : null;
 
         if (!isStreaming) {
-          return openInBrowser(torrent.magnet);
+          if (settings.torrentType == TorrentType.torrest) {
+            return bloc.add(
+              TorrentAddTorrent(
+                magnet: torrent.magnet,
+                stream: isStreaming,
+                callback: (Torrent torrent) async {},
+              ),
+            );
+          } else {
+            return openInBrowser(torrent.magnet);
+          }
         }
-
-        final bloc = BlocProvider.of<TorrentBloc>(context);
 
         if (bloc.state is TorrentCannotLoad) {
           return showDialog(

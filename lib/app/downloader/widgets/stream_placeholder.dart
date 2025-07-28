@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:anitomy/anitomy.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:media_kit/media_kit.dart' as mk;
 
 import 'package:anikki/app/torrent/bloc/torrent_bloc.dart';
 import 'package:anikki/core/core.dart';
@@ -28,31 +31,83 @@ class _StreamPlaceholderState extends State<StreamPlaceholder> {
   bool startedFile = false;
   late TorrentBloc torrentBloc;
 
+  Future<void> startTorrest(BuildContext context) async {
+    if (torrentBloc.repository is! TorrestRepository) return;
+
+    final uri = await TorrestRepository.getStreamUrl(
+      torrentBloc.repository as TorrestRepository,
+      widget.torrent,
+    );
+
+    if (!context.mounted) return;
+
+    final parsedTitle = Anitomy(
+      inputString: widget.torrent.name,
+    );
+
+    VideoPlayerRepository.startOnlinePlay(
+      context: context,
+      torrent: widget.torrent,
+      playlist: [
+        mk.Media(
+          uri.toString(),
+          extras: {
+            'title': parsedTitle.episode != null
+                ? widget.media
+                    ?.getEpisodeInfo(parsedTitle.episode!)
+                    ?.formattedTitle
+                : widget.torrent.name,
+            'episodeNumber': parsedTitle.episode,
+          },
+        ),
+      ],
+      media: widget.media ?? Media(),
+    );
+  }
+
   void onTorrentBlocChange(BuildContext context, TorrentState state) {
     torrentBloc = BlocProvider.of<TorrentBloc>(context);
+    final isTorrest = torrentBloc.isTorrest;
 
     if (state is! TorrentLoaded) return;
 
-    final hash = Uri.parse(widget.torrent.magnet).queryParameters['xt'];
+    final hash = isTorrest
+        ? widget.torrent.hash
+        : Uri.parse(widget.torrent.magnet).queryParameters['xt'];
     final torrent = state.torrents.firstWhereOrNull(
-      (element) => Uri.parse(element.magnet).queryParameters['xt'] == hash,
+      (element) =>
+          (isTorrest
+              ? element.hash
+              : Uri.parse(element.magnet).queryParameters['xt']) ==
+          hash,
     );
 
     if (torrent == null) return;
 
-    final file = File(torrent.path);
+    if (!isTorrest) {
+      final file = File(torrent.path);
 
-    if (!file.existsSync()) return;
+      if (!file.existsSync()) return;
+    }
 
     final minProgress = torrentBloc.isTransmission
         ? 0.1
         : torrentBloc.isQBitTorrent
             ? 0.03
-            : 1;
+            : torrentBloc.isTorrest
+                ? 0.05
+                : 1;
 
     if (torrent.progress < minProgress) return;
 
     startedFile = true;
+
+    if (torrentBloc.isTorrest) {
+      startTorrest(context);
+      Navigator.of(context).pop();
+      return;
+    }
+
     VideoPlayerRepository.playFile(
       context: context,
       playlist: [

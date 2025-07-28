@@ -4,35 +4,40 @@ import 'package:equatable/equatable.dart';
 
 class TorrestSettings extends Equatable {
   final int port;
+  final String? downloadPath;
 
   const TorrestSettings({
     this.port = 15666,
+    this.downloadPath,
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         port,
+        downloadPath,
       ];
 
   TorrestSettings copyWith({
     int? port,
-    String? scheme,
-    String? host,
+    String? downloadPath,
   }) {
     return TorrestSettings(
       port: port ?? this.port,
+      downloadPath: downloadPath ?? this.downloadPath,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'port': port,
+      'downloadPath': downloadPath,
     };
   }
 
   factory TorrestSettings.fromMap(Map<String, dynamic> map) {
     return TorrestSettings(
       port: map['port'] as int,
+      downloadPath: map['download_path'] as String?,
     );
   }
 
