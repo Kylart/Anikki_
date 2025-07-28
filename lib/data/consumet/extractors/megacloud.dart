@@ -120,6 +120,18 @@ class MegaCloud extends Extractor {
     final introEnd = rawSourceData['intro']['end'] as int?;
     final outroStart = rawSourceData['outro']['start'] as int?;
     final outroEnd = rawSourceData['outro']['end'] as int?;
+    final tracks = rawSourceData['tracks'] as List<dynamic>;
+    final subtitles =
+        tracks.where((track) => track['kind'] == 'captions').map((track) {
+      final file = track['file'] as String;
+      final label = track['label'] as String?;
+      return VideoSubtitle(
+        url: file,
+        lang: label ?? 'unknown',
+        isDefault: track['default'] as bool? ?? false,
+        id: label,
+      );
+    }).toList();
 
     return <VideoSource>[
       VideoSource(
@@ -129,6 +141,7 @@ class MegaCloud extends Extractor {
         introEnd: introEnd,
         outroStart: outroStart,
         outroEnd: outroEnd,
+        subtitles: subtitles,
       ),
     ];
   }
