@@ -4,6 +4,7 @@ import 'package:media_kit/media_kit.dart';
 
 import 'package:anikki/app/video_player/bloc/video_player_bloc.dart';
 import 'package:anikki/app/video_player/widgets/player_controls/player_controls.dart';
+import 'package:anikki/app/video_player/widgets/player_controls/player_loading.dart';
 import 'package:anikki/app/video_player/widgets/player_widget.dart';
 import 'package:anikki/core/core.dart' as core;
 
@@ -90,6 +91,11 @@ class _VideoPlayerViewState extends State<VideoPlayerView>
             Positioned.fill(
               child: PlayerControls(
                 smallControls: widget.forceSmallControls,
+                player: player,
+              ),
+            ),
+            Positioned.fill(
+              child: PlayerLoading(
                 player: player,
               ),
             ),
