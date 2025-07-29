@@ -33,3 +33,19 @@ final class LayoutDrawerMediaChanged extends LayoutEvent {
         libraryEntry,
       ];
 }
+
+final class LayoutLeftDrawerTypeChanged extends LayoutEvent {
+  const LayoutLeftDrawerTypeChanged({
+    required this.type,
+    this.callback,
+  });
+
+  final LeftDrawerType type;
+  final void Function()? callback;
+
+  @override
+  List<Object?> get props => [
+        type,
+        callback,
+      ];
+}

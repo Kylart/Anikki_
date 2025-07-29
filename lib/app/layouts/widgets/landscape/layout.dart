@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:anikki/core/widgets/left_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,7 +8,6 @@ import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/app/layouts/shared/helpers/page.dart';
 import 'package:anikki/app/layouts/widgets/landscape/drawer_content/drawer_content.dart';
 import 'package:anikki/app/layouts/widgets/landscape/navigation_rail.dart';
-import 'package:anikki/app/search/view/search_view.dart';
 import 'package:anikki/core/core.dart';
 import 'package:anikki/core/widgets/macos_title_bar.dart';
 
@@ -40,7 +40,7 @@ class _LandscapeLayoutState extends State<LandscapeLayout> {
           child: Scaffold(
             drawer: Drawer(
               width: (MediaQuery.of(context).size.width / 3).clamp(550, 1000),
-              child: const SearchView(),
+              child: const LeftDrawer(),
             ),
             endDrawer: Drawer(
               width: (MediaQuery.of(context).size.width / 2).clamp(750, 1250),

@@ -1,7 +1,9 @@
+import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:simple_icons/simple_icons.dart';
 
@@ -62,17 +64,40 @@ class _AnikkiNavigationRailState extends State<AnikkiNavigationRail> {
           expanded: expanded,
           icon: HugeIcons.strokeRoundedSearch01,
           text: 'Search',
-          onClick: Scaffold.of(context).openDrawer,
+          onClick: () {
+            BlocProvider.of<LayoutBloc>(context).add(
+              LayoutLeftDrawerTypeChanged(
+                type: LeftDrawerType.search,
+                callback: Scaffold.of(context).openDrawer,
+              ),
+            );
+          },
         ),
         _NavigationRailItem(
           expanded: expanded,
           icon: HugeIcons.strokeRoundedCalendar03,
-          text: 'Agenda',
+          text: 'Schedule',
+          onClick: () {
+            BlocProvider.of<LayoutBloc>(context).add(
+              LayoutLeftDrawerTypeChanged(
+                type: LeftDrawerType.schedule,
+                callback: Scaffold.of(context).openDrawer,
+              ),
+            );
+          },
         ),
         _NavigationRailItem(
           expanded: expanded,
           icon: HugeIcons.strokeRoundedClock04,
           text: 'History',
+          onClick: () {
+            BlocProvider.of<LayoutBloc>(context).add(
+              LayoutLeftDrawerTypeChanged(
+                type: LeftDrawerType.history,
+                callback: Scaffold.of(context).openDrawer,
+              ),
+            );
+          },
         ),
       ];
 

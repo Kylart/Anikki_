@@ -15,11 +15,13 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
         emit(LayoutLandscape(
           drawerMedia: state.drawerMedia,
           drawerLibraryEntry: state.drawerLibraryEntry,
+          leftDrawerType: state.leftDrawerType,
         ));
       } else {
         emit(LayoutPortrait(
           drawerMedia: state.drawerMedia,
           drawerLibraryEntry: state.drawerLibraryEntry,
+          leftDrawerType: state.leftDrawerType,
         ));
       }
     });
@@ -30,13 +32,36 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
           LayoutLandscape() => LayoutLandscape(
               drawerMedia: event.media,
               drawerLibraryEntry: event.libraryEntry,
+              leftDrawerType: state.leftDrawerType,
             ),
           LayoutPortrait() => LayoutPortrait(
               drawerMedia: event.media,
               drawerLibraryEntry: event.libraryEntry,
+              leftDrawerType: state.leftDrawerType,
             ),
         },
       );
+    });
+
+    on<LayoutLeftDrawerTypeChanged>((event, emit) {
+      emit(
+        switch (state) {
+          LayoutLandscape() => LayoutLandscape(
+              drawerMedia: state.drawerMedia,
+              drawerLibraryEntry: state.drawerLibraryEntry,
+              leftDrawerType: event.type,
+            ),
+          LayoutPortrait() => LayoutPortrait(
+              drawerMedia: state.drawerMedia,
+              drawerLibraryEntry: state.drawerLibraryEntry,
+              leftDrawerType: event.type,
+            ),
+        },
+      );
+
+      if (event.callback != null) {
+        event.callback!();
+      }
     });
   }
 }
