@@ -11,6 +11,7 @@ export 'media/media.dart';
 export 'media_list_entry.dart';
 export 'news_entry.dart';
 export 'qbittorrent_settings.dart';
+export 'schedule_entry.dart';
 export 'search_result.dart';
 export 'settings.dart';
 export 'stream_settings.dart';

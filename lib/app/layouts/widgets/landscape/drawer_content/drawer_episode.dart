@@ -32,27 +32,8 @@ class DrawerEpisode extends StatelessWidget {
       fontWeight: FontWeight.bold,
     );
 
-    final tmdbSeason = media?.tmdbInfo?.tmdbSeasons?.firstWhereOrNull(
-      (season) => season.seasonNumber == seasonNumber,
-    );
-
-    final tmdbInfo = tmdbSeason?.episodes?.firstWhereOrNull(
-      (episode) => episode.episodeNumber == episodeNumber,
-    );
-
-    final anilistInfo = media?.anilistInfo?.streamingEpisodes?.firstWhereOrNull(
-      (element) =>
-          element?.title?.split(' - ').firstOrNull == 'Episode $episodeNumber',
-    );
-
-    final episodeTitle =
-        anilistInfo?.title?.split(' - ').sublist(1).join(' - ') ??
-            tmdbInfo?.name;
-
-    final thumbnail = anilistInfo?.thumbnail ??
-        (tmdbInfo?.stillPath == null
-            ? null
-            : getTmdbImageUrl(tmdbInfo!.stillPath!));
+    final episodeInfo =
+        (media ?? localFile?.media)?.getEpisodeInfo(episodeNumber);
 
     return InkWell(
       borderRadius: const BorderRadius.all(Radius.circular(12.0)),
@@ -98,11 +79,11 @@ class DrawerEpisode extends StatelessWidget {
                     builder: (context, state) {
                       return CircleAvatar(
                         radius: 32,
-                        backgroundImage: (thumbnail == null
+                        backgroundImage: (episodeInfo?.thumbnail == null
                             ? const AssetImage(
                                 'assets/images/cover_placeholder.jpg')
                             : CachedNetworkImageProvider(
-                                thumbnail,
+                                episodeInfo!.thumbnail!,
                               )) as ImageProvider,
                       );
                     },
@@ -114,13 +95,13 @@ class DrawerEpisode extends StatelessWidget {
                       horizontal: 12.0,
                       vertical: portrait ? 0 : 24.0,
                     ),
-                    child: episodeTitle != null
+                    child: episodeInfo?.title != null
                         ? Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AutoSizeText(
-                                episodeTitle,
+                                episodeInfo!.title!,
                                 maxLines: 2,
                                 style: episodeTextStyle,
                                 overflow: TextOverflow.ellipsis,

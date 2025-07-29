@@ -1,3 +1,4 @@
+import 'package:anikki/app/schedule/bloc/schedule_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -91,6 +92,15 @@ class AnikkiBlocProvider extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => SearchBloc(animeSearchRepository),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) => ScheduleBloc(feedRepository)
+              ..add(
+                ScheduleRefreshed(
+                  range: feedRepository.computeRange(),
+                ),
+              ),
           ),
           BlocProvider(
             create: (context) {
