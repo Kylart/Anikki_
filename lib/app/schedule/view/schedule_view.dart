@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:anikki/app/schedule/bloc/schedule_bloc.dart';
 import 'package:anikki/core/widgets/error_widget.dart';
 import 'package:anikki/core/widgets/loading_widget.dart';
+import 'package:anikki/app/schedule/widgets/schedule_content.dart';
 
 class ScheduleView extends StatelessWidget {
   const ScheduleView({super.key});
@@ -13,8 +14,10 @@ class ScheduleView extends StatelessWidget {
     return BlocBuilder<ScheduleBloc, ScheduleState>(
       builder: (context, state) {
         return switch (state) {
-          ScheduleLoaded() =>
-            Text('Schedule Loaded: ${state.entries.length} entries'),
+          ScheduleLoaded() => ScheduleContent(
+              entries: state.entries,
+              range: state.range,
+            ),
           ScheduleError() => Center(
               child: CustomErrorWidget(
                 title: 'Error loading schedule',

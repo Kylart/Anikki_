@@ -67,7 +67,7 @@ class FeedRepository {
     return DateTimeRange(
       start: DateTime.now(),
       end: DateTime.now()
-          .add(const Duration(days: 7))
+          .add(const Duration(days: 6))
           .copyWith(hour: 23, minute: 59, second: 59),
     );
   }
