@@ -25,8 +25,7 @@ final torrestStatesMap = {
 
 Future<String> _getCPUArchitecture() async {
   if (Platform.isWindows) {
-    var cpu = String.fromEnvironment('PROCESSOR_ARCHITECTURE');
-    return cpu;
+    return 'x64';
   } else {
     var info = await Process.run('uname', ['-m']);
     var cpu = info.stdout.toString().replaceAll('\n', '');
