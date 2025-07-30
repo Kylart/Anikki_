@@ -25,10 +25,16 @@ final torrestStatesMap = {
 
 Future<String> _getCPUArchitecture() async {
   if (Platform.isWindows) {
+    final info = await Process.run('systeminfo | findstr', ['/I', 'type']);
+
+    if (info.stdout.toString().contains('x86')) {
+      return 'x86';
+    }
+
     return 'x64';
   } else {
-    var info = await Process.run('uname', ['-m']);
-    var cpu = info.stdout.toString().replaceAll('\n', '');
+    final info = await Process.run('uname', ['-m']);
+    final cpu = info.stdout.toString().replaceAll('\n', '');
     return cpu;
   }
 }
