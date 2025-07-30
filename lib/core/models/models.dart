@@ -3,6 +3,7 @@ import 'package:anikki/data/data.dart';
 export 'anikki_action.dart';
 export 'consumet_episode.dart';
 export 'downloader_filter.dart';
+export 'history_entry.dart';
 export 'left_drawer_type.dart';
 export 'library_entry.dart';
 export 'library_settings.dart';

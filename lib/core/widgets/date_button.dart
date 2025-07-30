@@ -1,7 +1,10 @@
-part of 'schedule_content.dart';
+import 'package:flutter/material.dart';
 
-class _ScheduleDate extends StatelessWidget {
-  const _ScheduleDate({
+import 'package:anikki/core/core.dart';
+
+class DateButton extends StatelessWidget {
+  const DateButton({
+    super.key,
     required this.date,
     required this.isSelected,
     required this.onTap,
@@ -10,37 +13,6 @@ class _ScheduleDate extends StatelessWidget {
   final DateTime date;
   final bool isSelected;
   final void Function() onTap;
-
-  String getWeekday(int weekday) {
-    return switch (weekday) {
-      1 => 'Monday',
-      2 => 'Tuesday',
-      3 => 'Wednesday',
-      4 => 'Thursday',
-      5 => 'Friday',
-      6 => 'Saturday',
-      7 => 'Sunday',
-      _ => 'Invalid weekday',
-    };
-  }
-
-  String getMonth(int month) {
-    return switch (month) {
-      1 => 'Jan',
-      2 => 'Feb',
-      3 => 'Mar',
-      4 => 'Apr',
-      5 => 'May',
-      6 => 'Jun',
-      7 => 'Jul',
-      8 => 'Aug',
-      9 => 'Sep',
-      10 => 'Oct',
-      11 => 'Nov',
-      12 => 'Dec',
-      _ => 'Invalid month',
-    };
-  }
 
   @override
   Widget build(BuildContext context) {

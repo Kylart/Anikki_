@@ -1,10 +1,11 @@
+import 'package:anikki/core/widgets/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/date_button.dart';
 import 'package:anikki/core/widgets/entry_card/entry_card.dart';
 
-part 'schedule_date.dart';
 part 'schedule_dates.dart';
 part 'schedule_entries.dart';
 
@@ -46,6 +47,15 @@ class _ScheduleContentState extends State<ScheduleContent> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.entries.isEmpty) {
+      return const Center(
+        child: EmptyWidget(
+          title: 'No Schedule',
+          subtitle: 'There is nothing scheduled for this day',
+        ),
+      );
+    }
+
     return Row(
       children: [
         Padding(

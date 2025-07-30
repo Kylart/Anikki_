@@ -84,7 +84,7 @@ mixin MediaEpisodes on IMedia {
             ),
       ];
 
-  EpisodeInfo? getEpisodeInfo(int episodeNumber) =>
+  EpisodeInfo? getEpisodeInfo(int? episodeNumber) =>
       episodeInfos.firstWhereOrNull(
         (episode) => episode.episodeNumber == episodeNumber,
       );

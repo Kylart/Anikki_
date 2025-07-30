@@ -65,7 +65,7 @@ class FeedRepository {
   /// Helper method to compute the default range for a schedule
   DateTimeRange computeRange() {
     return DateTimeRange(
-      start: DateTime.now(),
+      start: DateTime.now().copyWith(hour: 0, minute: 0, second: 0),
       end: DateTime.now()
           .add(const Duration(days: 6))
           .copyWith(hour: 23, minute: 59, second: 59),

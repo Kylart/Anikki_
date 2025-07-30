@@ -1,3 +1,4 @@
+import 'package:anikki/app/history/bloc/history_bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,53 @@ import 'package:anikki/app/torrent/bloc/torrent_bloc.dart';
 import 'package:anikki/app/video_player/bloc/video_player_bloc.dart';
 import 'package:anikki/core/core.dart';
 import 'package:anikki/data/data.dart';
+
+void _onVideoComplete({
+  required Media media,
+  mk.Media? mkMedia,
+  double? progress,
+  LocalFile? file,
+  Torrent? torrent,
+  required WatchListBloc watchListBloc,
+  required HistoryBloc historyBloc,
+  required TorrentBloc torrentBloc,
+}) {
+  if (torrent != null) {
+    torrentBloc.add(
+      TorrentRemoveTorrent(torrent, true),
+    );
+  }
+
+  if (progress != null && progress < kVideoMinCompletedProgress) return;
+
+  final episode = mkMedia?.extras?['episodeNumber'] as int? ?? file?.episode;
+
+  final text = mkMedia?.extras?['title'] ??
+      media.getEpisodeInfo(episode)?.formattedTitle ??
+      [
+        media.title,
+        if (episode != null) '- Episode $episode',
+      ].join('');
+
+  historyBloc.add(
+    HistoryEntryAdded(
+      HistoryEntry(
+        date: DateTime.now(),
+        episode: episode,
+        text: text,
+      ),
+    ),
+  );
+
+  if (episode == null) return;
+
+  watchListBloc.add(
+    WatchListWatched(
+      media: media,
+      episode: episode,
+    ),
+  );
+}
 
 /// Repository to handle video player needs
 class VideoPlayerRepository {
@@ -55,29 +103,36 @@ class VideoPlayerRepository {
     final torrentBloc = BlocProvider.of<TorrentBloc>(context);
     final videoBloc = BlocProvider.of<VideoPlayerBloc>(context);
     final watchListBloc = BlocProvider.of<WatchListBloc>(context);
+    final historyBloc = BlocProvider.of<HistoryBloc>(context);
 
     videoBloc.add(
       VideoPlayerPlayRequested(
         context: context,
-        sources: playlist,
+
+        /// Hydrating mkMedia with the title of the episode
+        sources: playlist
+            .map(
+              (source) => source.copyWith(
+                extras: {
+                  ...source.extras ?? {},
+                  'title': media
+                          .getEpisodeInfo(
+                              source.extras?['episodeNumber'] as int?)
+                          ?.formattedTitle ??
+                      media.title,
+                },
+              ),
+            )
+            .toList(),
         onVideoComplete: (mkMedia, progress) {
-          if (torrent != null) {
-            torrentBloc.add(
-              TorrentRemoveTorrent(torrent, true),
-            );
-          }
-
-          if (progress < kVideoMinCompletedProgress) return;
-
-          final episode = mkMedia.extras?['episodeNumber'] as int?;
-
-          if (episode == null) return;
-
-          watchListBloc.add(
-            WatchListWatched(
-              media: media,
-              episode: episode,
-            ),
+          _onVideoComplete(
+            media: media,
+            mkMedia: mkMedia,
+            progress: progress,
+            torrent: torrent,
+            watchListBloc: watchListBloc,
+            historyBloc: historyBloc,
+            torrentBloc: torrentBloc,
           );
         },
       ),
@@ -94,6 +149,7 @@ class VideoPlayerRepository {
     final videoBloc = BlocProvider.of<VideoPlayerBloc>(context);
     final watchListBloc = BlocProvider.of<WatchListBloc>(context);
     final torrentBloc = BlocProvider.of<TorrentBloc>(context);
+    final historyBloc = BlocProvider.of<HistoryBloc>(context);
 
     videoBloc.add(
       VideoPlayerPlayRequested(
@@ -101,31 +157,20 @@ class VideoPlayerRepository {
         first: file,
         sources: playlist,
         onVideoComplete: (mkMedia, progress) async {
-          if (torrent != null) {
-            torrentBloc.add(
-              TorrentRemoveTorrent(torrent, true),
-            );
-          }
-
-          if (media == null && file?.media == null) return;
-          if (progress < kVideoMinCompletedProgress) return;
-
           final currentFile = await LocalFile.createAndSearchMedia(mkMedia.uri);
-
           media ??= currentFile.media;
 
           if (media == null) return;
 
-          final episode = currentFile.episode ??
-              int.tryParse(
-                mkMedia.extras?['title']?.split('Episode ')?.lastOrNull,
-              );
-
-          watchListBloc.add(
-            WatchListWatched(
-              media: media!,
-              episode: episode,
-            ),
+          _onVideoComplete(
+            media: media!,
+            mkMedia: mkMedia,
+            progress: progress,
+            file: currentFile,
+            torrent: torrent,
+            watchListBloc: watchListBloc,
+            historyBloc: historyBloc,
+            torrentBloc: torrentBloc,
           );
         },
       ),
@@ -148,10 +193,14 @@ class VideoPlayerRepository {
       final path = file?.path ?? playlist.first.uri;
 
       if (file != null && file.media != null) {
-        BlocProvider.of<WatchListBloc>(context).add(
-          WatchListWatched(
-            media: file.media!,
-          ),
+        _onVideoComplete(
+          media: file.media!,
+          mkMedia: playlist.first,
+          progress: 1.0,
+          file: file,
+          watchListBloc: BlocProvider.of<WatchListBloc>(context),
+          historyBloc: BlocProvider.of<HistoryBloc>(context),
+          torrentBloc: BlocProvider.of<TorrentBloc>(context),
         );
       }
 

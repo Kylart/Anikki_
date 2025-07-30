@@ -21,7 +21,7 @@ class _ScheduleDates extends StatelessWidget {
           for (var currentDate = range.start;
               currentDate.isBefore(range.end);
               currentDate = currentDate.add(const Duration(days: 1)))
-            _ScheduleDate(
+            DateButton(
               date: currentDate,
               isSelected: currentDate == selectedDate,
               onTap: () => onDateSelected(currentDate),

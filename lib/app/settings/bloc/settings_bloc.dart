@@ -8,8 +8,9 @@ part 'settings_event.dart';
 part 'settings_state.dart';
 
 class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
-  SettingsBloc([Settings? settings])
-      : super(
+  SettingsBloc([
+    Settings? settings,
+  ]) : super(
           SettingsState(
             settings ?? const Settings(),
           ),

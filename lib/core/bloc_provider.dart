@@ -2,9 +2,10 @@ import 'package:anikki/app/schedule/bloc/schedule_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
+import 'package:anikki/app/history/bloc/history_bloc.dart';
 import 'package:anikki/app/provider_auth/bloc/provider_auth_bloc.dart';
 import 'package:anikki/app/watch_list/bloc/watch_list_bloc.dart';
-import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/home/bloc/home_bloc.dart';
 import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/app/library/bloc/library_bloc.dart';
@@ -83,6 +84,9 @@ class AnikkiBlocProvider extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => WatchListBloc(userListRepository),
+          ),
+          BlocProvider(
+            create: (context) => HistoryBloc(),
           ),
           BlocProvider(
             create: (context) => HomeBloc(
