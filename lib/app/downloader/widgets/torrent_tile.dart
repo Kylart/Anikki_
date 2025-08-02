@@ -32,13 +32,17 @@ class TorrentTile extends StatelessWidget {
 
         if (!isStreaming) {
           if (settings.torrentType == TorrentType.torrest) {
-            return bloc.add(
+            bloc.add(
               TorrentAddTorrent(
                 magnet: torrent.magnet,
                 stream: isStreaming,
                 callback: (Torrent torrent) async {},
               ),
             );
+
+            Navigator.of(context).pop();
+
+            return;
           } else {
             return openInBrowser(torrent.magnet);
           }
