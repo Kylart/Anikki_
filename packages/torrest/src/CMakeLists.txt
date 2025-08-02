@@ -13,6 +13,15 @@ add_subdirectory(lib)
 add_library(anitorrest SHARED bindings.cpp)
 target_link_libraries(anitorrest PRIVATE torrest)
 
+# Instead, add torrest object files
+target_sources(anitorrest PRIVATE $<TARGET_OBJECTS:torrest>)
+
+# Also inherit torrest's include directories
+target_include_directories(anitorrest
+    PRIVATE
+        $<TARGET_PROPERTY:torrest,INCLUDE_DIRECTORIES>
+)
+
 # Optionally, set the output name and location
 set_target_properties(anitorrest PROPERTIES OUTPUT_NAME "anitorrest")
 

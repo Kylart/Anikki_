@@ -60,10 +60,14 @@ Future<String> _getDylibPath() async {
   final libName = await _getlibName();
 
   final asset = await rootBundle.load('assets/torrest/$libName');
-  final applicationsDirectory = await getTemporaryDirectory();
+  final applicationsDirectory = await getApplicationDocumentsDirectory();
 
   final dylibPath = join(applicationsDirectory.path, 'anikki', libName);
   final file = File(dylibPath);
+
+  if (await file.exists()) {
+    await file.delete();
+  }
 
   await file.create(recursive: true);
   await file.writeAsBytes(asset.buffer.asUint8List());
@@ -266,19 +270,78 @@ class TorrestRepository extends TorrentRepository {
   }
 
   Future<void> setDownloadPath(String path) async {
-    await _put('/settings', body: {
-      'download_path': path,
-      'torrent_path': join(path, 'torrents'),
-    });
+    final currentSettings = await _get('/settings');
+    await _put(
+      '/settings',
+      body: {
+        ...currentSettings,
+        'download_path': path,
+        'torrent_path': join(path, 'torrents'),
+      },
+    );
   }
 
   static Future<Torrest> startServer(int port) async {
     final baseDir = await getApplicationDocumentsDirectory();
+    final downloadDir = (await getDownloadsDirectory())?.path ?? 'downloads';
+
+    final logsPath = join(baseDir.path, 'anikki', 'torrest', 'logs.json');
+    final settingsPath =
+        join(baseDir.path, 'anikki', 'torrest', 'settings.json');
+
+    /// Creates default settings file if it does not exist
+    final settingsFile = File(settingsPath);
+    if (!await settingsFile.exists()) {
+      await settingsFile.create(recursive: true);
+      await settingsFile.writeAsString(
+        jsonEncode(
+          {
+            "active_checking_limit": 1,
+            "active_dht_limit": 88,
+            "active_downloads_limit": 3,
+            "active_limit": 500,
+            "active_lsd_limit": 60,
+            "active_seeds_limit": 5,
+            "active_tracker_limit": 1600,
+            "alerts_log_level": 5,
+            "api_log_level": 4,
+            "buffer_size": 20971520,
+            "check_available_space": true,
+            "connections_limit": 0,
+            "disable_dht": false,
+            "disable_lsd": false,
+            "disable_natpmp": false,
+            "disable_upnp": false,
+            "download_path": downloadDir,
+            "encryption_policy": 0,
+            "limit_after_buffering": false,
+            "listen_interfaces": "",
+            "listen_port": 6889,
+            "max_download_rate": 0,
+            "max_upload_rate": 0,
+            "outgoing_interfaces": "",
+            "piece_expiration": 5,
+            "piece_wait_timeout": 60,
+            "proxy": null,
+            "seed_time_limit": 0,
+            "seed_time_ratio_limit": 0,
+            "service_log_level": 2,
+            "session_save": 30,
+            "share_ratio_limit": 0,
+            "torrents_path": "$downloadDir/torrents",
+            "tuned_storage": false,
+            "user_agent": "",
+            "write_mode": 0
+          },
+        ),
+      );
+    }
 
     final torrest = await Torrest.init(
       await _getDylibPath(),
       port,
-      join(baseDir.path, 'anikki', 'torrest_settings.json'),
+      settingsPath,
+      logsPath,
     );
 
     torrest.start();

@@ -1,3 +1,37 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4e76fa3..8e4c068 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,7 +52,11 @@ set(torrest_sources
+ 
+ if (build_library)
+     feature_option(BUILD_SHARED_LIBS "Build torrest as a shared library" ON)
+-    add_library(torrest ${torrest_sources})
++    add_library(torrest OBJECT ${torrest_sources})
++
++    # Ensure -fPIC is used when compiling object files
++    set_target_properties(torrest PROPERTIES POSITION_INDEPENDENT_CODE ON)
++
+     target_compile_definitions(torrest PUBLIC TORREST_LIBRARY)
+ else ()
+     add_executable(torrest ${torrest_sources})
+@@ -94,10 +98,10 @@ if (LibtorrentRasterbar_VERSION VERSION_GREATER_EQUAL 2 AND legacy_read_piece)
+     message(WARNING "legacy_read_piece not supported on libtorrent ${LibtorrentRasterbar_VERSION}")
+ endif ()
+ 
+-add_feature_info(target_path target_path "Path where to copy the target")
+-if (DEFINED target_path)
+-    add_custom_command(TARGET torrest POST_BUILD
+-            COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:torrest>" "${target_path}")
+-endif ()
++# add_feature_info(target_path target_path "Path where to copy the target")
++# if (DEFINED target_path)
++#     add_custom_command(TARGET torrest POST_BUILD
++#             COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:torrest>" "${target_path}")
++# endif ()
+ 
+-feature_summary(DEFAULT_DESCRIPTION WHAT ALL)
++# feature_summary(DEFAULT_DESCRIPTION WHAT ALL)
 diff --git a/docker/Makefile b/docker/Makefile
 index 5b97fe4..41b68ec 100644
 --- a/docker/Makefile

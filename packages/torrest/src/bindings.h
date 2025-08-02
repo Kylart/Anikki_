@@ -6,8 +6,9 @@
 
 #include <iostream>
 #include "lib/bindings/c/libtorrest.h"
+#include "lib/src/utils/log.h"
 
 extern "C"
 {
-  int start_async_server(uint16_t port, char* settings_path, int global_log_level);
+  int start_async_server(uint16_t port, char *settings_path, char *logs_path);
 }
