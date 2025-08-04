@@ -19,11 +19,13 @@
 * Embedded player (with [media_kit](https://github.com/alexmercerind/media_kit))
 * Search for any torrent on [nyaa.si](https://nyaa.si)
 * Search for any anime, staff or character information
-* Remote torrent client connection for [Transmission](https://transmissionbt.com) and [QBitTorrent](https://www.qbittorrent.org)
-  * QBitTorrent is recommended for a smoother streaming experience.
+* Remote torrent client connection for [Transmission](https://transmissionbt.com), [QBitTorrent](https://www.qbittorrent.org) or built-in Anikki Torrent client
+  * Anikki Torrent is recommended for a smoother streaming experience.
+* Anime scheudle for next week to come
+* Local watch history
 * More to come?
 
-## Building
+## Setup
 
 1. Install [Flutter](https://flutter.dev) for you platform
 2. Clone this repo
@@ -33,7 +35,21 @@ git clone --recursive https://github.com/Kylart/Anikki
 
 cd Anikki
 cp .env.example .env
+```
 
+### If you want to develop with Anikki Torrent (Torrest)
+```shell
+# On Windows
+# "windows-x64" or "windows-x86" can be used depending on arch
+cd scripts && ./setup.bat <platform> && cd ..
+
+# On any other platform
+# platform can be android-arm64", "android-x86", "android-x64", "ios-arm64", "ios-x64", "darwin-x64", "darwin-arm64", "linux-x64", "linux-arm64", "linux-armv7" or "linux-x86
+cd scripts && ./setup.sh <platform> && cd ..
+```
+
+## Building
+```bash
 flutter build <platform>
 ```
 
@@ -43,7 +59,7 @@ flutter build <platform>
 flutter run
 ```
 
-###  To re-generate Anilist schema and classes
+### To re-generate Anilist schema and classes
 You will need [nodejs](https://nodejs.org) installed.
 
 ```bash

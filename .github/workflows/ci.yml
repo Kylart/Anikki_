@@ -48,8 +48,17 @@ jobs:
       - name: "Setup build tools"
         run: dart pub global activate flutter_distributor
 
-      - name: "Release build"
-        run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup.exe
+      - name: Assets setup windows x64
+        run: cd scripts; call scripts\setup.bat windows-x64; cd ..
+
+      - name: "Release build x64"
+        run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x64.exe
+
+      - name: Assets setup windows x86
+        run: git checkout .; cd scripts; call scripts\setup.bat windows-x86; cd ..
+
+      - name: "Release build x86"
+        run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x86.exe
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
@@ -116,8 +125,29 @@ jobs:
       - name: "Setup build tools"
         run: dart pub global activate flutter_distributor
 
-      - name: "Release build - deb"
-        run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki.deb
+      - name: Assets setup linux x64
+        run: cd scripts && call scripts\setup.sh linux-x64 && cd ..
+
+      - name: "Release build - deb x64"
+        run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_x64.deb
+
+      - name: Assets setup linux x86
+        run: git checkout . && cd scripts && call scripts\setup.sh linux-x86 && cd ..
+
+      - name: "Release build - deb x86"
+        run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_x86.deb
+
+      - name: Assets setup linux arm64
+        run: git checkout . && cd scripts && call scripts\setup.sh linux-arm64 && cd ..
+
+      - name: "Release build - deb arm64"
+        run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_arm64.deb
+
+      - name: Assets setup linux armv7
+        run: git checkout . && cd scripts && call scripts\setup.sh linux-armv7 && cd ..
+
+      - name: "Release build - deb armv7"
+        run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_armv7.deb
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
@@ -155,11 +185,32 @@ jobs:
       - name: "Setup build tools"
         run: dart pub global activate flutter_distributor
 
+      - name: "Assets setup x64"
+        run: cd scripts && call scripts\setup.sh android-x64 && cd ..
+
       - name: "Release build - apk"
-        run: flutter_distributor package --platform android --targets apk --artifact-name=anikki.apk
+        run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_x64.apk
 
       - name: "Release build - aab"
-        run: flutter_distributor package --platform android --targets aab --artifact-name=anikki.aab
+        run: flutter_distributor package --platform android --targets aab --artifact-name=anikki_x64.aab
+
+      - name: "Assets setup x86"
+        run: git checkout . && cd scripts && call scripts\setup.sh android-x86 && cd ..
+
+      - name: "Release build - apk"
+        run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_x86.apk
+
+      - name: "Release build - aab"
+        run: flutter_distributor package --platform android --targets aab --artifact-name=anikki_x86.aab
+
+      - name: "Assets setup arm64"
+        run: git checkout . && cd scripts && call scripts\setup.sh android-arm64 && cd ..
+
+      - name: "Release build - apk"
+        run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_arm64.apk
+
+      - name: "Release build - aab"
+        run: flutter_distributor package --platform android --targets aab --artifact-name=anikki_arm64.aab
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
@@ -192,9 +243,9 @@ jobs:
       - name: "Test"
         run: flutter test
 
-  macos-build:
+  macos-build-x64:
     needs: macos-tests
-    runs-on: macos-latest
+    runs-on: macos-15-large
     steps:
       - uses: actions/checkout@v4
         with:
@@ -217,8 +268,49 @@ jobs:
           brew install python-setuptools
           npm install -g appdmg
 
+      - name: Assets setup macos
+        run: cd scripts && call scripts\setup.sh darwin-x64 && cd ..
+
       - name: "Release build"
-        run: flutter_distributor package --platform macos --targets dmg --artifact-name=anikki.dmg
+        run: flutter_distributor package --platform macos --targets dmg --artifact-name=anikki_x64.dmg
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Macos
+          path: dist
+          retention-days: 5
+
+  macos-build-arm64:
+    needs: macos-tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: "true"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      - name: Env setup
+        run: echo "${{ secrets.SECRETS_VARIABLES }}" > .env
+
+      - name: "Config"
+        run: flutter config --enable-macos-desktop
+
+      - name: "Setup build tools"
+        run: |
+          dart pub global activate flutter_distributor
+          brew install python-setuptools
+          npm install -g appdmg
+
+      - name: Assets setup macos
+        run: cd scripts && call scripts\setup.sh darwin-arm64 && cd ..
+
+      - name: "Release build"
+        run: flutter_distributor package --platform macos --targets dmg --artifact-name=anikki_arm64.dmg
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v4
@@ -230,7 +322,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
-    needs: [windows-build, linux-build, macos-build, linux-android-build]
+    needs: [windows-build, linux-build, macos-build-x64, macos-build-arm64, linux-android-build]
     steps:
       - uses: actions/checkout@v4
 
@@ -243,11 +335,20 @@ jobs:
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
 
           mkdir dist
-          mv Windows/${VERSION}/anikki_setup.exe dist/
-          mv Macos/${VERSION}/anikki.dmg dist/
-          mv Linux\ -\ deb/${VERSION}/anikki.deb dist/
-          mv Android/${VERSION}/anikki.aab dist/
-          mv Android/${VERSION}/anikki.apk dist/
+          mv Windows/${VERSION}/anikki_setup_x64.exe dist/
+          mv Windows/${VERSION}/anikki_setup_x86.exe dist/
+          mv Macos/${VERSION}/anikki_x64.dmg dist/
+          mv Macos/${VERSION}/anikki_arm64.dmg dist/
+          mv Linux\ -\ deb/${VERSION}/anikki_x64.deb dist/
+          mv Linux\ -\ deb/${VERSION}/anikki_x86.deb dist/
+          mv Linux\ -\ deb/${VERSION}/anikki_arm64.deb dist/
+          mv Linux\ -\ deb/${VERSION}/anikki_armv7.deb dist/
+          mv Android/${VERSION}/anikki_x64.aab dist/
+          mv Android/${VERSION}/anikki_x64.apk dist/
+          mv Android/${VERSION}/anikki_x86.aab dist/
+          mv Android/${VERSION}/anikki_x86.apk dist/
+          mv Android/${VERSION}/anikki_arm64.aab dist/
+          mv Android/${VERSION}/anikki_arm64.apk dist/
           ls dist
 
       - name: Upload Release
@@ -257,8 +358,13 @@ jobs:
           generate_release_notes: true
           name: v${{ env.VERSION }}
           files: |
-            dist/anikki_setup.exe
-            dist/anikki.dmg
-            dist/anikki.deb
-            dist/anikki.aab
-            dist/anikki.apk
+            dist/anikki_setup_x64.exe
+            dist/anikki_setup_x86.exe
+            dist/anikki_x64.dmg
+            dist/anikki_x86.dmg
+            dist/anikki_x64.deb
+            dist/anikki_x86.deb
+            dist/anikki_arm64.deb
+            dist/anikki_armv7.deb
+            dist/anikki_x64.aab
+            dist/anikki_x64.apk
