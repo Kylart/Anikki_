@@ -114,7 +114,6 @@ flutter:
     - assets/images/jinrui.png
     - assets/images/angry_gabriel.png
     - assets/videos/tohru.gif
-    - assets/torrest/
 
 dart_pre_commit:
   outdated: false
