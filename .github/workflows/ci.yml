@@ -49,13 +49,13 @@ jobs:
         run: dart pub global activate flutter_distributor
 
       - name: Assets setup windows x64
-        run: cd scripts; call scripts\setup.bat windows-x64; cd ..
+        run: cd scripts; .\setup.bat windows-x64; cd ..
 
       - name: "Release build x64"
         run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x64.exe
 
       - name: Assets setup windows x86
-        run: git checkout .; cd scripts; call scripts\setup.bat windows-x86; cd ..
+        run: git checkout .; cd scripts; .\setup.bat windows-x86; cd ..
 
       - name: "Release build x86"
         run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x86.exe
@@ -126,25 +126,25 @@ jobs:
         run: dart pub global activate flutter_distributor
 
       - name: Assets setup linux x64
-        run: cd scripts && ./scripts/setup.sh linux-x64 && cd ..
+        run: cd scripts && ./setup.sh linux-x64 && cd ..
 
       - name: "Release build - deb x64"
         run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_x64.deb
 
       - name: Assets setup linux x86
-        run: git checkout . && cd scripts && ./scripts/setup.sh linux-x86 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh linux-x86 && cd ..
 
       - name: "Release build - deb x86"
         run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_x86.deb
 
       - name: Assets setup linux arm64
-        run: git checkout . && cd scripts && ./scripts/setup.sh linux-arm64 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh linux-arm64 && cd ..
 
       - name: "Release build - deb arm64"
         run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_arm64.deb
 
       - name: Assets setup linux armv7
-        run: git checkout . && cd scripts && ./scripts/setup.sh linux-armv7 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh linux-armv7 && cd ..
 
       - name: "Release build - deb armv7"
         run: flutter_distributor package --platform linux --targets deb --artifact-name=anikki_armv7.deb
@@ -186,7 +186,7 @@ jobs:
         run: dart pub global activate flutter_distributor
 
       - name: "Assets setup x64"
-        run: cd scripts && ./scripts/setup.sh android-x64 && cd ..
+        run: cd scripts && ./setup.sh android-x64 && cd ..
 
       - name: "Release build - apk"
         run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_x64.apk
@@ -195,7 +195,7 @@ jobs:
         run: flutter_distributor package --platform android --targets aab --artifact-name=anikki_x64.aab
 
       - name: "Assets setup x86"
-        run: git checkout . && cd scripts && ./scripts/setup.sh android-x86 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh android-x86 && cd ..
 
       - name: "Release build - apk"
         run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_x86.apk
@@ -204,7 +204,7 @@ jobs:
         run: flutter_distributor package --platform android --targets aab --artifact-name=anikki_x86.aab
 
       - name: "Assets setup arm64"
-        run: git checkout . && cd scripts && ./scripts/setup.sh android-arm64 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh android-arm64 && cd ..
 
       - name: "Release build - apk"
         run: flutter_distributor package --platform android --targets apk --artifact-name=anikki_arm64.apk
@@ -269,13 +269,13 @@ jobs:
           npm install -g appdmg
 
       - name: Assets setup macos
-        run: cd scripts && ./scripts/setup.sh darwin-arm64 && cd ..
+        run: cd scripts && ./setup.sh darwin-arm64 && cd ..
 
       - name: "Release build"
         run: flutter_distributor package --platform macos --targets dmg --artifact-name=anikki_arm64.dmg
 
       - name: Assets setup macos
-        run: git checkout . && cd scripts && ./scripts/setup.sh darwin-x64 && cd ..
+        run: git checkout . && cd scripts && ./setup.sh darwin-x64 && cd ..
 
       - name: "Release build"
         run: flutter_distributor package --platform macos --targets dmg --artifact-name=anikki_x64.dmg
