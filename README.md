@@ -41,7 +41,7 @@ cp .env.example .env
 ```shell
 # On Windows
 # "windows-x64" or "windows-x86" can be used depending on arch
-cd scripts && ./setup.bat <platform> && cd ..
+cd scripts && ./setup.ps1 <platform> && cd ..
 
 # On any other platform
 # platform can be android-arm64", "android-x86", "android-x64", "ios-arm64", "ios-x64", "darwin-x64", "darwin-arm64", "linux-x64", "linux-arm64", "linux-armv7" or "linux-x86

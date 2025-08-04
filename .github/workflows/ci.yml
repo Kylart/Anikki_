@@ -49,13 +49,13 @@ jobs:
         run: dart pub global activate flutter_distributor
 
       - name: Assets setup windows x64
-        run: cd scripts; .\setup.bat windows-x64; cd ..
+        run: cd scripts; .\setup.ps1 windows-x64; cd ..
 
       - name: "Release build x64"
         run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x64.exe
 
       - name: Assets setup windows x86
-        run: git checkout .; cd scripts; .\setup.bat windows-x86; cd ..
+        run: git checkout .; cd scripts; .\setup.ps1 windows-x86; cd ..
 
       - name: "Release build x86"
         run: flutter_distributor package --platform windows --targets exe --artifact-name=anikki_setup_x86.exe
