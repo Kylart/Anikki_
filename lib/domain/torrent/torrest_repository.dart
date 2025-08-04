@@ -3,10 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:system_info2/system_info2.dart';
+import 'package:torrest/torrest.dart';
 
 import 'package:anikki/core/models/torrent/models.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:torrest/torrest.dart';
 
 import 'torrent_repository.dart';
 
@@ -23,23 +24,15 @@ final torrestStatesMap = {
   '9': 'Buffering',
 };
 
-Future<String> _getCPUArchitecture() async {
-  if (Platform.isWindows) {
-    final info = await Process.run(
-      'systeminfo | findstr /I type',
-      [],
-    );
-
-    if (info.stdout.toString().contains('x86')) {
-      return 'x86';
-    }
-
-    return 'x64';
-  } else {
-    final info = await Process.run('uname', ['-m']);
-    final cpu = info.stdout.toString().replaceAll('\n', '');
-    return cpu;
-  }
+Future<String?> _getCPUArchitecture() async {
+  return switch (SysInfo.kernelArchitecture) {
+    ProcessorArchitecture.arm64 => 'arm64',
+    ProcessorArchitecture.arm => 'arm',
+    ProcessorArchitecture.ia64 => 'x64',
+    ProcessorArchitecture.x86 => 'x86',
+    ProcessorArchitecture.x86_64 => 'x64',
+    _ => null,
+  };
 }
 
 Future<String> _getlibName() async {
