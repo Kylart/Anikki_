@@ -25,7 +25,10 @@ final torrestStatesMap = {
 
 Future<String> _getCPUArchitecture() async {
   if (Platform.isWindows) {
-    final info = await Process.run('systeminfo | findstr', ['/I', 'type']);
+    final info = await Process.run(
+      'systeminfo | findstr /I type',
+      [],
+    );
 
     if (info.stdout.toString().contains('x86')) {
       return 'x86';
