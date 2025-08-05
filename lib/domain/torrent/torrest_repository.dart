@@ -10,7 +10,7 @@ import 'package:system_info2/system_info2.dart';
 import 'package:torrest/torrest.dart';
 import 'package:win32/win32.dart';
 
-import 'package:anikki/core/models/torrent/models.dart';
+import 'package:anikki/core/core.dart';
 
 import 'torrent_repository.dart';
 
@@ -96,10 +96,20 @@ Future<String> _getDylibPath() async {
   final file = File(dylibPath);
 
   if (await file.exists()) {
-    await file.delete();
+    await file.delete().catchError(
+      (e) {
+        logger.warning(
+          'Failed to delete torrest previous lib, rewriting it',
+          e,
+        );
+
+        return file;
+      },
+    );
+  } else {
+    await file.create(recursive: true);
   }
 
-  await file.create(recursive: true);
   await file.writeAsBytes(asset.buffer.asUint8List());
 
   return dylibPath;

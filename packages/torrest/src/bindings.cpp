@@ -1,6 +1,6 @@
 #include "bindings.h"
 
-extern "C" int start_async_server(uint16_t port, char *settings_path, char *logs_path)
+EXPORT_C int start_async_server(uint16_t port, char *settings_path, char *logs_path)
 {
   std::cout << "Starting torrest server on port " << port << " with settings path " << settings_path << " and logs path " << logs_path << std::endl;
 
