@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ffi';
 
+import 'package:ffi/ffi.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:system_info2/system_info2.dart';
 import 'package:torrest/torrest.dart';
+import 'package:win32/win32.dart';
 
 import 'package:anikki/core/models/torrent/models.dart';
 
@@ -24,19 +27,50 @@ final torrestStatesMap = {
   '9': 'Buffering',
 };
 
+Future<String> _getWindowsArchitecture() async {
+  if (!Platform.isWindows) throw UnsupportedError('Unsupported platform');
+
+  final systemInfo = calloc<SYSTEM_INFO>();
+
+  try {
+    GetSystemInfo(systemInfo);
+
+    final architecture = systemInfo.ref.wProcessorArchitecture;
+
+    return switch (architecture) {
+      PROCESSOR_ARCHITECTURE_AMD64 ||
+      PROCESSOR_ARCHITECTURE_ARM64 ||
+      PROCESSOR_ARCHITECTURE_ARM ||
+      PROCESSOR_ARCHITECTURE_IA64 =>
+        'x64',
+      PROCESSOR_ARCHITECTURE_INTEL => 'x86',
+
+      /// We set default to x86 on Winodows becuase it can also run on x64
+      _ => 'x86',
+    };
+  } finally {
+    free(systemInfo);
+  }
+}
+
 Future<String?> _getCPUArchitecture() async {
-  return switch (SysInfo.kernelArchitecture) {
-    ProcessorArchitecture.arm64 => 'arm64',
-    ProcessorArchitecture.arm => 'arm',
-    ProcessorArchitecture.ia64 => 'x64',
-    ProcessorArchitecture.x86 => 'x86',
-    ProcessorArchitecture.x86_64 => 'x64',
-    _ => null,
-  };
+  if (Platform.isWindows) {
+    return await _getWindowsArchitecture();
+  } else {
+    return switch (SysInfo.kernelArchitecture) {
+      ProcessorArchitecture.arm64 => 'arm64',
+      ProcessorArchitecture.arm => 'arm',
+      ProcessorArchitecture.ia64 => 'x64',
+      ProcessorArchitecture.x86 => 'x86',
+      ProcessorArchitecture.x86_64 => 'x64',
+      _ => null,
+    };
+  }
 }
 
 Future<String> _getlibName() async {
   final arch = await _getCPUArchitecture();
+
   final baseName = 'libanitorrest';
 
   if (Platform.isMacOS || Platform.isIOS) {
