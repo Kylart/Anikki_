@@ -11,11 +11,7 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
   final ConsumetRepository repository;
 
   StreamHandlerBloc(this.repository)
-      : super(
-          StreamHandlerInitial(
-            media: Media(),
-          ),
-        ) {
+    : super(StreamHandlerInitial(media: Media())) {
     on<StreamHandlerShowRequested>(_onShowRequested);
     on<StreamHandlerCloseRequested>(_onCloseRequested);
     on<StreamHandlerRequested>(_onRequested);
@@ -40,12 +36,7 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
     StreamHandlerCloseRequested event,
     Emitter<StreamHandlerState> emit,
   ) {
-    emit(
-      StreamHandlerClosed(
-        media: event.media,
-        minEpisode: event.minEpisode,
-      ),
-    );
+    emit(StreamHandlerClosed(media: event.media, minEpisode: event.minEpisode));
   }
 
   Future<void> _onRequested(
@@ -61,6 +52,7 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
     );
 
     try {
+      final maxNumberOfEpisodes = 3;
       var term = event.media.romajiTitle;
       var sources = <ConsumetEpisode>[];
 
@@ -68,7 +60,7 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
         sources = await repository.getEpisodeLinks(
           sanitizeName(term),
           minEpisode: event.minEpisode ?? 0,
-          maxLength: 10,
+          maxLength: maxNumberOfEpisodes,
           dubbed: event.videoType == SubOrDub.dub,
         );
       }
@@ -83,7 +75,7 @@ class StreamHandlerBloc extends Bloc<StreamHandlerEvent, StreamHandlerState> {
         sources = await repository.getEpisodeLinks(
           sanitizeName(term),
           minEpisode: event.minEpisode ?? 0,
-          maxLength: 10,
+          maxLength: maxNumberOfEpisodes,
           dubbed: event.videoType == SubOrDub.dub,
         );
       }
