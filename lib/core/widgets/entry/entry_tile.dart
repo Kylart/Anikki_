@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:anikki/app/home/widgets/landscape/home_title/home_title.dart';
+import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/core/core.dart';
 import 'package:anikki/core/widgets/entry/entry_tag.dart';
 
@@ -41,43 +42,44 @@ class _EntryTileState<T> extends State<EntryTile> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: media.anilistInfo?.bannerImage != null
-            ? DecorationImage(
-                opacity: 0.25,
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-                image:
-                    CachedNetworkImageProvider(media.anilistInfo!.bannerImage!),
-              )
-            : const DecorationImage(
-                alignment: Alignment.topCenter,
-                opacity: 0.25,
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/cover_placeholder.jpg'),
-              ),
+        image:
+            media.anilistInfo?.bannerImage != null
+                ? DecorationImage(
+                  opacity: 0.25,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  image: CachedNetworkImageProvider(
+                    media.anilistInfo!.bannerImage!,
+                  ),
+                )
+                : const DecorationImage(
+                  alignment: Alignment.topCenter,
+                  opacity: 0.25,
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/cover_placeholder.jpg'),
+                ),
       ),
-      child: ExpansionTile(
-        controlAffinity: ListTileControlAffinity.platform,
-        childrenPadding: const EdgeInsets.symmetric(
-          horizontal: 8.0,
-          vertical: 4.0,
-        ),
-        title: AutoSizeText(
-          title,
-          maxLines: 2,
-        ),
-        leading: media.coverImage != null
-            ? CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(media.coverImage!),
-              )
-            : null,
+      child: ListTile(
+        onTap: () {
+          BlocProvider.of<LayoutBloc>(
+            context,
+          ).add(LayoutDrawerMediaChanged(media));
+
+          Scaffold.of(context).openEndDrawer();
+        },
+        title: AutoSizeText(title, maxLines: 2),
+        leading:
+            media.coverImage != null
+                ? CircleAvatar(
+                  backgroundImage: CachedNetworkImageProvider(
+                    media.coverImage!,
+                  ),
+                )
+                : null,
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: widget.subtitle,
-            ),
+            Padding(padding: const EdgeInsets.all(4.0), child: widget.subtitle),
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Wrap(
@@ -88,32 +90,19 @@ class _EntryTileState<T> extends State<EntryTile> {
                     ...(media.anilistInfo!.genres!.length > 1
                             ? media.anilistInfo!.genres!.sublist(0, 2)
                             : media.anilistInfo!.genres!)
-                        .map(
-                      (genre) {
-                        return EntryTag(
-                          child: Text(
-                            genre.toString(),
-                            style: const TextStyle(fontSize: 12.0),
-                          ),
-                        );
-                      },
-                    ),
+                        .map((genre) {
+                          return EntryTag(
+                            child: Text(
+                              genre.toString(),
+                              style: const TextStyle(fontSize: 12.0),
+                            ),
+                          );
+                        }),
                 ],
               ),
             ),
           ],
         ),
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              HomeTitleActions(
-                media: widget.media,
-              )
-            ],
-          )
-        ],
       ),
     );
   }
