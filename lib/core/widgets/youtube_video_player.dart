@@ -6,15 +6,13 @@ import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/app/video_player/view/video_player_view.dart';
+import 'package:anikki/core/core.dart' show logger;
 import 'package:anikki/core/widgets/error_widget.dart';
 import 'package:anikki/core/widgets/layout_card.dart';
 import 'package:anikki/core/widgets/loading_widget.dart';
 
 class YoutubeVideoPlayer extends StatelessWidget {
-  const YoutubeVideoPlayer({
-    super.key,
-    required this.id,
-  });
+  const YoutubeVideoPlayer({super.key, required this.id});
 
   final String id;
 
@@ -25,37 +23,45 @@ class YoutubeVideoPlayer extends StatelessWidget {
       builder: (context, snapshot) {
         final hasError = snapshot.error != null;
 
+        if (hasError) {
+          logger.warning(
+            'Could not load Youtube video stream manifest for id: $id',
+            snapshot.error,
+            snapshot.stackTrace,
+          );
+        }
+
         return switch (snapshot.connectionState) {
           ConnectionState.none => throw UnimplementedError(),
-          ConnectionState.waiting || ConnectionState.active => Center(
-              child: LoadingWidget(),
-            ),
-          ConnectionState.done => hasError
-              ? Center(
-                  child: CustomErrorWidget(
-                    title: 'Could not load Youtube video',
-                    description:
-                        'Please retry later, if the problem persists, the video might have been downed or your app needs to be updated.',
-                  ),
-                )
-              : VideoPlayerView(
-                  sources: [
-                    Media(
-                      snapshot.data!.videoOnly
-                          .withHighestBitrate()
-                          .url
-                          .toString(),
-                      extras: {
-                        'soundTrackUri': snapshot.data!.audioOnly
+          ConnectionState.waiting ||
+          ConnectionState.active => Center(child: LoadingWidget()),
+          ConnectionState.done =>
+            hasError
+                ? Center(
+                    child: CustomErrorWidget(
+                      title: 'Could not load Youtube video',
+                      description:
+                          'Please retry later, if the problem persists, the video might have been downed or your app needs to be updated.',
+                    ),
+                  )
+                : VideoPlayerView(
+                    sources: [
+                      Media(
+                        snapshot.data!.videoOnly
                             .withHighestBitrate()
                             .url
-                            .toString()
-                      },
-                    )
-                  ],
-                  onVideoComplete: (_, __) {},
-                  forceSmallControls: true,
-                ),
+                            .toString(),
+                        extras: {
+                          'soundTrackUri': snapshot.data!.audioOnly
+                              .withHighestBitrate()
+                              .url
+                              .toString(),
+                        },
+                      ),
+                    ],
+                    onVideoComplete: (_, __) {},
+                    forceSmallControls: true,
+                  ),
         };
       },
     );
@@ -65,9 +71,7 @@ class YoutubeVideoPlayer extends StatelessWidget {
         BlocBuilder<LayoutBloc, LayoutState>(
           builder: (context, state) => switch (state) {
             LayoutPortrait() => playerView,
-            LayoutLandscape() => LayoutCard(
-                child: playerView,
-              ),
+            LayoutLandscape() => LayoutCard(child: playerView),
           },
         ),
         Positioned(
