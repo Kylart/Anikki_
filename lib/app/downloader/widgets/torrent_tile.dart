@@ -1,4 +1,3 @@
-import 'package:anikki/app/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -6,14 +5,12 @@ import 'package:hugeicons/hugeicons.dart';
 
 import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/downloader/widgets/stream_placeholder.dart';
+import 'package:anikki/app/settings/bloc/settings_bloc.dart';
 import 'package:anikki/app/torrent/bloc/torrent_bloc.dart';
 import 'package:anikki/core/core.dart';
 
 class TorrentTile extends StatelessWidget {
-  const TorrentTile({
-    super.key,
-    required this.torrent,
-  });
+  const TorrentTile({super.key, required this.torrent});
 
   final TorrentSource torrent;
 
@@ -26,8 +23,9 @@ class TorrentTile extends StatelessWidget {
         final state = BlocProvider.of<DownloaderBloc>(context).state;
         final settings = BlocProvider.of<SettingsBloc>(context).state.settings;
 
-        final isStreaming =
-            state is DownloaderSuccess ? state.isStreaming : false;
+        final isStreaming = state is DownloaderSuccess
+            ? state.isStreaming
+            : false;
         final media = state is DownloaderSuccess ? state.media : null;
 
         if (!isStreaming) {
@@ -39,13 +37,17 @@ class TorrentTile extends StatelessWidget {
                 callback: (Torrent torrent) async {},
               ),
             );
-
-            Navigator.of(context).pop();
-
-            return;
           } else {
-            return openInBrowser(torrent.magnet);
+            openInBrowser(torrent.magnet);
           }
+
+          if (state is DownloaderSuccess &&
+              state.episode != null &&
+              isDesktop()) {
+            Navigator.of(context).pop();
+          }
+
+          return;
         }
 
         if (bloc.state is TorrentCannotLoad) {
@@ -55,7 +57,8 @@ class TorrentTile extends StatelessWidget {
               return PlatformAlertDialog(
                 title: const Text('Torrent client not connected'),
                 content: const Text(
-                    'Please start your torrent client to enable streaming.'),
+                  'Please start your torrent client to enable streaming.',
+                ),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
@@ -81,10 +84,7 @@ class TorrentTile extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
                     surfaceTintColor: Colors.transparent,
-                    child: StreamPlaceholder(
-                      torrent: torrent,
-                      media: media,
-                    ),
+                    child: StreamPlaceholder(torrent: torrent, media: media),
                   );
                 },
               );
@@ -97,8 +97,8 @@ class TorrentTile extends StatelessWidget {
         backgroundColor: torrent.status == 'success'
             ? Colors.green
             : torrent.status == 'danger'
-                ? Colors.red
-                : Colors.yellow,
+            ? Colors.red
+            : Colors.yellow,
       ),
       title: Text(torrent.name),
       subtitle: Text(torrent.filesize),
@@ -120,7 +120,7 @@ class TorrentTile extends StatelessWidget {
                     TextSpan(
                       text: torrent.seeders,
                       style: const TextStyle(color: Colors.green),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -137,7 +137,7 @@ class TorrentTile extends StatelessWidget {
                   TextSpan(
                     text: torrent.leechers,
                     style: const TextStyle(color: Colors.redAccent),
-                  )
+                  ),
                 ],
               ),
             ),
