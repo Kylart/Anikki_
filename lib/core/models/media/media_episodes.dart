@@ -14,18 +14,13 @@ class EpisodeInfo extends Equatable {
   });
 
   String get formattedTitle => [
-        media.title,
-        if (episodeNumber != null) '- Episode $episodeNumber',
-        if (title != null) ': $title',
-      ].join(' ');
+    media.title,
+    if (episodeNumber != null) '- Episode $episodeNumber',
+    if (title != null) ': $title',
+  ].join(' ');
 
   @override
-  List<Object?> get props => [
-        media,
-        episodeNumber,
-        title,
-        thumbnail,
-      ];
+  List<Object?> get props => [media, episodeNumber, title, thumbnail];
 
   @override
   bool get stringify => true;
@@ -48,44 +43,78 @@ mixin MediaEpisodes on IMedia {
       anilistInfo?.nextAiringEpisode?.episode ??
       tmdbInfo?.nextEpisodeToAir?.episodeNumber;
 
-  List<EpisodeInfo> get episodeInfos => [
-        if (tmdbInfo?.tmdbSeasons != null)
-          for (final season in tmdbInfo!.tmdbSeasons!)
-            for (final episode in season.episodes!)
-              EpisodeInfo(
-                media: this as Media,
-                episodeNumber: episode.episodeNumber,
-                title: episode.name,
-                thumbnail: episode.stillPath != null
-                    ? getTmdbImageUrl(episode.stillPath!)
-                    : null,
-              )
-        else if (anilistInfo?.streamingEpisodes != null)
-          for (final episode in anilistInfo!.streamingEpisodes!)
-            EpisodeInfo(
-              media: this as Media,
-              episodeNumber: int.parse(episode?.title
-                      ?.split(' - ')
-                      .firstOrNull
-                      ?.split('Episode ')
-                      .lastOrNull ??
-                  ''),
-              title: episode?.title,
-              thumbnail: episode?.thumbnail,
-            )
-        else if (kitsuInfo?.episodes != null &&
-            kitsuInfo!.episodes.nodes?.isNotEmpty == true)
-          for (final episode in kitsuInfo!.episodes.nodes!)
-            EpisodeInfo(
-              media: this as Media,
-              episodeNumber: episode?.number,
-              title: episode?.titles.canonical,
-              thumbnail: episode?.thumbnail?.original.url,
-            ),
-      ];
+  List<EpisodeInfo>? _getEpisodeInfosFromTmdb() {
+    if (tmdbInfo?.tmdbSeasons == null) {
+      return null;
+    }
 
-  EpisodeInfo? getEpisodeInfo(int? episodeNumber) =>
-      episodeInfos.firstWhereOrNull(
-        (episode) => episode.episodeNumber == episodeNumber,
-      );
+    /// If we don't have a season number, default to season 1
+    final currentSeasonNumber = seasonNumber ?? 1;
+    final currentSeason = tmdbInfo!.tmdbSeasons!.firstWhereOrNull(
+      (season) => season.seasonNumber == currentSeasonNumber,
+    );
+
+    if (currentSeason?.episodes == null) {
+      return null;
+    }
+
+    return [
+      for (final episode in currentSeason!.episodes!)
+        EpisodeInfo(
+          media: this as Media,
+          episodeNumber: episode.episodeNumber,
+          title: episode.name,
+          thumbnail: episode.stillPath != null
+              ? getTmdbImageUrl(episode.stillPath!)
+              : null,
+        ),
+    ];
+  }
+
+  List<EpisodeInfo>? _getEpisodeInfosFromAnilist() {
+    if (anilistInfo?.streamingEpisodes == null) {
+      return null;
+    }
+    return [
+      for (final episode in anilistInfo!.streamingEpisodes!)
+        EpisodeInfo(
+          media: this as Media,
+          episodeNumber: int.parse(
+            episode?.title
+                    ?.split(' - ')
+                    .firstOrNull
+                    ?.split('Episode ')
+                    .lastOrNull ??
+                '',
+          ),
+          title: episode?.title,
+          thumbnail: episode?.thumbnail,
+        ),
+    ];
+  }
+
+  List<EpisodeInfo>? _getEpisodeInfosFromKitsu() {
+    if (kitsuInfo?.episodes == null ||
+        kitsuInfo!.episodes.nodes?.isEmpty != true) {
+      return null;
+    }
+    return [
+      for (final episode in kitsuInfo!.episodes.nodes!)
+        EpisodeInfo(
+          media: this as Media,
+          episodeNumber: episode?.number,
+          title: episode?.titles.canonical,
+          thumbnail: episode?.thumbnail?.original.url,
+        ),
+    ];
+  }
+
+  List<EpisodeInfo> get episodeInfos =>
+      _getEpisodeInfosFromTmdb() ??
+      _getEpisodeInfosFromAnilist() ??
+      _getEpisodeInfosFromKitsu() ??
+      [];
+
+  EpisodeInfo? getEpisodeInfo(int? episodeNumber) => episodeInfos
+      .firstWhereOrNull((episode) => episode.episodeNumber == episodeNumber);
 }

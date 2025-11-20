@@ -13,12 +13,7 @@ part 'media_episodes.dart';
 part 'media_images.dart';
 
 sealed class IMedia extends Equatable {
-  const IMedia({
-    this.anilistInfo,
-    this.malInfo,
-    this.tmdbInfo,
-    this.kitsuInfo,
-  });
+  const IMedia({this.anilistInfo, this.malInfo, this.tmdbInfo, this.kitsuInfo});
 
   final Fragment$media? anilistInfo;
   final TmdbTvDetails? tmdbInfo;
@@ -75,67 +70,66 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
       anilistInfo?.title?.romaji ?? kitsuInfo?.titles.canonical;
 
   @override
-  int? get seasonNumber {
-    final parsedTitle = Anitomy(inputString: title!);
-
-    return parsedTitle.season ??
-        parsedTitle.episode ??
-        synonyms?.fold<int?>(
-          null,
-          (value, synonym) => value ?? Anitomy(inputString: synonym).season,
-        );
-  }
+  int? get seasonNumber =>
+      <String?>{
+        title,
+        originalTitle,
+        romajiTitle,
+        englishTitle,
+        ...(synonyms ?? <String>[]),
+      }.whereType<String>().fold<int?>(
+        null,
+        (value, titleVariation) =>
+            value ?? Anitomy(inputString: titleVariation).season,
+      );
 
   List<String>? get synonyms => <String?>{
-        title,
+    title,
 
-        /// Full english name
-        anilistInfo?.title?.english ?? malInfo?.alternativeTitles?.en,
+    /// Full english name
+    anilistInfo?.title?.english ?? malInfo?.alternativeTitles?.en,
 
-        /// Native name (probably in Japanese)
-        originalTitle,
+    /// Native name (probably in Japanese)
+    originalTitle,
 
-        /// Romaji name
-        anilistInfo?.title?.romaji,
+    /// Romaji name
+    anilistInfo?.title?.romaji,
 
-        /// All the other synonyms
-        ...(anilistInfo?.synonyms ?? []),
-        ...(malInfo?.alternativeTitles?.synonyms ?? []),
-        tmdbInfo?.name,
+    /// All the other synonyms
+    ...(anilistInfo?.synonyms ?? []),
+    ...(malInfo?.alternativeTitles?.synonyms ?? []),
+    tmdbInfo?.name,
 
-        ...(kitsuInfo?.titles.alternatives ?? [])
-      }.whereType<String>().toList();
+    ...(kitsuInfo?.titles.alternatives ?? []),
+  }.whereType<String>().toList();
 
   Enum$MediaSeason? get season =>
       anilistInfo?.season ??
       malInfo?.startSeason?.anilistSeason ??
       (kitsuInfo?.startDate == null
           ? null
-          : getSeasonFromMonth(
-              DateTime.parse(
-                kitsuInfo!.startDate!,
-              ).month,
-            ));
+          : getSeasonFromMonth(DateTime.parse(kitsuInfo!.startDate!).month));
 
   int? get seasonYear =>
       anilistInfo?.seasonYear ??
       malInfo?.startSeason?.year ??
       DateTime.tryParse(kitsuInfo?.startDate ?? '')?.year;
 
-  List<String>? get genres => (anilistInfo?.genres ??
-          malInfo?.genres?.map((genre) => genre.name) ??
-          kitsuInfo?.categories.nodes
-              ?.where((category) => category != null)
-              .map(
-                (category) => category!.slug
-                    .split('-')
-                    .map((w) => w.capitalize())
-                    .join(' '),
-              )
-              .toList() ??
-          tmdbInfo?.genres?.map((genre) => genre.name))
-      ?.whereType<String>()
-      .toList();
+  List<String>? get genres =>
+      (anilistInfo?.genres ??
+              malInfo?.genres?.map((genre) => genre.name) ??
+              kitsuInfo?.categories.nodes
+                  ?.where((category) => category != null)
+                  .map(
+                    (category) => category!.slug
+                        .split('-')
+                        .map((w) => w.capitalize())
+                        .join(' '),
+                  )
+                  .toList() ??
+              tmdbInfo?.genres?.map((genre) => genre.name))
+          ?.whereType<String>()
+          .toList();
 
   Enum$MediaFormat? get format =>
       anilistInfo?.format ??
@@ -174,12 +168,7 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
       kitsuInfo?.youtubeTrailerVideoId;
 
   @override
-  List<Object?> get props => [
-        malInfo,
-        anilistInfo,
-        kitsuInfo,
-        tmdbInfo,
-      ];
+  List<Object?> get props => [malInfo, anilistInfo, kitsuInfo, tmdbInfo];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -195,15 +184,11 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
       anilistInfo: Fragment$media.fromJson(
         map['anilistInfo'] as Map<String, dynamic>,
       ),
-      malInfo: MalMediaInfo.fromMap(
-        map['malInfo'] as Map<String, dynamic>,
-      ),
+      malInfo: MalMediaInfo.fromMap(map['malInfo'] as Map<String, dynamic>),
       kitsuInfo: KitsuMediaInfo.fromJson(
         map['kitsuInfo'] as Map<String, dynamic>,
       ),
-      tmdbInfo: TmdbTvDetails.fromJson(
-        map['tmdbInfo'],
-      ),
+      tmdbInfo: TmdbTvDetails.fromJson(map['tmdbInfo']),
     );
   }
 
@@ -246,14 +231,9 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
     }).toList();
 
     // Use provided Anilist instance or create a new one
-    final anilistClient = anilist ??
-        Anilist(
-          client: getAnilistClient(
-            timeout: const Duration(
-              seconds: 5,
-            ),
-          ),
-        );
+    final anilistClient =
+        anilist ??
+        Anilist(client: getAnilistClient(timeout: const Duration(seconds: 5)));
 
     var anilistInfos = const <String, Fragment$media>{};
 
@@ -277,14 +257,13 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
     // Return a list of Media instances
     return List<Media>.generate(names.length, (index) {
       final titleToSearch = parsedTitles[index];
-      final anilistInfo =
-          anilistClient.getInfoFromInfo(titleToSearch, anilistInfos);
+      final anilistInfo = anilistClient.getInfoFromInfo(
+        titleToSearch,
+        anilistInfos,
+      );
       final tmdbInfo = tmdbInfos.elementAtOrNull(index);
 
-      return Media(
-        anilistInfo: anilistInfo,
-        tmdbInfo: tmdbInfo,
-      );
+      return Media(anilistInfo: anilistInfo, tmdbInfo: tmdbInfo);
     });
   }
 }
