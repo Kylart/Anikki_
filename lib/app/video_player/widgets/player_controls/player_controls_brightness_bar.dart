@@ -16,7 +16,7 @@ class PlayerControlsBrightnessBar extends StatelessWidget {
       opacity: show ? 1 : 0,
       duration: const Duration(milliseconds: 300),
       child: StreamBuilder(
-        stream: screenBrightness.onApplicationScreenBrightnessChanged,
+        stream: screenBrightness.onCurrentBrightnessChanged,
         builder: (context, snapshot) {
           if (snapshot.data == null) return const SizedBox();
 
@@ -34,8 +34,10 @@ class PlayerControlsBrightnessBar extends StatelessWidget {
                       animatedDuration: const Duration(milliseconds: 150),
                       progressColor: Colors.white.withValues(alpha: 0.9),
                       size: 22,
-                      displayTextStyle:
-                          const TextStyle(color: Colors.black, fontSize: 8),
+                      displayTextStyle: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 8,
+                      ),
                       direction: Axis.vertical,
                       verticalDirection: VerticalDirection.up,
                       currentValue: value,

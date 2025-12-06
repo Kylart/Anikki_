@@ -49,17 +49,14 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
     final screenSize = MediaQuery.of(context).size;
 
     return !(
-        // Height top
-        position.dy < screenSize.height - 20 &&
-
-            // Height bottom
-            position.dy > 20 &&
-
-            // Width right
-            position.dx < screenSize.width - 60 &&
-
-            // Width left
-            position.dx > 60);
+    // Height top
+    position.dy < screenSize.height - 20 &&
+        // Height bottom
+        position.dy > 20 &&
+        // Width right
+        position.dx < screenSize.width - 60 &&
+        // Width left
+        position.dx > 60);
   }
 
   void _hideDragBarControls() {
@@ -127,17 +124,13 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
         var value = details.delta.dx * 750;
 
         setState(() {
-          seekDuration += Duration(
-            milliseconds: value.toInt(),
-          );
+          seekDuration += Duration(milliseconds: value.toInt());
         });
       },
       onHorizontalDragEnd: (details) {
         if (_shouldIgnoreDrag(context, details.globalPosition)) return;
 
-        widget.player.seek(
-          widget.player.state.position + seekDuration,
-        );
+        widget.player.seek(widget.player.state.position + seekDuration);
 
         setState(() {
           seekDuration = Duration.zero;
@@ -158,12 +151,10 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
             });
           }
 
-          final currentBrightness = await screenBrightness.application;
+          final currentBrightness = await screenBrightness.current;
           final newBrightness = ((currentBrightness * 100 - delta) / 100.0);
 
-          screenBrightness.setApplicationScreenBrightness(
-            max(min(newBrightness, 1), 0),
-          );
+          screenBrightness.setScreenBrightness(max(min(newBrightness, 1), 0));
         } else {
           if (!showVolumeBar) {
             setState(() {
@@ -185,8 +176,9 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
       onVerticalDragCancel: _hideDragBarControls,
       onVerticalDragEnd: (_) => _hideDragBarControls(),
       child: MouseRegion(
-        cursor:
-            hideControls ? SystemMouseCursors.none : SystemMouseCursors.basic,
+        cursor: hideControls
+            ? SystemMouseCursors.none
+            : SystemMouseCursors.basic,
         onHover: (_) {
           if (desktop) videoBloc.add(VideoPlayerResetShowTimer());
         },
@@ -215,7 +207,7 @@ class _PlayerCursorHandlerState extends State<PlayerCursorHandler> {
                     PlayerControlsVolumeBar(
                       show: showVolumeBar,
                       player: widget.player,
-                    )
+                    ),
                   ],
                 ),
               ),
