@@ -14,6 +14,8 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
 
   Timer? interval;
 
+  bool isLoading = false;
+
   bool get isTransmission => repository is TransmissionRepository;
   bool get isQBitTorrent => repository is QBitTorrentRepository;
   bool get isTorrest => repository is TorrestRepository;
@@ -36,14 +38,11 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
   }
 
   void _setUpInterval() {
-    interval ??= Timer.periodic(
-      const Duration(seconds: 1),
-      (timer) {
-        if (isClosed) return _closeInterval();
+    interval ??= Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (isClosed) return _closeInterval();
 
-        add(TorrentDataRequested());
-      },
-    );
+      add(TorrentDataRequested());
+    });
   }
 
   Future<void> _onSettingsUpdated(
@@ -85,29 +84,24 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
       if (settings.port != repository.uri.port) {
         // Shutdown torrest if port is changed because we need to restart it
         if (repository is TorrestRepository) {
-          await (repository as TorrestRepository)
-              .shutDown()
-              .catchError((e) => logger.warning('Failed to shut down torrest'));
+          await (repository as TorrestRepository).shutDown().catchError(
+            (e) => logger.warning('Failed to shut down torrest'),
+          );
         }
 
         if (settings.port != repository.uri.port) {
-          await TorrestRepository.startServer(
-            settings.port,
-          );
+          await TorrestRepository.startServer(settings.port);
 
           repository = TorrestRepository(
-            uri: Uri(
-              scheme: 'http',
-              host: 'localhost',
-              port: settings.port,
-            ),
+            uri: Uri(scheme: 'http', host: 'localhost', port: settings.port),
           );
         }
       }
 
       if (settings.downloadPath != null) {
-        await (repository as TorrestRepository)
-            .setDownloadPath(settings.downloadPath!);
+        await (repository as TorrestRepository).setDownloadPath(
+          settings.downloadPath!,
+        );
       }
     }
 
@@ -126,6 +120,9 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
     Emitter<TorrentState> emit,
   ) async {
     if (repository is EmptyRepository) return;
+    if (isLoading) return;
+
+    isLoading = true;
 
     try {
       var torrents = await repository.getTorrents();
@@ -147,12 +144,11 @@ class TorrentBloc extends Bloc<TorrentEvent, TorrentState> {
     } on UserIsBannedError {
       _closeInterval();
 
-      Timer(
-        const Duration(minutes: 5),
-        _setUpInterval,
-      );
+      Timer(const Duration(minutes: 5), _setUpInterval);
     } catch (e) {
       emit(TorrentCannotLoad());
+    } finally {
+      isLoading = false;
     }
   }
 
