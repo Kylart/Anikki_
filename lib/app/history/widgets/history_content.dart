@@ -7,10 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class HistoryContent extends StatefulWidget {
-  const HistoryContent({
-    super.key,
-    required this.entries,
-  });
+  const HistoryContent({super.key, required this.entries});
 
   final List<HistoryEntry> entries;
 
@@ -21,7 +18,7 @@ class HistoryContent extends StatefulWidget {
 class HistoryContentState extends State<HistoryContent> {
   DateTime? _selectedDate;
 
-  DateTime get selectedDate => _selectedDate ?? widget.entries.first.date;
+  DateTime get selectedDate => _selectedDate ?? widget.entries.last.date;
 
   void onDateSelected(DateTime date) {
     setState(() {
@@ -29,17 +26,13 @@ class HistoryContentState extends State<HistoryContent> {
     });
   }
 
-  Iterable<HistoryEntry> get currentEntries => widget.entries.where(
-        (entry) => isSameDay(entry.date, selectedDate),
-      );
+  Iterable<HistoryEntry> get currentEntries =>
+      widget.entries.where((entry) => isSameDay(entry.date, selectedDate));
 
   Iterable<DateTime> get dates => widget.entries.fold<List<DateTime>>(
-        <DateTime>[],
-        (acc, e) => [
-          ...acc,
-          if (!acc.any((d) => isSameDay(d, e.date))) e.date,
-        ],
-      );
+    <DateTime>[],
+    (acc, e) => [if (!acc.any((d) => isSameDay(d, e.date))) e.date, ...acc],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -95,16 +88,16 @@ class HistoryContentState extends State<HistoryContent> {
                 ),
                 trailing: IconButton(
                   onPressed: () {
-                    BlocProvider.of<HistoryBloc>(context).add(
-                      HistoryEntryRemoved(entry),
-                    );
+                    BlocProvider.of<HistoryBloc>(
+                      context,
+                    ).add(HistoryEntryRemoved(entry));
                   },
                   icon: const Icon(HugeIcons.strokeRoundedDelete02),
                 ),
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
