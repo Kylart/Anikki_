@@ -42,7 +42,7 @@ dependencies:
   pkce: ^1.1.0+1
   protocol_handler: ^0.2.0
   quiver: ^3.2.1
-  screen_brightness: ^0.2.2
+  screen_brightness: ^2.1.7
   system_info2: ^4.0.0
   talker: ^5.0.2
   talker_flutter: ^5.0.2
@@ -68,9 +68,9 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   flutter_widget_from_html_core: ^0.17.0
   google_fonts: ^6.2.1
-  media_kit: 1.1.11 # Primary package.
-  media_kit_video: 1.2.5 # For video rendering.
-  media_kit_libs_video: 1.0.5 # Native video dependencies.
+  media_kit: 1.2.3 # Primary package.
+  media_kit_video: 2.0.1 # For video rendering.
+  media_kit_libs_video: 1.0.7 # Native video dependencies.
   settings_ui: ^2.0.2
   super_sliver_list: ^0.4.1
   timelines_plus: ^1.0.7
