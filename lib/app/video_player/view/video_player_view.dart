@@ -12,7 +12,7 @@ class VideoPlayerView extends StatefulWidget {
   const VideoPlayerView({
     super.key,
     required this.sources,
-    required this.onVideoComplete,
+    this.onVideoComplete,
     this.forceSmallControls = false,
     this.first,
   });
@@ -24,7 +24,7 @@ class VideoPlayerView extends StatefulWidget {
   /// Array of URLs.
   final List<Media> sources;
 
-  final void Function(Media media, double progress) onVideoComplete;
+  final void Function(Media media, double progress)? onVideoComplete;
 
   final bool forceSmallControls;
 
@@ -61,6 +61,25 @@ class _VideoPlayerViewState extends State<VideoPlayerView>
     super.initState();
 
     WidgetsBinding.instance.addObserver(this);
+
+    player.stream.error.listen((error) {
+      if (widget.sources.length == 1 &&
+          widget.sources.first.extras?['originalUrl'] is String) {
+        final url = widget.sources.first.extras?['originalUrl'] as String;
+
+        if (mounted && context.mounted) {
+          core.logger.error(
+            'Player error: $error, opening original url: $url',
+          );
+
+          core.openInBrowser(
+            url,
+          );
+
+          Navigator.of(context).pop();
+        }
+      }
+    });
   }
 
   @override

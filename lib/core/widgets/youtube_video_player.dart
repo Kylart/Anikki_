@@ -56,10 +56,10 @@ class YoutubeVideoPlayer extends StatelessWidget {
                               .withHighestBitrate()
                               .url
                               .toString(),
+                          'originalUrl': 'https://www.youtube.com/watch?v=$id',
                         },
                       ),
                     ],
-                    onVideoComplete: (_, __) {},
                     forceSmallControls: true,
                   ),
         };
