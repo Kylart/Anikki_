@@ -109,12 +109,11 @@ class AnikkiBlocProvider extends StatelessWidget {
           BlocProvider(
             create: (context) {
               final settingsBloc = BlocProvider.of<SettingsBloc>(context);
-              return LibraryBloc(localStorageRepository)
-                ..add(
-                  LibraryUpdateRequested(
-                    path: settingsBloc.state.settings.librarySettings.path,
-                  ),
-                );
+              return LibraryBloc(localStorageRepository)..add(
+                LibraryUpdateRequested(
+                  path: settingsBloc.state.settings.librarySettings.path,
+                ),
+              );
             },
           ),
           BlocProvider(
@@ -123,22 +122,21 @@ class AnikkiBlocProvider extends StatelessWidget {
               final settingsBloc = BlocProvider.of<SettingsBloc>(context);
               final settings = settingsBloc.state.settings;
 
-              return TorrentBloc(EmptyRepository())
-                ..add(
-                  TorrentSettingsUpdated(
-                    transmissionSettings:
-                        settings.torrentType == TorrentType.transmission
-                            ? settings.transmissionSettings
-                            : null,
-                    qBitTorrentSettings:
-                        settings.torrentType == TorrentType.qbittorrent
-                            ? settings.qBitTorrentSettings
-                            : null,
-                    torrestSettings: settings.torrentType == TorrentType.torrest
-                        ? settings.torrestSettings
-                        : null,
-                  ),
-                );
+              return TorrentBloc(EmptyRepository())..add(
+                TorrentSettingsUpdated(
+                  transmissionSettings:
+                      settings.torrentType == TorrentType.transmission
+                      ? settings.transmissionSettings
+                      : null,
+                  qBitTorrentSettings:
+                      settings.torrentType == TorrentType.qbittorrent
+                      ? settings.qBitTorrentSettings
+                      : null,
+                  torrestSettings: settings.torrentType == TorrentType.torrest
+                      ? settings.torrestSettings
+                      : null,
+                ),
+              );
             },
           ),
         ],

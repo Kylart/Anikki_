@@ -29,8 +29,9 @@ void main() async {
       setUp(() {
         repository = MockLocalStorageRepository();
 
-        when(() => repository.retrieveFilesAsLibraryEntries(emptyPath))
-            .thenAnswer(
+        when(
+          () => repository.retrieveFilesAsLibraryEntries(emptyPath),
+        ).thenAnswer(
           (_) async => [],
         );
         when(() => repository.retrieveFilesAsLibraryEntries(path)).thenAnswer(
@@ -63,8 +64,9 @@ void main() async {
           ),
         ],
         verify: (bloc) {
-          verify(() => repository.retrieveFilesAsLibraryEntries(path))
-              .called(1);
+          verify(
+            () => repository.retrieveFilesAsLibraryEntries(path),
+          ).called(1);
           expect(bloc.subscription, isNotNull);
         },
       );
@@ -78,8 +80,9 @@ void main() async {
           const LibraryEmpty(path: emptyPath),
         ],
         verify: (bloc) {
-          verify(() => repository.retrieveFilesAsLibraryEntries(emptyPath))
-              .called(1);
+          verify(
+            () => repository.retrieveFilesAsLibraryEntries(emptyPath),
+          ).called(1);
           expect(bloc.subscription, isNotNull);
         },
       );
@@ -93,8 +96,9 @@ void main() async {
           isA<LibraryError>().having((p0) => p0.path, 'the right path', noPath),
         ],
         verify: (bloc) {
-          verify(() => repository.retrieveFilesAsLibraryEntries(noPath))
-              .called(1);
+          verify(
+            () => repository.retrieveFilesAsLibraryEntries(noPath),
+          ).called(1);
           expect(bloc.subscription, isNull);
         },
       );
@@ -136,8 +140,9 @@ void main() async {
         ],
         setUp: () {
           repository = MockLocalStorageRepository();
-          when(() => repository.addFileToEntries(const [], mockFile.path))
-              .thenAnswer((_) async => [mockEntry]);
+          when(
+            () => repository.addFileToEntries(const [], mockFile.path),
+          ).thenAnswer((_) async => [mockEntry]);
 
           bloc = LibraryBloc(repository);
         },
@@ -161,7 +166,8 @@ void main() async {
               )
               .having(
                 (p0) => p0.entries.firstWhere(
-                    (element) => element.entries.contains(mockFile)),
+                  (element) => element.entries.contains(mockFile),
+                ),
                 'with the new file',
                 isNotNull,
               ),
@@ -169,8 +175,9 @@ void main() async {
         setUp: () {
           repository = MockLocalStorageRepository();
           when(
-            () => repository
-                .addFileToEntries([libraryEntries.first], mockFile.path),
+            () => repository.addFileToEntries([
+              libraryEntries.first,
+            ], mockFile.path),
           ).thenAnswer((_) async => [libraryEntries.first, mockEntry]);
 
           bloc = LibraryBloc(repository);
@@ -195,7 +202,8 @@ void main() async {
               )
               .having(
                 (p0) => p0.entries.firstWhere(
-                    (element) => element.entries.contains(mockFile)),
+                  (element) => element.entries.contains(mockFile),
+                ),
                 'with the new file',
                 isNotNull,
               )
@@ -220,7 +228,9 @@ void main() async {
           repository = MockLocalStorageRepository();
           when(
             () => repository.addFileToEntries(
-                libraryEntries.sublist(0, 2), mockFile.path),
+              libraryEntries.sublist(0, 2),
+              mockFile.path,
+            ),
           ).thenAnswer(
             (_) async => [
               libraryEntries.first,
@@ -267,8 +277,9 @@ void main() async {
         setUp: () {
           repository = MockLocalStorageRepository();
           when(
-            () => repository
-                .removeFileFromEntries([libraryEntries.first], mockFile),
+            () => repository.removeFileFromEntries([
+              libraryEntries.first,
+            ], mockFile),
           ).thenAnswer((_) => []);
 
           bloc = LibraryBloc(repository);
@@ -296,9 +307,12 @@ void main() async {
           repository = MockLocalStorageRepository();
           when(
             () => repository.removeFileFromEntries(
-                libraryEntries, libraryEntries.last.entries.first),
+              libraryEntries,
+              libraryEntries.last.entries.first,
+            ),
           ).thenAnswer(
-              (_) => libraryEntries.sublist(0, libraryEntries.length - 1));
+            (_) => libraryEntries.sublist(0, libraryEntries.length - 1),
+          );
 
           bloc = LibraryBloc(repository);
         },
@@ -311,8 +325,9 @@ void main() async {
           path: path,
           entries: libraryEntries,
         ),
-        act: (bloc) => bloc
-            .add(LibraryFileDeleted(file: libraryEntries.first.entries.first)),
+        act: (bloc) => bloc.add(
+          LibraryFileDeleted(file: libraryEntries.first.entries.first),
+        ),
         expect: () => [
           isA<LibraryLoaded>().having(
             (p0) => p0.entries.length,
@@ -324,14 +339,18 @@ void main() async {
           repository = MockLocalStorageRepository();
           when(
             () => repository.removeFileFromEntries(
-                libraryEntries, libraryEntries.first.entries.first),
-          ).thenAnswer((_) => [
-                LibraryEntry(
-                  media: media,
-                  entries: [libraryEntries.first.entries.last],
-                ),
-                ...libraryEntries.sublist(1),
-              ]);
+              libraryEntries,
+              libraryEntries.first.entries.first,
+            ),
+          ).thenAnswer(
+            (_) => [
+              LibraryEntry(
+                media: media,
+                entries: [libraryEntries.first.entries.last],
+              ),
+              ...libraryEntries.sublist(1),
+            ],
+          );
 
           bloc = LibraryBloc(repository);
         },

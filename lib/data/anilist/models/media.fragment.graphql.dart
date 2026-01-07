@@ -67,27 +67,34 @@ class Fragment$media {
       coverImage: l$coverImage == null
           ? null
           : Fragment$media$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       trailer: l$trailer == null
           ? null
           : Fragment$media$trailer.fromJson(
-              (l$trailer as Map<String, dynamic>)),
+              (l$trailer as Map<String, dynamic>),
+            ),
       streamingEpisodes: (l$streamingEpisodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$media$streamingEpisodes.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$media$streamingEpisodes.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       bannerImage: (l$bannerImage as String?),
       genres: (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList(),
       isAdult: (l$isAdult as bool?),
       episodes: (l$episodes as int?),
-      synonyms:
-          (l$synonyms as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+      synonyms: (l$synonyms as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList(),
       nextAiringEpisode: l$nextAiringEpisode == null
           ? null
           : Fragment$media$nextAiringEpisode.fromJson(
-              (l$nextAiringEpisode as Map<String, dynamic>)),
+              (l$nextAiringEpisode as Map<String, dynamic>),
+            ),
       format: l$format == null
           ? null
           : fromJson$Enum$MediaFormat((l$format as String)),
@@ -148,13 +155,15 @@ class Fragment$media {
     final l$siteUrl = siteUrl;
     _resultData['siteUrl'] = l$siteUrl;
     final l$season = season;
-    _resultData['season'] =
-        l$season == null ? null : toJson$Enum$MediaSeason(l$season);
+    _resultData['season'] = l$season == null
+        ? null
+        : toJson$Enum$MediaSeason(l$season);
     final l$seasonYear = seasonYear;
     _resultData['seasonYear'] = l$seasonYear;
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson$Enum$MediaStatus(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson$Enum$MediaStatus(l$status);
     final l$isFavourite = isFavourite;
     _resultData['isFavourite'] = l$isFavourite;
     final l$title = title;
@@ -164,8 +173,9 @@ class Fragment$media {
     final l$trailer = trailer;
     _resultData['trailer'] = l$trailer?.toJson();
     final l$streamingEpisodes = streamingEpisodes;
-    _resultData['streamingEpisodes'] =
-        l$streamingEpisodes?.map((e) => e?.toJson()).toList();
+    _resultData['streamingEpisodes'] = l$streamingEpisodes
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$bannerImage = bannerImage;
     _resultData['bannerImage'] = l$bannerImage;
     final l$genres = genres;
@@ -179,8 +189,9 @@ class Fragment$media {
     final l$nextAiringEpisode = nextAiringEpisode;
     _resultData['nextAiringEpisode'] = l$nextAiringEpisode?.toJson();
     final l$format = format;
-    _resultData['format'] =
-        l$format == null ? null : toJson$Enum$MediaFormat(l$format);
+    _resultData['format'] = l$format == null
+        ? null
+        : toJson$Enum$MediaFormat(l$format);
     final l$description = description;
     _resultData['description'] = l$description;
     final l$countryOfOrigin = countryOfOrigin;
@@ -434,11 +445,15 @@ abstract class CopyWith$Fragment$media<TRes> {
   CopyWith$Fragment$media$coverImage<TRes> get coverImage;
   CopyWith$Fragment$media$trailer<TRes> get trailer;
   TRes streamingEpisodes(
-      Iterable<Fragment$media$streamingEpisodes?>? Function(
-              Iterable<
-                  CopyWith$Fragment$media$streamingEpisodes<
-                      Fragment$media$streamingEpisodes>?>?)
-          _fn);
+    Iterable<Fragment$media$streamingEpisodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$media$streamingEpisodes<
+          Fragment$media$streamingEpisodes
+        >?
+      >?,
+    )
+    _fn,
+  );
   CopyWith$Fragment$media$nextAiringEpisode<TRes> get nextAiringEpisode;
 }
 
@@ -477,64 +492,65 @@ class _CopyWithImpl$Fragment$media<TRes>
     Object? description = _undefined,
     Object? countryOfOrigin = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        idMal: idMal == _undefined ? _instance.idMal : (idMal as int?),
-        siteUrl:
-            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        season: season == _undefined
-            ? _instance.season
-            : (season as Enum$MediaSeason?),
-        seasonYear: seasonYear == _undefined
-            ? _instance.seasonYear
-            : (seasonYear as int?),
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum$MediaStatus?),
-        isFavourite: isFavourite == _undefined || isFavourite == null
-            ? _instance.isFavourite
-            : (isFavourite as bool),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$media$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Fragment$media$coverImage?),
-        trailer: trailer == _undefined
-            ? _instance.trailer
-            : (trailer as Fragment$media$trailer?),
-        streamingEpisodes: streamingEpisodes == _undefined
-            ? _instance.streamingEpisodes
-            : (streamingEpisodes as List<Fragment$media$streamingEpisodes?>?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        episodes:
-            episodes == _undefined ? _instance.episodes : (episodes as int?),
-        synonyms: synonyms == _undefined
-            ? _instance.synonyms
-            : (synonyms as List<String?>?),
-        nextAiringEpisode: nextAiringEpisode == _undefined
-            ? _instance.nextAiringEpisode
-            : (nextAiringEpisode as Fragment$media$nextAiringEpisode?),
-        format: format == _undefined
-            ? _instance.format
-            : (format as Enum$MediaFormat?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        countryOfOrigin: countryOfOrigin == _undefined
-            ? _instance.countryOfOrigin
-            : (countryOfOrigin as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      idMal: idMal == _undefined ? _instance.idMal : (idMal as int?),
+      siteUrl: siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+      season: season == _undefined
+          ? _instance.season
+          : (season as Enum$MediaSeason?),
+      seasonYear: seasonYear == _undefined
+          ? _instance.seasonYear
+          : (seasonYear as int?),
+      status: status == _undefined
+          ? _instance.status
+          : (status as Enum$MediaStatus?),
+      isFavourite: isFavourite == _undefined || isFavourite == null
+          ? _instance.isFavourite
+          : (isFavourite as bool),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$media$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Fragment$media$coverImage?),
+      trailer: trailer == _undefined
+          ? _instance.trailer
+          : (trailer as Fragment$media$trailer?),
+      streamingEpisodes: streamingEpisodes == _undefined
+          ? _instance.streamingEpisodes
+          : (streamingEpisodes as List<Fragment$media$streamingEpisodes?>?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      episodes: episodes == _undefined
+          ? _instance.episodes
+          : (episodes as int?),
+      synonyms: synonyms == _undefined
+          ? _instance.synonyms
+          : (synonyms as List<String?>?),
+      nextAiringEpisode: nextAiringEpisode == _undefined
+          ? _instance.nextAiringEpisode
+          : (nextAiringEpisode as Fragment$media$nextAiringEpisode?),
+      format: format == _undefined
+          ? _instance.format
+          : (format as Enum$MediaFormat?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      countryOfOrigin: countryOfOrigin == _undefined
+          ? _instance.countryOfOrigin
+          : (countryOfOrigin as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media$title<TRes> get title {
     final local$title = _instance.title;
@@ -548,7 +564,9 @@ class _CopyWithImpl$Fragment$media<TRes>
     return local$coverImage == null
         ? CopyWith$Fragment$media$coverImage.stub(_then(_instance))
         : CopyWith$Fragment$media$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 
   CopyWith$Fragment$media$trailer<TRes> get trailer {
@@ -556,30 +574,41 @@ class _CopyWithImpl$Fragment$media<TRes>
     return local$trailer == null
         ? CopyWith$Fragment$media$trailer.stub(_then(_instance))
         : CopyWith$Fragment$media$trailer(
-            local$trailer, (e) => call(trailer: e));
+            local$trailer,
+            (e) => call(trailer: e),
+          );
   }
 
   TRes streamingEpisodes(
-          Iterable<Fragment$media$streamingEpisodes?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$media$streamingEpisodes<
-                          Fragment$media$streamingEpisodes>?>?)
-              _fn) =>
-      call(
-          streamingEpisodes:
-              _fn(_instance.streamingEpisodes?.map((e) => e == null
-                  ? null
-                  : CopyWith$Fragment$media$streamingEpisodes(
-                      e,
-                      (i) => i,
-                    )))?.toList());
+    Iterable<Fragment$media$streamingEpisodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$media$streamingEpisodes<
+          Fragment$media$streamingEpisodes
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    streamingEpisodes: _fn(
+      _instance.streamingEpisodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$media$streamingEpisodes(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 
   CopyWith$Fragment$media$nextAiringEpisode<TRes> get nextAiringEpisode {
     final local$nextAiringEpisode = _instance.nextAiringEpisode;
     return local$nextAiringEpisode == null
         ? CopyWith$Fragment$media$nextAiringEpisode.stub(_then(_instance))
         : CopyWith$Fragment$media$nextAiringEpisode(
-            local$nextAiringEpisode, (e) => call(nextAiringEpisode: e));
+            local$nextAiringEpisode,
+            (e) => call(nextAiringEpisode: e),
+          );
   }
 }
 
@@ -611,8 +640,7 @@ class _CopyWithStubImpl$Fragment$media<TRes>
     String? description,
     String? countryOfOrigin,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media$title<TRes> get title =>
       CopyWith$Fragment$media$title.stub(_res);
@@ -632,341 +660,355 @@ class _CopyWithStubImpl$Fragment$media<TRes>
 const fragmentDefinitionmedia = FragmentDefinitionNode(
   name: NameNode(value: 'media'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Media'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'Media'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'idMal'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'siteUrl'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'season'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'seasonYear'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isFavourite'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'title'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'userPreferred'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'idMal'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'siteUrl'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'season'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'seasonYear'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isFavourite'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'title'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'romaji'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'english'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'native'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'romaji'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'coverImage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'extraLarge'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'medium'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'color'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'english'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'trailer'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'id'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'site'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'thumbnail'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'native'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'streamingEpisodes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'title'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'thumbnail'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'url'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'site'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'bannerImage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'genres'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isAdult'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'episodes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'synonyms'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'nextAiringEpisode'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'airingAt'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'episode'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'coverImage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'extraLarge'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'large'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'medium'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'color'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'trailer'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'site'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'thumbnail'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'streamingEpisodes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'title'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'thumbnail'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'url'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'site'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'bannerImage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'genres'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isAdult'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'episodes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'synonyms'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'nextAiringEpisode'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'airingAt'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'episode'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'format'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'description'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'countryOfOrigin'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'format'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'description'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'countryOfOrigin'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentmedia = DocumentNode(definitions: [
-  fragmentDefinitionmedia,
-]);
+const documentNodeFragmentmedia = DocumentNode(
+  definitions: [
+    fragmentDefinitionmedia,
+  ],
+);
 
 extension ClientExtension$Fragment$media on graphql.GraphQLClient {
   void writeFragment$media({
     required Fragment$media data,
     required Map<String, dynamic> idFields,
     bool broadcast = true,
-  }) =>
-      this.writeFragment(
-        graphql.FragmentRequest(
-          idFields: idFields,
-          fragment: const graphql.Fragment(
-            fragmentName: 'media',
-            document: documentNodeFragmentmedia,
-          ),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeFragment(
+    graphql.FragmentRequest(
+      idFields: idFields,
+      fragment: const graphql.Fragment(
+        fragmentName: 'media',
+        document: documentNodeFragmentmedia,
+      ),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Fragment$media? readFragment$media({
     required Map<String, dynamic> idFields,
     bool optimistic = true,
@@ -1132,19 +1174,19 @@ class _CopyWithImpl$Fragment$media$title<TRes>
     Object? english = _undefined,
     Object? native = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
-        english:
-            english == _undefined ? _instance.english : (english as String?),
-        native: native == _undefined ? _instance.native : (native as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+      english: english == _undefined ? _instance.english : (english as String?),
+      native: native == _undefined ? _instance.native : (native as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$media$title<TRes>
@@ -1159,8 +1201,7 @@ class _CopyWithStubImpl$Fragment$media$title<TRes>
     String? english,
     String? native,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$media$coverImage {
@@ -1312,18 +1353,19 @@ class _CopyWithImpl$Fragment$media$coverImage<TRes>
     Object? medium = _undefined,
     Object? color = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media$coverImage(
-        extraLarge: extraLarge == _undefined
-            ? _instance.extraLarge
-            : (extraLarge as String?),
-        large: large == _undefined ? _instance.large : (large as String?),
-        medium: medium == _undefined ? _instance.medium : (medium as String?),
-        color: color == _undefined ? _instance.color : (color as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media$coverImage(
+      extraLarge: extraLarge == _undefined
+          ? _instance.extraLarge
+          : (extraLarge as String?),
+      large: large == _undefined ? _instance.large : (large as String?),
+      medium: medium == _undefined ? _instance.medium : (medium as String?),
+      color: color == _undefined ? _instance.color : (color as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$media$coverImage<TRes>
@@ -1338,8 +1380,7 @@ class _CopyWithStubImpl$Fragment$media$coverImage<TRes>
     String? medium,
     String? color,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$media$trailer {
@@ -1473,17 +1514,18 @@ class _CopyWithImpl$Fragment$media$trailer<TRes>
     Object? site = _undefined,
     Object? thumbnail = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media$trailer(
-        id: id == _undefined ? _instance.id : (id as String?),
-        site: site == _undefined ? _instance.site : (site as String?),
-        thumbnail: thumbnail == _undefined
-            ? _instance.thumbnail
-            : (thumbnail as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media$trailer(
+      id: id == _undefined ? _instance.id : (id as String?),
+      site: site == _undefined ? _instance.site : (site as String?),
+      thumbnail: thumbnail == _undefined
+          ? _instance.thumbnail
+          : (thumbnail as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$media$trailer<TRes>
@@ -1497,8 +1539,7 @@ class _CopyWithStubImpl$Fragment$media$trailer<TRes>
     String? site,
     String? thumbnail,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$media$streamingEpisodes {
@@ -1607,10 +1648,10 @@ class Fragment$media$streamingEpisodes {
 extension UtilityExtension$Fragment$media$streamingEpisodes
     on Fragment$media$streamingEpisodes {
   CopyWith$Fragment$media$streamingEpisodes<Fragment$media$streamingEpisodes>
-      get copyWith => CopyWith$Fragment$media$streamingEpisodes(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$media$streamingEpisodes(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$media$streamingEpisodes<TRes> {
@@ -1650,18 +1691,19 @@ class _CopyWithImpl$Fragment$media$streamingEpisodes<TRes>
     Object? url = _undefined,
     Object? site = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media$streamingEpisodes(
-        title: title == _undefined ? _instance.title : (title as String?),
-        thumbnail: thumbnail == _undefined
-            ? _instance.thumbnail
-            : (thumbnail as String?),
-        url: url == _undefined ? _instance.url : (url as String?),
-        site: site == _undefined ? _instance.site : (site as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media$streamingEpisodes(
+      title: title == _undefined ? _instance.title : (title as String?),
+      thumbnail: thumbnail == _undefined
+          ? _instance.thumbnail
+          : (thumbnail as String?),
+      url: url == _undefined ? _instance.url : (url as String?),
+      site: site == _undefined ? _instance.site : (site as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$media$streamingEpisodes<TRes>
@@ -1676,8 +1718,7 @@ class _CopyWithStubImpl$Fragment$media$streamingEpisodes<TRes>
     String? url,
     String? site,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$media$nextAiringEpisode {
@@ -1758,10 +1799,10 @@ class Fragment$media$nextAiringEpisode {
 extension UtilityExtension$Fragment$media$nextAiringEpisode
     on Fragment$media$nextAiringEpisode {
   CopyWith$Fragment$media$nextAiringEpisode<Fragment$media$nextAiringEpisode>
-      get copyWith => CopyWith$Fragment$media$nextAiringEpisode(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$media$nextAiringEpisode(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$media$nextAiringEpisode<TRes> {
@@ -1797,18 +1838,19 @@ class _CopyWithImpl$Fragment$media$nextAiringEpisode<TRes>
     Object? airingAt = _undefined,
     Object? episode = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$media$nextAiringEpisode(
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$media$nextAiringEpisode(
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$media$nextAiringEpisode<TRes>
@@ -1821,6 +1863,5 @@ class _CopyWithStubImpl$Fragment$media$nextAiringEpisode<TRes>
     int? airingAt,
     int? episode,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

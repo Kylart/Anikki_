@@ -24,11 +24,12 @@ void main() async {
     test('is made of Torrent objects', () {
       for (final torrent in result) {
         expect(
-            torrent,
-            allOf([
-              anything,
-              isA<TorrentSource>(),
-            ]));
+          torrent,
+          allOf([
+            anything,
+            isA<TorrentSource>(),
+          ]),
+        );
       }
     });
 

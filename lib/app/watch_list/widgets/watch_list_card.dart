@@ -16,16 +16,17 @@ class WatchListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return EntryCard(
       media: entry.media,
-      text: [
-        Enum$MediaListStatus.CURRENT,
-        Enum$MediaListStatus.DROPPED,
-        Enum$MediaListStatus.PAUSED,
-        Enum$MediaListStatus.REPEATING,
-      ].contains(entry.status)
+      text:
+          [
+            Enum$MediaListStatus.CURRENT,
+            Enum$MediaListStatus.DROPPED,
+            Enum$MediaListStatus.PAUSED,
+            Enum$MediaListStatus.REPEATING,
+          ].contains(entry.status)
           ? entry.progress?.toString() ?? '?'
           : entry.score == 0
-              ? null
-              : entry.score.toString(),
+          ? null
+          : entry.score.toString(),
     );
   }
 }

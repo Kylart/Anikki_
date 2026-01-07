@@ -11,10 +11,10 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
   SettingsBloc([
     Settings? settings,
   ]) : super(
-          SettingsState(
-            settings ?? const Settings(),
-          ),
-        ) {
+         SettingsState(
+           settings ?? const Settings(),
+         ),
+       ) {
     on<SettingsUpdated>(_onUpdated);
     on<SettingsUpdateFailed>(_onUpdateFailed);
 

@@ -40,10 +40,10 @@ class HistoryEntry extends Equatable {
 
   @override
   List<Object?> get props => [
-        date,
-        episode,
-        text,
-      ];
+    date,
+    episode,
+    text,
+  ];
 
   @override
   bool? get stringify => true;

@@ -28,22 +28,22 @@ class SearchResult extends Equatable {
   final List<Fragment$media>? medias;
 
   bool get isEmpty => [
-        libraryEntries?.isEmpty,
-        torrents?.isEmpty,
-        staffs?.isEmpty,
-        characters?.isEmpty,
-        medias?.isEmpty,
-      ].whereType<bool>().every((b) => b);
+    libraryEntries?.isEmpty,
+    torrents?.isEmpty,
+    staffs?.isEmpty,
+    characters?.isEmpty,
+    medias?.isEmpty,
+  ].whereType<bool>().every((b) => b);
 
   @override
   List<Object> get props => [
-        term,
-        libraryEntries ?? [],
-        torrents ?? [],
-        staffs ?? [],
-        characters ?? [],
-        medias ?? [],
-      ];
+    term,
+    libraryEntries ?? [],
+    torrents ?? [],
+    staffs ?? [],
+    characters ?? [],
+    medias ?? [],
+  ];
 
   @override
   String toString() {
@@ -60,7 +60,7 @@ class SearchResult extends Equatable {
       characters?.length ?? 0,
       'medias:',
       medias?.length ?? 0,
-      ')'
+      ')',
     ].join(', ');
   }
 }

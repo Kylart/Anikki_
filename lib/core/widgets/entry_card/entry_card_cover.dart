@@ -17,11 +17,11 @@ class _EntryCardCover extends StatelessWidget {
 
   double get translationValue => animation.value * 150;
   Widget get colorContainer => Container(
-        color: hexToColor(color),
-        child: const AspectRatio(
-          aspectRatio: 11 / 16,
-        ),
-      );
+    color: hexToColor(color),
+    child: const AspectRatio(
+      aspectRatio: 11 / 16,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {

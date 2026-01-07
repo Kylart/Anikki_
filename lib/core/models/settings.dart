@@ -101,20 +101,27 @@ class Settings extends Equatable {
   factory Settings.fromMap(Map<String, dynamic> map) {
     return Settings(
       theme: ThemeMode.values.where((e) => e.name == map['theme']).first,
-      torrentType:
-          TorrentType.values.where((e) => e.name == map['torrentType']).first,
+      torrentType: TorrentType.values
+          .where((e) => e.name == map['torrentType'])
+          .first,
       librarySettings: LibrarySettings.fromMap(
-          map['librarySettings'] as Map<String, dynamic>),
+        map['librarySettings'] as Map<String, dynamic>,
+      ),
       transmissionSettings: TransmissionSettings.fromMap(
-          map['transmissionSettings'] as Map<String, dynamic>),
+        map['transmissionSettings'] as Map<String, dynamic>,
+      ),
       qBitTorrentSettings: QBitTorrentSettings.fromMap(
-          map['qBitTorrentSettings'] as Map<String, dynamic>),
+        map['qBitTorrentSettings'] as Map<String, dynamic>,
+      ),
       torrestSettings: TorrestSettings.fromMap(
-          map['torrestSettings'] as Map<String, dynamic>),
+        map['torrestSettings'] as Map<String, dynamic>,
+      ),
       videoPlayerSettings: VideoPlayerSettings.fromMap(
-          map['videoPlayerSettings'] as Map<String, dynamic>),
-      streamSettings:
-          StreamSettings.fromMap(map['streamSettings'] as Map<String, dynamic>),
+        map['videoPlayerSettings'] as Map<String, dynamic>,
+      ),
+      streamSettings: StreamSettings.fromMap(
+        map['streamSettings'] as Map<String, dynamic>,
+      ),
     );
   }
 

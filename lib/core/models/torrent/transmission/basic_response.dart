@@ -9,14 +9,14 @@ class BasicResponse extends Equatable {
   const BasicResponse({this.result, this.tag});
 
   factory BasicResponse.fromMap(Map<String, dynamic> data) => BasicResponse(
-        result: data['result'] as String?,
-        tag: data['tag'] as int?,
-      );
+    result: data['result'] as String?,
+    tag: data['tag'] as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'result': result,
-        'tag': tag,
-      };
+    'result': result,
+    'tag': tag,
+  };
 
   /// `dart:convert`
   ///

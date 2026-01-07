@@ -27,7 +27,8 @@ class Hianimez implements AnimeProvider {
 
     return document
         .querySelectorAll(
-            '.ps_-block.ps_-block-sub.servers-$category > .ps__-list .server-item')
+          '.ps_-block.ps_-block-sub.servers-$category > .ps__-list .server-item',
+        )
         .map(
           (element) =>
               element.attributes['data-server-id'] == '$index' ? element : null,
@@ -55,7 +56,9 @@ class Hianimez implements AnimeProvider {
 
     final selector = '#main-content .tab-content .film_list-wrap .flw-item';
 
-    final results = page.querySelectorAll(selector).map<AnimeResult>(
+    final results = page
+        .querySelectorAll(selector)
+        .map<AnimeResult>(
           (element) => AnimeResult(
             id: element
                 .querySelector('.film-detail .film-name .dynamic-name')
@@ -127,12 +130,12 @@ class Hianimez implements AnimeProvider {
       final url = Uri.parse(episodeId);
       return switch (server) {
         _ => AnimeSource(
-            headers: {
-              'Referer': '${url.origin}/',
-            },
-            sources: await MegaCloud().extract(url),
-            download: '',
-          ),
+          headers: {
+            'Referer': '${url.origin}/',
+          },
+          sources: await MegaCloud().extract(url),
+          download: '',
+        ),
       };
     }
 

@@ -28,8 +28,9 @@ class _PortraitLayoutState extends State<PortraitLayout> {
 
   @override
   Widget build(BuildContext context) {
-    final connected = BlocProvider.of<ConnectivityBloc>(context, listen: true)
-        .state is ConnectivityOnline;
+    final connected =
+        BlocProvider.of<ConnectivityBloc>(context, listen: true).state
+            is ConnectivityOnline;
 
     return SafeArea(
       child: Scaffold(

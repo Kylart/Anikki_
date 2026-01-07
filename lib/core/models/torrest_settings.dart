@@ -13,9 +13,9 @@ class TorrestSettings extends Equatable {
 
   @override
   List<Object?> get props => [
-        port,
-        downloadPath,
-      ];
+    port,
+    downloadPath,
+  ];
 
   TorrestSettings copyWith({
     int? port,

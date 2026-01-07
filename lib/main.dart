@@ -22,8 +22,8 @@ void main() async {
   final appDir = await getApplicationDocumentsDirectory();
   final storageDirectoryPath =
       kDebugMode || Platform.environment.containsKey('FLUTTER_TEST')
-          ? join('anikki', 'test', 'storage', 'bloc')
-          : join('anikki', 'storage', 'bloc');
+      ? join('anikki', 'test', 'storage', 'bloc')
+      : join('anikki', 'storage', 'bloc');
   final storageDirectory = Directory(
     join(appDir.path, storageDirectoryPath),
   );

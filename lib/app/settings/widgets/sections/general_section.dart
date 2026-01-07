@@ -34,10 +34,12 @@ class GeneralSection extends AbstractSettingsSection {
           trailing: DropdownButton(
             value: settingsBloc.state.settings.theme,
             items: ThemeMode.values
-                .map((mode) => DropdownMenuItem(
-                      value: mode,
-                      child: Text(mode.name.capitalize()),
-                    ))
+                .map(
+                  (mode) => DropdownMenuItem(
+                    value: mode,
+                    child: Text(mode.name.capitalize()),
+                  ),
+                )
                 .toList(),
             onChanged: (value) {
               if (value == null) return;

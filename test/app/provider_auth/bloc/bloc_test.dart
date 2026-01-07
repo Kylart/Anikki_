@@ -31,8 +31,9 @@ void main() {
       setUp: () {
         repository = UserRepositoryMock();
 
-        when(() => repository.getAnilistCurrentUser())
-            .thenAnswer((invocation) async => anilistUserMock);
+        when(
+          () => repository.getAnilistCurrentUser(),
+        ).thenAnswer((invocation) async => anilistUserMock);
 
         bloc = ProviderAuthBloc(repository);
       },
@@ -54,8 +55,9 @@ void main() {
       setUp: () {
         repository = UserRepositoryMock();
 
-        when(() => repository.getAnilistCurrentUser())
-            .thenAnswer((_) async => null);
+        when(
+          () => repository.getAnilistCurrentUser(),
+        ).thenAnswer((_) async => null);
 
         bloc = ProviderAuthBloc(repository);
       },

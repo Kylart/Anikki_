@@ -17,10 +17,11 @@ String? _getBackgroundImageUrl(Media? media) {
   /// Get a random image from the media's images
   String? imageUrl;
 
-  final images = media?.tmdbInfo?.images!.backdrops
-      ?.where((image) => image.filePath != null)
-      .toList()
-    ?..shuffle();
+  final images =
+      media?.tmdbInfo?.images!.backdrops
+          ?.where((image) => image.filePath != null)
+          .toList()
+        ?..shuffle();
 
   if (images != null && images.isNotEmpty) {
     final image = images.first;
@@ -124,15 +125,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
 
       entries = switch (requestedType) {
-        HomeMediaType.following =>
-          await userListRepository.getContinueList(event.watchList!),
-        HomeMediaType.toStart =>
-          await userListRepository.getStartList(event.watchList!),
-        HomeMediaType.trending => (await feedRepository.getTrending())
-            .map(
-              (media) => MediaListEntry(media: media, progress: null),
-            )
-            .toList(),
+        HomeMediaType.following => await userListRepository.getContinueList(
+          event.watchList!,
+        ),
+        HomeMediaType.toStart => await userListRepository.getStartList(
+          event.watchList!,
+        ),
+        HomeMediaType.trending =>
+          (await feedRepository.getTrending())
+              .map(
+                (media) => MediaListEntry(media: media, progress: null),
+              )
+              .toList(),
         HomeMediaType.recommendations =>
           (await feedRepository.getrecommendations())
               .map(

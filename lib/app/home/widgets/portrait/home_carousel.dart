@@ -56,8 +56,9 @@ class _HomeCarouselState extends State<_HomeCarousel> {
                 ? 0
                 : state.entries.indexOf(state.currentEntry!),
             onPageChanged: (index, reason) {
-              final entry =
-                  widget.entries.elementAt(index % widget.entries.length);
+              final entry = widget.entries.elementAt(
+                index % widget.entries.length,
+              );
 
               BlocProvider.of<HomeBloc>(context).add(
                 HomeCurrentIndexChanged(index),

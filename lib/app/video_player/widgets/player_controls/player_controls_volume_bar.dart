@@ -32,8 +32,10 @@ class PlayerControlsVolumeBar extends StatelessWidget {
                       animatedDuration: const Duration(milliseconds: 150),
                       progressColor: Colors.white.withValues(alpha: 0.9),
                       size: 22,
-                      displayTextStyle:
-                          const TextStyle(color: Colors.black, fontSize: 8),
+                      displayTextStyle: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 8,
+                      ),
                       direction: Axis.vertical,
                       verticalDirection: VerticalDirection.up,
                       currentValue: snapshot.data!,

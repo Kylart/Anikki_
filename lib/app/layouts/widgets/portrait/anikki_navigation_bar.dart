@@ -47,7 +47,7 @@ class AnikkiNavigationBar extends StatelessWidget {
                           : null,
                     ),
                   ),
-                if (!connected) const NotConnectedIcon()
+                if (!connected) const NotConnectedIcon(),
               ],
             ),
           ),

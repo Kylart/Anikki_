@@ -37,96 +37,96 @@ class _AnikkiNavigationRailState extends State<AnikkiNavigationRail> {
   bool expanded = false;
 
   Widget get gap => const SizedBox(
-        height: 24.0,
-      );
+    height: 24.0,
+  );
 
   _NavigationRailItem get titleItem => _NavigationRailItem(
-        expanded: expanded,
-        text: 'Anikki',
-        imageUrl: 'assets/logo.png',
-        isTitle: true,
-      );
+    expanded: expanded,
+    text: 'Anikki',
+    imageUrl: 'assets/logo.png',
+    isTitle: true,
+  );
 
   Iterable<_NavigationRailItem> get pages => widget.pages.mapIndexed(
-        (index, page) => _NavigationRailItem(
-          expanded: expanded,
-          text: page.name,
-          selected: index == widget.currentIndex,
-          icon: index == widget.currentIndex ? page.selectedIcon : page.icon,
-          onClick: () {
-            widget.onPageChanged(index);
-          },
-        ),
-      );
+    (index, page) => _NavigationRailItem(
+      expanded: expanded,
+      text: page.name,
+      selected: index == widget.currentIndex,
+      icon: index == widget.currentIndex ? page.selectedIcon : page.icon,
+      onClick: () {
+        widget.onPageChanged(index);
+      },
+    ),
+  );
 
   List<_NavigationRailItem> get actionItems => [
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: HugeIcons.strokeRoundedSearch01,
-          text: 'Search',
-          onClick: () {
-            BlocProvider.of<LayoutBloc>(context).add(
-              LayoutLeftDrawerTypeChanged(
-                type: LeftDrawerType.search,
-                callback: Scaffold.of(context).openDrawer,
-              ),
-            );
-          },
-        ),
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: HugeIcons.strokeRoundedCalendar03,
-          text: 'Schedule',
-          onClick: () {
-            BlocProvider.of<LayoutBloc>(context).add(
-              LayoutLeftDrawerTypeChanged(
-                type: LeftDrawerType.schedule,
-                callback: Scaffold.of(context).openDrawer,
-              ),
-            );
-          },
-        ),
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: HugeIcons.strokeRoundedClock04,
-          text: 'History',
-          onClick: () {
-            BlocProvider.of<LayoutBloc>(context).add(
-              LayoutLeftDrawerTypeChanged(
-                type: LeftDrawerType.history,
-                callback: Scaffold.of(context).openDrawer,
-              ),
-            );
-          },
-        ),
-      ];
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: HugeIcons.strokeRoundedSearch01,
+      text: 'Search',
+      onClick: () {
+        BlocProvider.of<LayoutBloc>(context).add(
+          LayoutLeftDrawerTypeChanged(
+            type: LeftDrawerType.search,
+            callback: Scaffold.of(context).openDrawer,
+          ),
+        );
+      },
+    ),
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: HugeIcons.strokeRoundedCalendar03,
+      text: 'Schedule',
+      onClick: () {
+        BlocProvider.of<LayoutBloc>(context).add(
+          LayoutLeftDrawerTypeChanged(
+            type: LeftDrawerType.schedule,
+            callback: Scaffold.of(context).openDrawer,
+          ),
+        );
+      },
+    ),
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: HugeIcons.strokeRoundedClock04,
+      text: 'History',
+      onClick: () {
+        BlocProvider.of<LayoutBloc>(context).add(
+          LayoutLeftDrawerTypeChanged(
+            type: LeftDrawerType.history,
+            callback: Scaffold.of(context).openDrawer,
+          ),
+        );
+      },
+    ),
+  ];
 
   List<_NavigationRailItem> get externalLinkItems => [
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: WatchListProvider.anilist.icon,
-          text: 'Go to ${WatchListProvider.anilist.title}',
-          onClick: () => openInBrowser('https://anilist.co'),
-        ),
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: WatchListProvider.mal.icon,
-          text: 'Go to ${WatchListProvider.mal.title}',
-          onClick: () => openInBrowser('https://myanimelist.net'),
-        ),
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: WatchListProvider.kitsu.icon,
-          text: 'Go to ${WatchListProvider.kitsu.title}',
-          onClick: () => openInBrowser('https://kitsu.app'),
-        ),
-        _NavigationRailItem(
-          expanded: expanded,
-          icon: SimpleIcons.themoviedatabase,
-          text: 'Go to TMDB',
-          onClick: () => openInBrowser('https://www.themoviedb.org/'),
-        ),
-      ];
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: WatchListProvider.anilist.icon,
+      text: 'Go to ${WatchListProvider.anilist.title}',
+      onClick: () => openInBrowser('https://anilist.co'),
+    ),
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: WatchListProvider.mal.icon,
+      text: 'Go to ${WatchListProvider.mal.title}',
+      onClick: () => openInBrowser('https://myanimelist.net'),
+    ),
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: WatchListProvider.kitsu.icon,
+      text: 'Go to ${WatchListProvider.kitsu.title}',
+      onClick: () => openInBrowser('https://kitsu.app'),
+    ),
+    _NavigationRailItem(
+      expanded: expanded,
+      icon: SimpleIcons.themoviedatabase,
+      text: 'Go to TMDB',
+      onClick: () => openInBrowser('https://www.themoviedb.org/'),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {

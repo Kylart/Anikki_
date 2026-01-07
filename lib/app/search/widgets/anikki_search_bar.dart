@@ -90,8 +90,9 @@ class _AnikkiSearchBarState extends State<AnikkiSearchBar> {
 
               controller.clear();
 
-              BlocProvider.of<SearchBloc>(context)
-                  .add(const SearchRequested(''));
+              BlocProvider.of<SearchBloc>(
+                context,
+              ).add(const SearchRequested(''));
             },
             icon: const Icon(HugeIcons.strokeRoundedCancel01),
           ),

@@ -10,22 +10,22 @@ class StartSeason extends Equatable {
   const StartSeason({this.year, this.season});
 
   Enum$MediaSeason get anilistSeason => switch (season) {
-        'spring' => Enum$MediaSeason.SPRING,
-        'summer' => Enum$MediaSeason.SUMMER,
-        'fall' => Enum$MediaSeason.FALL,
-        'winter' => Enum$MediaSeason.WINTER,
-        _ => Enum$MediaSeason.$unknown,
-      };
+    'spring' => Enum$MediaSeason.SPRING,
+    'summer' => Enum$MediaSeason.SUMMER,
+    'fall' => Enum$MediaSeason.FALL,
+    'winter' => Enum$MediaSeason.WINTER,
+    _ => Enum$MediaSeason.$unknown,
+  };
 
   factory StartSeason.fromMap(Map<String, dynamic> data) => StartSeason(
-        year: data['year'] as int?,
-        season: data['season'] as String?,
-      );
+    year: data['year'] as int?,
+    season: data['season'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'year': year,
-        'season': season,
-      };
+    'year': year,
+    'season': season,
+  };
 
   /// `dart:convert`
   ///

@@ -2,11 +2,10 @@ class Input$AccountChangePasswordInput {
   factory Input$AccountChangePasswordInput({
     required String oldPassword,
     required String newPassword,
-  }) =>
-      Input$AccountChangePasswordInput._({
-        r'oldPassword': oldPassword,
-        r'newPassword': newPassword,
-      });
+  }) => Input$AccountChangePasswordInput._({
+    r'oldPassword': oldPassword,
+    r'newPassword': newPassword,
+  });
 
   Input$AccountChangePasswordInput._(this._$data);
 
@@ -35,10 +34,10 @@ class Input$AccountChangePasswordInput {
   }
 
   CopyWith$Input$AccountChangePasswordInput<Input$AccountChangePasswordInput>
-      get copyWith => CopyWith$Input$AccountChangePasswordInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$AccountChangePasswordInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -104,14 +103,15 @@ class _CopyWithImpl$Input$AccountChangePasswordInput<TRes>
   TRes call({
     Object? oldPassword = _undefined,
     Object? newPassword = _undefined,
-  }) =>
-      _then(Input$AccountChangePasswordInput._({
-        ..._instance._$data,
-        if (oldPassword != _undefined && oldPassword != null)
-          'oldPassword': (oldPassword as String),
-        if (newPassword != _undefined && newPassword != null)
-          'newPassword': (newPassword as String),
-      }));
+  }) => _then(
+    Input$AccountChangePasswordInput._({
+      ..._instance._$data,
+      if (oldPassword != _undefined && oldPassword != null)
+        'oldPassword': (oldPassword as String),
+      if (newPassword != _undefined && newPassword != null)
+        'newPassword': (newPassword as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AccountChangePasswordInput<TRes>
@@ -123,8 +123,7 @@ class _CopyWithStubImpl$Input$AccountChangePasswordInput<TRes>
   call({
     String? oldPassword,
     String? newPassword,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$AccountCreateInput {
@@ -133,13 +132,12 @@ class Input$AccountCreateInput {
     required String email,
     required String password,
     Input$AccountExternalIdentityInput? externalIdentity,
-  }) =>
-      Input$AccountCreateInput._({
-        r'name': name,
-        r'email': email,
-        r'password': password,
-        if (externalIdentity != null) r'externalIdentity': externalIdentity,
-      });
+  }) => Input$AccountCreateInput._({
+    r'name': name,
+    r'email': email,
+    r'password': password,
+    if (externalIdentity != null) r'externalIdentity': externalIdentity,
+  });
 
   Input$AccountCreateInput._(this._$data);
 
@@ -156,7 +154,8 @@ class Input$AccountCreateInput {
       result$data['externalIdentity'] = l$externalIdentity == null
           ? null
           : Input$AccountExternalIdentityInput.fromJson(
-              (l$externalIdentity as Map<String, dynamic>));
+              (l$externalIdentity as Map<String, dynamic>),
+            );
     }
     return Input$AccountCreateInput._(result$data);
   }
@@ -280,24 +279,27 @@ class _CopyWithImpl$Input$AccountCreateInput<TRes>
     Object? email = _undefined,
     Object? password = _undefined,
     Object? externalIdentity = _undefined,
-  }) =>
-      _then(Input$AccountCreateInput._({
-        ..._instance._$data,
-        if (name != _undefined && name != null) 'name': (name as String),
-        if (email != _undefined && email != null) 'email': (email as String),
-        if (password != _undefined && password != null)
-          'password': (password as String),
-        if (externalIdentity != _undefined)
-          'externalIdentity':
-              (externalIdentity as Input$AccountExternalIdentityInput?),
-      }));
+  }) => _then(
+    Input$AccountCreateInput._({
+      ..._instance._$data,
+      if (name != _undefined && name != null) 'name': (name as String),
+      if (email != _undefined && email != null) 'email': (email as String),
+      if (password != _undefined && password != null)
+        'password': (password as String),
+      if (externalIdentity != _undefined)
+        'externalIdentity':
+            (externalIdentity as Input$AccountExternalIdentityInput?),
+    }),
+  );
 
   CopyWith$Input$AccountExternalIdentityInput<TRes> get externalIdentity {
     final local$externalIdentity = _instance.externalIdentity;
     return local$externalIdentity == null
         ? CopyWith$Input$AccountExternalIdentityInput.stub(_then(_instance))
         : CopyWith$Input$AccountExternalIdentityInput(
-            local$externalIdentity, (e) => call(externalIdentity: e));
+            local$externalIdentity,
+            (e) => call(externalIdentity: e),
+          );
   }
 }
 
@@ -312,8 +314,7 @@ class _CopyWithStubImpl$Input$AccountCreateInput<TRes>
     String? email,
     String? password,
     Input$AccountExternalIdentityInput? externalIdentity,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$AccountExternalIdentityInput<TRes> get externalIdentity =>
       CopyWith$Input$AccountExternalIdentityInput.stub(_res);
@@ -323,20 +324,21 @@ class Input$AccountExternalIdentityInput {
   factory Input$AccountExternalIdentityInput({
     required Enum$ExternalIdentityProviderEnum provider,
     required String id,
-  }) =>
-      Input$AccountExternalIdentityInput._({
-        r'provider': provider,
-        r'id': id,
-      });
+  }) => Input$AccountExternalIdentityInput._({
+    r'provider': provider,
+    r'id': id,
+  });
 
   Input$AccountExternalIdentityInput._(this._$data);
 
   factory Input$AccountExternalIdentityInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$provider = data['provider'];
-    result$data['provider'] =
-        fromJson$Enum$ExternalIdentityProviderEnum((l$provider as String));
+    result$data['provider'] = fromJson$Enum$ExternalIdentityProviderEnum(
+      (l$provider as String),
+    );
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
     return Input$AccountExternalIdentityInput._(result$data);
@@ -352,19 +354,21 @@ class Input$AccountExternalIdentityInput {
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$provider = provider;
-    result$data['provider'] =
-        toJson$Enum$ExternalIdentityProviderEnum(l$provider);
+    result$data['provider'] = toJson$Enum$ExternalIdentityProviderEnum(
+      l$provider,
+    );
     final l$id = id;
     result$data['id'] = l$id;
     return result$data;
   }
 
   CopyWith$Input$AccountExternalIdentityInput<
-          Input$AccountExternalIdentityInput>
-      get copyWith => CopyWith$Input$AccountExternalIdentityInput(
-            this,
-            (i) => i,
-          );
+    Input$AccountExternalIdentityInput
+  >
+  get copyWith => CopyWith$Input$AccountExternalIdentityInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -430,13 +434,14 @@ class _CopyWithImpl$Input$AccountExternalIdentityInput<TRes>
   TRes call({
     Object? provider = _undefined,
     Object? id = _undefined,
-  }) =>
-      _then(Input$AccountExternalIdentityInput._({
-        ..._instance._$data,
-        if (provider != _undefined && provider != null)
-          'provider': (provider as Enum$ExternalIdentityProviderEnum),
-        if (id != _undefined && id != null) 'id': (id as String),
-      }));
+  }) => _then(
+    Input$AccountExternalIdentityInput._({
+      ..._instance._$data,
+      if (provider != _undefined && provider != null)
+        'provider': (provider as Enum$ExternalIdentityProviderEnum),
+      if (id != _undefined && id != null) 'id': (id as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AccountExternalIdentityInput<TRes>
@@ -448,8 +453,7 @@ class _CopyWithStubImpl$Input$AccountExternalIdentityInput<TRes>
   call({
     Enum$ExternalIdentityProviderEnum? provider,
     String? id,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$AccountUpdateInput {
@@ -460,17 +464,16 @@ class Input$AccountUpdateInput {
     Enum$RatingSystemEnum? ratingSystem,
     Enum$TitleLanguagePreferenceEnum? preferredTitleLanguage,
     String? timeZone,
-  }) =>
-      Input$AccountUpdateInput._({
-        if (sfwFilterPreference != null)
-          r'sfwFilterPreference': sfwFilterPreference,
-        if (country != null) r'country': country,
-        if (siteTheme != null) r'siteTheme': siteTheme,
-        if (ratingSystem != null) r'ratingSystem': ratingSystem,
-        if (preferredTitleLanguage != null)
-          r'preferredTitleLanguage': preferredTitleLanguage,
-        if (timeZone != null) r'timeZone': timeZone,
-      });
+  }) => Input$AccountUpdateInput._({
+    if (sfwFilterPreference != null)
+      r'sfwFilterPreference': sfwFilterPreference,
+    if (country != null) r'country': country,
+    if (siteTheme != null) r'siteTheme': siteTheme,
+    if (ratingSystem != null) r'ratingSystem': ratingSystem,
+    if (preferredTitleLanguage != null)
+      r'preferredTitleLanguage': preferredTitleLanguage,
+    if (timeZone != null) r'timeZone': timeZone,
+  });
 
   Input$AccountUpdateInput._(this._$data);
 
@@ -481,7 +484,8 @@ class Input$AccountUpdateInput {
       result$data['sfwFilterPreference'] = l$sfwFilterPreference == null
           ? null
           : fromJson$Enum$SfwFilterPreferenceEnum(
-              (l$sfwFilterPreference as String));
+              (l$sfwFilterPreference as String),
+            );
     }
     if (data.containsKey('country')) {
       final l$country = data['country'];
@@ -504,7 +508,8 @@ class Input$AccountUpdateInput {
       result$data['preferredTitleLanguage'] = l$preferredTitleLanguage == null
           ? null
           : fromJson$Enum$TitleLanguagePreferenceEnum(
-              (l$preferredTitleLanguage as String));
+              (l$preferredTitleLanguage as String),
+            );
     }
     if (data.containsKey('timeZone')) {
       final l$timeZone = data['timeZone'];
@@ -545,8 +550,9 @@ class Input$AccountUpdateInput {
     }
     if (_$data.containsKey('siteTheme')) {
       final l$siteTheme = siteTheme;
-      result$data['siteTheme'] =
-          l$siteTheme == null ? null : toJson$Enum$SiteThemeEnum(l$siteTheme);
+      result$data['siteTheme'] = l$siteTheme == null
+          ? null
+          : toJson$Enum$SiteThemeEnum(l$siteTheme);
     }
     if (_$data.containsKey('ratingSystem')) {
       final l$ratingSystem = ratingSystem;
@@ -700,22 +706,23 @@ class _CopyWithImpl$Input$AccountUpdateInput<TRes>
     Object? ratingSystem = _undefined,
     Object? preferredTitleLanguage = _undefined,
     Object? timeZone = _undefined,
-  }) =>
-      _then(Input$AccountUpdateInput._({
-        ..._instance._$data,
-        if (sfwFilterPreference != _undefined)
-          'sfwFilterPreference':
-              (sfwFilterPreference as Enum$SfwFilterPreferenceEnum?),
-        if (country != _undefined) 'country': (country as String?),
-        if (siteTheme != _undefined)
-          'siteTheme': (siteTheme as Enum$SiteThemeEnum?),
-        if (ratingSystem != _undefined)
-          'ratingSystem': (ratingSystem as Enum$RatingSystemEnum?),
-        if (preferredTitleLanguage != _undefined)
-          'preferredTitleLanguage':
-              (preferredTitleLanguage as Enum$TitleLanguagePreferenceEnum?),
-        if (timeZone != _undefined) 'timeZone': (timeZone as String?),
-      }));
+  }) => _then(
+    Input$AccountUpdateInput._({
+      ..._instance._$data,
+      if (sfwFilterPreference != _undefined)
+        'sfwFilterPreference':
+            (sfwFilterPreference as Enum$SfwFilterPreferenceEnum?),
+      if (country != _undefined) 'country': (country as String?),
+      if (siteTheme != _undefined)
+        'siteTheme': (siteTheme as Enum$SiteThemeEnum?),
+      if (ratingSystem != _undefined)
+        'ratingSystem': (ratingSystem as Enum$RatingSystemEnum?),
+      if (preferredTitleLanguage != _undefined)
+        'preferredTitleLanguage':
+            (preferredTitleLanguage as Enum$TitleLanguagePreferenceEnum?),
+      if (timeZone != _undefined) 'timeZone': (timeZone as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AccountUpdateInput<TRes>
@@ -731,8 +738,7 @@ class _CopyWithStubImpl$Input$AccountUpdateInput<TRes>
     Enum$RatingSystemEnum? ratingSystem,
     Enum$TitleLanguagePreferenceEnum? preferredTitleLanguage,
     String? timeZone,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$AnimeCreateInput {
@@ -749,30 +755,30 @@ class Input$AnimeCreateInput {
     String? youtubeTrailerVideoId,
     int? episodeCount,
     int? episodeLength,
-  }) =>
-      Input$AnimeCreateInput._({
-        r'titles': titles,
-        r'description': description,
-        if (ageRating != null) r'ageRating': ageRating,
-        if (ageRatingGuide != null) r'ageRatingGuide': ageRatingGuide,
-        if (tba != null) r'tba': tba,
-        if (startDate != null) r'startDate': startDate,
-        if (endDate != null) r'endDate': endDate,
-        if (posterImage != null) r'posterImage': posterImage,
-        if (bannerImage != null) r'bannerImage': bannerImage,
-        if (youtubeTrailerVideoId != null)
-          r'youtubeTrailerVideoId': youtubeTrailerVideoId,
-        if (episodeCount != null) r'episodeCount': episodeCount,
-        if (episodeLength != null) r'episodeLength': episodeLength,
-      });
+  }) => Input$AnimeCreateInput._({
+    r'titles': titles,
+    r'description': description,
+    if (ageRating != null) r'ageRating': ageRating,
+    if (ageRatingGuide != null) r'ageRatingGuide': ageRatingGuide,
+    if (tba != null) r'tba': tba,
+    if (startDate != null) r'startDate': startDate,
+    if (endDate != null) r'endDate': endDate,
+    if (posterImage != null) r'posterImage': posterImage,
+    if (bannerImage != null) r'bannerImage': bannerImage,
+    if (youtubeTrailerVideoId != null)
+      r'youtubeTrailerVideoId': youtubeTrailerVideoId,
+    if (episodeCount != null) r'episodeCount': episodeCount,
+    if (episodeLength != null) r'episodeLength': episodeLength,
+  });
 
   Input$AnimeCreateInput._(this._$data);
 
   factory Input$AnimeCreateInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$titles = data['titles'];
-    result$data['titles'] =
-        Input$TitlesListInput.fromJson((l$titles as Map<String, dynamic>));
+    result$data['titles'] = Input$TitlesListInput.fromJson(
+      (l$titles as Map<String, dynamic>),
+    );
     final l$description = data['description'];
     result$data['description'] = (l$description as String);
     if (data.containsKey('ageRating')) {
@@ -858,8 +864,9 @@ class Input$AnimeCreateInput {
     result$data['description'] = l$description;
     if (_$data.containsKey('ageRating')) {
       final l$ageRating = ageRating;
-      result$data['ageRating'] =
-          l$ageRating == null ? null : toJson$Enum$AgeRatingEnum(l$ageRating);
+      result$data['ageRating'] = l$ageRating == null
+          ? null
+          : toJson$Enum$AgeRatingEnum(l$ageRating);
     }
     if (_$data.containsKey('ageRatingGuide')) {
       final l$ageRatingGuide = ageRatingGuide;
@@ -1100,28 +1107,28 @@ class _CopyWithImpl$Input$AnimeCreateInput<TRes>
     Object? youtubeTrailerVideoId = _undefined,
     Object? episodeCount = _undefined,
     Object? episodeLength = _undefined,
-  }) =>
-      _then(Input$AnimeCreateInput._({
-        ..._instance._$data,
-        if (titles != _undefined && titles != null)
-          'titles': (titles as Input$TitlesListInput),
-        if (description != _undefined && description != null)
-          'description': (description as String),
-        if (ageRating != _undefined)
-          'ageRating': (ageRating as Enum$AgeRatingEnum?),
-        if (ageRatingGuide != _undefined)
-          'ageRatingGuide': (ageRatingGuide as String?),
-        if (tba != _undefined) 'tba': (tba as String?),
-        if (startDate != _undefined) 'startDate': (startDate as String?),
-        if (endDate != _undefined) 'endDate': (endDate as String?),
-        if (posterImage != _undefined) 'posterImage': (posterImage as String?),
-        if (bannerImage != _undefined) 'bannerImage': (bannerImage as String?),
-        if (youtubeTrailerVideoId != _undefined)
-          'youtubeTrailerVideoId': (youtubeTrailerVideoId as String?),
-        if (episodeCount != _undefined) 'episodeCount': (episodeCount as int?),
-        if (episodeLength != _undefined)
-          'episodeLength': (episodeLength as int?),
-      }));
+  }) => _then(
+    Input$AnimeCreateInput._({
+      ..._instance._$data,
+      if (titles != _undefined && titles != null)
+        'titles': (titles as Input$TitlesListInput),
+      if (description != _undefined && description != null)
+        'description': (description as String),
+      if (ageRating != _undefined)
+        'ageRating': (ageRating as Enum$AgeRatingEnum?),
+      if (ageRatingGuide != _undefined)
+        'ageRatingGuide': (ageRatingGuide as String?),
+      if (tba != _undefined) 'tba': (tba as String?),
+      if (startDate != _undefined) 'startDate': (startDate as String?),
+      if (endDate != _undefined) 'endDate': (endDate as String?),
+      if (posterImage != _undefined) 'posterImage': (posterImage as String?),
+      if (bannerImage != _undefined) 'bannerImage': (bannerImage as String?),
+      if (youtubeTrailerVideoId != _undefined)
+        'youtubeTrailerVideoId': (youtubeTrailerVideoId as String?),
+      if (episodeCount != _undefined) 'episodeCount': (episodeCount as int?),
+      if (episodeLength != _undefined) 'episodeLength': (episodeLength as int?),
+    }),
+  );
 
   CopyWith$Input$TitlesListInput<TRes> get titles {
     final local$titles = _instance.titles;
@@ -1148,8 +1155,7 @@ class _CopyWithStubImpl$Input$AnimeCreateInput<TRes>
     String? youtubeTrailerVideoId,
     int? episodeCount,
     int? episodeLength,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$TitlesListInput<TRes> get titles =>
       CopyWith$Input$TitlesListInput.stub(_res);
@@ -1170,23 +1176,22 @@ class Input$AnimeUpdateInput {
     String? youtubeTrailerVideoId,
     int? episodeCount,
     int? episodeLength,
-  }) =>
-      Input$AnimeUpdateInput._({
-        r'id': id,
-        if (titles != null) r'titles': titles,
-        if (description != null) r'description': description,
-        if (ageRating != null) r'ageRating': ageRating,
-        if (ageRatingGuide != null) r'ageRatingGuide': ageRatingGuide,
-        if (tba != null) r'tba': tba,
-        if (startDate != null) r'startDate': startDate,
-        if (endDate != null) r'endDate': endDate,
-        if (posterImage != null) r'posterImage': posterImage,
-        if (bannerImage != null) r'bannerImage': bannerImage,
-        if (youtubeTrailerVideoId != null)
-          r'youtubeTrailerVideoId': youtubeTrailerVideoId,
-        if (episodeCount != null) r'episodeCount': episodeCount,
-        if (episodeLength != null) r'episodeLength': episodeLength,
-      });
+  }) => Input$AnimeUpdateInput._({
+    r'id': id,
+    if (titles != null) r'titles': titles,
+    if (description != null) r'description': description,
+    if (ageRating != null) r'ageRating': ageRating,
+    if (ageRatingGuide != null) r'ageRatingGuide': ageRatingGuide,
+    if (tba != null) r'tba': tba,
+    if (startDate != null) r'startDate': startDate,
+    if (endDate != null) r'endDate': endDate,
+    if (posterImage != null) r'posterImage': posterImage,
+    if (bannerImage != null) r'bannerImage': bannerImage,
+    if (youtubeTrailerVideoId != null)
+      r'youtubeTrailerVideoId': youtubeTrailerVideoId,
+    if (episodeCount != null) r'episodeCount': episodeCount,
+    if (episodeLength != null) r'episodeLength': episodeLength,
+  });
 
   Input$AnimeUpdateInput._(this._$data);
 
@@ -1295,8 +1300,9 @@ class Input$AnimeUpdateInput {
     }
     if (_$data.containsKey('ageRating')) {
       final l$ageRating = ageRating;
-      result$data['ageRating'] =
-          l$ageRating == null ? null : toJson$Enum$AgeRatingEnum(l$ageRating);
+      result$data['ageRating'] = l$ageRating == null
+          ? null
+          : toJson$Enum$AgeRatingEnum(l$ageRating);
     }
     if (_$data.containsKey('ageRatingGuide')) {
       final l$ageRatingGuide = ageRatingGuide;
@@ -1553,27 +1559,27 @@ class _CopyWithImpl$Input$AnimeUpdateInput<TRes>
     Object? youtubeTrailerVideoId = _undefined,
     Object? episodeCount = _undefined,
     Object? episodeLength = _undefined,
-  }) =>
-      _then(Input$AnimeUpdateInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (titles != _undefined) 'titles': (titles as Input$TitlesListInput?),
-        if (description != _undefined) 'description': (description as String?),
-        if (ageRating != _undefined)
-          'ageRating': (ageRating as Enum$AgeRatingEnum?),
-        if (ageRatingGuide != _undefined)
-          'ageRatingGuide': (ageRatingGuide as String?),
-        if (tba != _undefined) 'tba': (tba as String?),
-        if (startDate != _undefined) 'startDate': (startDate as String?),
-        if (endDate != _undefined) 'endDate': (endDate as String?),
-        if (posterImage != _undefined) 'posterImage': (posterImage as String?),
-        if (bannerImage != _undefined) 'bannerImage': (bannerImage as String?),
-        if (youtubeTrailerVideoId != _undefined)
-          'youtubeTrailerVideoId': (youtubeTrailerVideoId as String?),
-        if (episodeCount != _undefined) 'episodeCount': (episodeCount as int?),
-        if (episodeLength != _undefined)
-          'episodeLength': (episodeLength as int?),
-      }));
+  }) => _then(
+    Input$AnimeUpdateInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (titles != _undefined) 'titles': (titles as Input$TitlesListInput?),
+      if (description != _undefined) 'description': (description as String?),
+      if (ageRating != _undefined)
+        'ageRating': (ageRating as Enum$AgeRatingEnum?),
+      if (ageRatingGuide != _undefined)
+        'ageRatingGuide': (ageRatingGuide as String?),
+      if (tba != _undefined) 'tba': (tba as String?),
+      if (startDate != _undefined) 'startDate': (startDate as String?),
+      if (endDate != _undefined) 'endDate': (endDate as String?),
+      if (posterImage != _undefined) 'posterImage': (posterImage as String?),
+      if (bannerImage != _undefined) 'bannerImage': (bannerImage as String?),
+      if (youtubeTrailerVideoId != _undefined)
+        'youtubeTrailerVideoId': (youtubeTrailerVideoId as String?),
+      if (episodeCount != _undefined) 'episodeCount': (episodeCount as int?),
+      if (episodeLength != _undefined) 'episodeLength': (episodeLength as int?),
+    }),
+  );
 
   CopyWith$Input$TitlesListInput<TRes> get titles {
     final local$titles = _instance.titles;
@@ -1603,8 +1609,7 @@ class _CopyWithStubImpl$Input$AnimeUpdateInput<TRes>
     String? youtubeTrailerVideoId,
     int? episodeCount,
     int? episodeLength,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$TitlesListInput<TRes> get titles =>
       CopyWith$Input$TitlesListInput.stub(_res);
@@ -1690,12 +1695,13 @@ class _CopyWithImpl$Input$BlockCreateInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? blockedId = _undefined}) =>
-      _then(Input$BlockCreateInput._({
-        ..._instance._$data,
-        if (blockedId != _undefined && blockedId != null)
-          'blockedId': (blockedId as String),
-      }));
+  TRes call({Object? blockedId = _undefined}) => _then(
+    Input$BlockCreateInput._({
+      ..._instance._$data,
+      if (blockedId != _undefined && blockedId != null)
+        'blockedId': (blockedId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$BlockCreateInput<TRes>
@@ -1787,11 +1793,13 @@ class _CopyWithImpl$Input$BlockDeleteInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? blockId = _undefined}) => _then(Input$BlockDeleteInput._({
-        ..._instance._$data,
-        if (blockId != _undefined && blockId != null)
-          'blockId': (blockId as String),
-      }));
+  TRes call({Object? blockId = _undefined}) => _then(
+    Input$BlockDeleteInput._({
+      ..._instance._$data,
+      if (blockId != _undefined && blockId != null)
+        'blockId': (blockId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$BlockDeleteInput<TRes>
@@ -1807,11 +1815,10 @@ class Input$ChapterSortOption {
   factory Input$ChapterSortOption({
     required Enum$ChapterSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$ChapterSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$ChapterSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$ChapterSortOption._(this._$data);
 
@@ -1820,8 +1827,9 @@ class Input$ChapterSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$ChapterSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$ChapterSortOption._(result$data);
   }
 
@@ -1910,14 +1918,14 @@ class _CopyWithImpl$Input$ChapterSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$ChapterSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$ChapterSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$ChapterSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$ChapterSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ChapterSortOption<TRes>
@@ -1929,19 +1937,17 @@ class _CopyWithStubImpl$Input$ChapterSortOption<TRes>
   call({
     Enum$ChapterSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$CharacterVoiceSortOption {
   factory Input$CharacterVoiceSortOption({
     required Enum$CharacterVoiceSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$CharacterVoiceSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$CharacterVoiceSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$CharacterVoiceSortOption._(this._$data);
 
@@ -1950,8 +1956,9 @@ class Input$CharacterVoiceSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$CharacterVoiceSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$CharacterVoiceSortOption._(result$data);
   }
 
@@ -1973,10 +1980,10 @@ class Input$CharacterVoiceSortOption {
   }
 
   CopyWith$Input$CharacterVoiceSortOption<Input$CharacterVoiceSortOption>
-      get copyWith => CopyWith$Input$CharacterVoiceSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$CharacterVoiceSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -2042,14 +2049,15 @@ class _CopyWithImpl$Input$CharacterVoiceSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$CharacterVoiceSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$CharacterVoiceSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$CharacterVoiceSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$CharacterVoiceSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CharacterVoiceSortOption<TRes>
@@ -2061,19 +2069,17 @@ class _CopyWithStubImpl$Input$CharacterVoiceSortOption<TRes>
   call({
     Enum$CharacterVoiceSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$CommentLikeSortOption {
   factory Input$CommentLikeSortOption({
     required Enum$CommentLikeSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$CommentLikeSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$CommentLikeSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$CommentLikeSortOption._(this._$data);
 
@@ -2082,8 +2088,9 @@ class Input$CommentLikeSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$CommentLikeSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$CommentLikeSortOption._(result$data);
   }
 
@@ -2105,10 +2112,10 @@ class Input$CommentLikeSortOption {
   }
 
   CopyWith$Input$CommentLikeSortOption<Input$CommentLikeSortOption>
-      get copyWith => CopyWith$Input$CommentLikeSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$CommentLikeSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -2174,14 +2181,15 @@ class _CopyWithImpl$Input$CommentLikeSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$CommentLikeSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$CommentLikeSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$CommentLikeSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$CommentLikeSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CommentLikeSortOption<TRes>
@@ -2193,19 +2201,17 @@ class _CopyWithStubImpl$Input$CommentLikeSortOption<TRes>
   call({
     Enum$CommentLikeSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$CommentSortOption {
   factory Input$CommentSortOption({
     required Enum$CommentSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$CommentSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$CommentSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$CommentSortOption._(this._$data);
 
@@ -2214,8 +2220,9 @@ class Input$CommentSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$CommentSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$CommentSortOption._(result$data);
   }
 
@@ -2304,14 +2311,14 @@ class _CopyWithImpl$Input$CommentSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$CommentSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$CommentSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$CommentSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$CommentSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CommentSortOption<TRes>
@@ -2323,8 +2330,7 @@ class _CopyWithStubImpl$Input$CommentSortOption<TRes>
   call({
     Enum$CommentSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$EpisodeCreateInput {
@@ -2337,17 +2343,16 @@ class Input$EpisodeCreateInput {
     int? length,
     String? releasedAt,
     String? thumbnailImage,
-  }) =>
-      Input$EpisodeCreateInput._({
-        r'mediaId': mediaId,
-        r'mediaType': mediaType,
-        r'titles': titles,
-        r'number': number,
-        if (description != null) r'description': description,
-        if (length != null) r'length': length,
-        if (releasedAt != null) r'releasedAt': releasedAt,
-        if (thumbnailImage != null) r'thumbnailImage': thumbnailImage,
-      });
+  }) => Input$EpisodeCreateInput._({
+    r'mediaId': mediaId,
+    r'mediaType': mediaType,
+    r'titles': titles,
+    r'number': number,
+    if (description != null) r'description': description,
+    if (length != null) r'length': length,
+    if (releasedAt != null) r'releasedAt': releasedAt,
+    if (thumbnailImage != null) r'thumbnailImage': thumbnailImage,
+  });
 
   Input$EpisodeCreateInput._(this._$data);
 
@@ -2356,11 +2361,13 @@ class Input$EpisodeCreateInput {
     final l$mediaId = data['mediaId'];
     result$data['mediaId'] = (l$mediaId as String);
     final l$mediaType = data['mediaType'];
-    result$data['mediaType'] =
-        fromJson$Enum$MediaTypeEnum((l$mediaType as String));
+    result$data['mediaType'] = fromJson$Enum$MediaTypeEnum(
+      (l$mediaType as String),
+    );
     final l$titles = data['titles'];
-    result$data['titles'] =
-        Input$TitlesListInput.fromJson((l$titles as Map<String, dynamic>));
+    result$data['titles'] = Input$TitlesListInput.fromJson(
+      (l$titles as Map<String, dynamic>),
+    );
     final l$number = data['number'];
     result$data['number'] = (l$number as int);
     if (data.containsKey('description')) {
@@ -2571,22 +2578,23 @@ class _CopyWithImpl$Input$EpisodeCreateInput<TRes>
     Object? length = _undefined,
     Object? releasedAt = _undefined,
     Object? thumbnailImage = _undefined,
-  }) =>
-      _then(Input$EpisodeCreateInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined && mediaId != null)
-          'mediaId': (mediaId as String),
-        if (mediaType != _undefined && mediaType != null)
-          'mediaType': (mediaType as Enum$MediaTypeEnum),
-        if (titles != _undefined && titles != null)
-          'titles': (titles as Input$TitlesListInput),
-        if (number != _undefined && number != null) 'number': (number as int),
-        if (description != _undefined) 'description': (description as String?),
-        if (length != _undefined) 'length': (length as int?),
-        if (releasedAt != _undefined) 'releasedAt': (releasedAt as String?),
-        if (thumbnailImage != _undefined)
-          'thumbnailImage': (thumbnailImage as String?),
-      }));
+  }) => _then(
+    Input$EpisodeCreateInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined && mediaId != null)
+        'mediaId': (mediaId as String),
+      if (mediaType != _undefined && mediaType != null)
+        'mediaType': (mediaType as Enum$MediaTypeEnum),
+      if (titles != _undefined && titles != null)
+        'titles': (titles as Input$TitlesListInput),
+      if (number != _undefined && number != null) 'number': (number as int),
+      if (description != _undefined) 'description': (description as String?),
+      if (length != _undefined) 'length': (length as int?),
+      if (releasedAt != _undefined) 'releasedAt': (releasedAt as String?),
+      if (thumbnailImage != _undefined)
+        'thumbnailImage': (thumbnailImage as String?),
+    }),
+  );
 
   CopyWith$Input$TitlesListInput<TRes> get titles {
     final local$titles = _instance.titles;
@@ -2609,8 +2617,7 @@ class _CopyWithStubImpl$Input$EpisodeCreateInput<TRes>
     int? length,
     String? releasedAt,
     String? thumbnailImage,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$TitlesListInput<TRes> get titles =>
       CopyWith$Input$TitlesListInput.stub(_res);
@@ -2620,11 +2627,10 @@ class Input$EpisodeSortOption {
   factory Input$EpisodeSortOption({
     required Enum$EpisodeSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$EpisodeSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$EpisodeSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$EpisodeSortOption._(this._$data);
 
@@ -2633,8 +2639,9 @@ class Input$EpisodeSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$EpisodeSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$EpisodeSortOption._(result$data);
   }
 
@@ -2723,14 +2730,14 @@ class _CopyWithImpl$Input$EpisodeSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$EpisodeSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$EpisodeSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$EpisodeSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$EpisodeSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$EpisodeSortOption<TRes>
@@ -2742,8 +2749,7 @@ class _CopyWithStubImpl$Input$EpisodeSortOption<TRes>
   call({
     Enum$EpisodeSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$EpisodeUpdateInput {
@@ -2755,16 +2761,15 @@ class Input$EpisodeUpdateInput {
     int? length,
     String? releasedAt,
     String? thumbnailImage,
-  }) =>
-      Input$EpisodeUpdateInput._({
-        r'id': id,
-        if (titles != null) r'titles': titles,
-        if (number != null) r'number': number,
-        if (description != null) r'description': description,
-        if (length != null) r'length': length,
-        if (releasedAt != null) r'releasedAt': releasedAt,
-        if (thumbnailImage != null) r'thumbnailImage': thumbnailImage,
-      });
+  }) => Input$EpisodeUpdateInput._({
+    r'id': id,
+    if (titles != null) r'titles': titles,
+    if (number != null) r'number': number,
+    if (description != null) r'description': description,
+    if (length != null) r'length': length,
+    if (releasedAt != null) r'releasedAt': releasedAt,
+    if (thumbnailImage != null) r'thumbnailImage': thumbnailImage,
+  });
 
   Input$EpisodeUpdateInput._(this._$data);
 
@@ -2986,18 +2991,19 @@ class _CopyWithImpl$Input$EpisodeUpdateInput<TRes>
     Object? length = _undefined,
     Object? releasedAt = _undefined,
     Object? thumbnailImage = _undefined,
-  }) =>
-      _then(Input$EpisodeUpdateInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (titles != _undefined) 'titles': (titles as Input$TitlesListInput?),
-        if (number != _undefined) 'number': (number as int?),
-        if (description != _undefined) 'description': (description as String?),
-        if (length != _undefined) 'length': (length as int?),
-        if (releasedAt != _undefined) 'releasedAt': (releasedAt as String?),
-        if (thumbnailImage != _undefined)
-          'thumbnailImage': (thumbnailImage as String?),
-      }));
+  }) => _then(
+    Input$EpisodeUpdateInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (titles != _undefined) 'titles': (titles as Input$TitlesListInput?),
+      if (number != _undefined) 'number': (number as int?),
+      if (description != _undefined) 'description': (description as String?),
+      if (length != _undefined) 'length': (length as int?),
+      if (releasedAt != _undefined) 'releasedAt': (releasedAt as String?),
+      if (thumbnailImage != _undefined)
+        'thumbnailImage': (thumbnailImage as String?),
+    }),
+  );
 
   CopyWith$Input$TitlesListInput<TRes> get titles {
     final local$titles = _instance.titles;
@@ -3021,8 +3027,7 @@ class _CopyWithStubImpl$Input$EpisodeUpdateInput<TRes>
     int? length,
     String? releasedAt,
     String? thumbnailImage,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Input$TitlesListInput<TRes> get titles =>
       CopyWith$Input$TitlesListInput.stub(_res);
@@ -3032,11 +3037,10 @@ class Input$FavoriteCreateInput {
   factory Input$FavoriteCreateInput({
     required String id,
     required Enum$FavoriteEnum type,
-  }) =>
-      Input$FavoriteCreateInput._({
-        r'id': id,
-        r'type': type,
-      });
+  }) => Input$FavoriteCreateInput._({
+    r'id': id,
+    r'type': type,
+  });
 
   Input$FavoriteCreateInput._(this._$data);
 
@@ -3134,13 +3138,14 @@ class _CopyWithImpl$Input$FavoriteCreateInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? type = _undefined,
-  }) =>
-      _then(Input$FavoriteCreateInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (type != _undefined && type != null)
-          'type': (type as Enum$FavoriteEnum),
-      }));
+  }) => _then(
+    Input$FavoriteCreateInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (type != _undefined && type != null)
+        'type': (type as Enum$FavoriteEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$FavoriteCreateInput<TRes>
@@ -3152,8 +3157,7 @@ class _CopyWithStubImpl$Input$FavoriteCreateInput<TRes>
   call({
     String? id,
     Enum$FavoriteEnum? type,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$FavoriteDeleteInput {
@@ -3237,12 +3241,13 @@ class _CopyWithImpl$Input$FavoriteDeleteInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? favoriteId = _undefined}) =>
-      _then(Input$FavoriteDeleteInput._({
-        ..._instance._$data,
-        if (favoriteId != _undefined && favoriteId != null)
-          'favoriteId': (favoriteId as String),
-      }));
+  TRes call({Object? favoriteId = _undefined}) => _then(
+    Input$FavoriteDeleteInput._({
+      ..._instance._$data,
+      if (favoriteId != _undefined && favoriteId != null)
+        'favoriteId': (favoriteId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$FavoriteDeleteInput<TRes>
@@ -3258,11 +3263,10 @@ class Input$FollowSortOption {
   factory Input$FollowSortOption({
     required Enum$FollowSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$FollowSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$FollowSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$FollowSortOption._(this._$data);
 
@@ -3271,8 +3275,9 @@ class Input$FollowSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$FollowSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$FollowSortOption._(result$data);
   }
 
@@ -3361,14 +3366,14 @@ class _CopyWithImpl$Input$FollowSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$FollowSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$FollowSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$FollowSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$FollowSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$FollowSortOption<TRes>
@@ -3380,8 +3385,7 @@ class _CopyWithStubImpl$Input$FollowSortOption<TRes>
   call({
     Enum$FollowSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$GenericDeleteInput {
@@ -3465,10 +3469,12 @@ class _CopyWithImpl$Input$GenericDeleteInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) => _then(Input$GenericDeleteInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-      }));
+  TRes call({Object? id = _undefined}) => _then(
+    Input$GenericDeleteInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$GenericDeleteInput<TRes>
@@ -3484,11 +3490,10 @@ class Input$InstallmentSortOption {
   factory Input$InstallmentSortOption({
     required Enum$InstallmentSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$InstallmentSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$InstallmentSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$InstallmentSortOption._(this._$data);
 
@@ -3497,8 +3502,9 @@ class Input$InstallmentSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$InstallmentSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$InstallmentSortOption._(result$data);
   }
 
@@ -3520,10 +3526,10 @@ class Input$InstallmentSortOption {
   }
 
   CopyWith$Input$InstallmentSortOption<Input$InstallmentSortOption>
-      get copyWith => CopyWith$Input$InstallmentSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$InstallmentSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -3589,14 +3595,15 @@ class _CopyWithImpl$Input$InstallmentSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$InstallmentSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$InstallmentSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$InstallmentSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$InstallmentSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$InstallmentSortOption<TRes>
@@ -3608,8 +3615,7 @@ class _CopyWithStubImpl$Input$InstallmentSortOption<TRes>
   call({
     Enum$InstallmentSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryCreateInput {
@@ -3626,21 +3632,20 @@ class Input$LibraryEntryCreateInput {
     int? rating,
     String? startedAt,
     String? finishedAt,
-  }) =>
-      Input$LibraryEntryCreateInput._({
-        r'mediaId': mediaId,
-        r'mediaType': mediaType,
-        r'status': status,
-        if (progress != null) r'progress': progress,
-        if (private != null) r'private': private,
-        if (notes != null) r'notes': notes,
-        if (reconsumeCount != null) r'reconsumeCount': reconsumeCount,
-        if (reconsuming != null) r'reconsuming': reconsuming,
-        if (volumesOwned != null) r'volumesOwned': volumesOwned,
-        if (rating != null) r'rating': rating,
-        if (startedAt != null) r'startedAt': startedAt,
-        if (finishedAt != null) r'finishedAt': finishedAt,
-      });
+  }) => Input$LibraryEntryCreateInput._({
+    r'mediaId': mediaId,
+    r'mediaType': mediaType,
+    r'status': status,
+    if (progress != null) r'progress': progress,
+    if (private != null) r'private': private,
+    if (notes != null) r'notes': notes,
+    if (reconsumeCount != null) r'reconsumeCount': reconsumeCount,
+    if (reconsuming != null) r'reconsuming': reconsuming,
+    if (volumesOwned != null) r'volumesOwned': volumesOwned,
+    if (rating != null) r'rating': rating,
+    if (startedAt != null) r'startedAt': startedAt,
+    if (finishedAt != null) r'finishedAt': finishedAt,
+  });
 
   Input$LibraryEntryCreateInput._(this._$data);
 
@@ -3649,11 +3654,13 @@ class Input$LibraryEntryCreateInput {
     final l$mediaId = data['mediaId'];
     result$data['mediaId'] = (l$mediaId as String);
     final l$mediaType = data['mediaType'];
-    result$data['mediaType'] =
-        fromJson$Enum$MediaTypeEnum((l$mediaType as String));
+    result$data['mediaType'] = fromJson$Enum$MediaTypeEnum(
+      (l$mediaType as String),
+    );
     final l$status = data['status'];
-    result$data['status'] =
-        fromJson$Enum$LibraryEntryStatusEnum((l$status as String));
+    result$data['status'] = fromJson$Enum$LibraryEntryStatusEnum(
+      (l$status as String),
+    );
     if (data.containsKey('progress')) {
       final l$progress = data['progress'];
       result$data['progress'] = (l$progress as int?);
@@ -3769,10 +3776,10 @@ class Input$LibraryEntryCreateInput {
   }
 
   CopyWith$Input$LibraryEntryCreateInput<Input$LibraryEntryCreateInput>
-      get copyWith => CopyWith$Input$LibraryEntryCreateInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$LibraryEntryCreateInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -3961,26 +3968,27 @@ class _CopyWithImpl$Input$LibraryEntryCreateInput<TRes>
     Object? rating = _undefined,
     Object? startedAt = _undefined,
     Object? finishedAt = _undefined,
-  }) =>
-      _then(Input$LibraryEntryCreateInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined && mediaId != null)
-          'mediaId': (mediaId as String),
-        if (mediaType != _undefined && mediaType != null)
-          'mediaType': (mediaType as Enum$MediaTypeEnum),
-        if (status != _undefined && status != null)
-          'status': (status as Enum$LibraryEntryStatusEnum),
-        if (progress != _undefined) 'progress': (progress as int?),
-        if (private != _undefined) 'private': (private as bool?),
-        if (notes != _undefined) 'notes': (notes as String?),
-        if (reconsumeCount != _undefined)
-          'reconsumeCount': (reconsumeCount as int?),
-        if (reconsuming != _undefined) 'reconsuming': (reconsuming as bool?),
-        if (volumesOwned != _undefined) 'volumesOwned': (volumesOwned as int?),
-        if (rating != _undefined) 'rating': (rating as int?),
-        if (startedAt != _undefined) 'startedAt': (startedAt as String?),
-        if (finishedAt != _undefined) 'finishedAt': (finishedAt as String?),
-      }));
+  }) => _then(
+    Input$LibraryEntryCreateInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined && mediaId != null)
+        'mediaId': (mediaId as String),
+      if (mediaType != _undefined && mediaType != null)
+        'mediaType': (mediaType as Enum$MediaTypeEnum),
+      if (status != _undefined && status != null)
+        'status': (status as Enum$LibraryEntryStatusEnum),
+      if (progress != _undefined) 'progress': (progress as int?),
+      if (private != _undefined) 'private': (private as bool?),
+      if (notes != _undefined) 'notes': (notes as String?),
+      if (reconsumeCount != _undefined)
+        'reconsumeCount': (reconsumeCount as int?),
+      if (reconsuming != _undefined) 'reconsuming': (reconsuming as bool?),
+      if (volumesOwned != _undefined) 'volumesOwned': (volumesOwned as int?),
+      if (rating != _undefined) 'rating': (rating as int?),
+      if (startedAt != _undefined) 'startedAt': (startedAt as String?),
+      if (finishedAt != _undefined) 'finishedAt': (finishedAt as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryCreateInput<TRes>
@@ -4002,19 +4010,17 @@ class _CopyWithStubImpl$Input$LibraryEntryCreateInput<TRes>
     int? rating,
     String? startedAt,
     String? finishedAt,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntrySortOption {
   factory Input$LibraryEntrySortOption({
     required Enum$LibraryEntrySortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$LibraryEntrySortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$LibraryEntrySortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$LibraryEntrySortOption._(this._$data);
 
@@ -4023,8 +4029,9 @@ class Input$LibraryEntrySortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$LibraryEntrySortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$LibraryEntrySortOption._(result$data);
   }
 
@@ -4046,10 +4053,10 @@ class Input$LibraryEntrySortOption {
   }
 
   CopyWith$Input$LibraryEntrySortOption<Input$LibraryEntrySortOption>
-      get copyWith => CopyWith$Input$LibraryEntrySortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$LibraryEntrySortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -4115,14 +4122,15 @@ class _CopyWithImpl$Input$LibraryEntrySortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$LibraryEntrySortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$LibraryEntrySortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$LibraryEntrySortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$LibraryEntrySortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntrySortOption<TRes>
@@ -4134,8 +4142,7 @@ class _CopyWithStubImpl$Input$LibraryEntrySortOption<TRes>
   call({
     Enum$LibraryEntrySortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateInput {
@@ -4151,20 +4158,19 @@ class Input$LibraryEntryUpdateInput {
     int? rating,
     String? startedAt,
     String? finishedAt,
-  }) =>
-      Input$LibraryEntryUpdateInput._({
-        r'id': id,
-        if (status != null) r'status': status,
-        if (progress != null) r'progress': progress,
-        if (private != null) r'private': private,
-        if (notes != null) r'notes': notes,
-        if (reconsumeCount != null) r'reconsumeCount': reconsumeCount,
-        if (reconsuming != null) r'reconsuming': reconsuming,
-        if (volumesOwned != null) r'volumesOwned': volumesOwned,
-        if (rating != null) r'rating': rating,
-        if (startedAt != null) r'startedAt': startedAt,
-        if (finishedAt != null) r'finishedAt': finishedAt,
-      });
+  }) => Input$LibraryEntryUpdateInput._({
+    r'id': id,
+    if (status != null) r'status': status,
+    if (progress != null) r'progress': progress,
+    if (private != null) r'private': private,
+    if (notes != null) r'notes': notes,
+    if (reconsumeCount != null) r'reconsumeCount': reconsumeCount,
+    if (reconsuming != null) r'reconsuming': reconsuming,
+    if (volumesOwned != null) r'volumesOwned': volumesOwned,
+    if (rating != null) r'rating': rating,
+    if (startedAt != null) r'startedAt': startedAt,
+    if (finishedAt != null) r'finishedAt': finishedAt,
+  });
 
   Input$LibraryEntryUpdateInput._(this._$data);
 
@@ -4292,10 +4298,10 @@ class Input$LibraryEntryUpdateInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateInput<Input$LibraryEntryUpdateInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$LibraryEntryUpdateInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -4478,23 +4484,24 @@ class _CopyWithImpl$Input$LibraryEntryUpdateInput<TRes>
     Object? rating = _undefined,
     Object? startedAt = _undefined,
     Object? finishedAt = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (status != _undefined)
-          'status': (status as Enum$LibraryEntryStatusEnum?),
-        if (progress != _undefined) 'progress': (progress as int?),
-        if (private != _undefined) 'private': (private as bool?),
-        if (notes != _undefined) 'notes': (notes as String?),
-        if (reconsumeCount != _undefined)
-          'reconsumeCount': (reconsumeCount as int?),
-        if (reconsuming != _undefined) 'reconsuming': (reconsuming as bool?),
-        if (volumesOwned != _undefined) 'volumesOwned': (volumesOwned as int?),
-        if (rating != _undefined) 'rating': (rating as int?),
-        if (startedAt != _undefined) 'startedAt': (startedAt as String?),
-        if (finishedAt != _undefined) 'finishedAt': (finishedAt as String?),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (status != _undefined)
+        'status': (status as Enum$LibraryEntryStatusEnum?),
+      if (progress != _undefined) 'progress': (progress as int?),
+      if (private != _undefined) 'private': (private as bool?),
+      if (notes != _undefined) 'notes': (notes as String?),
+      if (reconsumeCount != _undefined)
+        'reconsumeCount': (reconsumeCount as int?),
+      if (reconsuming != _undefined) 'reconsuming': (reconsuming as bool?),
+      if (volumesOwned != _undefined) 'volumesOwned': (volumesOwned as int?),
+      if (rating != _undefined) 'rating': (rating as int?),
+      if (startedAt != _undefined) 'startedAt': (startedAt as String?),
+      if (finishedAt != _undefined) 'finishedAt': (finishedAt as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateInput<TRes>
@@ -4515,24 +4522,23 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateInput<TRes>
     int? rating,
     String? startedAt,
     String? finishedAt,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateProgressByIdInput {
   factory Input$LibraryEntryUpdateProgressByIdInput({
     required String id,
     required int progress,
-  }) =>
-      Input$LibraryEntryUpdateProgressByIdInput._({
-        r'id': id,
-        r'progress': progress,
-      });
+  }) => Input$LibraryEntryUpdateProgressByIdInput._({
+    r'id': id,
+    r'progress': progress,
+  });
 
   Input$LibraryEntryUpdateProgressByIdInput._(this._$data);
 
   factory Input$LibraryEntryUpdateProgressByIdInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -4557,11 +4563,12 @@ class Input$LibraryEntryUpdateProgressByIdInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateProgressByIdInput<
-          Input$LibraryEntryUpdateProgressByIdInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateProgressByIdInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateProgressByIdInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateProgressByIdInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -4627,13 +4634,14 @@ class _CopyWithImpl$Input$LibraryEntryUpdateProgressByIdInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? progress = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateProgressByIdInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (progress != _undefined && progress != null)
-          'progress': (progress as int),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateProgressByIdInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (progress != _undefined && progress != null)
+        'progress': (progress as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateProgressByIdInput<TRes>
@@ -4645,8 +4653,7 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateProgressByIdInput<TRes>
   call({
     String? id,
     int? progress,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateProgressByMediaInput {
@@ -4654,23 +4661,24 @@ class Input$LibraryEntryUpdateProgressByMediaInput {
     required String mediaId,
     required Enum$MediaTypeEnum mediaType,
     required int progress,
-  }) =>
-      Input$LibraryEntryUpdateProgressByMediaInput._({
-        r'mediaId': mediaId,
-        r'mediaType': mediaType,
-        r'progress': progress,
-      });
+  }) => Input$LibraryEntryUpdateProgressByMediaInput._({
+    r'mediaId': mediaId,
+    r'mediaType': mediaType,
+    r'progress': progress,
+  });
 
   Input$LibraryEntryUpdateProgressByMediaInput._(this._$data);
 
   factory Input$LibraryEntryUpdateProgressByMediaInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$mediaId = data['mediaId'];
     result$data['mediaId'] = (l$mediaId as String);
     final l$mediaType = data['mediaType'];
-    result$data['mediaType'] =
-        fromJson$Enum$MediaTypeEnum((l$mediaType as String));
+    result$data['mediaType'] = fromJson$Enum$MediaTypeEnum(
+      (l$mediaType as String),
+    );
     final l$progress = data['progress'];
     result$data['progress'] = (l$progress as int);
     return Input$LibraryEntryUpdateProgressByMediaInput._(result$data);
@@ -4697,11 +4705,12 @@ class Input$LibraryEntryUpdateProgressByMediaInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateProgressByMediaInput<
-          Input$LibraryEntryUpdateProgressByMediaInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateProgressByMediaInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateProgressByMediaInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateProgressByMediaInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -4776,16 +4785,17 @@ class _CopyWithImpl$Input$LibraryEntryUpdateProgressByMediaInput<TRes>
     Object? mediaId = _undefined,
     Object? mediaType = _undefined,
     Object? progress = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateProgressByMediaInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined && mediaId != null)
-          'mediaId': (mediaId as String),
-        if (mediaType != _undefined && mediaType != null)
-          'mediaType': (mediaType as Enum$MediaTypeEnum),
-        if (progress != _undefined && progress != null)
-          'progress': (progress as int),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateProgressByMediaInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined && mediaId != null)
+        'mediaId': (mediaId as String),
+      if (mediaType != _undefined && mediaType != null)
+        'mediaType': (mediaType as Enum$MediaTypeEnum),
+      if (progress != _undefined && progress != null)
+        'progress': (progress as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateProgressByMediaInput<TRes>
@@ -4798,24 +4808,23 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateProgressByMediaInput<TRes>
     String? mediaId,
     Enum$MediaTypeEnum? mediaType,
     int? progress,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateRatingByIdInput {
   factory Input$LibraryEntryUpdateRatingByIdInput({
     required String id,
     required int rating,
-  }) =>
-      Input$LibraryEntryUpdateRatingByIdInput._({
-        r'id': id,
-        r'rating': rating,
-      });
+  }) => Input$LibraryEntryUpdateRatingByIdInput._({
+    r'id': id,
+    r'rating': rating,
+  });
 
   Input$LibraryEntryUpdateRatingByIdInput._(this._$data);
 
   factory Input$LibraryEntryUpdateRatingByIdInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -4840,11 +4849,12 @@ class Input$LibraryEntryUpdateRatingByIdInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateRatingByIdInput<
-          Input$LibraryEntryUpdateRatingByIdInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateRatingByIdInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateRatingByIdInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateRatingByIdInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -4910,12 +4920,13 @@ class _CopyWithImpl$Input$LibraryEntryUpdateRatingByIdInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? rating = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateRatingByIdInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (rating != _undefined && rating != null) 'rating': (rating as int),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateRatingByIdInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (rating != _undefined && rating != null) 'rating': (rating as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateRatingByIdInput<TRes>
@@ -4927,8 +4938,7 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateRatingByIdInput<TRes>
   call({
     String? id,
     int? rating,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateRatingByMediaInput {
@@ -4936,23 +4946,24 @@ class Input$LibraryEntryUpdateRatingByMediaInput {
     required String mediaId,
     required Enum$MediaTypeEnum mediaType,
     required int rating,
-  }) =>
-      Input$LibraryEntryUpdateRatingByMediaInput._({
-        r'mediaId': mediaId,
-        r'mediaType': mediaType,
-        r'rating': rating,
-      });
+  }) => Input$LibraryEntryUpdateRatingByMediaInput._({
+    r'mediaId': mediaId,
+    r'mediaType': mediaType,
+    r'rating': rating,
+  });
 
   Input$LibraryEntryUpdateRatingByMediaInput._(this._$data);
 
   factory Input$LibraryEntryUpdateRatingByMediaInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$mediaId = data['mediaId'];
     result$data['mediaId'] = (l$mediaId as String);
     final l$mediaType = data['mediaType'];
-    result$data['mediaType'] =
-        fromJson$Enum$MediaTypeEnum((l$mediaType as String));
+    result$data['mediaType'] = fromJson$Enum$MediaTypeEnum(
+      (l$mediaType as String),
+    );
     final l$rating = data['rating'];
     result$data['rating'] = (l$rating as int);
     return Input$LibraryEntryUpdateRatingByMediaInput._(result$data);
@@ -4979,11 +4990,12 @@ class Input$LibraryEntryUpdateRatingByMediaInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateRatingByMediaInput<
-          Input$LibraryEntryUpdateRatingByMediaInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateRatingByMediaInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateRatingByMediaInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateRatingByMediaInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -5058,15 +5070,16 @@ class _CopyWithImpl$Input$LibraryEntryUpdateRatingByMediaInput<TRes>
     Object? mediaId = _undefined,
     Object? mediaType = _undefined,
     Object? rating = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateRatingByMediaInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined && mediaId != null)
-          'mediaId': (mediaId as String),
-        if (mediaType != _undefined && mediaType != null)
-          'mediaType': (mediaType as Enum$MediaTypeEnum),
-        if (rating != _undefined && rating != null) 'rating': (rating as int),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateRatingByMediaInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined && mediaId != null)
+        'mediaId': (mediaId as String),
+      if (mediaType != _undefined && mediaType != null)
+        'mediaType': (mediaType as Enum$MediaTypeEnum),
+      if (rating != _undefined && rating != null) 'rating': (rating as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateRatingByMediaInput<TRes>
@@ -5079,30 +5092,30 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateRatingByMediaInput<TRes>
     String? mediaId,
     Enum$MediaTypeEnum? mediaType,
     int? rating,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateStatusByIdInput {
   factory Input$LibraryEntryUpdateStatusByIdInput({
     required String id,
     required Enum$LibraryEntryStatusEnum status,
-  }) =>
-      Input$LibraryEntryUpdateStatusByIdInput._({
-        r'id': id,
-        r'status': status,
-      });
+  }) => Input$LibraryEntryUpdateStatusByIdInput._({
+    r'id': id,
+    r'status': status,
+  });
 
   Input$LibraryEntryUpdateStatusByIdInput._(this._$data);
 
   factory Input$LibraryEntryUpdateStatusByIdInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
     final l$status = data['status'];
-    result$data['status'] =
-        fromJson$Enum$LibraryEntryStatusEnum((l$status as String));
+    result$data['status'] = fromJson$Enum$LibraryEntryStatusEnum(
+      (l$status as String),
+    );
     return Input$LibraryEntryUpdateStatusByIdInput._(result$data);
   }
 
@@ -5123,11 +5136,12 @@ class Input$LibraryEntryUpdateStatusByIdInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateStatusByIdInput<
-          Input$LibraryEntryUpdateStatusByIdInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateStatusByIdInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateStatusByIdInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateStatusByIdInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -5193,13 +5207,14 @@ class _CopyWithImpl$Input$LibraryEntryUpdateStatusByIdInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? status = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateStatusByIdInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (status != _undefined && status != null)
-          'status': (status as Enum$LibraryEntryStatusEnum),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateStatusByIdInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (status != _undefined && status != null)
+        'status': (status as Enum$LibraryEntryStatusEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateStatusByIdInput<TRes>
@@ -5211,8 +5226,7 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateStatusByIdInput<TRes>
   call({
     String? id,
     Enum$LibraryEntryStatusEnum? status,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEntryUpdateStatusByMediaInput {
@@ -5220,26 +5234,28 @@ class Input$LibraryEntryUpdateStatusByMediaInput {
     required String mediaId,
     required Enum$MediaTypeEnum mediaType,
     required Enum$LibraryEntryStatusEnum status,
-  }) =>
-      Input$LibraryEntryUpdateStatusByMediaInput._({
-        r'mediaId': mediaId,
-        r'mediaType': mediaType,
-        r'status': status,
-      });
+  }) => Input$LibraryEntryUpdateStatusByMediaInput._({
+    r'mediaId': mediaId,
+    r'mediaType': mediaType,
+    r'status': status,
+  });
 
   Input$LibraryEntryUpdateStatusByMediaInput._(this._$data);
 
   factory Input$LibraryEntryUpdateStatusByMediaInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$mediaId = data['mediaId'];
     result$data['mediaId'] = (l$mediaId as String);
     final l$mediaType = data['mediaType'];
-    result$data['mediaType'] =
-        fromJson$Enum$MediaTypeEnum((l$mediaType as String));
+    result$data['mediaType'] = fromJson$Enum$MediaTypeEnum(
+      (l$mediaType as String),
+    );
     final l$status = data['status'];
-    result$data['status'] =
-        fromJson$Enum$LibraryEntryStatusEnum((l$status as String));
+    result$data['status'] = fromJson$Enum$LibraryEntryStatusEnum(
+      (l$status as String),
+    );
     return Input$LibraryEntryUpdateStatusByMediaInput._(result$data);
   }
 
@@ -5265,11 +5281,12 @@ class Input$LibraryEntryUpdateStatusByMediaInput {
   }
 
   CopyWith$Input$LibraryEntryUpdateStatusByMediaInput<
-          Input$LibraryEntryUpdateStatusByMediaInput>
-      get copyWith => CopyWith$Input$LibraryEntryUpdateStatusByMediaInput(
-            this,
-            (i) => i,
-          );
+    Input$LibraryEntryUpdateStatusByMediaInput
+  >
+  get copyWith => CopyWith$Input$LibraryEntryUpdateStatusByMediaInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -5344,16 +5361,17 @@ class _CopyWithImpl$Input$LibraryEntryUpdateStatusByMediaInput<TRes>
     Object? mediaId = _undefined,
     Object? mediaType = _undefined,
     Object? status = _undefined,
-  }) =>
-      _then(Input$LibraryEntryUpdateStatusByMediaInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined && mediaId != null)
-          'mediaId': (mediaId as String),
-        if (mediaType != _undefined && mediaType != null)
-          'mediaType': (mediaType as Enum$MediaTypeEnum),
-        if (status != _undefined && status != null)
-          'status': (status as Enum$LibraryEntryStatusEnum),
-      }));
+  }) => _then(
+    Input$LibraryEntryUpdateStatusByMediaInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined && mediaId != null)
+        'mediaId': (mediaId as String),
+      if (mediaType != _undefined && mediaType != null)
+        'mediaType': (mediaType as Enum$MediaTypeEnum),
+      if (status != _undefined && status != null)
+        'status': (status as Enum$LibraryEntryStatusEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEntryUpdateStatusByMediaInput<TRes>
@@ -5366,19 +5384,17 @@ class _CopyWithStubImpl$Input$LibraryEntryUpdateStatusByMediaInput<TRes>
     String? mediaId,
     Enum$MediaTypeEnum? mediaType,
     Enum$LibraryEntryStatusEnum? status,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$LibraryEventSortOption {
   factory Input$LibraryEventSortOption({
     required Enum$LibraryEventSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$LibraryEventSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$LibraryEventSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$LibraryEventSortOption._(this._$data);
 
@@ -5387,8 +5403,9 @@ class Input$LibraryEventSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$LibraryEventSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$LibraryEventSortOption._(result$data);
   }
 
@@ -5410,10 +5427,10 @@ class Input$LibraryEventSortOption {
   }
 
   CopyWith$Input$LibraryEventSortOption<Input$LibraryEventSortOption>
-      get copyWith => CopyWith$Input$LibraryEventSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$LibraryEventSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -5479,14 +5496,15 @@ class _CopyWithImpl$Input$LibraryEventSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$LibraryEventSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$LibraryEventSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$LibraryEventSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$LibraryEventSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$LibraryEventSortOption<TRes>
@@ -5498,8 +5516,7 @@ class _CopyWithStubImpl$Input$LibraryEventSortOption<TRes>
   call({
     Enum$LibraryEventSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MappingCreateInput {
@@ -5508,28 +5525,29 @@ class Input$MappingCreateInput {
     required String externalId,
     required String itemId,
     required Enum$MappingItemEnum itemType,
-  }) =>
-      Input$MappingCreateInput._({
-        r'externalSite': externalSite,
-        r'externalId': externalId,
-        r'itemId': itemId,
-        r'itemType': itemType,
-      });
+  }) => Input$MappingCreateInput._({
+    r'externalSite': externalSite,
+    r'externalId': externalId,
+    r'itemId': itemId,
+    r'itemType': itemType,
+  });
 
   Input$MappingCreateInput._(this._$data);
 
   factory Input$MappingCreateInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$externalSite = data['externalSite'];
-    result$data['externalSite'] =
-        fromJson$Enum$MappingExternalSiteEnum((l$externalSite as String));
+    result$data['externalSite'] = fromJson$Enum$MappingExternalSiteEnum(
+      (l$externalSite as String),
+    );
     final l$externalId = data['externalId'];
     result$data['externalId'] = (l$externalId as String);
     final l$itemId = data['itemId'];
     result$data['itemId'] = (l$itemId as String);
     final l$itemType = data['itemType'];
-    result$data['itemType'] =
-        fromJson$Enum$MappingItemEnum((l$itemType as String));
+    result$data['itemType'] = fromJson$Enum$MappingItemEnum(
+      (l$itemType as String),
+    );
     return Input$MappingCreateInput._(result$data);
   }
 
@@ -5548,8 +5566,9 @@ class Input$MappingCreateInput {
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$externalSite = externalSite;
-    result$data['externalSite'] =
-        toJson$Enum$MappingExternalSiteEnum(l$externalSite);
+    result$data['externalSite'] = toJson$Enum$MappingExternalSiteEnum(
+      l$externalSite,
+    );
     final l$externalId = externalId;
     result$data['externalId'] = l$externalId;
     final l$itemId = itemId;
@@ -5647,18 +5666,18 @@ class _CopyWithImpl$Input$MappingCreateInput<TRes>
     Object? externalId = _undefined,
     Object? itemId = _undefined,
     Object? itemType = _undefined,
-  }) =>
-      _then(Input$MappingCreateInput._({
-        ..._instance._$data,
-        if (externalSite != _undefined && externalSite != null)
-          'externalSite': (externalSite as Enum$MappingExternalSiteEnum),
-        if (externalId != _undefined && externalId != null)
-          'externalId': (externalId as String),
-        if (itemId != _undefined && itemId != null)
-          'itemId': (itemId as String),
-        if (itemType != _undefined && itemType != null)
-          'itemType': (itemType as Enum$MappingItemEnum),
-      }));
+  }) => _then(
+    Input$MappingCreateInput._({
+      ..._instance._$data,
+      if (externalSite != _undefined && externalSite != null)
+        'externalSite': (externalSite as Enum$MappingExternalSiteEnum),
+      if (externalId != _undefined && externalId != null)
+        'externalId': (externalId as String),
+      if (itemId != _undefined && itemId != null) 'itemId': (itemId as String),
+      if (itemType != _undefined && itemType != null)
+        'itemType': (itemType as Enum$MappingItemEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MappingCreateInput<TRes>
@@ -5672,8 +5691,7 @@ class _CopyWithStubImpl$Input$MappingCreateInput<TRes>
     String? externalId,
     String? itemId,
     Enum$MappingItemEnum? itemType,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MappingUpdateInput {
@@ -5683,14 +5701,13 @@ class Input$MappingUpdateInput {
     String? externalId,
     String? itemId,
     Enum$MappingItemEnum? itemType,
-  }) =>
-      Input$MappingUpdateInput._({
-        r'id': id,
-        if (externalSite != null) r'externalSite': externalSite,
-        if (externalId != null) r'externalId': externalId,
-        if (itemId != null) r'itemId': itemId,
-        if (itemType != null) r'itemType': itemType,
-      });
+  }) => Input$MappingUpdateInput._({
+    r'id': id,
+    if (externalSite != null) r'externalSite': externalSite,
+    if (externalId != null) r'externalId': externalId,
+    if (itemId != null) r'itemId': itemId,
+    if (itemType != null) r'itemType': itemType,
+  });
 
   Input$MappingUpdateInput._(this._$data);
 
@@ -5755,8 +5772,9 @@ class Input$MappingUpdateInput {
     }
     if (_$data.containsKey('itemType')) {
       final l$itemType = itemType;
-      result$data['itemType'] =
-          l$itemType == null ? null : toJson$Enum$MappingItemEnum(l$itemType);
+      result$data['itemType'] = l$itemType == null
+          ? null
+          : toJson$Enum$MappingItemEnum(l$itemType);
     }
     return result$data;
   }
@@ -5873,17 +5891,18 @@ class _CopyWithImpl$Input$MappingUpdateInput<TRes>
     Object? externalId = _undefined,
     Object? itemId = _undefined,
     Object? itemType = _undefined,
-  }) =>
-      _then(Input$MappingUpdateInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (externalSite != _undefined)
-          'externalSite': (externalSite as Enum$MappingExternalSiteEnum?),
-        if (externalId != _undefined) 'externalId': (externalId as String?),
-        if (itemId != _undefined) 'itemId': (itemId as String?),
-        if (itemType != _undefined)
-          'itemType': (itemType as Enum$MappingItemEnum?),
-      }));
+  }) => _then(
+    Input$MappingUpdateInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (externalSite != _undefined)
+        'externalSite': (externalSite as Enum$MappingExternalSiteEnum?),
+      if (externalId != _undefined) 'externalId': (externalId as String?),
+      if (itemId != _undefined) 'itemId': (itemId as String?),
+      if (itemType != _undefined)
+        'itemType': (itemType as Enum$MappingItemEnum?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MappingUpdateInput<TRes>
@@ -5898,19 +5917,17 @@ class _CopyWithStubImpl$Input$MappingUpdateInput<TRes>
     String? externalId,
     String? itemId,
     Enum$MappingItemEnum? itemType,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaCategorySortOption {
   factory Input$MediaCategorySortOption({
     required Enum$MediaCategorySortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$MediaCategorySortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$MediaCategorySortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$MediaCategorySortOption._(this._$data);
 
@@ -5919,8 +5936,9 @@ class Input$MediaCategorySortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$MediaCategorySortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$MediaCategorySortOption._(result$data);
   }
 
@@ -5942,10 +5960,10 @@ class Input$MediaCategorySortOption {
   }
 
   CopyWith$Input$MediaCategorySortOption<Input$MediaCategorySortOption>
-      get copyWith => CopyWith$Input$MediaCategorySortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaCategorySortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6011,14 +6029,15 @@ class _CopyWithImpl$Input$MediaCategorySortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$MediaCategorySortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$MediaCategorySortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$MediaCategorySortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$MediaCategorySortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaCategorySortOption<TRes>
@@ -6030,19 +6049,17 @@ class _CopyWithStubImpl$Input$MediaCategorySortOption<TRes>
   call({
     Enum$MediaCategorySortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaCharacterSortOption {
   factory Input$MediaCharacterSortOption({
     required Enum$MediaCharacterSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$MediaCharacterSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$MediaCharacterSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$MediaCharacterSortOption._(this._$data);
 
@@ -6051,8 +6068,9 @@ class Input$MediaCharacterSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$MediaCharacterSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$MediaCharacterSortOption._(result$data);
   }
 
@@ -6074,10 +6092,10 @@ class Input$MediaCharacterSortOption {
   }
 
   CopyWith$Input$MediaCharacterSortOption<Input$MediaCharacterSortOption>
-      get copyWith => CopyWith$Input$MediaCharacterSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaCharacterSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6143,14 +6161,15 @@ class _CopyWithImpl$Input$MediaCharacterSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$MediaCharacterSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$MediaCharacterSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$MediaCharacterSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$MediaCharacterSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaCharacterSortOption<TRes>
@@ -6162,19 +6181,17 @@ class _CopyWithStubImpl$Input$MediaCharacterSortOption<TRes>
   call({
     Enum$MediaCharacterSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaReactionCreateInput {
   factory Input$MediaReactionCreateInput({
     required String libraryEntryId,
     required String reaction,
-  }) =>
-      Input$MediaReactionCreateInput._({
-        r'libraryEntryId': libraryEntryId,
-        r'reaction': reaction,
-      });
+  }) => Input$MediaReactionCreateInput._({
+    r'libraryEntryId': libraryEntryId,
+    r'reaction': reaction,
+  });
 
   Input$MediaReactionCreateInput._(this._$data);
 
@@ -6203,10 +6220,10 @@ class Input$MediaReactionCreateInput {
   }
 
   CopyWith$Input$MediaReactionCreateInput<Input$MediaReactionCreateInput>
-      get copyWith => CopyWith$Input$MediaReactionCreateInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionCreateInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6272,14 +6289,15 @@ class _CopyWithImpl$Input$MediaReactionCreateInput<TRes>
   TRes call({
     Object? libraryEntryId = _undefined,
     Object? reaction = _undefined,
-  }) =>
-      _then(Input$MediaReactionCreateInput._({
-        ..._instance._$data,
-        if (libraryEntryId != _undefined && libraryEntryId != null)
-          'libraryEntryId': (libraryEntryId as String),
-        if (reaction != _undefined && reaction != null)
-          'reaction': (reaction as String),
-      }));
+  }) => _then(
+    Input$MediaReactionCreateInput._({
+      ..._instance._$data,
+      if (libraryEntryId != _undefined && libraryEntryId != null)
+        'libraryEntryId': (libraryEntryId as String),
+      if (reaction != _undefined && reaction != null)
+        'reaction': (reaction as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionCreateInput<TRes>
@@ -6291,8 +6309,7 @@ class _CopyWithStubImpl$Input$MediaReactionCreateInput<TRes>
   call({
     String? libraryEntryId,
     String? reaction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaReactionDeleteInput {
@@ -6322,10 +6339,10 @@ class Input$MediaReactionDeleteInput {
   }
 
   CopyWith$Input$MediaReactionDeleteInput<Input$MediaReactionDeleteInput>
-      get copyWith => CopyWith$Input$MediaReactionDeleteInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionDeleteInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6376,12 +6393,13 @@ class _CopyWithImpl$Input$MediaReactionDeleteInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mediaReactionId = _undefined}) =>
-      _then(Input$MediaReactionDeleteInput._({
-        ..._instance._$data,
-        if (mediaReactionId != _undefined && mediaReactionId != null)
-          'mediaReactionId': (mediaReactionId as String),
-      }));
+  TRes call({Object? mediaReactionId = _undefined}) => _then(
+    Input$MediaReactionDeleteInput._({
+      ..._instance._$data,
+      if (mediaReactionId != _undefined && mediaReactionId != null)
+        'mediaReactionId': (mediaReactionId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionDeleteInput<TRes>
@@ -6420,10 +6438,10 @@ class Input$MediaReactionLikeInput {
   }
 
   CopyWith$Input$MediaReactionLikeInput<Input$MediaReactionLikeInput>
-      get copyWith => CopyWith$Input$MediaReactionLikeInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionLikeInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6474,12 +6492,13 @@ class _CopyWithImpl$Input$MediaReactionLikeInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mediaReactionId = _undefined}) =>
-      _then(Input$MediaReactionLikeInput._({
-        ..._instance._$data,
-        if (mediaReactionId != _undefined && mediaReactionId != null)
-          'mediaReactionId': (mediaReactionId as String),
-      }));
+  TRes call({Object? mediaReactionId = _undefined}) => _then(
+    Input$MediaReactionLikeInput._({
+      ..._instance._$data,
+      if (mediaReactionId != _undefined && mediaReactionId != null)
+        'mediaReactionId': (mediaReactionId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionLikeInput<TRes>
@@ -6495,11 +6514,10 @@ class Input$MediaReactionSortOption {
   factory Input$MediaReactionSortOption({
     required Enum$MediaReactionSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$MediaReactionSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$MediaReactionSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$MediaReactionSortOption._(this._$data);
 
@@ -6508,8 +6526,9 @@ class Input$MediaReactionSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$MediaReactionSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$MediaReactionSortOption._(result$data);
   }
 
@@ -6531,10 +6550,10 @@ class Input$MediaReactionSortOption {
   }
 
   CopyWith$Input$MediaReactionSortOption<Input$MediaReactionSortOption>
-      get copyWith => CopyWith$Input$MediaReactionSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6600,14 +6619,15 @@ class _CopyWithImpl$Input$MediaReactionSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$MediaReactionSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$MediaReactionSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$MediaReactionSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$MediaReactionSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionSortOption<TRes>
@@ -6619,8 +6639,7 @@ class _CopyWithStubImpl$Input$MediaReactionSortOption<TRes>
   call({
     Enum$MediaReactionSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaReactionUnlikeInput {
@@ -6650,10 +6669,10 @@ class Input$MediaReactionUnlikeInput {
   }
 
   CopyWith$Input$MediaReactionUnlikeInput<Input$MediaReactionUnlikeInput>
-      get copyWith => CopyWith$Input$MediaReactionUnlikeInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionUnlikeInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6704,12 +6723,13 @@ class _CopyWithImpl$Input$MediaReactionUnlikeInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mediaReactionId = _undefined}) =>
-      _then(Input$MediaReactionUnlikeInput._({
-        ..._instance._$data,
-        if (mediaReactionId != _undefined && mediaReactionId != null)
-          'mediaReactionId': (mediaReactionId as String),
-      }));
+  TRes call({Object? mediaReactionId = _undefined}) => _then(
+    Input$MediaReactionUnlikeInput._({
+      ..._instance._$data,
+      if (mediaReactionId != _undefined && mediaReactionId != null)
+        'mediaReactionId': (mediaReactionId as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionUnlikeInput<TRes>
@@ -6725,23 +6745,25 @@ class Input$MediaReactionVoteSortOption {
   factory Input$MediaReactionVoteSortOption({
     required Enum$MediaReactionVoteSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$MediaReactionVoteSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$MediaReactionVoteSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$MediaReactionVoteSortOption._(this._$data);
 
   factory Input$MediaReactionVoteSortOption.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$$on = data['on'];
-    result$data['on'] =
-        fromJson$Enum$MediaReactionVoteSortEnum((l$$on as String));
+    result$data['on'] = fromJson$Enum$MediaReactionVoteSortEnum(
+      (l$$on as String),
+    );
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$MediaReactionVoteSortOption._(result$data);
   }
 
@@ -6763,10 +6785,10 @@ class Input$MediaReactionVoteSortOption {
   }
 
   CopyWith$Input$MediaReactionVoteSortOption<Input$MediaReactionVoteSortOption>
-      get copyWith => CopyWith$Input$MediaReactionVoteSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaReactionVoteSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -6832,14 +6854,15 @@ class _CopyWithImpl$Input$MediaReactionVoteSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$MediaReactionVoteSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$MediaReactionVoteSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$MediaReactionVoteSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$MediaReactionVoteSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaReactionVoteSortOption<TRes>
@@ -6851,8 +6874,7 @@ class _CopyWithStubImpl$Input$MediaReactionVoteSortOption<TRes>
   call({
     Enum$MediaReactionVoteSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$PostCreateInput {
@@ -6865,17 +6887,16 @@ class Input$PostCreateInput {
     String? spoiledUnitId,
     String? spoiledUnitType,
     String? targetUserId,
-  }) =>
-      Input$PostCreateInput._({
-        r'content': content,
-        if (mediaId != null) r'mediaId': mediaId,
-        if (mediaType != null) r'mediaType': mediaType,
-        if (isSpoiler != null) r'isSpoiler': isSpoiler,
-        if (isNsfw != null) r'isNsfw': isNsfw,
-        if (spoiledUnitId != null) r'spoiledUnitId': spoiledUnitId,
-        if (spoiledUnitType != null) r'spoiledUnitType': spoiledUnitType,
-        if (targetUserId != null) r'targetUserId': targetUserId,
-      });
+  }) => Input$PostCreateInput._({
+    r'content': content,
+    if (mediaId != null) r'mediaId': mediaId,
+    if (mediaType != null) r'mediaType': mediaType,
+    if (isSpoiler != null) r'isSpoiler': isSpoiler,
+    if (isNsfw != null) r'isNsfw': isNsfw,
+    if (spoiledUnitId != null) r'spoiledUnitId': spoiledUnitId,
+    if (spoiledUnitType != null) r'spoiledUnitType': spoiledUnitType,
+    if (targetUserId != null) r'targetUserId': targetUserId,
+  });
 
   Input$PostCreateInput._(this._$data);
 
@@ -6945,8 +6966,9 @@ class Input$PostCreateInput {
     }
     if (_$data.containsKey('mediaType')) {
       final l$mediaType = mediaType;
-      result$data['mediaType'] =
-          l$mediaType == null ? null : toJson$Enum$MediaTypeEnum(l$mediaType);
+      result$data['mediaType'] = l$mediaType == null
+          ? null
+          : toJson$Enum$MediaTypeEnum(l$mediaType);
     }
     if (_$data.containsKey('isSpoiler')) {
       final l$isSpoiler = isSpoiler;
@@ -7120,23 +7142,23 @@ class _CopyWithImpl$Input$PostCreateInput<TRes>
     Object? spoiledUnitId = _undefined,
     Object? spoiledUnitType = _undefined,
     Object? targetUserId = _undefined,
-  }) =>
-      _then(Input$PostCreateInput._({
-        ..._instance._$data,
-        if (content != _undefined && content != null)
-          'content': (content as String),
-        if (mediaId != _undefined) 'mediaId': (mediaId as String?),
-        if (mediaType != _undefined)
-          'mediaType': (mediaType as Enum$MediaTypeEnum?),
-        if (isSpoiler != _undefined) 'isSpoiler': (isSpoiler as bool?),
-        if (isNsfw != _undefined) 'isNsfw': (isNsfw as bool?),
-        if (spoiledUnitId != _undefined)
-          'spoiledUnitId': (spoiledUnitId as String?),
-        if (spoiledUnitType != _undefined)
-          'spoiledUnitType': (spoiledUnitType as String?),
-        if (targetUserId != _undefined)
-          'targetUserId': (targetUserId as String?),
-      }));
+  }) => _then(
+    Input$PostCreateInput._({
+      ..._instance._$data,
+      if (content != _undefined && content != null)
+        'content': (content as String),
+      if (mediaId != _undefined) 'mediaId': (mediaId as String?),
+      if (mediaType != _undefined)
+        'mediaType': (mediaType as Enum$MediaTypeEnum?),
+      if (isSpoiler != _undefined) 'isSpoiler': (isSpoiler as bool?),
+      if (isNsfw != _undefined) 'isNsfw': (isNsfw as bool?),
+      if (spoiledUnitId != _undefined)
+        'spoiledUnitId': (spoiledUnitId as String?),
+      if (spoiledUnitType != _undefined)
+        'spoiledUnitType': (spoiledUnitType as String?),
+      if (targetUserId != _undefined) 'targetUserId': (targetUserId as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$PostCreateInput<TRes>
@@ -7154,19 +7176,17 @@ class _CopyWithStubImpl$Input$PostCreateInput<TRes>
     String? spoiledUnitId,
     String? spoiledUnitType,
     String? targetUserId,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$PostLikeSortOption {
   factory Input$PostLikeSortOption({
     required Enum$PostLikeSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$PostLikeSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$PostLikeSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$PostLikeSortOption._(this._$data);
 
@@ -7175,8 +7195,9 @@ class Input$PostLikeSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$PostLikeSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$PostLikeSortOption._(result$data);
   }
 
@@ -7266,14 +7287,15 @@ class _CopyWithImpl$Input$PostLikeSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$PostLikeSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$PostLikeSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$PostLikeSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$PostLikeSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$PostLikeSortOption<TRes>
@@ -7285,19 +7307,17 @@ class _CopyWithStubImpl$Input$PostLikeSortOption<TRes>
   call({
     Enum$PostLikeSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$PostLockInput {
   factory Input$PostLockInput({
     required String id,
     required Enum$LockedReasonEnum lockedReason,
-  }) =>
-      Input$PostLockInput._({
-        r'id': id,
-        r'lockedReason': lockedReason,
-      });
+  }) => Input$PostLockInput._({
+    r'id': id,
+    r'lockedReason': lockedReason,
+  });
 
   Input$PostLockInput._(this._$data);
 
@@ -7306,8 +7326,9 @@ class Input$PostLockInput {
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
     final l$lockedReason = data['lockedReason'];
-    result$data['lockedReason'] =
-        fromJson$Enum$LockedReasonEnum((l$lockedReason as String));
+    result$data['lockedReason'] = fromJson$Enum$LockedReasonEnum(
+      (l$lockedReason as String),
+    );
     return Input$PostLockInput._(result$data);
   }
 
@@ -7396,13 +7417,14 @@ class _CopyWithImpl$Input$PostLockInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? lockedReason = _undefined,
-  }) =>
-      _then(Input$PostLockInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (lockedReason != _undefined && lockedReason != null)
-          'lockedReason': (lockedReason as Enum$LockedReasonEnum),
-      }));
+  }) => _then(
+    Input$PostLockInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (lockedReason != _undefined && lockedReason != null)
+        'lockedReason': (lockedReason as Enum$LockedReasonEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$PostLockInput<TRes>
@@ -7414,19 +7436,17 @@ class _CopyWithStubImpl$Input$PostLockInput<TRes>
   call({
     String? id,
     Enum$LockedReasonEnum? lockedReason,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$PostSortOption {
   factory Input$PostSortOption({
     required Enum$PostSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$PostSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$PostSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$PostSortOption._(this._$data);
 
@@ -7435,8 +7455,9 @@ class Input$PostSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$PostSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$PostSortOption._(result$data);
   }
 
@@ -7525,13 +7546,14 @@ class _CopyWithImpl$Input$PostSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$PostSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null) 'on': ($on as Enum$PostSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$PostSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$PostSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$PostSortOption<TRes>
@@ -7543,8 +7565,7 @@ class _CopyWithStubImpl$Input$PostSortOption<TRes>
   call({
     Enum$PostSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$PostUnlockInput {
@@ -7627,10 +7648,12 @@ class _CopyWithImpl$Input$PostUnlockInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) => _then(Input$PostUnlockInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-      }));
+  TRes call({Object? id = _undefined}) => _then(
+    Input$PostUnlockInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$PostUnlockInput<TRes>
@@ -7646,11 +7669,10 @@ class Input$ProfileLinkCreateInput {
   factory Input$ProfileLinkCreateInput({
     required String url,
     required Enum$ProfileLinksSitesEnum profileLinkSite,
-  }) =>
-      Input$ProfileLinkCreateInput._({
-        r'url': url,
-        r'profileLinkSite': profileLinkSite,
-      });
+  }) => Input$ProfileLinkCreateInput._({
+    r'url': url,
+    r'profileLinkSite': profileLinkSite,
+  });
 
   Input$ProfileLinkCreateInput._(this._$data);
 
@@ -7659,8 +7681,9 @@ class Input$ProfileLinkCreateInput {
     final l$url = data['url'];
     result$data['url'] = (l$url as String);
     final l$profileLinkSite = data['profileLinkSite'];
-    result$data['profileLinkSite'] =
-        fromJson$Enum$ProfileLinksSitesEnum((l$profileLinkSite as String));
+    result$data['profileLinkSite'] = fromJson$Enum$ProfileLinksSitesEnum(
+      (l$profileLinkSite as String),
+    );
     return Input$ProfileLinkCreateInput._(result$data);
   }
 
@@ -7676,16 +7699,17 @@ class Input$ProfileLinkCreateInput {
     final l$url = url;
     result$data['url'] = l$url;
     final l$profileLinkSite = profileLinkSite;
-    result$data['profileLinkSite'] =
-        toJson$Enum$ProfileLinksSitesEnum(l$profileLinkSite);
+    result$data['profileLinkSite'] = toJson$Enum$ProfileLinksSitesEnum(
+      l$profileLinkSite,
+    );
     return result$data;
   }
 
   CopyWith$Input$ProfileLinkCreateInput<Input$ProfileLinkCreateInput>
-      get copyWith => CopyWith$Input$ProfileLinkCreateInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$ProfileLinkCreateInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -7751,13 +7775,14 @@ class _CopyWithImpl$Input$ProfileLinkCreateInput<TRes>
   TRes call({
     Object? url = _undefined,
     Object? profileLinkSite = _undefined,
-  }) =>
-      _then(Input$ProfileLinkCreateInput._({
-        ..._instance._$data,
-        if (url != _undefined && url != null) 'url': (url as String),
-        if (profileLinkSite != _undefined && profileLinkSite != null)
-          'profileLinkSite': (profileLinkSite as Enum$ProfileLinksSitesEnum),
-      }));
+  }) => _then(
+    Input$ProfileLinkCreateInput._({
+      ..._instance._$data,
+      if (url != _undefined && url != null) 'url': (url as String),
+      if (profileLinkSite != _undefined && profileLinkSite != null)
+        'profileLinkSite': (profileLinkSite as Enum$ProfileLinksSitesEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ProfileLinkCreateInput<TRes>
@@ -7769,24 +7794,24 @@ class _CopyWithStubImpl$Input$ProfileLinkCreateInput<TRes>
   call({
     String? url,
     Enum$ProfileLinksSitesEnum? profileLinkSite,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$ProfileLinkDeleteInput {
-  factory Input$ProfileLinkDeleteInput(
-          {required Enum$ProfileLinksSitesEnum profileLink}) =>
-      Input$ProfileLinkDeleteInput._({
-        r'profileLink': profileLink,
-      });
+  factory Input$ProfileLinkDeleteInput({
+    required Enum$ProfileLinksSitesEnum profileLink,
+  }) => Input$ProfileLinkDeleteInput._({
+    r'profileLink': profileLink,
+  });
 
   Input$ProfileLinkDeleteInput._(this._$data);
 
   factory Input$ProfileLinkDeleteInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$profileLink = data['profileLink'];
-    result$data['profileLink'] =
-        fromJson$Enum$ProfileLinksSitesEnum((l$profileLink as String));
+    result$data['profileLink'] = fromJson$Enum$ProfileLinksSitesEnum(
+      (l$profileLink as String),
+    );
     return Input$ProfileLinkDeleteInput._(result$data);
   }
 
@@ -7798,16 +7823,17 @@ class Input$ProfileLinkDeleteInput {
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$profileLink = profileLink;
-    result$data['profileLink'] =
-        toJson$Enum$ProfileLinksSitesEnum(l$profileLink);
+    result$data['profileLink'] = toJson$Enum$ProfileLinksSitesEnum(
+      l$profileLink,
+    );
     return result$data;
   }
 
   CopyWith$Input$ProfileLinkDeleteInput<Input$ProfileLinkDeleteInput>
-      get copyWith => CopyWith$Input$ProfileLinkDeleteInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$ProfileLinkDeleteInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -7858,12 +7884,13 @@ class _CopyWithImpl$Input$ProfileLinkDeleteInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? profileLink = _undefined}) =>
-      _then(Input$ProfileLinkDeleteInput._({
-        ..._instance._$data,
-        if (profileLink != _undefined && profileLink != null)
-          'profileLink': (profileLink as Enum$ProfileLinksSitesEnum),
-      }));
+  TRes call({Object? profileLink = _undefined}) => _then(
+    Input$ProfileLinkDeleteInput._({
+      ..._instance._$data,
+      if (profileLink != _undefined && profileLink != null)
+        'profileLink': (profileLink as Enum$ProfileLinksSitesEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ProfileLinkDeleteInput<TRes>
@@ -7879,11 +7906,10 @@ class Input$ProfileLinkUpdateInput {
   factory Input$ProfileLinkUpdateInput({
     required String url,
     required Enum$ProfileLinksSitesEnum profileLinkSite,
-  }) =>
-      Input$ProfileLinkUpdateInput._({
-        r'url': url,
-        r'profileLinkSite': profileLinkSite,
-      });
+  }) => Input$ProfileLinkUpdateInput._({
+    r'url': url,
+    r'profileLinkSite': profileLinkSite,
+  });
 
   Input$ProfileLinkUpdateInput._(this._$data);
 
@@ -7892,8 +7918,9 @@ class Input$ProfileLinkUpdateInput {
     final l$url = data['url'];
     result$data['url'] = (l$url as String);
     final l$profileLinkSite = data['profileLinkSite'];
-    result$data['profileLinkSite'] =
-        fromJson$Enum$ProfileLinksSitesEnum((l$profileLinkSite as String));
+    result$data['profileLinkSite'] = fromJson$Enum$ProfileLinksSitesEnum(
+      (l$profileLinkSite as String),
+    );
     return Input$ProfileLinkUpdateInput._(result$data);
   }
 
@@ -7909,16 +7936,17 @@ class Input$ProfileLinkUpdateInput {
     final l$url = url;
     result$data['url'] = l$url;
     final l$profileLinkSite = profileLinkSite;
-    result$data['profileLinkSite'] =
-        toJson$Enum$ProfileLinksSitesEnum(l$profileLinkSite);
+    result$data['profileLinkSite'] = toJson$Enum$ProfileLinksSitesEnum(
+      l$profileLinkSite,
+    );
     return result$data;
   }
 
   CopyWith$Input$ProfileLinkUpdateInput<Input$ProfileLinkUpdateInput>
-      get copyWith => CopyWith$Input$ProfileLinkUpdateInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$ProfileLinkUpdateInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -7984,13 +8012,14 @@ class _CopyWithImpl$Input$ProfileLinkUpdateInput<TRes>
   TRes call({
     Object? url = _undefined,
     Object? profileLinkSite = _undefined,
-  }) =>
-      _then(Input$ProfileLinkUpdateInput._({
-        ..._instance._$data,
-        if (url != _undefined && url != null) 'url': (url as String),
-        if (profileLinkSite != _undefined && profileLinkSite != null)
-          'profileLinkSite': (profileLinkSite as Enum$ProfileLinksSitesEnum),
-      }));
+  }) => _then(
+    Input$ProfileLinkUpdateInput._({
+      ..._instance._$data,
+      if (url != _undefined && url != null) 'url': (url as String),
+      if (profileLinkSite != _undefined && profileLinkSite != null)
+        'profileLinkSite': (profileLinkSite as Enum$ProfileLinksSitesEnum),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ProfileLinkUpdateInput<TRes>
@@ -8002,8 +8031,7 @@ class _CopyWithStubImpl$Input$ProfileLinkUpdateInput<TRes>
   call({
     String? url,
     Enum$ProfileLinksSitesEnum? profileLinkSite,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$ProfileUpdateInput {
@@ -8016,17 +8044,16 @@ class Input$ProfileUpdateInput {
     String? waifuId,
     String? gender,
     String? birthday,
-  }) =>
-      Input$ProfileUpdateInput._({
-        if (id != null) r'id': id,
-        if (name != null) r'name': name,
-        if (slug != null) r'slug': slug,
-        if (about != null) r'about': about,
-        if (waifuOrHusbando != null) r'waifuOrHusbando': waifuOrHusbando,
-        if (waifuId != null) r'waifuId': waifuId,
-        if (gender != null) r'gender': gender,
-        if (birthday != null) r'birthday': birthday,
-      });
+  }) => Input$ProfileUpdateInput._({
+    if (id != null) r'id': id,
+    if (name != null) r'name': name,
+    if (slug != null) r'slug': slug,
+    if (about != null) r'about': about,
+    if (waifuOrHusbando != null) r'waifuOrHusbando': waifuOrHusbando,
+    if (waifuId != null) r'waifuId': waifuId,
+    if (gender != null) r'gender': gender,
+    if (birthday != null) r'birthday': birthday,
+  });
 
   Input$ProfileUpdateInput._(this._$data);
 
@@ -8277,19 +8304,20 @@ class _CopyWithImpl$Input$ProfileUpdateInput<TRes>
     Object? waifuId = _undefined,
     Object? gender = _undefined,
     Object? birthday = _undefined,
-  }) =>
-      _then(Input$ProfileUpdateInput._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as String?),
-        if (name != _undefined) 'name': (name as String?),
-        if (slug != _undefined) 'slug': (slug as String?),
-        if (about != _undefined) 'about': (about as String?),
-        if (waifuOrHusbando != _undefined)
-          'waifuOrHusbando': (waifuOrHusbando as Enum$WaifuOrHusbandoEnum?),
-        if (waifuId != _undefined) 'waifuId': (waifuId as String?),
-        if (gender != _undefined) 'gender': (gender as String?),
-        if (birthday != _undefined) 'birthday': (birthday as String?),
-      }));
+  }) => _then(
+    Input$ProfileUpdateInput._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as String?),
+      if (name != _undefined) 'name': (name as String?),
+      if (slug != _undefined) 'slug': (slug as String?),
+      if (about != _undefined) 'about': (about as String?),
+      if (waifuOrHusbando != _undefined)
+        'waifuOrHusbando': (waifuOrHusbando as Enum$WaifuOrHusbandoEnum?),
+      if (waifuId != _undefined) 'waifuId': (waifuId as String?),
+      if (gender != _undefined) 'gender': (gender as String?),
+      if (birthday != _undefined) 'birthday': (birthday as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ProfileUpdateInput<TRes>
@@ -8307,8 +8335,7 @@ class _CopyWithStubImpl$Input$ProfileUpdateInput<TRes>
     String? waifuId,
     String? gender,
     String? birthday,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$TitlesListInput {
@@ -8317,13 +8344,12 @@ class Input$TitlesListInput {
     String? localized,
     List<String>? alternatives,
     String? canonicalLocale,
-  }) =>
-      Input$TitlesListInput._({
-        if (canonical != null) r'canonical': canonical,
-        if (localized != null) r'localized': localized,
-        if (alternatives != null) r'alternatives': alternatives,
-        if (canonicalLocale != null) r'canonicalLocale': canonicalLocale,
-      });
+  }) => Input$TitlesListInput._({
+    if (canonical != null) r'canonical': canonical,
+    if (localized != null) r'localized': localized,
+    if (alternatives != null) r'alternatives': alternatives,
+    if (canonicalLocale != null) r'canonicalLocale': canonicalLocale,
+  });
 
   Input$TitlesListInput._(this._$data);
 
@@ -8456,8 +8482,8 @@ class Input$TitlesListInput {
       _$data.containsKey('localized') ? l$localized : const {},
       _$data.containsKey('alternatives')
           ? l$alternatives == null
-              ? null
-              : Object.hashAll(l$alternatives.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternatives.map((v) => v))
           : const {},
       _$data.containsKey('canonicalLocale') ? l$canonicalLocale : const {},
     ]);
@@ -8499,16 +8525,17 @@ class _CopyWithImpl$Input$TitlesListInput<TRes>
     Object? localized = _undefined,
     Object? alternatives = _undefined,
     Object? canonicalLocale = _undefined,
-  }) =>
-      _then(Input$TitlesListInput._({
-        ..._instance._$data,
-        if (canonical != _undefined) 'canonical': (canonical as String?),
-        if (localized != _undefined) 'localized': (localized as String?),
-        if (alternatives != _undefined)
-          'alternatives': (alternatives as List<String>?),
-        if (canonicalLocale != _undefined)
-          'canonicalLocale': (canonicalLocale as String?),
-      }));
+  }) => _then(
+    Input$TitlesListInput._({
+      ..._instance._$data,
+      if (canonical != _undefined) 'canonical': (canonical as String?),
+      if (localized != _undefined) 'localized': (localized as String?),
+      if (alternatives != _undefined)
+        'alternatives': (alternatives as List<String>?),
+      if (canonicalLocale != _undefined)
+        'canonicalLocale': (canonicalLocale as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$TitlesListInput<TRes>
@@ -8522,19 +8549,17 @@ class _CopyWithStubImpl$Input$TitlesListInput<TRes>
     String? localized,
     List<String>? alternatives,
     String? canonicalLocale,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$VolumeSortOption {
   factory Input$VolumeSortOption({
     required Enum$VolumeSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$VolumeSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$VolumeSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$VolumeSortOption._(this._$data);
 
@@ -8543,8 +8568,9 @@ class Input$VolumeSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$VolumeSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$VolumeSortOption._(result$data);
   }
 
@@ -8633,14 +8659,14 @@ class _CopyWithImpl$Input$VolumeSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$VolumeSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$VolumeSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$VolumeSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null) 'on': ($on as Enum$VolumeSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$VolumeSortOption<TRes>
@@ -8652,8 +8678,7 @@ class _CopyWithStubImpl$Input$VolumeSortOption<TRes>
   call({
     Enum$VolumeSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$WikiSubmissionCreateDraftInput {
@@ -8661,17 +8686,17 @@ class Input$WikiSubmissionCreateDraftInput {
     required String data,
     String? title,
     String? notes,
-  }) =>
-      Input$WikiSubmissionCreateDraftInput._({
-        r'data': data,
-        if (title != null) r'title': title,
-        if (notes != null) r'notes': notes,
-      });
+  }) => Input$WikiSubmissionCreateDraftInput._({
+    r'data': data,
+    if (title != null) r'title': title,
+    if (notes != null) r'notes': notes,
+  });
 
   Input$WikiSubmissionCreateDraftInput._(this._$data);
 
   factory Input$WikiSubmissionCreateDraftInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$data = data['data'];
     result$data['data'] = (l$data as String);
@@ -8710,11 +8735,12 @@ class Input$WikiSubmissionCreateDraftInput {
   }
 
   CopyWith$Input$WikiSubmissionCreateDraftInput<
-          Input$WikiSubmissionCreateDraftInput>
-      get copyWith => CopyWith$Input$WikiSubmissionCreateDraftInput(
-            this,
-            (i) => i,
-          );
+    Input$WikiSubmissionCreateDraftInput
+  >
+  get copyWith => CopyWith$Input$WikiSubmissionCreateDraftInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -8795,13 +8821,14 @@ class _CopyWithImpl$Input$WikiSubmissionCreateDraftInput<TRes>
     Object? data = _undefined,
     Object? title = _undefined,
     Object? notes = _undefined,
-  }) =>
-      _then(Input$WikiSubmissionCreateDraftInput._({
-        ..._instance._$data,
-        if (data != _undefined && data != null) 'data': (data as String),
-        if (title != _undefined) 'title': (title as String?),
-        if (notes != _undefined) 'notes': (notes as String?),
-      }));
+  }) => _then(
+    Input$WikiSubmissionCreateDraftInput._({
+      ..._instance._$data,
+      if (data != _undefined && data != null) 'data': (data as String),
+      if (title != _undefined) 'title': (title as String?),
+      if (notes != _undefined) 'notes': (notes as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$WikiSubmissionCreateDraftInput<TRes>
@@ -8814,19 +8841,17 @@ class _CopyWithStubImpl$Input$WikiSubmissionCreateDraftInput<TRes>
     String? data,
     String? title,
     String? notes,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$WikiSubmissionSortOption {
   factory Input$WikiSubmissionSortOption({
     required Enum$WikiSubmissionSortEnum $on,
     required Enum$SortDirection direction,
-  }) =>
-      Input$WikiSubmissionSortOption._({
-        r'on': $on,
-        r'direction': direction,
-      });
+  }) => Input$WikiSubmissionSortOption._({
+    r'on': $on,
+    r'direction': direction,
+  });
 
   Input$WikiSubmissionSortOption._(this._$data);
 
@@ -8835,8 +8860,9 @@ class Input$WikiSubmissionSortOption {
     final l$$on = data['on'];
     result$data['on'] = fromJson$Enum$WikiSubmissionSortEnum((l$$on as String));
     final l$direction = data['direction'];
-    result$data['direction'] =
-        fromJson$Enum$SortDirection((l$direction as String));
+    result$data['direction'] = fromJson$Enum$SortDirection(
+      (l$direction as String),
+    );
     return Input$WikiSubmissionSortOption._(result$data);
   }
 
@@ -8858,10 +8884,10 @@ class Input$WikiSubmissionSortOption {
   }
 
   CopyWith$Input$WikiSubmissionSortOption<Input$WikiSubmissionSortOption>
-      get copyWith => CopyWith$Input$WikiSubmissionSortOption(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$WikiSubmissionSortOption(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -8927,14 +8953,15 @@ class _CopyWithImpl$Input$WikiSubmissionSortOption<TRes>
   TRes call({
     Object? $on = _undefined,
     Object? direction = _undefined,
-  }) =>
-      _then(Input$WikiSubmissionSortOption._({
-        ..._instance._$data,
-        if ($on != _undefined && $on != null)
-          'on': ($on as Enum$WikiSubmissionSortEnum),
-        if (direction != _undefined && direction != null)
-          'direction': (direction as Enum$SortDirection),
-      }));
+  }) => _then(
+    Input$WikiSubmissionSortOption._({
+      ..._instance._$data,
+      if ($on != _undefined && $on != null)
+        'on': ($on as Enum$WikiSubmissionSortEnum),
+      if (direction != _undefined && direction != null)
+        'direction': (direction as Enum$SortDirection),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$WikiSubmissionSortOption<TRes>
@@ -8946,8 +8973,7 @@ class _CopyWithStubImpl$Input$WikiSubmissionSortOption<TRes>
   call({
     Enum$WikiSubmissionSortEnum? $on,
     Enum$SortDirection? direction,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$WikiSubmissionSubmitDraftInput {
@@ -8956,18 +8982,18 @@ class Input$WikiSubmissionSubmitDraftInput {
     required String data,
     String? title,
     String? notes,
-  }) =>
-      Input$WikiSubmissionSubmitDraftInput._({
-        r'id': id,
-        r'data': data,
-        if (title != null) r'title': title,
-        if (notes != null) r'notes': notes,
-      });
+  }) => Input$WikiSubmissionSubmitDraftInput._({
+    r'id': id,
+    r'data': data,
+    if (title != null) r'title': title,
+    if (notes != null) r'notes': notes,
+  });
 
   Input$WikiSubmissionSubmitDraftInput._(this._$data);
 
   factory Input$WikiSubmissionSubmitDraftInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -9012,11 +9038,12 @@ class Input$WikiSubmissionSubmitDraftInput {
   }
 
   CopyWith$Input$WikiSubmissionSubmitDraftInput<
-          Input$WikiSubmissionSubmitDraftInput>
-      get copyWith => CopyWith$Input$WikiSubmissionSubmitDraftInput(
-            this,
-            (i) => i,
-          );
+    Input$WikiSubmissionSubmitDraftInput
+  >
+  get copyWith => CopyWith$Input$WikiSubmissionSubmitDraftInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -9106,14 +9133,15 @@ class _CopyWithImpl$Input$WikiSubmissionSubmitDraftInput<TRes>
     Object? data = _undefined,
     Object? title = _undefined,
     Object? notes = _undefined,
-  }) =>
-      _then(Input$WikiSubmissionSubmitDraftInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (data != _undefined && data != null) 'data': (data as String),
-        if (title != _undefined) 'title': (title as String?),
-        if (notes != _undefined) 'notes': (notes as String?),
-      }));
+  }) => _then(
+    Input$WikiSubmissionSubmitDraftInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (data != _undefined && data != null) 'data': (data as String),
+      if (title != _undefined) 'title': (title as String?),
+      if (notes != _undefined) 'notes': (notes as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$WikiSubmissionSubmitDraftInput<TRes>
@@ -9127,8 +9155,7 @@ class _CopyWithStubImpl$Input$WikiSubmissionSubmitDraftInput<TRes>
     String? data,
     String? title,
     String? notes,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$WikiSubmissionUpdateDraftInput {
@@ -9136,17 +9163,17 @@ class Input$WikiSubmissionUpdateDraftInput {
     required String id,
     required String data,
     String? notes,
-  }) =>
-      Input$WikiSubmissionUpdateDraftInput._({
-        r'id': id,
-        r'data': data,
-        if (notes != null) r'notes': notes,
-      });
+  }) => Input$WikiSubmissionUpdateDraftInput._({
+    r'id': id,
+    r'data': data,
+    if (notes != null) r'notes': notes,
+  });
 
   Input$WikiSubmissionUpdateDraftInput._(this._$data);
 
   factory Input$WikiSubmissionUpdateDraftInput.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -9181,11 +9208,12 @@ class Input$WikiSubmissionUpdateDraftInput {
   }
 
   CopyWith$Input$WikiSubmissionUpdateDraftInput<
-          Input$WikiSubmissionUpdateDraftInput>
-      get copyWith => CopyWith$Input$WikiSubmissionUpdateDraftInput(
-            this,
-            (i) => i,
-          );
+    Input$WikiSubmissionUpdateDraftInput
+  >
+  get copyWith => CopyWith$Input$WikiSubmissionUpdateDraftInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -9263,13 +9291,14 @@ class _CopyWithImpl$Input$WikiSubmissionUpdateDraftInput<TRes>
     Object? id = _undefined,
     Object? data = _undefined,
     Object? notes = _undefined,
-  }) =>
-      _then(Input$WikiSubmissionUpdateDraftInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (data != _undefined && data != null) 'data': (data as String),
-        if (notes != _undefined) 'notes': (notes as String?),
-      }));
+  }) => _then(
+    Input$WikiSubmissionUpdateDraftInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as String),
+      if (data != _undefined && data != null) 'data': (data as String),
+      if (notes != _undefined) 'notes': (notes as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$WikiSubmissionUpdateDraftInput<TRes>
@@ -9282,8 +9311,7 @@ class _CopyWithStubImpl$Input$WikiSubmissionUpdateDraftInput<TRes>
     String? id,
     String? data,
     String? notes,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 enum Enum$AgeRatingEnum {
@@ -9616,7 +9644,8 @@ enum Enum$ExternalIdentityProviderEnum {
 }
 
 String toJson$Enum$ExternalIdentityProviderEnum(
-    Enum$ExternalIdentityProviderEnum e) {
+  Enum$ExternalIdentityProviderEnum e,
+) {
   switch (e) {
     case Enum$ExternalIdentityProviderEnum.FACEBOOK:
       return r'FACEBOOK';
@@ -9626,7 +9655,8 @@ String toJson$Enum$ExternalIdentityProviderEnum(
 }
 
 Enum$ExternalIdentityProviderEnum fromJson$Enum$ExternalIdentityProviderEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'FACEBOOK':
       return Enum$ExternalIdentityProviderEnum.FACEBOOK;
@@ -10166,7 +10196,8 @@ String toJson$Enum$MappingExternalSiteEnum(Enum$MappingExternalSiteEnum e) {
 }
 
 Enum$MappingExternalSiteEnum fromJson$Enum$MappingExternalSiteEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'MYANIMELIST_ANIME':
       return Enum$MappingExternalSiteEnum.MYANIMELIST_ANIME;
@@ -10367,7 +10398,8 @@ String toJson$Enum$MediaProductionRoleEnum(Enum$MediaProductionRoleEnum e) {
 }
 
 Enum$MediaProductionRoleEnum fromJson$Enum$MediaProductionRoleEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'PRODUCER':
       return Enum$MediaProductionRoleEnum.PRODUCER;
@@ -10443,7 +10475,8 @@ String toJson$Enum$MediaReactionVoteSortEnum(Enum$MediaReactionVoteSortEnum e) {
 }
 
 Enum$MediaReactionVoteSortEnum fromJson$Enum$MediaReactionVoteSortEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'CREATED_AT':
       return Enum$MediaReactionVoteSortEnum.CREATED_AT;
@@ -10507,7 +10540,8 @@ String toJson$Enum$MediaRelationshipKindEnum(Enum$MediaRelationshipKindEnum e) {
 }
 
 Enum$MediaRelationshipKindEnum fromJson$Enum$MediaRelationshipKindEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'SEQUEL':
       return Enum$MediaRelationshipKindEnum.SEQUEL;
@@ -10897,7 +10931,8 @@ enum Enum$RecurringBillingServiceEnum {
 }
 
 String toJson$Enum$RecurringBillingServiceEnum(
-    Enum$RecurringBillingServiceEnum e) {
+  Enum$RecurringBillingServiceEnum e,
+) {
   switch (e) {
     case Enum$RecurringBillingServiceEnum.STRIPE:
       return r'STRIPE';
@@ -10913,7 +10948,8 @@ String toJson$Enum$RecurringBillingServiceEnum(
 }
 
 Enum$RecurringBillingServiceEnum fromJson$Enum$RecurringBillingServiceEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'STRIPE':
       return Enum$RecurringBillingServiceEnum.STRIPE;
@@ -11136,7 +11172,8 @@ String toJson$Enum$SfwFilterPreferenceEnum(Enum$SfwFilterPreferenceEnum e) {
 }
 
 Enum$SfwFilterPreferenceEnum fromJson$Enum$SfwFilterPreferenceEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'SFW':
       return Enum$SfwFilterPreferenceEnum.SFW;
@@ -11266,7 +11303,8 @@ enum Enum$TitleLanguagePreferenceEnum {
 }
 
 String toJson$Enum$TitleLanguagePreferenceEnum(
-    Enum$TitleLanguagePreferenceEnum e) {
+  Enum$TitleLanguagePreferenceEnum e,
+) {
   switch (e) {
     case Enum$TitleLanguagePreferenceEnum.CANONICAL:
       return r'CANONICAL';
@@ -11280,7 +11318,8 @@ String toJson$Enum$TitleLanguagePreferenceEnum(
 }
 
 Enum$TitleLanguagePreferenceEnum fromJson$Enum$TitleLanguagePreferenceEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'CANONICAL':
       return Enum$TitleLanguagePreferenceEnum.CANONICAL;
@@ -11426,7 +11465,8 @@ String toJson$Enum$WikiSubmissionStatusEnum(Enum$WikiSubmissionStatusEnum e) {
 }
 
 Enum$WikiSubmissionStatusEnum fromJson$Enum$WikiSubmissionStatusEnum(
-    String value) {
+  String value,
+) {
   switch (value) {
     case r'DRAFT':
       return Enum$WikiSubmissionStatusEnum.DRAFT;

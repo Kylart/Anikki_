@@ -9,14 +9,14 @@ class Broadcast extends Equatable {
   const Broadcast({this.dayOfTheWeek, this.startTime});
 
   factory Broadcast.fromMap(Map<String, dynamic> data) => Broadcast(
-        dayOfTheWeek: data['day_of_the_week'] as String?,
-        startTime: data['start_time'] as String?,
-      );
+    dayOfTheWeek: data['day_of_the_week'] as String?,
+    startTime: data['start_time'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'day_of_the_week': dayOfTheWeek,
-        'start_time': startTime,
-      };
+    'day_of_the_week': dayOfTheWeek,
+    'start_time': startTime,
+  };
 
   /// `dart:convert`
   ///

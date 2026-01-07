@@ -14,16 +14,16 @@ class HistoryView extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           HistoryLoading() || HistoryInitial() || HistoryLoaded() => Center(
-              child: HistoryContent(
-                entries: state.entries,
-              ),
+            child: HistoryContent(
+              entries: state.entries,
             ),
+          ),
           HistoryError() => Center(
-              child: CustomErrorWidget(
-                title: 'Error loading history',
-                description: state.message,
-              ),
+            child: CustomErrorWidget(
+              title: 'Error loading history',
+              description: state.message,
             ),
+          ),
         };
       },
     );

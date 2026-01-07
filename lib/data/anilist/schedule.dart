@@ -41,7 +41,7 @@ mixin AnilistSchedule on AnilistClient {
   }
 
   Future<List<Query$AiringScheduleWithIds$Page$airingSchedules>>
-      getScheduleFromIds(
+  getScheduleFromIds(
     DateTimeRange range,
     List<int> ids,
   ) async {
@@ -68,8 +68,10 @@ mixin AnilistSchedule on AnilistClient {
         }
 
         results.addAll(
-          result.parsedData?.Page?.airingSchedules?.whereType<
-                  Query$AiringScheduleWithIds$Page$airingSchedules>() ??
+          result.parsedData?.Page?.airingSchedules
+                  ?.whereType<
+                    Query$AiringScheduleWithIds$Page$airingSchedules
+                  >() ??
               [],
         );
 

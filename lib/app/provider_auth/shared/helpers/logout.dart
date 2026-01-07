@@ -44,10 +44,10 @@ class DisconnectFromProviderPrompt extends StatelessWidget {
   final WatchListProvider provider;
 
   void Function(BuildContext) get callback => switch (provider) {
-        WatchListProvider.anilist => _logoutFromAnilist,
-        WatchListProvider.mal => _logoutFromMal,
-        WatchListProvider.kitsu => _logoutFromKitsu,
-      };
+    WatchListProvider.anilist => _logoutFromAnilist,
+    WatchListProvider.mal => _logoutFromMal,
+    WatchListProvider.kitsu => _logoutFromKitsu,
+  };
 
   @override
   Widget build(BuildContext context) {

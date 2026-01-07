@@ -75,14 +75,17 @@ mixin AnilistList on AnilistClient {
 
         watchList = switch (status) {
           Enum$MediaListStatus.CURRENT => watchList.copyWith(current: entries),
-          Enum$MediaListStatus.PLANNING =>
-            watchList.copyWith(planning: entries),
-          Enum$MediaListStatus.COMPLETED =>
-            watchList.copyWith(completed: entries),
+          Enum$MediaListStatus.PLANNING => watchList.copyWith(
+            planning: entries,
+          ),
+          Enum$MediaListStatus.COMPLETED => watchList.copyWith(
+            completed: entries,
+          ),
           Enum$MediaListStatus.DROPPED => watchList.copyWith(dropped: entries),
           Enum$MediaListStatus.PAUSED => watchList.copyWith(paused: entries),
-          Enum$MediaListStatus.REPEATING =>
-            watchList.copyWith(repeating: entries),
+          Enum$MediaListStatus.REPEATING => watchList.copyWith(
+            repeating: entries,
+          ),
           Enum$MediaListStatus.$unknown => watchList,
         };
       }

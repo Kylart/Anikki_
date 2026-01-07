@@ -64,8 +64,9 @@ class Variables$Query$GetLists {
   @override
   int get hashCode {
     final l$username = username;
-    return Object.hashAll(
-        [_$data.containsKey('username') ? l$username : const {}]);
+    return Object.hashAll([
+      _$data.containsKey('username') ? l$username : const {},
+    ]);
   }
 }
 
@@ -94,11 +95,12 @@ class _CopyWithImpl$Variables$Query$GetLists<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? username = _undefined}) =>
-      _then(Variables$Query$GetLists._({
-        ..._instance._$data,
-        if (username != _undefined) 'username': (username as String?),
-      }));
+  TRes call({Object? username = _undefined}) => _then(
+    Variables$Query$GetLists._({
+      ..._instance._$data,
+      if (username != _undefined) 'username': (username as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$GetLists<TRes>
@@ -123,7 +125,8 @@ class Query$GetLists {
       MediaListCollection: l$MediaListCollection == null
           ? null
           : Query$GetLists$MediaListCollection.fromJson(
-              (l$MediaListCollection as Map<String, dynamic>)),
+              (l$MediaListCollection as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -213,22 +216,25 @@ class _CopyWithImpl$Query$GetLists<TRes>
   TRes call({
     Object? MediaListCollection = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists(
-        MediaListCollection: MediaListCollection == _undefined
-            ? _instance.MediaListCollection
-            : (MediaListCollection as Query$GetLists$MediaListCollection?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetLists(
+      MediaListCollection: MediaListCollection == _undefined
+          ? _instance.MediaListCollection
+          : (MediaListCollection as Query$GetLists$MediaListCollection?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$GetLists$MediaListCollection<TRes> get MediaListCollection {
     final local$MediaListCollection = _instance.MediaListCollection;
     return local$MediaListCollection == null
         ? CopyWith$Query$GetLists$MediaListCollection.stub(_then(_instance))
         : CopyWith$Query$GetLists$MediaListCollection(
-            local$MediaListCollection, (e) => call(MediaListCollection: e));
+            local$MediaListCollection,
+            (e) => call(MediaListCollection: e),
+          );
   }
 }
 
@@ -241,136 +247,222 @@ class _CopyWithStubImpl$Query$GetLists<TRes>
   call({
     Query$GetLists$MediaListCollection? MediaListCollection,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$GetLists$MediaListCollection<TRes> get MediaListCollection =>
       CopyWith$Query$GetLists$MediaListCollection.stub(_res);
 }
 
-const documentNodeQueryGetLists = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GetLists'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'username')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+const documentNodeQueryGetLists = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GetLists'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'username')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'MediaListCollection'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'userName'),
-            value: VariableNode(name: NameNode(value: 'username')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'type'),
-            value: EnumValueNode(name: NameNode(value: 'ANIME')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'sort'),
-            value: EnumValueNode(name: NameNode(value: 'UPDATED_TIME_DESC')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'lists'),
+            name: NameNode(value: 'MediaListCollection'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'userName'),
+                value: VariableNode(name: NameNode(value: 'username')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'type'),
+                value: EnumValueNode(name: NameNode(value: 'ANIME')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: EnumValueNode(
+                  name: NameNode(value: 'UPDATED_TIME_DESC'),
+                ),
+              ),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'entries'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'score'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'progress'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'status'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'notes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'repeat'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'private'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'updatedAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'startedAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'lists'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FieldNode(
-                        name: NameNode(value: 'year'),
+                        name: NameNode(value: 'entries'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'month'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'day'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'score'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'progress'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'status'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'notes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'repeat'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'private'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'updatedAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'startedAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'year'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'month'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'day'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'completedAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'year'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'month'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'day'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'media'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -379,80 +471,18 @@ const documentNodeQueryGetLists = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'completedAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'year'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'month'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'day'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'media'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -461,25 +491,19 @@ const documentNodeQueryGetLists = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
+    ),
+    fragmentDefinitionmedia,
+  ],
+);
 Query$GetLists _parserFn$Query$GetLists(Map<String, dynamic> data) =>
     Query$GetLists.fromJson(data);
-typedef OnQueryComplete$Query$GetLists = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$GetLists?,
-);
+typedef OnQueryComplete$Query$GetLists =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$GetLists?,
+    );
 
 class Options$Query$GetLists extends graphql.QueryOptions<Query$GetLists> {
   Options$Query$GetLists({
@@ -494,36 +518,36 @@ class Options$Query$GetLists extends graphql.QueryOptions<Query$GetLists> {
     graphql.Context? context,
     OnQueryComplete$Query$GetLists? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$GetLists(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryGetLists,
-          parserFn: _parserFn$Query$GetLists,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$GetLists(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryGetLists,
+         parserFn: _parserFn$Query$GetLists,
+       );
 
   final OnQueryComplete$Query$GetLists? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$GetLists
@@ -542,20 +566,20 @@ class WatchOptions$Query$GetLists
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryGetLists,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GetLists,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryGetLists,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$GetLists,
+       );
 }
 
 class FetchMoreOptions$Query$GetLists extends graphql.FetchMoreOptions {
@@ -563,32 +587,31 @@ class FetchMoreOptions$Query$GetLists extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$GetLists? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryGetLists,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryGetLists,
+       );
 }
 
 extension ClientExtension$Query$GetLists on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetLists>> query$GetLists(
-          [Options$Query$GetLists? options]) async =>
-      await this.query(options ?? Options$Query$GetLists());
-  graphql.ObservableQuery<Query$GetLists> watchQuery$GetLists(
-          [WatchOptions$Query$GetLists? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$GetLists());
+  Future<graphql.QueryResult<Query$GetLists>> query$GetLists([
+    Options$Query$GetLists? options,
+  ]) async => await this.query(options ?? Options$Query$GetLists());
+  graphql.ObservableQuery<Query$GetLists> watchQuery$GetLists([
+    WatchOptions$Query$GetLists? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$GetLists());
   void writeQuery$GetLists({
     required Query$GetLists data,
     Variables$Query$GetLists? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryGetLists),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryGetLists),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$GetLists? readQuery$GetLists({
     Variables$Query$GetLists? variables,
     bool optimistic = true,
@@ -611,15 +634,19 @@ class Query$GetLists$MediaListCollection {
   });
 
   factory Query$GetLists$MediaListCollection.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$lists = json['lists'];
     final l$$__typename = json['__typename'];
     return Query$GetLists$MediaListCollection(
       lists: (l$lists as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$GetLists$MediaListCollection$lists.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$GetLists$MediaListCollection$lists.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -685,11 +712,12 @@ class Query$GetLists$MediaListCollection {
 extension UtilityExtension$Query$GetLists$MediaListCollection
     on Query$GetLists$MediaListCollection {
   CopyWith$Query$GetLists$MediaListCollection<
-          Query$GetLists$MediaListCollection>
-      get copyWith => CopyWith$Query$GetLists$MediaListCollection(
-            this,
-            (i) => i,
-          );
+    Query$GetLists$MediaListCollection
+  >
+  get copyWith => CopyWith$Query$GetLists$MediaListCollection(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetLists$MediaListCollection<TRes> {
@@ -706,11 +734,15 @@ abstract class CopyWith$Query$GetLists$MediaListCollection<TRes> {
     String? $__typename,
   });
   TRes lists(
-      Iterable<Query$GetLists$MediaListCollection$lists?>? Function(
-              Iterable<
-                  CopyWith$Query$GetLists$MediaListCollection$lists<
-                      Query$GetLists$MediaListCollection$lists>?>?)
-          _fn);
+    Iterable<Query$GetLists$MediaListCollection$lists?>? Function(
+      Iterable<
+        CopyWith$Query$GetLists$MediaListCollection$lists<
+          Query$GetLists$MediaListCollection$lists
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$GetLists$MediaListCollection<TRes>
@@ -729,29 +761,38 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection<TRes>
   TRes call({
     Object? lists = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists$MediaListCollection(
-        lists: lists == _undefined
-            ? _instance.lists
-            : (lists as List<Query$GetLists$MediaListCollection$lists?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetLists$MediaListCollection(
+      lists: lists == _undefined
+          ? _instance.lists
+          : (lists as List<Query$GetLists$MediaListCollection$lists?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes lists(
-          Iterable<Query$GetLists$MediaListCollection$lists?>? Function(
-                  Iterable<
-                      CopyWith$Query$GetLists$MediaListCollection$lists<
-                          Query$GetLists$MediaListCollection$lists>?>?)
-              _fn) =>
-      call(
-          lists: _fn(_instance.lists?.map((e) => e == null
-              ? null
-              : CopyWith$Query$GetLists$MediaListCollection$lists(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$GetLists$MediaListCollection$lists?>? Function(
+      Iterable<
+        CopyWith$Query$GetLists$MediaListCollection$lists<
+          Query$GetLists$MediaListCollection$lists
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    lists: _fn(
+      _instance.lists?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$GetLists$MediaListCollection$lists(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetLists$MediaListCollection<TRes>
@@ -763,8 +804,7 @@ class _CopyWithStubImpl$Query$GetLists$MediaListCollection<TRes>
   call({
     List<Query$GetLists$MediaListCollection$lists?>? lists,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   lists(_fn) => _res;
 }
@@ -776,15 +816,19 @@ class Query$GetLists$MediaListCollection$lists {
   });
 
   factory Query$GetLists$MediaListCollection$lists.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$entries = json['entries'];
     final l$$__typename = json['__typename'];
     return Query$GetLists$MediaListCollection$lists(
       entries: (l$entries as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$GetLists$MediaListCollection$lists$entries.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$GetLists$MediaListCollection$lists$entries.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -850,11 +894,12 @@ class Query$GetLists$MediaListCollection$lists {
 extension UtilityExtension$Query$GetLists$MediaListCollection$lists
     on Query$GetLists$MediaListCollection$lists {
   CopyWith$Query$GetLists$MediaListCollection$lists<
-          Query$GetLists$MediaListCollection$lists>
-      get copyWith => CopyWith$Query$GetLists$MediaListCollection$lists(
-            this,
-            (i) => i,
-          );
+    Query$GetLists$MediaListCollection$lists
+  >
+  get copyWith => CopyWith$Query$GetLists$MediaListCollection$lists(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetLists$MediaListCollection$lists<TRes> {
@@ -871,11 +916,15 @@ abstract class CopyWith$Query$GetLists$MediaListCollection$lists<TRes> {
     String? $__typename,
   });
   TRes entries(
-      Iterable<Query$GetLists$MediaListCollection$lists$entries?>? Function(
-              Iterable<
-                  CopyWith$Query$GetLists$MediaListCollection$lists$entries<
-                      Query$GetLists$MediaListCollection$lists$entries>?>?)
-          _fn);
+    Iterable<Query$GetLists$MediaListCollection$lists$entries?>? Function(
+      Iterable<
+        CopyWith$Query$GetLists$MediaListCollection$lists$entries<
+          Query$GetLists$MediaListCollection$lists$entries
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$GetLists$MediaListCollection$lists<TRes>
@@ -894,30 +943,39 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists<TRes>
   TRes call({
     Object? entries = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists$MediaListCollection$lists(
-        entries: entries == _undefined
-            ? _instance.entries
-            : (entries
+  }) => _then(
+    Query$GetLists$MediaListCollection$lists(
+      entries: entries == _undefined
+          ? _instance.entries
+          : (entries
                 as List<Query$GetLists$MediaListCollection$lists$entries?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes entries(
-          Iterable<Query$GetLists$MediaListCollection$lists$entries?>? Function(
-                  Iterable<
-                      CopyWith$Query$GetLists$MediaListCollection$lists$entries<
-                          Query$GetLists$MediaListCollection$lists$entries>?>?)
-              _fn) =>
-      call(
-          entries: _fn(_instance.entries?.map((e) => e == null
-              ? null
-              : CopyWith$Query$GetLists$MediaListCollection$lists$entries(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$GetLists$MediaListCollection$lists$entries?>? Function(
+      Iterable<
+        CopyWith$Query$GetLists$MediaListCollection$lists$entries<
+          Query$GetLists$MediaListCollection$lists$entries
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    entries: _fn(
+      _instance.entries?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$GetLists$MediaListCollection$lists$entries(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists<TRes>
@@ -929,8 +987,7 @@ class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists<TRes>
   call({
     List<Query$GetLists$MediaListCollection$lists$entries?>? entries,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   entries(_fn) => _res;
 }
@@ -951,7 +1008,8 @@ class Query$GetLists$MediaListCollection$lists$entries {
   });
 
   factory Query$GetLists$MediaListCollection$lists$entries.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$score = json['score'];
     final l$progress = json['progress'];
     final l$status = json['status'];
@@ -976,11 +1034,13 @@ class Query$GetLists$MediaListCollection$lists$entries {
       startedAt: l$startedAt == null
           ? null
           : Query$GetLists$MediaListCollection$lists$entries$startedAt.fromJson(
-              (l$startedAt as Map<String, dynamic>)),
+              (l$startedAt as Map<String, dynamic>),
+            ),
       completedAt: l$completedAt == null
           ? null
-          : Query$GetLists$MediaListCollection$lists$entries$completedAt
-              .fromJson((l$completedAt as Map<String, dynamic>)),
+          : Query$GetLists$MediaListCollection$lists$entries$completedAt.fromJson(
+              (l$completedAt as Map<String, dynamic>),
+            ),
       media: l$media == null
           ? null
           : Fragment$media.fromJson((l$media as Map<String, dynamic>)),
@@ -1005,7 +1065,7 @@ class Query$GetLists$MediaListCollection$lists$entries {
   final Query$GetLists$MediaListCollection$lists$entries$startedAt? startedAt;
 
   final Query$GetLists$MediaListCollection$lists$entries$completedAt?
-      completedAt;
+  completedAt;
 
   final Fragment$media? media;
 
@@ -1018,8 +1078,9 @@ class Query$GetLists$MediaListCollection$lists$entries {
     final l$progress = progress;
     _resultData['progress'] = l$progress;
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson$Enum$MediaListStatus(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson$Enum$MediaListStatus(l$status);
     final l$notes = notes;
     _resultData['notes'] = l$notes;
     final l$repeat = repeat;
@@ -1138,11 +1199,12 @@ class Query$GetLists$MediaListCollection$lists$entries {
 extension UtilityExtension$Query$GetLists$MediaListCollection$lists$entries
     on Query$GetLists$MediaListCollection$lists$entries {
   CopyWith$Query$GetLists$MediaListCollection$lists$entries<
-          Query$GetLists$MediaListCollection$lists$entries>
-      get copyWith => CopyWith$Query$GetLists$MediaListCollection$lists$entries(
-            this,
-            (i) => i,
-          );
+    Query$GetLists$MediaListCollection$lists$entries
+  >
+  get copyWith => CopyWith$Query$GetLists$MediaListCollection$lists$entries(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries<TRes> {
@@ -1152,8 +1214,8 @@ abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries<TRes> {
   ) = _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries;
 
   factory CopyWith$Query$GetLists$MediaListCollection$lists$entries.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries;
 
   TRes call({
     double? score,
@@ -1169,9 +1231,9 @@ abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries<TRes> {
     String? $__typename,
   });
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<TRes>
-      get startedAt;
+  get startedAt;
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<TRes>
-      get completedAt;
+  get completedAt;
   CopyWith$Fragment$media<TRes> get media;
 }
 
@@ -1200,52 +1262,60 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries<TRes>
     Object? completedAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists$MediaListCollection$lists$entries(
-        score: score == _undefined ? _instance.score : (score as double?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as int?),
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum$MediaListStatus?),
-        notes: notes == _undefined ? _instance.notes : (notes as String?),
-        repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
-        private: private == _undefined ? _instance.private : (private as bool?),
-        updatedAt:
-            updatedAt == _undefined ? _instance.updatedAt : (updatedAt as int?),
-        startedAt: startedAt == _undefined
-            ? _instance.startedAt
-            : (startedAt
+  }) => _then(
+    Query$GetLists$MediaListCollection$lists$entries(
+      score: score == _undefined ? _instance.score : (score as double?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as int?),
+      status: status == _undefined
+          ? _instance.status
+          : (status as Enum$MediaListStatus?),
+      notes: notes == _undefined ? _instance.notes : (notes as String?),
+      repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
+      private: private == _undefined ? _instance.private : (private as bool?),
+      updatedAt: updatedAt == _undefined
+          ? _instance.updatedAt
+          : (updatedAt as int?),
+      startedAt: startedAt == _undefined
+          ? _instance.startedAt
+          : (startedAt
                 as Query$GetLists$MediaListCollection$lists$entries$startedAt?),
-        completedAt: completedAt == _undefined
-            ? _instance.completedAt
-            : (completedAt
+      completedAt: completedAt == _undefined
+          ? _instance.completedAt
+          : (completedAt
                 as Query$GetLists$MediaListCollection$lists$entries$completedAt?),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<TRes>
-      get startedAt {
+  get startedAt {
     final local$startedAt = _instance.startedAt;
     return local$startedAt == null
-        ? CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt
-            .stub(_then(_instance))
+        ? CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt(
-            local$startedAt, (e) => call(startedAt: e));
+            local$startedAt,
+            (e) => call(startedAt: e),
+          );
   }
 
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<TRes>
-      get completedAt {
+  get completedAt {
     final local$completedAt = _instance.completedAt;
     return local$completedAt == null
-        ? CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt
-            .stub(_then(_instance))
+        ? CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt(
-            local$completedAt, (e) => call(completedAt: e));
+            local$completedAt,
+            (e) => call(completedAt: e),
+          );
   }
 
   CopyWith$Fragment$media<TRes> get media {
@@ -1274,18 +1344,19 @@ class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries<TRes>
     Query$GetLists$MediaListCollection$lists$entries$completedAt? completedAt,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<TRes>
-      get startedAt =>
-          CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt
-              .stub(_res);
+  get startedAt =>
+      CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt.stub(
+        _res,
+      );
 
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<TRes>
-      get completedAt =>
-          CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt
-              .stub(_res);
+  get completedAt =>
+      CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt.stub(
+        _res,
+      );
 
   CopyWith$Fragment$media<TRes> get media => CopyWith$Fragment$media.stub(_res);
 }
@@ -1299,7 +1370,8 @@ class Query$GetLists$MediaListCollection$lists$entries$startedAt {
   });
 
   factory Query$GetLists$MediaListCollection$lists$entries$startedAt.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$year = json['year'];
     final l$month = json['month'];
     final l$day = json['day'];
@@ -1383,25 +1455,27 @@ class Query$GetLists$MediaListCollection$lists$entries$startedAt {
 extension UtilityExtension$Query$GetLists$MediaListCollection$lists$entries$startedAt
     on Query$GetLists$MediaListCollection$lists$entries$startedAt {
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-          Query$GetLists$MediaListCollection$lists$entries$startedAt>
-      get copyWith =>
-          CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt(
-            this,
-            (i) => i,
-          );
+    Query$GetLists$MediaListCollection$lists$entries$startedAt
+  >
+  get copyWith =>
+      CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt(
     Query$GetLists$MediaListCollection$lists$entries$startedAt instance,
     TRes Function(Query$GetLists$MediaListCollection$lists$entries$startedAt)
-        then,
+    then,
   ) = _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt;
 
   factory CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt;
 
   TRes call({
     int? year,
@@ -1412,10 +1486,12 @@ abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries$started
 }
 
 class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt(
     this._instance,
     this._then,
@@ -1424,7 +1500,9 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt<
   final Query$GetLists$MediaListCollection$lists$entries$startedAt _instance;
 
   final TRes Function(
-      Query$GetLists$MediaListCollection$lists$entries$startedAt) _then;
+    Query$GetLists$MediaListCollection$lists$entries$startedAt,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1433,24 +1511,28 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt<
     Object? month = _undefined,
     Object? day = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists$MediaListCollection$lists$entries$startedAt(
-        year: year == _undefined ? _instance.year : (year as int?),
-        month: month == _undefined ? _instance.month : (month as int?),
-        day: day == _undefined ? _instance.day : (day as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetLists$MediaListCollection$lists$entries$startedAt(
+      year: year == _undefined ? _instance.year : (year as int?),
+      month: month == _undefined ? _instance.month : (month as int?),
+      day: day == _undefined ? _instance.day : (day as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetLists$MediaListCollection$lists$entries$startedAt<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$startedAt(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1459,8 +1541,7 @@ class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$started
     int? month,
     int? day,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$GetLists$MediaListCollection$lists$entries$completedAt {
@@ -1472,7 +1553,8 @@ class Query$GetLists$MediaListCollection$lists$entries$completedAt {
   });
 
   factory Query$GetLists$MediaListCollection$lists$entries$completedAt.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$year = json['year'];
     final l$month = json['month'];
     final l$day = json['day'];
@@ -1557,25 +1639,27 @@ class Query$GetLists$MediaListCollection$lists$entries$completedAt {
 extension UtilityExtension$Query$GetLists$MediaListCollection$lists$entries$completedAt
     on Query$GetLists$MediaListCollection$lists$entries$completedAt {
   CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-          Query$GetLists$MediaListCollection$lists$entries$completedAt>
-      get copyWith =>
-          CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt(
-            this,
-            (i) => i,
-          );
+    Query$GetLists$MediaListCollection$lists$entries$completedAt
+  >
+  get copyWith =>
+      CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt(
     Query$GetLists$MediaListCollection$lists$entries$completedAt instance,
     TRes Function(Query$GetLists$MediaListCollection$lists$entries$completedAt)
-        then,
+    then,
   ) = _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt;
 
   factory CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt;
 
   TRes call({
     int? year,
@@ -1586,10 +1670,12 @@ abstract class CopyWith$Query$GetLists$MediaListCollection$lists$entries$complet
 }
 
 class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt(
     this._instance,
     this._then,
@@ -1598,7 +1684,9 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt
   final Query$GetLists$MediaListCollection$lists$entries$completedAt _instance;
 
   final TRes Function(
-      Query$GetLists$MediaListCollection$lists$entries$completedAt) _then;
+    Query$GetLists$MediaListCollection$lists$entries$completedAt,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1607,24 +1695,28 @@ class _CopyWithImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt
     Object? month = _undefined,
     Object? day = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetLists$MediaListCollection$lists$entries$completedAt(
-        year: year == _undefined ? _instance.year : (year as int?),
-        month: month == _undefined ? _instance.month : (month as int?),
-        day: day == _undefined ? _instance.day : (day as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetLists$MediaListCollection$lists$entries$completedAt(
+      year: year == _undefined ? _instance.year : (year as int?),
+      month: month == _undefined ? _instance.month : (month as int?),
+      day: day == _undefined ? _instance.day : (day as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetLists$MediaListCollection$lists$entries$completedAt<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$completedAt(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1633,6 +1725,5 @@ class _CopyWithStubImpl$Query$GetLists$MediaListCollection$lists$entries$complet
     int? month,
     int? day,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

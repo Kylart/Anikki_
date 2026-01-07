@@ -79,7 +79,7 @@ class _ScheduleContentState extends State<ScheduleContent> {
               entries: currentEntries,
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -6,21 +6,23 @@ import 'package:graphql/client.dart' as graphql;
 import 'schema.graphql.dart';
 
 class Variables$Mutation$KitsuUpdateLibraryEntry {
-  factory Variables$Mutation$KitsuUpdateLibraryEntry(
-          {required Input$LibraryEntryUpdateProgressByMediaInput progress}) =>
-      Variables$Mutation$KitsuUpdateLibraryEntry._({
-        r'progress': progress,
-      });
+  factory Variables$Mutation$KitsuUpdateLibraryEntry({
+    required Input$LibraryEntryUpdateProgressByMediaInput progress,
+  }) => Variables$Mutation$KitsuUpdateLibraryEntry._({
+    r'progress': progress,
+  });
 
   Variables$Mutation$KitsuUpdateLibraryEntry._(this._$data);
 
   factory Variables$Mutation$KitsuUpdateLibraryEntry.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     final l$progress = data['progress'];
     result$data['progress'] =
         Input$LibraryEntryUpdateProgressByMediaInput.fromJson(
-            (l$progress as Map<String, dynamic>));
+          (l$progress as Map<String, dynamic>),
+        );
     return Variables$Mutation$KitsuUpdateLibraryEntry._(result$data);
   }
 
@@ -37,11 +39,12 @@ class Variables$Mutation$KitsuUpdateLibraryEntry {
   }
 
   CopyWith$Variables$Mutation$KitsuUpdateLibraryEntry<
-          Variables$Mutation$KitsuUpdateLibraryEntry>
-      get copyWith => CopyWith$Variables$Mutation$KitsuUpdateLibraryEntry(
-            this,
-            (i) => i,
-          );
+    Variables$Mutation$KitsuUpdateLibraryEntry
+  >
+  get copyWith => CopyWith$Variables$Mutation$KitsuUpdateLibraryEntry(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -92,13 +95,13 @@ class _CopyWithImpl$Variables$Mutation$KitsuUpdateLibraryEntry<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? progress = _undefined}) =>
-      _then(Variables$Mutation$KitsuUpdateLibraryEntry._({
-        ..._instance._$data,
-        if (progress != _undefined && progress != null)
-          'progress':
-              (progress as Input$LibraryEntryUpdateProgressByMediaInput),
-      }));
+  TRes call({Object? progress = _undefined}) => _then(
+    Variables$Mutation$KitsuUpdateLibraryEntry._({
+      ..._instance._$data,
+      if (progress != _undefined && progress != null)
+        'progress': (progress as Input$LibraryEntryUpdateProgressByMediaInput),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$KitsuUpdateLibraryEntry<TRes>
@@ -121,7 +124,8 @@ class Mutation$KitsuUpdateLibraryEntry {
     final l$$__typename = json['__typename'];
     return Mutation$KitsuUpdateLibraryEntry(
       libraryEntry: Mutation$KitsuUpdateLibraryEntry$libraryEntry.fromJson(
-          (l$libraryEntry as Map<String, dynamic>)),
+        (l$libraryEntry as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -175,10 +179,10 @@ class Mutation$KitsuUpdateLibraryEntry {
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry
     on Mutation$KitsuUpdateLibraryEntry {
   CopyWith$Mutation$KitsuUpdateLibraryEntry<Mutation$KitsuUpdateLibraryEntry>
-      get copyWith => CopyWith$Mutation$KitsuUpdateLibraryEntry(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Mutation$KitsuUpdateLibraryEntry(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry<TRes> {
@@ -213,21 +217,24 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry<TRes>
   TRes call({
     Object? libraryEntry = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$KitsuUpdateLibraryEntry(
-        libraryEntry: libraryEntry == _undefined || libraryEntry == null
-            ? _instance.libraryEntry
-            : (libraryEntry as Mutation$KitsuUpdateLibraryEntry$libraryEntry),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry(
+      libraryEntry: libraryEntry == _undefined || libraryEntry == null
+          ? _instance.libraryEntry
+          : (libraryEntry as Mutation$KitsuUpdateLibraryEntry$libraryEntry),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes>
-      get libraryEntry {
+  get libraryEntry {
     final local$libraryEntry = _instance.libraryEntry;
     return CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry(
-        local$libraryEntry, (e) => call(libraryEntry: e));
+      local$libraryEntry,
+      (e) => call(libraryEntry: e),
+    );
   }
 }
 
@@ -240,111 +247,129 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry<TRes>
   call({
     Mutation$KitsuUpdateLibraryEntry$libraryEntry? libraryEntry,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes>
-      get libraryEntry =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry.stub(_res);
+  get libraryEntry =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry.stub(_res);
 }
 
-const documentNodeMutationKitsuUpdateLibraryEntry = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'KitsuUpdateLibraryEntry'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'progress')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'LibraryEntryUpdateProgressByMediaInput'),
-          isNonNull: true,
+const documentNodeMutationKitsuUpdateLibraryEntry = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'KitsuUpdateLibraryEntry'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'progress')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'LibraryEntryUpdateProgressByMediaInput'),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'libraryEntry'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'updateProgressByMedia'),
+            name: NameNode(value: 'libraryEntry'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'input'),
-                value: VariableNode(name: NameNode(value: 'progress')),
-              )
-            ],
+            arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'libraryEntry'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'kitsuLibraryEntry'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'updateProgressByMedia'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'input'),
+                      value: VariableNode(name: NameNode(value: 'progress')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'libraryEntry'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'kitsuLibraryEntry'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'errors'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'message'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'code'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'path'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'errors'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'message'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'code'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'path'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -353,28 +378,21 @@ const documentNodeMutationKitsuUpdateLibraryEntry = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionkitsuLibraryEntry,
-  fragmentDefinitionkitsuAnimeMedia,
-]);
-Mutation$KitsuUpdateLibraryEntry _parserFn$Mutation$KitsuUpdateLibraryEntry(
-        Map<String, dynamic> data) =>
-    Mutation$KitsuUpdateLibraryEntry.fromJson(data);
-typedef OnMutationCompleted$Mutation$KitsuUpdateLibraryEntry = FutureOr<void>
-    Function(
-  Map<String, dynamic>?,
-  Mutation$KitsuUpdateLibraryEntry?,
+    ),
+    fragmentDefinitionkitsuLibraryEntry,
+    fragmentDefinitionkitsuAnimeMedia,
+  ],
 );
+Mutation$KitsuUpdateLibraryEntry _parserFn$Mutation$KitsuUpdateLibraryEntry(
+  Map<String, dynamic> data,
+) => Mutation$KitsuUpdateLibraryEntry.fromJson(data);
+typedef OnMutationCompleted$Mutation$KitsuUpdateLibraryEntry =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Mutation$KitsuUpdateLibraryEntry?,
+    );
 
 class Options$Mutation$KitsuUpdateLibraryEntry
     extends graphql.MutationOptions<Mutation$KitsuUpdateLibraryEntry> {
@@ -390,39 +408,39 @@ class Options$Mutation$KitsuUpdateLibraryEntry
     OnMutationCompleted$Mutation$KitsuUpdateLibraryEntry? onCompleted,
     graphql.OnMutationUpdate<Mutation$KitsuUpdateLibraryEntry>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$KitsuUpdateLibraryEntry(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationKitsuUpdateLibraryEntry,
-          parserFn: _parserFn$Mutation$KitsuUpdateLibraryEntry,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null
+                     ? null
+                     : _parserFn$Mutation$KitsuUpdateLibraryEntry(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationKitsuUpdateLibraryEntry,
+         parserFn: _parserFn$Mutation$KitsuUpdateLibraryEntry,
+       );
 
   final OnMutationCompleted$Mutation$KitsuUpdateLibraryEntry?
-      onCompletedWithParsed;
+  onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
 class WatchOptions$Mutation$KitsuUpdateLibraryEntry
@@ -441,32 +459,32 @@ class WatchOptions$Mutation$KitsuUpdateLibraryEntry
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeMutationKitsuUpdateLibraryEntry,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$KitsuUpdateLibraryEntry,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeMutationKitsuUpdateLibraryEntry,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Mutation$KitsuUpdateLibraryEntry,
+       );
 }
 
 extension ClientExtension$Mutation$KitsuUpdateLibraryEntry
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$KitsuUpdateLibraryEntry>>
-      mutate$KitsuUpdateLibraryEntry(
-              Options$Mutation$KitsuUpdateLibraryEntry options) async =>
-          await this.mutate(options);
+  mutate$KitsuUpdateLibraryEntry(
+    Options$Mutation$KitsuUpdateLibraryEntry options,
+  ) async => await this.mutate(options);
   graphql.ObservableQuery<Mutation$KitsuUpdateLibraryEntry>
-      watchMutation$KitsuUpdateLibraryEntry(
-              WatchOptions$Mutation$KitsuUpdateLibraryEntry options) =>
-          this.watchMutation(options);
+  watchMutation$KitsuUpdateLibraryEntry(
+    WatchOptions$Mutation$KitsuUpdateLibraryEntry options,
+  ) => this.watchMutation(options);
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry {
@@ -476,20 +494,22 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry {
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$updateProgressByMedia = json['updateProgressByMedia'];
     final l$$__typename = json['__typename'];
     return Mutation$KitsuUpdateLibraryEntry$libraryEntry(
       updateProgressByMedia: l$updateProgressByMedia == null
           ? null
-          : Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
-              .fromJson((l$updateProgressByMedia as Map<String, dynamic>)),
+          : Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia.fromJson(
+              (l$updateProgressByMedia as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia?
-      updateProgressByMedia;
+  updateProgressByMedia;
 
   final String $__typename;
 
@@ -538,11 +558,12 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry {
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry
     on Mutation$KitsuUpdateLibraryEntry$libraryEntry {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry>
-      get copyWith => CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry
+  >
+  get copyWith => CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes> {
@@ -552,16 +573,18 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes> {
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry;
 
   TRes call({
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia?
-        updateProgressByMedia,
+    updateProgressByMedia,
     String? $__typename,
   });
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-      TRes> get updateProgressByMedia;
+    TRes
+  >
+  get updateProgressByMedia;
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes>
@@ -580,25 +603,31 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes>
   TRes call({
     Object? updateProgressByMedia = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$KitsuUpdateLibraryEntry$libraryEntry(
-        updateProgressByMedia: updateProgressByMedia == _undefined
-            ? _instance.updateProgressByMedia
-            : (updateProgressByMedia
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry(
+      updateProgressByMedia: updateProgressByMedia == _undefined
+          ? _instance.updateProgressByMedia
+          : (updateProgressByMedia
                 as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-      TRes> get updateProgressByMedia {
+    TRes
+  >
+  get updateProgressByMedia {
     final local$updateProgressByMedia = _instance.updateProgressByMedia;
     return local$updateProgressByMedia == null
-        ? CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
-            .stub(_then(_instance))
+        ? CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia.stub(
+            _then(_instance),
+          )
         : CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
-            local$updateProgressByMedia, (e) => call(updateProgressByMedia: e));
+            local$updateProgressByMedia,
+            (e) => call(updateProgressByMedia: e),
+          );
   }
 }
 
@@ -610,16 +639,17 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry<TRes>
 
   call({
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia?
-        updateProgressByMedia,
+    updateProgressByMedia,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-          TRes>
-      get updateProgressByMedia =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
-              .stub(_res);
+    TRes
+  >
+  get updateProgressByMedia =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia.stub(
+        _res,
+      );
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
@@ -630,7 +660,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$libraryEntry = json['libraryEntry'];
     final l$errors = json['errors'];
     final l$$__typename = json['__typename'];
@@ -638,11 +669,15 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
       libraryEntry: l$libraryEntry == null
           ? null
           : Fragment$kitsuLibraryEntry.fromJson(
-              (l$libraryEntry as Map<String, dynamic>)),
+              (l$libraryEntry as Map<String, dynamic>),
+            ),
       errors: (l$errors as List<dynamic>?)
-          ?.map((e) =>
-              Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
-                  .fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) =>
+                Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors.fromJson(
+                  (e as Map<String, dynamic>),
+                ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -651,8 +686,9 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
   final Fragment$kitsuLibraryEntry? libraryEntry;
 
   final List<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>?
-      errors;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+  >?
+  errors;
 
   final String $__typename;
 
@@ -722,59 +758,74 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
     on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia;
 
   TRes call({
     Fragment$kitsuLibraryEntry? libraryEntry,
-    List<Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>?
-        errors,
+    List<
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+    >?
+    errors,
     String? $__typename,
   });
   CopyWith$Fragment$kitsuLibraryEntry<TRes> get libraryEntry;
   TRes errors(
-      Iterable<Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>? Function(
-              Iterable<
-                  CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-                      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>>?)
-          _fn);
+    Iterable<
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+    >?
+    Function(
+      Iterable<
+        CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
+          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+        >
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -782,59 +833,79 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? libraryEntry = _undefined,
     Object? errors = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
-        libraryEntry: libraryEntry == _undefined
-            ? _instance.libraryEntry
-            : (libraryEntry as Fragment$kitsuLibraryEntry?),
-        errors: errors == _undefined
-            ? _instance.errors
-            : (errors as List<
-                Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
+      libraryEntry: libraryEntry == _undefined
+          ? _instance.libraryEntry
+          : (libraryEntry as Fragment$kitsuLibraryEntry?),
+      errors: errors == _undefined
+          ? _instance.errors
+          : (errors
+                as List<
+                  Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+                >?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuLibraryEntry<TRes> get libraryEntry {
     final local$libraryEntry = _instance.libraryEntry;
     return local$libraryEntry == null
         ? CopyWith$Fragment$kitsuLibraryEntry.stub(_then(_instance))
         : CopyWith$Fragment$kitsuLibraryEntry(
-            local$libraryEntry, (e) => call(libraryEntry: e));
+            local$libraryEntry,
+            (e) => call(libraryEntry: e),
+          );
   }
 
   TRes errors(
-          Iterable<Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>? Function(
-                  Iterable<
-                      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-                          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>>?)
-              _fn) =>
-      call(
-          errors: _fn(_instance.errors?.map((e) =>
-              CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
-                e,
-                (i) => i,
-              )))?.toList());
+    Iterable<
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+    >?
+    Function(
+      Iterable<
+        CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
+          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+        >
+      >?,
+    )
+    _fn,
+  ) => call(
+    errors: _fn(
+      _instance.errors?.map(
+        (e) =>
+            CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
+              e,
+              (i) => i,
+            ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     Fragment$kitsuLibraryEntry? libraryEntry,
-    List<Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>?
-        errors,
+    List<
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+    >?
+    errors,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuLibraryEntry<TRes> get libraryEntry =>
       CopyWith$Fragment$kitsuLibraryEntry.stub(_res);
@@ -851,27 +922,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "GenericError":
-        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
-            .fromJson(json);
+        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError.fromJson(
+          json,
+        );
 
       case "NotAuthenticatedError":
-        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
-            .fromJson(json);
+        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError.fromJson(
+          json,
+        );
 
       case "NotAuthorizedError":
-        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
-            .fromJson(json);
+        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError.fromJson(
+          json,
+        );
 
       case "NotFoundError":
-        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
-            .fromJson(json);
+        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError.fromJson(
+          json,
+        );
 
       case "ValidationError":
-        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
-            .fromJson(json);
+        return Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError.fromJson(
+          json,
+        );
 
       default:
         final l$message = json['message'];
@@ -970,50 +1047,66 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
     on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
+        this,
+        (i) => i,
+      );
   _T when<_T>({
     required _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError)
-        genericError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+    )
+    genericError,
     required _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError)
-        notAuthenticatedError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+    )
+    notAuthenticatedError,
     required _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError)
-        notAuthorizedError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+    )
+    notAuthorizedError,
     required _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError)
-        notFoundError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+    )
+    notFoundError,
     required _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError)
-        validationError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+    )
+    validationError,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "GenericError":
-        return genericError(this
-            as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError);
+        return genericError(
+          this
+              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+        );
 
       case "NotAuthenticatedError":
-        return notAuthenticatedError(this
-            as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError);
+        return notAuthenticatedError(
+          this
+              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+        );
 
       case "NotAuthorizedError":
-        return notAuthorizedError(this
-            as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError);
+        return notAuthorizedError(
+          this
+              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+        );
 
       case "NotFoundError":
-        return notFoundError(this
-            as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError);
+        return notFoundError(
+          this
+              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+        );
 
       case "ValidationError":
-        return validationError(this
-            as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError);
+        return validationError(
+          this
+              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+        );
 
       default:
         return orElse();
@@ -1022,59 +1115,74 @@ extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateP
 
   _T maybeWhen<_T>({
     _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError)?
-        genericError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+    )?
+    genericError,
     _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError)?
-        notAuthenticatedError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+    )?
+    notAuthenticatedError,
     _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError)?
-        notAuthorizedError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+    )?
+    notAuthorizedError,
     _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError)?
-        notFoundError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+    )?
+    notFoundError,
     _T Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError)?
-        validationError,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+    )?
+    validationError,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "GenericError":
         if (genericError != null) {
-          return genericError(this
-              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError);
+          return genericError(
+            this
+                as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+          );
         } else {
           return orElse();
         }
 
       case "NotAuthenticatedError":
         if (notAuthenticatedError != null) {
-          return notAuthenticatedError(this
-              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError);
+          return notAuthenticatedError(
+            this
+                as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+          );
         } else {
           return orElse();
         }
 
       case "NotAuthorizedError":
         if (notAuthorizedError != null) {
-          return notAuthorizedError(this
-              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError);
+          return notAuthorizedError(
+            this
+                as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+          );
         } else {
           return orElse();
         }
 
       case "NotFoundError":
         if (notFoundError != null) {
-          return notFoundError(this
-              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError);
+          return notFoundError(
+            this
+                as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+          );
         } else {
           return orElse();
         }
 
       case "ValidationError":
         if (validationError != null) {
-          return validationError(this
-              as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError);
+          return validationError(
+            this
+                as Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+          );
         } else {
           return orElse();
         }
@@ -1086,18 +1194,20 @@ extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateP
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors;
 
   TRes call({
     String? message,
@@ -1108,21 +1218,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1131,27 +1244,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1160,8 +1276,7 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
@@ -1175,7 +1290,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$message = json['message'];
     final l$code = json['code'];
     final l$path = json['path'];
@@ -1269,29 +1385,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 }
 
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
-    on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError {
+    on
+        Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError;
 
   TRes call({
     String? message,
@@ -1302,21 +1422,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1325,27 +1448,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$GenericError(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1354,8 +1480,7 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
@@ -1369,7 +1494,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$message = json['message'];
     final l$code = json['code'];
     final l$path = json['path'];
@@ -1463,29 +1589,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 }
 
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
-    on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError {
+    on
+        Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError;
 
   TRes call({
     String? message,
@@ -1496,21 +1626,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1519,27 +1652,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthenticatedError(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1548,8 +1684,7 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
@@ -1563,7 +1698,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$message = json['message'];
     final l$code = json['code'];
     final l$path = json['path'];
@@ -1657,29 +1793,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 }
 
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
-    on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError {
+    on
+        Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError;
 
   TRes call({
     String? message,
@@ -1690,21 +1830,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1713,27 +1856,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotAuthorizedError(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1742,8 +1888,7 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
@@ -1757,7 +1902,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$message = json['message'];
     final l$code = json['code'];
     final l$path = json['path'];
@@ -1851,29 +1997,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 }
 
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
-    on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError {
+    on
+        Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError;
 
   TRes call({
     String? message,
@@ -1884,21 +2034,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1907,27 +2060,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$NotFoundError(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1936,8 +2092,7 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
@@ -1951,7 +2106,8 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
   });
 
   factory Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$message = json['message'];
     final l$code = json['code'];
     final l$path = json['path'];
@@ -2045,29 +2201,33 @@ class Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors
 }
 
 extension UtilityExtension$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
-    on Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError {
+    on
+        Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError {
   CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError>
-      get copyWith =>
-          CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
-            this,
-            (i) => i,
-          );
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
+  >
+  get copyWith =>
+      CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
     Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
-        instance,
+    instance,
     TRes Function(
-            Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError)
-        then,
+      Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+    )
+    then,
   ) = _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError;
 
   factory CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError;
 
   TRes call({
     String? message,
@@ -2078,21 +2238,24 @@ abstract class CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
 }
 
 class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
     this._instance,
     this._then,
   );
 
   final Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError
-      _instance;
+  _instance;
 
   final TRes Function(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError)
-      _then;
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2101,27 +2264,30 @@ class _CopyWithImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgress
     Object? code = _undefined,
     Object? path = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
-        message: message == _undefined || message == null
-            ? _instance.message
-            : (message as String),
-        code: code == _undefined ? _instance.code : (code as String?),
-        path: path == _undefined ? _instance.path : (path as List<String>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
+      message: message == _undefined || message == null
+          ? _instance.message
+          : (message as String),
+      code: code == _undefined ? _instance.code : (code as String?),
+      path: path == _undefined ? _instance.path : (path as List<String>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProgressByMedia$errors$$ValidationError(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -2130,6 +2296,5 @@ class _CopyWithStubImpl$Mutation$KitsuUpdateLibraryEntry$libraryEntry$updateProg
     String? code,
     List<String>? path,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

@@ -28,7 +28,8 @@ class DrawerTitle extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: context.textTheme.headlineSmall,
           ),
-          subtitle: (media?.originalTitle != null &&
+          subtitle:
+              (media?.originalTitle != null &&
                       media?.originalTitle != media?.title) ||
                   libraryEntry != null
               ? AutoSizeText(

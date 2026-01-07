@@ -95,8 +95,9 @@ class _PaginatedState extends State<Paginated> {
                           SizedBox(
                             width: 140,
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                              ),
                               child: Text(
                                 textAlign: TextAlign.center,
                                 'Page ${page + 1} of ${maxPage + 1}',

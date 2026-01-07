@@ -1,7 +1,7 @@
 part of 'models.dart';
 
-typedef AnilistWatchListEntry
-    = Query$GetLists$MediaListCollection$lists$entries;
+typedef AnilistWatchListEntry =
+    Query$GetLists$MediaListCollection$lists$entries;
 
 class AnilistWatchList extends Equatable {
   const AnilistWatchList({
@@ -49,13 +49,13 @@ class AnilistWatchList extends Equatable {
 
   @override
   List<Object?> get props => [
-        completed,
-        current,
-        dropped,
-        paused,
-        planning,
-        repeating,
-      ];
+    completed,
+    current,
+    dropped,
+    paused,
+    planning,
+    repeating,
+  ];
 
   @override
   String toString() {

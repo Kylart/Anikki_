@@ -39,33 +39,32 @@ class TorrentView extends StatelessWidget {
               child: BlocBuilder<TorrentBloc, TorrentState>(
                 builder: (context, state) => switch (state) {
                   TorrentLoaded() => Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
-                        horizontal: 16.0,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 16.0,
+                    ),
+                    child: CustomGridView(
+                      entries: state.torrents,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent:
+                            userListGridDelegate.maxCrossAxisExtent * 1.3,
+                        childAspectRatio: userListGridDelegate.childAspectRatio,
                       ),
-                      child: CustomGridView(
-                        entries: state.torrents,
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent:
-                              userListGridDelegate.maxCrossAxisExtent * 1.3,
-                          childAspectRatio:
-                              userListGridDelegate.childAspectRatio,
-                        ),
-                        builder: (entry, index) => TorrentCard(
-                          torrent: state.torrents.elementAt(index),
-                        ),
+                      builder: (entry, index) => TorrentCard(
+                        torrent: state.torrents.elementAt(index),
                       ),
                     ),
+                  ),
                   TorrentCannotLoad() => TorrentCannotLoadWidget(
-                      type: torrentType,
-                    ),
+                    type: torrentType,
+                  ),
                   TorrentUnauthorized() => Center(
-                      child: CustomErrorWidget(
-                        title: 'Could not authenticate on ${torrentType.title}',
-                        description:
-                            'Are you sure you entered the right credentials? If yes, please close Anikki and restart it in a few minutes.',
-                      ),
+                    child: CustomErrorWidget(
+                      title: 'Could not authenticate on ${torrentType.title}',
+                      description:
+                          'Are you sure you entered the right credentials? If yes, please close Anikki and restart it in a few minutes.',
                     ),
+                  ),
                   TorrentEmpty() || TorrentInitial() => const SizedBox(),
                 },
               ),

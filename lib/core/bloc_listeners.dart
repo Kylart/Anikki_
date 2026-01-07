@@ -36,12 +36,12 @@ class BlocListeners extends StatelessWidget {
               TorrentSettingsUpdated(
                 transmissionSettings:
                     settings.torrentType == TorrentType.transmission
-                        ? settings.transmissionSettings
-                        : null,
+                    ? settings.transmissionSettings
+                    : null,
                 qBitTorrentSettings:
                     settings.torrentType == TorrentType.qbittorrent
-                        ? settings.qBitTorrentSettings
-                        : null,
+                    ? settings.qBitTorrentSettings
+                    : null,
                 torrestSettings: settings.torrentType == TorrentType.torrest
                     ? settings.torrestSettings
                     : null,
@@ -69,8 +69,9 @@ class BlocListeners extends StatelessWidget {
           listener: (context, state) async {
             if (state is! StreamHandlerShowed) return;
 
-            final streamHandlerBloc =
-                BlocProvider.of<StreamHandlerBloc>(context);
+            final streamHandlerBloc = BlocProvider.of<StreamHandlerBloc>(
+              context,
+            );
 
             await showDialog(
               context: context,
@@ -175,16 +176,16 @@ class BlocListeners extends StatelessWidget {
               settingsBloc.add(
                 SettingsUpdated(
                   settingsBloc.state.settings.copyWith(
-                    librarySettings:
-                        settingsBloc.state.settings.librarySettings.copyWith(
-                      path: state.path,
-                    ),
+                    librarySettings: settingsBloc.state.settings.librarySettings
+                        .copyWith(
+                          path: state.path,
+                        ),
                   ),
                 ),
               );
             }
           },
-        )
+        ),
       ],
       child: child,
     );

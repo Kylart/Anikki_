@@ -21,17 +21,17 @@ class DownloaderView extends StatelessWidget {
     return BlocBuilder<DownloaderBloc, DownloaderState>(
       builder: (context, state) => switch (state) {
         DownloaderError() => Padding(
-            padding: const EdgeInsets.only(top: 24.0),
-            child: CustomErrorWidget(
-              title: 'Could not find results for ${state.term}',
-              description: state.message,
-            ),
+          padding: const EdgeInsets.only(top: 24.0),
+          child: CustomErrorWidget(
+            title: 'Could not find results for ${state.term}',
+            description: state.message,
           ),
+        ),
         DownloaderLoading() => const Center(
-            child: LoadingWidget(
-              title: 'Looking for available torrents...',
-            ),
+          child: LoadingWidget(
+            title: 'Looking for available torrents...',
           ),
+        ),
         DownloaderSuccess() => _DownloaderSuccessView(state),
         DownloaderClose() || DownloaderShow() => const SizedBox(),
       },

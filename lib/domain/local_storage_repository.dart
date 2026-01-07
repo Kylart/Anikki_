@@ -91,9 +91,9 @@ class LocalStorageRepository {
 
     if (existsIndex != -1) {
       result[existsIndex].entries.add(file);
-      result[existsIndex]
-          .entries
-          .sort((a, b) => b.episode?.compareTo(a.episode ?? 0) ?? 0);
+      result[existsIndex].entries.sort(
+        (a, b) => b.episode?.compareTo(a.episode ?? 0) ?? 0,
+      );
     } else {
       final newEntry = LibraryEntry(
         media: file.media,
@@ -132,10 +132,13 @@ class LocalStorageRepository {
   /// Remove the given `file` from the given `entries` and returns the updated
   /// list. If no file cannot be found, will return [Null]
   List<LibraryEntry>? removeFileFromEntries(
-      List<LibraryEntry> entries, LocalFile file) {
+    List<LibraryEntry> entries,
+    LocalFile file,
+  ) {
     final result = List<LibraryEntry>.from(entries);
-    final existsIndex =
-        result.indexWhere((element) => element.entries.contains(file));
+    final existsIndex = result.indexWhere(
+      (element) => element.entries.contains(file),
+    );
 
     /// Should never happen
     if (existsIndex == -1) return null;
@@ -187,8 +190,8 @@ class LocalStorageRepository {
 
   String? _getTitleFromEntryTitle(LocalFile entry) =>
       !<int?>{null, 0, 1}.contains(entry.season)
-          ? '${entry.title} Season ${entry.season}'
-          : entry.title;
+      ? '${entry.title} Season ${entry.season}'
+      : entry.title;
 
   /// Returns a [Set] of unique names from given [LocalFile]s
   Set<String> _getUniqNames(List<LocalFile> files) {

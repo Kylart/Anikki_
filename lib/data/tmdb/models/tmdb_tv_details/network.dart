@@ -11,18 +11,18 @@ class Network extends Equatable {
   const Network({this.id, this.logoPath, this.name, this.originCountry});
 
   factory Network.fromMap(Map<String, dynamic> data) => Network(
-        id: data['id'] as int?,
-        logoPath: data['logo_path'] as String?,
-        name: data['name'] as String?,
-        originCountry: data['origin_country'] as String?,
-      );
+    id: data['id'] as int?,
+    logoPath: data['logo_path'] as String?,
+    name: data['name'] as String?,
+    originCountry: data['origin_country'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'logo_path': logoPath,
-        'name': name,
-        'origin_country': originCountry,
-      };
+    'id': id,
+    'logo_path': logoPath,
+    'name': name,
+    'origin_country': originCountry,
+  };
 
   /// `dart:convert`
   ///

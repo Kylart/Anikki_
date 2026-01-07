@@ -96,13 +96,16 @@ class WatchList extends Equatable {
   ) {
     return entries.firstWhereOrNull(
       (element) => switch (provider) {
-        WatchListProvider.anilist => media.anilistInfo?.id != null &&
-            media.anilistInfo?.id != 0 &&
-            element.media.anilistInfo?.id == media.anilistInfo?.id,
-        WatchListProvider.mal => media.malInfo?.id != null &&
-            element.media.malInfo?.id == media.malInfo?.id,
-        WatchListProvider.kitsu => media.kitsuInfo?.id != null &&
-            element.media.kitsuInfo?.id == media.kitsuInfo?.id,
+        WatchListProvider.anilist =>
+          media.anilistInfo?.id != null &&
+              media.anilistInfo?.id != 0 &&
+              element.media.anilistInfo?.id == media.anilistInfo?.id,
+        WatchListProvider.mal =>
+          media.malInfo?.id != null &&
+              element.media.malInfo?.id == media.malInfo?.id,
+        WatchListProvider.kitsu =>
+          media.kitsuInfo?.id != null &&
+              element.media.kitsuInfo?.id == media.kitsuInfo?.id,
       },
     );
   }
@@ -110,18 +113,24 @@ class WatchList extends Equatable {
   factory WatchList.fromAnilistWatchList(AnilistWatchList watchList) {
     return WatchList(
       provider: WatchListProvider.anilist,
-      completed:
-          watchList.completed.map(MediaListEntry.fromAnilistListEntry).toList(),
-      current:
-          watchList.current.map(MediaListEntry.fromAnilistListEntry).toList(),
-      dropped:
-          watchList.dropped.map(MediaListEntry.fromAnilistListEntry).toList(),
-      paused:
-          watchList.paused.map(MediaListEntry.fromAnilistListEntry).toList(),
-      planning:
-          watchList.planning.map(MediaListEntry.fromAnilistListEntry).toList(),
-      repeating:
-          watchList.repeating.map(MediaListEntry.fromAnilistListEntry).toList(),
+      completed: watchList.completed
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
+      current: watchList.current
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
+      dropped: watchList.dropped
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
+      paused: watchList.paused
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
+      planning: watchList.planning
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
+      repeating: watchList.repeating
+          .map(MediaListEntry.fromAnilistListEntry)
+          .toList(),
     );
   }
 
@@ -157,14 +166,14 @@ class WatchList extends Equatable {
 
   @override
   List<Object?> get props => [
-        provider,
-        completed,
-        current,
-        dropped,
-        paused,
-        planning,
-        repeating,
-      ];
+    provider,
+    completed,
+    current,
+    dropped,
+    paused,
+    planning,
+    repeating,
+  ];
 
   @override
   String toString() {

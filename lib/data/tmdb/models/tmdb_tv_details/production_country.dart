@@ -16,9 +16,9 @@ class ProductionCountry extends Equatable {
   }
 
   Map<String, dynamic> toMap() => {
-        'iso_3166_1': iso31661,
-        'name': name,
-      };
+    'iso_3166_1': iso31661,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

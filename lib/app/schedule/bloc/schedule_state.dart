@@ -7,8 +7,8 @@ sealed class ScheduleState extends Equatable {
 
   @override
   List<Object> get props => [
-        range,
-      ];
+    range,
+  ];
 
   @override
   bool get stringify => true;
@@ -34,9 +34,9 @@ final class ScheduleLoaded extends ScheduleState {
 
   @override
   List<Object> get props => [
-        range,
-        entries,
-      ];
+    range,
+    entries,
+  ];
 }
 
 final class ScheduleError extends ScheduleState {
@@ -49,7 +49,7 @@ final class ScheduleError extends ScheduleState {
 
   @override
   List<Object> get props => [
-        message,
-        range,
-      ];
+    message,
+    range,
+  ];
 }

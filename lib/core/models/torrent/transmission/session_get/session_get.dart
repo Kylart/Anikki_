@@ -16,17 +16,17 @@ class SessionGet extends Equatable {
   });
 
   factory SessionGet.fromMap(Map<String, dynamic> data) => SessionGet(
-        arguments: data['arguments'] == null
-            ? null
-            : Arguments.fromMap(data['arguments'] as Map<String, dynamic>),
-        result: data['result'] as String?,
-      );
+    arguments: data['arguments'] == null
+        ? null
+        : Arguments.fromMap(data['arguments'] as Map<String, dynamic>),
+    result: data['result'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'arguments': arguments?.toMap(),
-        'result': result,
-        'tag': tag,
-      };
+    'arguments': arguments?.toMap(),
+    'result': result,
+    'tag': tag,
+  };
 
   /// `dart:convert`
   ///
@@ -45,8 +45,8 @@ class SessionGet extends Equatable {
 
   @override
   List<Object?> get props => [
-        arguments,
-        result,
-        tag,
-      ];
+    arguments,
+    result,
+    tag,
+  ];
 }

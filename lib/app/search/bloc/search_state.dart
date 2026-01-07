@@ -7,8 +7,8 @@ sealed class SearchState extends Equatable {
 
   @override
   List<Object> get props => [
-        term,
-      ];
+    term,
+  ];
 }
 
 final class SearchEmptyTerm extends SearchState {
@@ -36,9 +36,9 @@ final class SearchSuccess extends SearchState {
 
   @override
   List<Object> get props => [
-        term,
-        result,
-      ];
+    term,
+    result,
+  ];
 }
 
 final class SearchError extends SearchState {
@@ -48,7 +48,7 @@ final class SearchError extends SearchState {
 
   @override
   List<Object> get props => [
-        term,
-        message,
-      ];
+    term,
+    message,
+  ];
 }

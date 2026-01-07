@@ -10,14 +10,14 @@ class TmdbVideos extends Equatable {
   const TmdbVideos({this.results});
 
   factory TmdbVideos.fromMap(Map<String, dynamic> data) => TmdbVideos(
-        results: (data['results'] as List<dynamic>?)
-            ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
-            .toList(),
-      );
+    results: (data['results'] as List<dynamic>?)
+        ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
+        .toList(),
+  );
 
   Map<String, dynamic> toMap() => {
-        'results': results?.map((e) => e.toMap()).toList(),
-      };
+    'results': results?.map((e) => e.toMap()).toList(),
+  };
 
   /// `dart:convert`
   ///

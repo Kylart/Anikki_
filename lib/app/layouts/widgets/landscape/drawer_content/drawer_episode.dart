@@ -32,8 +32,9 @@ class DrawerEpisode extends StatelessWidget {
       fontWeight: FontWeight.bold,
     );
 
-    final episodeInfo =
-        (media ?? localFile?.media)?.getEpisodeInfo(episodeNumber);
+    final episodeInfo = (media ?? localFile?.media)?.getEpisodeInfo(
+      episodeNumber,
+    );
 
     return InkWell(
       borderRadius: const BorderRadius.all(Radius.circular(12.0)),
@@ -79,12 +80,15 @@ class DrawerEpisode extends StatelessWidget {
                     builder: (context, state) {
                       return CircleAvatar(
                         radius: 32,
-                        backgroundImage: (episodeInfo?.thumbnail == null
-                            ? const AssetImage(
-                                'assets/images/cover_placeholder.jpg')
-                            : CachedNetworkImageProvider(
-                                episodeInfo!.thumbnail!,
-                              )) as ImageProvider,
+                        backgroundImage:
+                            (episodeInfo?.thumbnail == null
+                                    ? const AssetImage(
+                                        'assets/images/cover_placeholder.jpg',
+                                      )
+                                    : CachedNetworkImageProvider(
+                                        episodeInfo!.thumbnail!,
+                                      ))
+                                as ImageProvider,
                       );
                     },
                   ),
@@ -111,7 +115,7 @@ class DrawerEpisode extends StatelessWidget {
                                 style: context.textTheme.bodySmall?.copyWith(
                                   fontSize: 9.0,
                                 ),
-                              )
+                              ),
                             ],
                           )
                         : Text(
@@ -128,15 +132,15 @@ class DrawerEpisode extends StatelessWidget {
                   IconButton(
                     onPressed: () =>
                         BlocProvider.of<DownloaderBloc>(context).add(
-                      DownloaderRequested(
-                        media: media,
-                        episode: episodeNumber,
-                      ),
-                    ),
+                          DownloaderRequested(
+                            media: media,
+                            episode: episodeNumber,
+                          ),
+                        ),
                     iconSize: 18.0,
                     constraints: const BoxConstraints(),
                     icon: const Icon(HugeIcons.strokeRoundedDownload04),
-                  )
+                  ),
               ],
             ),
           );

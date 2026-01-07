@@ -37,11 +37,11 @@ class TransmissionRepository extends TorrentRepository {
 
   @override
   Uri get defaultUri => Uri(
-        scheme: 'http',
-        host: 'localhost',
-        port: 9091,
-        path: 'transmission/rpc',
-      );
+    scheme: 'http',
+    host: 'localhost',
+    port: 9091,
+    path: 'transmission/rpc',
+  );
 
   String get crendentialsHash =>
       hasCredentials ? base64Encode(utf8.encode('$username:$password')) : '';
@@ -49,10 +49,10 @@ class TransmissionRepository extends TorrentRepository {
   String _sessionId = '';
 
   Map<String, String> get headers => {
-        'Content-Type': 'application/json',
-        kSessionHeaderName: _sessionId,
-        if (hasCredentials) 'Authorization': 'Basic $crendentialsHash',
-      };
+    'Content-Type': 'application/json',
+    kSessionHeaderName: _sessionId,
+    if (hasCredentials) 'Authorization': 'Basic $crendentialsHash',
+  };
 
   Future<String> _send(
     tr.Method method, {
@@ -163,9 +163,7 @@ class TransmissionRepository extends TorrentRepository {
       },
     );
 
-    final torrents = tr.TorrentGet.fromJson(response)
-        .arguments
-        ?.torrents
+    final torrents = tr.TorrentGet.fromJson(response).arguments?.torrents
         ?.map(
           (e) => Torrent(
             magnet: e.magnetLink ?? '',
@@ -180,8 +178,9 @@ class TransmissionRepository extends TorrentRepository {
             ratio: e.uploadRatio,
             leechers: e.peersGettingFromUs,
             seeders: e.peersSendingToUs,
-            estimatedTimeToFinish:
-                e.eta != null ? Duration(seconds: e.eta!) : null,
+            estimatedTimeToFinish: e.eta != null
+                ? Duration(seconds: e.eta!)
+                : null,
           ),
         )
         .toList();
@@ -193,8 +192,10 @@ class TransmissionRepository extends TorrentRepository {
   ///
   /// More here: `https://github.com/transmission/transmission/blob/main/docs/rpc-spec.md#35-removing-a-torrent`
   @override
-  Future<bool> removeTorrent(Torrent torrent,
-      [bool deleteLocal = false]) async {
+  Future<bool> removeTorrent(
+    Torrent torrent, [
+    bool deleteLocal = false,
+  ]) async {
     final response = await _send(
       tr.Method.remove,
       arguments: {

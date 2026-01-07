@@ -19,12 +19,12 @@ class TransmissionSettings extends Equatable {
 
   @override
   List<Object> get props => [
-        port,
-        scheme,
-        host,
-        if (username != null) username!,
-        if (password != null) password!,
-      ];
+    port,
+    scheme,
+    host,
+    if (username != null) username!,
+    if (password != null) password!,
+  ];
 
   TransmissionSettings copyWith({
     int? port,

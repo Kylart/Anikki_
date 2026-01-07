@@ -30,10 +30,12 @@ class AnimeInformationRepository {
       term: term,
       libraryEntries: filteredLibraryEntries,
       torrents: torrents,
-      staffs: anilistResult[AnilistSearchPart.staffs]
-          as List<Query$Search$staff$results>,
-      characters: anilistResult[AnilistSearchPart.characters]
-          as List<Query$Search$characters$results>,
+      staffs:
+          anilistResult[AnilistSearchPart.staffs]
+              as List<Query$Search$staff$results>,
+      characters:
+          anilistResult[AnilistSearchPart.characters]
+              as List<Query$Search$characters$results>,
       medias: anilistResult[AnilistSearchPart.animes] as List<Fragment$media>,
     );
   }
@@ -49,7 +51,8 @@ class AnimeInformationRepository {
   }
 
   Future<Map<AnilistSearchPart, List<Object>>> _searchAnilist(
-      String term) async {
+    String term,
+  ) async {
     try {
       return await anilist.search(term);
     } on AnilistSearchException {
@@ -63,7 +66,9 @@ class AnimeInformationRepository {
   }
 
   List<LibraryEntry> _getLibraryEntries(
-      String term, List<LibraryEntry> entries) {
+    String term,
+    List<LibraryEntry> entries,
+  ) {
     term = term.toLowerCase();
 
     return entries

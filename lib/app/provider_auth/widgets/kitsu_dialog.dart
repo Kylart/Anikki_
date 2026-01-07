@@ -149,7 +149,7 @@ class _KitsuDialogState extends State<KitsuDialog> {
                     'None of these information are stored',
                     textAlign: TextAlign.center,
                   ),
-                )
+                ),
               ],
             ),
             Padding(

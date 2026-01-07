@@ -15,18 +15,18 @@ class ScheduleView extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           ScheduleLoaded() => ScheduleContent(
-              entries: state.entries,
-              range: state.range,
-            ),
+            entries: state.entries,
+            range: state.range,
+          ),
           ScheduleError() => Center(
-              child: CustomErrorWidget(
-                title: 'Error loading schedule',
-                description: state.message,
-              ),
+            child: CustomErrorWidget(
+              title: 'Error loading schedule',
+              description: state.message,
             ),
+          ),
           ScheduleLoading() || ScheduleInitial() => const Center(
-              child: LoadingWidget(title: 'Loading schedule...'),
-            ),
+            child: LoadingWidget(title: 'Loading schedule...'),
+          ),
         };
       },
     );

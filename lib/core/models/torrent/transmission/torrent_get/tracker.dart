@@ -18,20 +18,20 @@ class Tracker extends Equatable {
   });
 
   factory Tracker.fromMap(Map<String, dynamic> data) => Tracker(
-        announce: data['announce'] as String?,
-        id: data['id'] as int?,
-        scrape: data['scrape'] as String?,
-        sitename: data['sitename'] as String?,
-        tier: data['tier'] as int?,
-      );
+    announce: data['announce'] as String?,
+    id: data['id'] as int?,
+    scrape: data['scrape'] as String?,
+    sitename: data['sitename'] as String?,
+    tier: data['tier'] as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'announce': announce,
-        'id': id,
-        'scrape': scrape,
-        'sitename': sitename,
-        'tier': tier,
-      };
+    'announce': announce,
+    'id': id,
+    'scrape': scrape,
+    'sitename': sitename,
+    'tier': tier,
+  };
 
   /// `dart:convert`
   ///

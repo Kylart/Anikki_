@@ -26,28 +26,28 @@ class TmdbSeason extends Equatable {
   });
 
   factory TmdbSeason.fromMap(Map<String, dynamic> data) => TmdbSeason(
-        id: data['_id'] as String?,
-        airDate: data['air_date'] as String?,
-        episodes: (data['episodes'] as List<dynamic>?)
-            ?.map((e) => Episode.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        name: data['name'] as String?,
-        overview: data['overview'] as String?,
-        posterPath: data['poster_path'] as String?,
-        seasonNumber: data['season_number'] as int?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-      );
+    id: data['_id'] as String?,
+    airDate: data['air_date'] as String?,
+    episodes: (data['episodes'] as List<dynamic>?)
+        ?.map((e) => Episode.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    name: data['name'] as String?,
+    overview: data['overview'] as String?,
+    posterPath: data['poster_path'] as String?,
+    seasonNumber: data['season_number'] as int?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+  );
 
   Map<String, dynamic> toMap() => {
-        '_id': id,
-        'air_date': airDate,
-        'episodes': episodes?.map((e) => e.toMap()).toList(),
-        'name': name,
-        'overview': overview,
-        'poster_path': posterPath,
-        'season_number': seasonNumber,
-        'vote_average': voteAverage,
-      };
+    '_id': id,
+    'air_date': airDate,
+    'episodes': episodes?.map((e) => e.toMap()).toList(),
+    'name': name,
+    'overview': overview,
+    'poster_path': posterPath,
+    'season_number': seasonNumber,
+    'vote_average': voteAverage,
+  };
 
   /// `dart:convert`
   ///

@@ -41,44 +41,44 @@ class Episode extends Equatable {
   });
 
   factory Episode.fromMap(Map<String, dynamic> data) => Episode(
-        airDate: data['air_date'] as String?,
-        episodeNumber: data['episode_number'] as int?,
-        episodeType: data['episode_type'] as String?,
-        id: data['id'] as int?,
-        name: data['name'] as String?,
-        overview: data['overview'] as String?,
-        productionCode: data['production_code'] as String?,
-        runtime: data['runtime'] as int?,
-        seasonNumber: data['season_number'] as int?,
-        showId: data['show_id'] as int?,
-        stillPath: data['still_path'] as String?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-        voteCount: data['vote_count'] as int?,
-        crew: (data['crew'] as List<dynamic>?)
-            ?.map((e) => Crew.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        guestStars: (data['guest_stars'] as List<dynamic>?)
-            ?.map((e) => GuestStar.fromMap(e as Map<String, dynamic>))
-            .toList(),
-      );
+    airDate: data['air_date'] as String?,
+    episodeNumber: data['episode_number'] as int?,
+    episodeType: data['episode_type'] as String?,
+    id: data['id'] as int?,
+    name: data['name'] as String?,
+    overview: data['overview'] as String?,
+    productionCode: data['production_code'] as String?,
+    runtime: data['runtime'] as int?,
+    seasonNumber: data['season_number'] as int?,
+    showId: data['show_id'] as int?,
+    stillPath: data['still_path'] as String?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+    voteCount: data['vote_count'] as int?,
+    crew: (data['crew'] as List<dynamic>?)
+        ?.map((e) => Crew.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    guestStars: (data['guest_stars'] as List<dynamic>?)
+        ?.map((e) => GuestStar.fromMap(e as Map<String, dynamic>))
+        .toList(),
+  );
 
   Map<String, dynamic> toMap() => {
-        'air_date': airDate,
-        'episode_number': episodeNumber,
-        'episode_type': episodeType,
-        'id': id,
-        'name': name,
-        'overview': overview,
-        'production_code': productionCode,
-        'runtime': runtime,
-        'season_number': seasonNumber,
-        'show_id': showId,
-        'still_path': stillPath,
-        'vote_average': voteAverage,
-        'vote_count': voteCount,
-        'crew': crew?.map((e) => e.toMap()).toList(),
-        'guest_stars': guestStars?.map((e) => e.toMap()).toList(),
-      };
+    'air_date': airDate,
+    'episode_number': episodeNumber,
+    'episode_type': episodeType,
+    'id': id,
+    'name': name,
+    'overview': overview,
+    'production_code': productionCode,
+    'runtime': runtime,
+    'season_number': seasonNumber,
+    'show_id': showId,
+    'still_path': stillPath,
+    'vote_average': voteAverage,
+    'vote_count': voteCount,
+    'crew': crew?.map((e) => e.toMap()).toList(),
+    'guest_stars': guestStars?.map((e) => e.toMap()).toList(),
+  };
 
   /// `dart:convert`
   ///

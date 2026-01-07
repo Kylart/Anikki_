@@ -45,7 +45,7 @@ class LibrarySettings extends Equatable {
 
   @override
   List<Object> get props => [
-        path,
-        recursive,
-      ];
+    path,
+    recursive,
+  ];
 }

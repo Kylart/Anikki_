@@ -17,10 +17,12 @@ class StreamingSection extends AbstractSettingsSection {
           trailing: DropdownButton<StreamRequestType>(
             value: settingsBloc.state.settings.streamSettings.streamRequestType,
             items: StreamRequestType.values
-                .map((type) => DropdownMenuItem(
-                      value: type,
-                      child: Text(type.title),
-                    ))
+                .map(
+                  (type) => DropdownMenuItem(
+                    value: type,
+                    child: Text(type.title),
+                  ),
+                )
                 .toList(),
             onChanged: (value) {
               if (value == null) return;
@@ -28,10 +30,10 @@ class StreamingSection extends AbstractSettingsSection {
               settingsBloc.add(
                 SettingsUpdated(
                   settingsBloc.state.settings.copyWith(
-                    streamSettings:
-                        settingsBloc.state.settings.streamSettings.copyWith(
-                      streamRequestType: value,
-                    ),
+                    streamSettings: settingsBloc.state.settings.streamSettings
+                        .copyWith(
+                          streamRequestType: value,
+                        ),
                   ),
                 ),
               );
@@ -47,15 +49,18 @@ class StreamingSection extends AbstractSettingsSection {
           SettingsTile(
             leading: const Icon(HugeIcons.strokeRoundedSubtitle),
             title: const Text('Online video type'),
-            description:
-                const Text('This setting will only apply for online streaming'),
+            description: const Text(
+              'This setting will only apply for online streaming',
+            ),
             trailing: DropdownButton<SubOrDub>(
               value: settingsBloc.state.settings.streamSettings.videoType,
               items: SubOrDub.values
-                  .map((type) => DropdownMenuItem(
-                        value: type,
-                        child: Text(type.title),
-                      ))
+                  .map(
+                    (type) => DropdownMenuItem(
+                      value: type,
+                      child: Text(type.title),
+                    ),
+                  )
                   .toList(),
               onChanged: (value) {
                 if (value == null) return;
@@ -63,10 +68,10 @@ class StreamingSection extends AbstractSettingsSection {
                 settingsBloc.add(
                   SettingsUpdated(
                     settingsBloc.state.settings.copyWith(
-                      streamSettings:
-                          settingsBloc.state.settings.streamSettings.copyWith(
-                        videoType: value,
-                      ),
+                      streamSettings: settingsBloc.state.settings.streamSettings
+                          .copyWith(
+                            videoType: value,
+                          ),
                     ),
                   ),
                 );

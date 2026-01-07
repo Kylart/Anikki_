@@ -12,8 +12,8 @@ class HomeCarouselContainer extends StatelessWidget {
   final Widget child;
 
   BorderSide _getBorder(BuildContext context) => BorderSide(
-        color: context.colorScheme.outline.withValues(alpha: 0.1),
-      );
+    color: context.colorScheme.outline.withValues(alpha: 0.1),
+  );
 
   @override
   Widget build(BuildContext context) {

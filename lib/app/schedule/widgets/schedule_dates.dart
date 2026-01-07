@@ -18,9 +18,11 @@ class _ScheduleDates extends StatelessWidget {
       child: ListView(
         semanticChildCount: range.end.compareTo(range.start),
         children: [
-          for (var currentDate = range.start;
-              currentDate.isBefore(range.end);
-              currentDate = currentDate.add(const Duration(days: 1)))
+          for (
+            var currentDate = range.start;
+            currentDate.isBefore(range.end);
+            currentDate = currentDate.add(const Duration(days: 1))
+          )
             DateButton(
               date: currentDate,
               isSelected: currentDate == selectedDate,

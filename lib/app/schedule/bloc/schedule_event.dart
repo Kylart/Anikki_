@@ -16,6 +16,6 @@ final class ScheduleRefreshed extends ScheduleEvent {
 
   @override
   List<Object> get props => [
-        range,
-      ];
+    range,
+  ];
 }

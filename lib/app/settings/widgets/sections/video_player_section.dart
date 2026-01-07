@@ -19,10 +19,13 @@ class VideoPlayerSection extends AbstractSettingsSection {
             settingsBloc.add(
               SettingsUpdated(
                 settingsBloc.state.settings.copyWith(
-                  videoPlayerSettings:
-                      settingsBloc.state.settings.videoPlayerSettings.copyWith(
-                    inside: value,
-                  ),
+                  videoPlayerSettings: settingsBloc
+                      .state
+                      .settings
+                      .videoPlayerSettings
+                      .copyWith(
+                        inside: value,
+                      ),
                 ),
               ),
             );

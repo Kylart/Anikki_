@@ -33,7 +33,8 @@ class EntryTag extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: blurLevel, sigmaY: blurLevel),
           child: Container(
             decoration: BoxDecoration(
-              color: color ??
+              color:
+                  color ??
                   Theme.of(context).colorScheme.surface.withValues(alpha: 0.5),
               border: Border.all(
                 color: outline == null

@@ -75,5 +75,5 @@ const kTorrentGetFields = [
   "uploadRatio",
   "wanted",
   "webseeds",
-  "webseedsSendingToUs"
+  "webseedsSendingToUs",
 ];

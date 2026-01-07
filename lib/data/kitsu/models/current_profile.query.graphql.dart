@@ -15,7 +15,8 @@ class Query$KitsuCurrentProfile {
       currentProfile: l$currentProfile == null
           ? null
           : Query$KitsuCurrentProfile$currentProfile.fromJson(
-              (l$currentProfile as Map<String, dynamic>)),
+              (l$currentProfile as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -107,23 +108,27 @@ class _CopyWithImpl$Query$KitsuCurrentProfile<TRes>
   TRes call({
     Object? currentProfile = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuCurrentProfile(
-        currentProfile: currentProfile == _undefined
-            ? _instance.currentProfile
-            : (currentProfile as Query$KitsuCurrentProfile$currentProfile?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuCurrentProfile(
+      currentProfile: currentProfile == _undefined
+          ? _instance.currentProfile
+          : (currentProfile as Query$KitsuCurrentProfile$currentProfile?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile<TRes> get currentProfile {
     final local$currentProfile = _instance.currentProfile;
     return local$currentProfile == null
         ? CopyWith$Query$KitsuCurrentProfile$currentProfile.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$KitsuCurrentProfile$currentProfile(
-            local$currentProfile, (e) => call(currentProfile: e));
+            local$currentProfile,
+            (e) => call(currentProfile: e),
+          );
   }
 }
 
@@ -136,76 +141,92 @@ class _CopyWithStubImpl$Query$KitsuCurrentProfile<TRes>
   call({
     Query$KitsuCurrentProfile$currentProfile? currentProfile,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile<TRes> get currentProfile =>
       CopyWith$Query$KitsuCurrentProfile$currentProfile.stub(_res);
 }
 
-const documentNodeQueryKitsuCurrentProfile = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'KitsuCurrentProfile'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'currentProfile'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryKitsuCurrentProfile = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'KitsuCurrentProfile'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'name'),
+            name: NameNode(value: 'currentProfile'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'avatarImage'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'original'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'url'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'avatarImage'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'original'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'url'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -214,25 +235,19 @@ const documentNodeQueryKitsuCurrentProfile = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
-Query$KitsuCurrentProfile _parserFn$Query$KitsuCurrentProfile(
-        Map<String, dynamic> data) =>
-    Query$KitsuCurrentProfile.fromJson(data);
-typedef OnQueryComplete$Query$KitsuCurrentProfile = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$KitsuCurrentProfile?,
+    ),
+  ],
 );
+Query$KitsuCurrentProfile _parserFn$Query$KitsuCurrentProfile(
+  Map<String, dynamic> data,
+) => Query$KitsuCurrentProfile.fromJson(data);
+typedef OnQueryComplete$Query$KitsuCurrentProfile =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$KitsuCurrentProfile?,
+    );
 
 class Options$Query$KitsuCurrentProfile
     extends graphql.QueryOptions<Query$KitsuCurrentProfile> {
@@ -247,37 +262,37 @@ class Options$Query$KitsuCurrentProfile
     graphql.Context? context,
     OnQueryComplete$Query$KitsuCurrentProfile? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$KitsuCurrentProfile(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryKitsuCurrentProfile,
-          parserFn: _parserFn$Query$KitsuCurrentProfile,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null
+                     ? null
+                     : _parserFn$Query$KitsuCurrentProfile(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryKitsuCurrentProfile,
+         parserFn: _parserFn$Query$KitsuCurrentProfile,
+       );
 
   final OnQueryComplete$Query$KitsuCurrentProfile? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$KitsuCurrentProfile
@@ -295,57 +310,61 @@ class WatchOptions$Query$KitsuCurrentProfile
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryKitsuCurrentProfile,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$KitsuCurrentProfile,
-        );
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryKitsuCurrentProfile,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$KitsuCurrentProfile,
+       );
 }
 
 class FetchMoreOptions$Query$KitsuCurrentProfile
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$KitsuCurrentProfile(
-      {required graphql.UpdateQuery updateQuery})
-      : super(
-          updateQuery: updateQuery,
-          document: documentNodeQueryKitsuCurrentProfile,
-        );
+  FetchMoreOptions$Query$KitsuCurrentProfile({
+    required graphql.UpdateQuery updateQuery,
+  }) : super(
+         updateQuery: updateQuery,
+         document: documentNodeQueryKitsuCurrentProfile,
+       );
 }
 
 extension ClientExtension$Query$KitsuCurrentProfile on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$KitsuCurrentProfile>>
-      query$KitsuCurrentProfile(
-              [Options$Query$KitsuCurrentProfile? options]) async =>
-          await this.query(options ?? Options$Query$KitsuCurrentProfile());
+  query$KitsuCurrentProfile([
+    Options$Query$KitsuCurrentProfile? options,
+  ]) async => await this.query(options ?? Options$Query$KitsuCurrentProfile());
   graphql.ObservableQuery<Query$KitsuCurrentProfile>
-      watchQuery$KitsuCurrentProfile(
-              [WatchOptions$Query$KitsuCurrentProfile? options]) =>
-          this.watchQuery(options ?? WatchOptions$Query$KitsuCurrentProfile());
+  watchQuery$KitsuCurrentProfile([
+    WatchOptions$Query$KitsuCurrentProfile? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$KitsuCurrentProfile());
   void writeQuery$KitsuCurrentProfile({
     required Query$KitsuCurrentProfile data,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQueryKitsuCurrentProfile)),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
-  Query$KitsuCurrentProfile? readQuery$KitsuCurrentProfile(
-      {bool optimistic = true}) {
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(
+        document: documentNodeQueryKitsuCurrentProfile,
+      ),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
+  Query$KitsuCurrentProfile? readQuery$KitsuCurrentProfile({
+    bool optimistic = true,
+  }) {
     final result = this.readQuery(
       graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryKitsuCurrentProfile)),
+        operation: graphql.Operation(
+          document: documentNodeQueryKitsuCurrentProfile,
+        ),
+      ),
       optimistic: optimistic,
     );
     return result == null ? null : Query$KitsuCurrentProfile.fromJson(result);
@@ -361,7 +380,8 @@ class Query$KitsuCurrentProfile$currentProfile {
   });
 
   factory Query$KitsuCurrentProfile$currentProfile.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$name = json['name'];
     final l$id = json['id'];
     final l$avatarImage = json['avatarImage'];
@@ -372,7 +392,8 @@ class Query$KitsuCurrentProfile$currentProfile {
       avatarImage: l$avatarImage == null
           ? null
           : Query$KitsuCurrentProfile$currentProfile$avatarImage.fromJson(
-              (l$avatarImage as Map<String, dynamic>)),
+              (l$avatarImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -448,11 +469,12 @@ class Query$KitsuCurrentProfile$currentProfile {
 extension UtilityExtension$Query$KitsuCurrentProfile$currentProfile
     on Query$KitsuCurrentProfile$currentProfile {
   CopyWith$Query$KitsuCurrentProfile$currentProfile<
-          Query$KitsuCurrentProfile$currentProfile>
-      get copyWith => CopyWith$Query$KitsuCurrentProfile$currentProfile(
-            this,
-            (i) => i,
-          );
+    Query$KitsuCurrentProfile$currentProfile
+  >
+  get copyWith => CopyWith$Query$KitsuCurrentProfile$currentProfile(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$KitsuCurrentProfile$currentProfile<TRes> {
@@ -471,7 +493,7 @@ abstract class CopyWith$Query$KitsuCurrentProfile$currentProfile<TRes> {
     String? $__typename,
   });
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes>
-      get avatarImage;
+  get avatarImage;
 }
 
 class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile<TRes>
@@ -492,29 +514,33 @@ class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile<TRes>
     Object? id = _undefined,
     Object? avatarImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuCurrentProfile$currentProfile(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        avatarImage: avatarImage == _undefined
-            ? _instance.avatarImage
-            : (avatarImage
+  }) => _then(
+    Query$KitsuCurrentProfile$currentProfile(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      id: id == _undefined || id == null ? _instance.id : (id as String),
+      avatarImage: avatarImage == _undefined
+          ? _instance.avatarImage
+          : (avatarImage
                 as Query$KitsuCurrentProfile$currentProfile$avatarImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes>
-      get avatarImage {
+  get avatarImage {
     final local$avatarImage = _instance.avatarImage;
     return local$avatarImage == null
         ? CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage(
-            local$avatarImage, (e) => call(avatarImage: e));
+            local$avatarImage,
+            (e) => call(avatarImage: e),
+          );
   }
 }
 
@@ -529,13 +555,11 @@ class _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile<TRes>
     String? id,
     Query$KitsuCurrentProfile$currentProfile$avatarImage? avatarImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes>
-      get avatarImage =>
-          CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage.stub(
-              _res);
+  get avatarImage =>
+      CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage.stub(_res);
 }
 
 class Query$KitsuCurrentProfile$currentProfile$avatarImage {
@@ -545,12 +569,15 @@ class Query$KitsuCurrentProfile$currentProfile$avatarImage {
   });
 
   factory Query$KitsuCurrentProfile$currentProfile$avatarImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$original = json['original'];
     final l$$__typename = json['__typename'];
     return Query$KitsuCurrentProfile$currentProfile$avatarImage(
-      original: Query$KitsuCurrentProfile$currentProfile$avatarImage$original
-          .fromJson((l$original as Map<String, dynamic>)),
+      original:
+          Query$KitsuCurrentProfile$currentProfile$avatarImage$original.fromJson(
+            (l$original as Map<String, dynamic>),
+          ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -604,31 +631,32 @@ class Query$KitsuCurrentProfile$currentProfile$avatarImage {
 extension UtilityExtension$Query$KitsuCurrentProfile$currentProfile$avatarImage
     on Query$KitsuCurrentProfile$currentProfile$avatarImage {
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<
-          Query$KitsuCurrentProfile$currentProfile$avatarImage>
-      get copyWith =>
-          CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage(
-            this,
-            (i) => i,
-          );
+    Query$KitsuCurrentProfile$currentProfile$avatarImage
+  >
+  get copyWith => CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage(
     Query$KitsuCurrentProfile$currentProfile$avatarImage instance,
     TRes Function(Query$KitsuCurrentProfile$currentProfile$avatarImage) then,
   ) = _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage;
 
   factory CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage;
 
   TRes call({
     Query$KitsuCurrentProfile$currentProfile$avatarImage$original? original,
     String? $__typename,
   });
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<TRes>
-      get original;
+  get original;
 }
 
 class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes>
@@ -642,51 +670,56 @@ class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes>
   final Query$KitsuCurrentProfile$currentProfile$avatarImage _instance;
 
   final TRes Function(Query$KitsuCurrentProfile$currentProfile$avatarImage)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? original = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuCurrentProfile$currentProfile$avatarImage(
-        original: original == _undefined || original == null
-            ? _instance.original
-            : (original
+  }) => _then(
+    Query$KitsuCurrentProfile$currentProfile$avatarImage(
+      original: original == _undefined || original == null
+          ? _instance.original
+          : (original
                 as Query$KitsuCurrentProfile$currentProfile$avatarImage$original),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<TRes>
-      get original {
+  get original {
     final local$original = _instance.original;
     return CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
-        local$original, (e) => call(original: e));
+      local$original,
+      (e) => call(original: e),
+    );
   }
 }
 
 class _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage<TRes> {
   _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     Query$KitsuCurrentProfile$currentProfile$avatarImage$original? original,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<TRes>
-      get original =>
-          CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original
-              .stub(_res);
+  get original =>
+      CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original.stub(
+        _res,
+      );
 }
 
 class Query$KitsuCurrentProfile$currentProfile$avatarImage$original {
@@ -696,7 +729,8 @@ class Query$KitsuCurrentProfile$currentProfile$avatarImage$original {
   });
 
   factory Query$KitsuCurrentProfile$currentProfile$avatarImage$original.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
@@ -755,25 +789,27 @@ class Query$KitsuCurrentProfile$currentProfile$avatarImage$original {
 extension UtilityExtension$Query$KitsuCurrentProfile$currentProfile$avatarImage$original
     on Query$KitsuCurrentProfile$currentProfile$avatarImage$original {
   CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-          Query$KitsuCurrentProfile$currentProfile$avatarImage$original>
-      get copyWith =>
-          CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
-            this,
-            (i) => i,
-          );
+    Query$KitsuCurrentProfile$currentProfile$avatarImage$original
+  >
+  get copyWith =>
+      CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
     Query$KitsuCurrentProfile$currentProfile$avatarImage$original instance,
     TRes Function(Query$KitsuCurrentProfile$currentProfile$avatarImage$original)
-        then,
+    then,
   ) = _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original;
 
   factory CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original;
 
   TRes call({
     String? url,
@@ -782,10 +818,12 @@ abstract class CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$ori
 }
 
 class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
     this._instance,
     this._then,
@@ -794,35 +832,40 @@ class _CopyWithImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$origina
   final Query$KitsuCurrentProfile$currentProfile$avatarImage$original _instance;
 
   final TRes Function(
-      Query$KitsuCurrentProfile$currentProfile$avatarImage$original) _then;
+    Query$KitsuCurrentProfile$currentProfile$avatarImage$original,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? url = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
-        url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
+      url: url == _undefined || url == null ? _instance.url : (url as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$KitsuCurrentProfile$currentProfile$avatarImage$original<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$KitsuCurrentProfile$currentProfile$avatarImage$original(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     String? url,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

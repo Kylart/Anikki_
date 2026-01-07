@@ -17,9 +17,9 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
       emit(event.isConnected ? ConnectivityOnline() : ConnectivityOffline());
     });
 
-    subscription = Connectivity()
-        .onConnectivityChanged
-        .listen((List<ConnectivityResult> results) {
+    subscription = Connectivity().onConnectivityChanged.listen((
+      List<ConnectivityResult> results,
+    ) {
       if (results.any(
         (result) => [
           ConnectivityResult.wifi,

@@ -36,7 +36,7 @@ class ProviderConnectedDialog extends StatelessWidget {
                     child: const Text('Close'),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

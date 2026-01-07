@@ -66,12 +66,12 @@ class HomeViewLandscape extends StatelessWidget {
               child: const HomeBackgroundImage(),
             ),
             Positioned(
-              top: 0,
-              left: 0,
-              child: HomeTitle(
-                maxSize: maxTitleSize,
-              ),
-            )
+                  top: 0,
+                  left: 0,
+                  child: HomeTitle(
+                    maxSize: maxTitleSize,
+                  ),
+                )
                 .animate()
                 .fadeIn(
                   duration: 500.ms,
@@ -83,39 +83,41 @@ class HomeViewLandscape extends StatelessWidget {
                 ),
             if (state.entries.isNotEmpty)
               Positioned(
-                right: 0,
-                bottom: 0,
-                width: carouselSize.width,
-                height: carouselSize.height + actionBarSize.height,
-                child: HomeCarouselContainer(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 16.0, right: 8.0),
-                          child: HomeCarouselTitle(loading: loading),
-                        ),
+                    right: 0,
+                    bottom: 0,
+                    width: carouselSize.width,
+                    height: carouselSize.height + actionBarSize.height,
+                    child: HomeCarouselContainer(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 16.0,
+                                right: 8.0,
+                              ),
+                              child: HomeCarouselTitle(loading: loading),
+                            ),
+                          ),
+                          Divider(
+                            height: 1.0,
+                            color: context.colorScheme.onSurface.withValues(
+                              alpha: 0.1,
+                            ),
+                          ),
+                          SizedBox(
+                            width: carouselSize.width,
+                            height: carouselSize.height,
+                            child: HomeCarousel(
+                              entries: state.entries,
+                              height: carouselSize.height,
+                              width: carouselSize.width,
+                            ),
+                          ),
+                        ],
                       ),
-                      Divider(
-                        height: 1.0,
-                        color: context.colorScheme.onSurface.withValues(
-                          alpha: 0.1,
-                        ),
-                      ),
-                      SizedBox(
-                        width: carouselSize.width,
-                        height: carouselSize.height,
-                        child: HomeCarousel(
-                          entries: state.entries,
-                          height: carouselSize.height,
-                          width: carouselSize.width,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
+                    ),
+                  )
                   .animate()
                   .fadeIn(
                     duration: 500.ms,

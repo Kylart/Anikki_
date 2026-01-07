@@ -28,14 +28,16 @@ void main() {
         ),
       };
 
-      when(() => mockAnilist.infoFromMultiple(any(that: isA<List<String>>())))
-          .thenAnswer(
+      when(
+        () => mockAnilist.infoFromMultiple(any(that: isA<List<String>>())),
+      ).thenAnswer(
         (_) async => infos,
       );
 
       for (final name in names) {
-        when(() => mockAnilist.getInfoFromInfo(name, infos))
-            .thenReturn(infos[name]!);
+        when(
+          () => mockAnilist.getInfoFromInfo(name, infos),
+        ).thenReturn(infos[name]!);
       }
 
       when(() => mockTmdb.getDetails(names.first)).thenAnswer(
@@ -60,27 +62,31 @@ void main() {
       expect(result[1].tmdbInfo?.name, 'TMDB Title2');
     });
 
-    test('should handle errors gracefully and return empty Media objects',
-        () async {
-      // Arrange
-      final names = ['Title1', 'Title2'];
+    test(
+      'should handle errors gracefully and return empty Media objects',
+      () async {
+        // Arrange
+        final names = ['Title1', 'Title2'];
 
-      when(() => mockAnilist.infoFromMultiple(any(that: isA<List<String>>())))
-          .thenThrow(Exception('Anilist error'));
-      when(() => mockTmdb.getDetails('ParsedTitle1'))
-          .thenThrow(Exception('TMDB error'));
+        when(
+          () => mockAnilist.infoFromMultiple(any(that: isA<List<String>>())),
+        ).thenThrow(Exception('Anilist error'));
+        when(
+          () => mockTmdb.getDetails('ParsedTitle1'),
+        ).thenThrow(Exception('TMDB error'));
 
-      // Act
-      final result = await Media.fromNames(
-        names,
-        anilist: mockAnilist,
-        tmdb: mockTmdb,
-      );
+        // Act
+        final result = await Media.fromNames(
+          names,
+          anilist: mockAnilist,
+          tmdb: mockTmdb,
+        );
 
-      // Assert
-      expect(result.length, names.length);
-      expect(result[0].isEmpty, true);
-      expect(result[1].isEmpty, true);
-    });
+        // Assert
+        expect(result.length, names.length);
+        expect(result[0].isEmpty, true);
+        expect(result[1].isEmpty, true);
+      },
+    );
   });
 }

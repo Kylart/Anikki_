@@ -39,10 +39,12 @@ class LibraryView extends StatelessWidget {
                     SettingsUpdated(
                       settingsBloc.state.settings.copyWith(
                         librarySettings: settingsBloc
-                            .state.settings.librarySettings
+                            .state
+                            .settings
+                            .librarySettings
                             .copyWith(
-                          path: path,
-                        ),
+                              path: path,
+                            ),
                       ),
                     ),
                   ),
@@ -88,33 +90,33 @@ class LibraryView extends StatelessWidget {
               child: BlocBuilder<LibraryBloc, LibraryState>(
                 builder: (context, state) => switch (state) {
                   LibraryLoading() || LibraryInitial() => const Center(
-                      child: LoadingWidget(),
-                    ),
+                    child: LoadingWidget(),
+                  ),
                   LibraryError() => Center(
-                      child: CustomErrorWidget(
-                        title: 'Could not load your files at ${state.path}',
-                        description: state.message,
-                      ),
+                    child: CustomErrorWidget(
+                      title: 'Could not load your files at ${state.path}',
+                      description: state.message,
                     ),
+                  ),
                   LibraryEmpty() => const Center(
-                      child: EmptyWidget(
-                        title: 'No File',
-                        subtitle: 'Could not find any video',
-                      ),
+                    child: EmptyWidget(
+                      title: 'No File',
+                      subtitle: 'Could not find any video',
                     ),
+                  ),
                   LibraryLoaded() => Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
-                        horizontal: 16.0,
-                      ),
-                      child: CustomGridView(
-                        entries: state.entries,
-                        gridDelegate: userListGridDelegate,
-                        builder: (entry, index) => LibraryCard(
-                          entry: entry,
-                        ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 16.0,
+                    ),
+                    child: CustomGridView(
+                      entries: state.entries,
+                      gridDelegate: userListGridDelegate,
+                      builder: (entry, index) => LibraryCard(
+                        entry: entry,
                       ),
                     ),
+                  ),
                 },
               ),
             ),

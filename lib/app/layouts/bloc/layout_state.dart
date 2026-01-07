@@ -14,10 +14,10 @@ sealed class LayoutState extends Equatable {
 
   @override
   List<Object?> get props => [
-        drawerMedia,
-        drawerLibraryEntry,
-        leftDrawerType,
-      ];
+    drawerMedia,
+    drawerLibraryEntry,
+    leftDrawerType,
+  ];
 }
 
 final class LayoutPortrait extends LayoutState {

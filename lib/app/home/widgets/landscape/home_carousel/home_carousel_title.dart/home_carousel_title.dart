@@ -50,8 +50,9 @@ class _HomeCarouselTitleState extends State<HomeCarouselTitle> {
                   onChanged: (HomeMediaType? type) {
                     if (type == null) return;
 
-                    final watchListBloc =
-                        BlocProvider.of<WatchListBloc>(context);
+                    final watchListBloc = BlocProvider.of<WatchListBloc>(
+                      context,
+                    );
 
                     BlocProvider.of<HomeBloc>(context).add(
                       HomeRefreshed(
@@ -74,10 +75,10 @@ class _HomeCarouselTitleState extends State<HomeCarouselTitle> {
                               ),
                               Text(
                                 type.title,
-                                style:
-                                    context.textTheme.headlineSmall?.copyWith(
-                                  fontSize: 18,
-                                ),
+                                style: context.textTheme.headlineSmall
+                                    ?.copyWith(
+                                      fontSize: 18,
+                                    ),
                               ),
                             ],
                           ),

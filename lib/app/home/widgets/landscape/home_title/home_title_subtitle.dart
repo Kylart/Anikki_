@@ -10,8 +10,8 @@ class _HomeTitleSubtitle extends StatelessWidget {
   Media get media => entry.media;
 
   TextSpan get separator => const TextSpan(
-        text: ' • ',
-      );
+    text: ' • ',
+  );
 
   String? get season {
     if (media.seasonYear == null || media.season == null) {
@@ -54,7 +54,7 @@ class _HomeTitleSubtitle extends StatelessWidget {
             separator,
             TextSpan(
               text: 'Episode ${entry.progress}',
-            )
+            ),
           ],
           if (genres?.isNotEmpty == true) ...[
             separator,
@@ -66,7 +66,7 @@ class _HomeTitleSubtitle extends StatelessWidget {
                   )
                   .join(' • '),
             ),
-          ]
+          ],
         ],
       ),
     );

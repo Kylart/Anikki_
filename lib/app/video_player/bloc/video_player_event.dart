@@ -28,10 +28,10 @@ class VideoPlayerPlayRequested extends VideoPlayerEvent {
 
   @override
   List<Object> get props => [
-        context,
-        sources,
-        if (first != null) first!,
-      ];
+    context,
+    sources,
+    if (first != null) first!,
+  ];
 }
 
 class VideoPlayerClosed extends VideoPlayerEvent {

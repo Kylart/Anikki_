@@ -10,15 +10,18 @@ class Kwik extends Extractor {
 
   @override
   Future<List<VideoSource>> extract(Uri uri) async {
-    final res = await client.get(uri, headers: {
-      'Referer': host,
-    });
+    final res = await client.get(
+      uri,
+      headers: {
+        'Referer': host,
+      },
+    );
 
     final data = res.body;
-    final source = RegExp(r'(eval)(\(f.*?)(\n<\/script>)', dotAll: true)
-        .firstMatch(data)!
-        .group(2)!
-        .replaceFirst('eval', '');
+    final source = RegExp(
+      r'(eval)(\(f.*?)(\n<\/script>)',
+      dotAll: true,
+    ).firstMatch(data)!.group(2)!.replaceFirst('eval', '');
     final match = RegExp(r'https.*?m3u8').firstMatch(source);
 
     return [

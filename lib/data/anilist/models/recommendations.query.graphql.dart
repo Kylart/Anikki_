@@ -34,10 +34,10 @@ class Variables$Query$Recommendations {
   }
 
   CopyWith$Variables$Query$Recommendations<Variables$Query$Recommendations>
-      get copyWith => CopyWith$Variables$Query$Recommendations(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$Recommendations(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -91,11 +91,12 @@ class _CopyWithImpl$Variables$Query$Recommendations<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined}) =>
-      _then(Variables$Query$Recommendations._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? page = _undefined}) => _then(
+    Variables$Query$Recommendations._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Recommendations<TRes>
@@ -120,7 +121,8 @@ class Query$Recommendations {
       Page: l$Page == null
           ? null
           : Query$Recommendations$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -210,15 +212,16 @@ class _CopyWithImpl$Query$Recommendations<TRes>
   TRes call({
     Object? Page = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$Recommendations$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Recommendations(
+      Page: Page == _undefined
+          ? _instance.Page
+          : (Page as Query$Recommendations$Page?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Recommendations$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -237,127 +240,147 @@ class _CopyWithStubImpl$Query$Recommendations<TRes>
   call({
     Query$Recommendations$Page? Page,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Recommendations$Page<TRes> get Page =>
       CopyWith$Query$Recommendations$Page.stub(_res);
 }
 
-const documentNodeQueryRecommendations = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Recommendations'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'hasNextPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+const documentNodeQueryRecommendations = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Recommendations'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'recommendations'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: BooleanValueNode(value: true),
-              )
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'mediaRecommendation'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'media'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'hasNextPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'recommendations'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: BooleanValueNode(value: true),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'mediaRecommendation'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'media'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'media'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'media'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -366,26 +389,20 @@ const documentNodeQueryRecommendations = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
-Query$Recommendations _parserFn$Query$Recommendations(
-        Map<String, dynamic> data) =>
-    Query$Recommendations.fromJson(data);
-typedef OnQueryComplete$Query$Recommendations = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$Recommendations?,
+    ),
+    fragmentDefinitionmedia,
+  ],
 );
+Query$Recommendations _parserFn$Query$Recommendations(
+  Map<String, dynamic> data,
+) => Query$Recommendations.fromJson(data);
+typedef OnQueryComplete$Query$Recommendations =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$Recommendations?,
+    );
 
 class Options$Query$Recommendations
     extends graphql.QueryOptions<Query$Recommendations> {
@@ -401,36 +418,36 @@ class Options$Query$Recommendations
     graphql.Context? context,
     OnQueryComplete$Query$Recommendations? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$Recommendations(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryRecommendations,
-          parserFn: _parserFn$Query$Recommendations,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$Recommendations(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryRecommendations,
+         parserFn: _parserFn$Query$Recommendations,
+       );
 
   final OnQueryComplete$Query$Recommendations? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$Recommendations
@@ -449,20 +466,20 @@ class WatchOptions$Query$Recommendations
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryRecommendations,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$Recommendations,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryRecommendations,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$Recommendations,
+       );
 }
 
 class FetchMoreOptions$Query$Recommendations extends graphql.FetchMoreOptions {
@@ -470,41 +487,40 @@ class FetchMoreOptions$Query$Recommendations extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$Recommendations? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryRecommendations,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryRecommendations,
+       );
 }
 
 extension ClientExtension$Query$Recommendations on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$Recommendations>> query$Recommendations(
-          [Options$Query$Recommendations? options]) async =>
-      await this.query(options ?? Options$Query$Recommendations());
-  graphql.ObservableQuery<Query$Recommendations> watchQuery$Recommendations(
-          [WatchOptions$Query$Recommendations? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$Recommendations());
+  Future<graphql.QueryResult<Query$Recommendations>> query$Recommendations([
+    Options$Query$Recommendations? options,
+  ]) async => await this.query(options ?? Options$Query$Recommendations());
+  graphql.ObservableQuery<Query$Recommendations> watchQuery$Recommendations([
+    WatchOptions$Query$Recommendations? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$Recommendations());
   void writeQuery$Recommendations({
     required Query$Recommendations data,
     Variables$Query$Recommendations? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryRecommendations),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryRecommendations),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$Recommendations? readQuery$Recommendations({
     Variables$Query$Recommendations? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryRecommendations),
+        operation: graphql.Operation(
+          document: documentNodeQueryRecommendations,
+        ),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -528,12 +544,16 @@ class Query$Recommendations$Page {
       pageInfo: l$pageInfo == null
           ? null
           : Query$Recommendations$Page$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       recommendations: (l$recommendations as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Recommendations$Page$recommendations.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Recommendations$Page$recommendations.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -550,8 +570,9 @@ class Query$Recommendations$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$recommendations = recommendations;
-    _resultData['recommendations'] =
-        l$recommendations?.map((e) => e?.toJson()).toList();
+    _resultData['recommendations'] = l$recommendations
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -613,10 +634,10 @@ class Query$Recommendations$Page {
 extension UtilityExtension$Query$Recommendations$Page
     on Query$Recommendations$Page {
   CopyWith$Query$Recommendations$Page<Query$Recommendations$Page>
-      get copyWith => CopyWith$Query$Recommendations$Page(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Recommendations$Page(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Recommendations$Page<TRes> {
@@ -635,11 +656,15 @@ abstract class CopyWith$Query$Recommendations$Page<TRes> {
   });
   CopyWith$Query$Recommendations$Page$pageInfo<TRes> get pageInfo;
   TRes recommendations(
-      Iterable<Query$Recommendations$Page$recommendations?>? Function(
-              Iterable<
-                  CopyWith$Query$Recommendations$Page$recommendations<
-                      Query$Recommendations$Page$recommendations>?>?)
-          _fn);
+    Iterable<Query$Recommendations$Page$recommendations?>? Function(
+      Iterable<
+        CopyWith$Query$Recommendations$Page$recommendations<
+          Query$Recommendations$Page$recommendations
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Recommendations$Page<TRes>
@@ -659,41 +684,52 @@ class _CopyWithImpl$Query$Recommendations$Page<TRes>
     Object? pageInfo = _undefined,
     Object? recommendations = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$Recommendations$Page$pageInfo?),
-        recommendations: recommendations == _undefined
-            ? _instance.recommendations
-            : (recommendations
+  }) => _then(
+    Query$Recommendations$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$Recommendations$Page$pageInfo?),
+      recommendations: recommendations == _undefined
+          ? _instance.recommendations
+          : (recommendations
                 as List<Query$Recommendations$Page$recommendations?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Recommendations$Page$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$Recommendations$Page$pageInfo.stub(_then(_instance))
         : CopyWith$Query$Recommendations$Page$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes recommendations(
-          Iterable<Query$Recommendations$Page$recommendations?>? Function(
-                  Iterable<
-                      CopyWith$Query$Recommendations$Page$recommendations<
-                          Query$Recommendations$Page$recommendations>?>?)
-              _fn) =>
-      call(
-          recommendations: _fn(_instance.recommendations?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Recommendations$Page$recommendations(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Recommendations$Page$recommendations?>? Function(
+      Iterable<
+        CopyWith$Query$Recommendations$Page$recommendations<
+          Query$Recommendations$Page$recommendations
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    recommendations: _fn(
+      _instance.recommendations?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Recommendations$Page$recommendations(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Recommendations$Page<TRes>
@@ -706,8 +742,7 @@ class _CopyWithStubImpl$Query$Recommendations$Page<TRes>
     Query$Recommendations$Page$pageInfo? pageInfo,
     List<Query$Recommendations$Page$recommendations?>? recommendations,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Recommendations$Page$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$Recommendations$Page$pageInfo.stub(_res);
@@ -723,7 +758,8 @@ class Query$Recommendations$Page$pageInfo {
   });
 
   factory Query$Recommendations$Page$pageInfo.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$hasNextPage = json['hasNextPage'];
     final l$total = json['total'];
     final l$$__typename = json['__typename'];
@@ -794,11 +830,12 @@ class Query$Recommendations$Page$pageInfo {
 extension UtilityExtension$Query$Recommendations$Page$pageInfo
     on Query$Recommendations$Page$pageInfo {
   CopyWith$Query$Recommendations$Page$pageInfo<
-          Query$Recommendations$Page$pageInfo>
-      get copyWith => CopyWith$Query$Recommendations$Page$pageInfo(
-            this,
-            (i) => i,
-          );
+    Query$Recommendations$Page$pageInfo
+  >
+  get copyWith => CopyWith$Query$Recommendations$Page$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Recommendations$Page$pageInfo<TRes> {
@@ -834,16 +871,17 @@ class _CopyWithImpl$Query$Recommendations$Page$pageInfo<TRes>
     Object? hasNextPage = _undefined,
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations$Page$pageInfo(
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Recommendations$Page$pageInfo(
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Recommendations$Page$pageInfo<TRes>
@@ -856,8 +894,7 @@ class _CopyWithStubImpl$Query$Recommendations$Page$pageInfo<TRes>
     bool? hasNextPage,
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Recommendations$Page$recommendations {
@@ -868,7 +905,8 @@ class Query$Recommendations$Page$recommendations {
   });
 
   factory Query$Recommendations$Page$recommendations.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$mediaRecommendation = json['mediaRecommendation'];
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
@@ -876,7 +914,8 @@ class Query$Recommendations$Page$recommendations {
       mediaRecommendation: l$mediaRecommendation == null
           ? null
           : Fragment$media.fromJson(
-              (l$mediaRecommendation as Map<String, dynamic>)),
+              (l$mediaRecommendation as Map<String, dynamic>),
+            ),
       media: l$media == null
           ? null
           : Fragment$media.fromJson((l$media as Map<String, dynamic>)),
@@ -944,11 +983,12 @@ class Query$Recommendations$Page$recommendations {
 extension UtilityExtension$Query$Recommendations$Page$recommendations
     on Query$Recommendations$Page$recommendations {
   CopyWith$Query$Recommendations$Page$recommendations<
-          Query$Recommendations$Page$recommendations>
-      get copyWith => CopyWith$Query$Recommendations$Page$recommendations(
-            this,
-            (i) => i,
-          );
+    Query$Recommendations$Page$recommendations
+  >
+  get copyWith => CopyWith$Query$Recommendations$Page$recommendations(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Recommendations$Page$recommendations<TRes> {
@@ -986,24 +1026,26 @@ class _CopyWithImpl$Query$Recommendations$Page$recommendations<TRes>
     Object? mediaRecommendation = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations$Page$recommendations(
-        mediaRecommendation: mediaRecommendation == _undefined
-            ? _instance.mediaRecommendation
-            : (mediaRecommendation as Fragment$media?),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Recommendations$Page$recommendations(
+      mediaRecommendation: mediaRecommendation == _undefined
+          ? _instance.mediaRecommendation
+          : (mediaRecommendation as Fragment$media?),
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media<TRes> get mediaRecommendation {
     final local$mediaRecommendation = _instance.mediaRecommendation;
     return local$mediaRecommendation == null
         ? CopyWith$Fragment$media.stub(_then(_instance))
         : CopyWith$Fragment$media(
-            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
+            local$mediaRecommendation,
+            (e) => call(mediaRecommendation: e),
+          );
   }
 
   CopyWith$Fragment$media<TRes> get media {
@@ -1024,8 +1066,7 @@ class _CopyWithStubImpl$Query$Recommendations$Page$recommendations<TRes>
     Fragment$media? mediaRecommendation,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media<TRes> get mediaRecommendation =>
       CopyWith$Fragment$media.stub(_res);

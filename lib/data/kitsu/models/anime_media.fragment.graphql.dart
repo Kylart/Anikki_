@@ -127,11 +127,13 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Fragment$kitsuAnimeMedia(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Fragment$kitsuAnimeMedia(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia<TRes>
@@ -146,204 +148,303 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia<TRes>
 const fragmentDefinitionkitsuAnimeMedia = FragmentDefinitionNode(
   name: NameNode(value: 'kitsuAnimeMedia'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Media'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'Media'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    InlineFragmentNode(
-      typeCondition: TypeConditionNode(
+  selectionSet: SelectionSetNode(
+    selections: [
+      InlineFragmentNode(
+        typeCondition: TypeConditionNode(
           on: NamedTypeNode(
-        name: NameNode(value: 'Anime'),
-        isNonNull: false,
-      )),
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+            name: NameNode(value: 'Anime'),
+            isNonNull: false,
+          ),
         ),
-        FieldNode(
-          name: NameNode(value: 'startDate'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'endDate'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'slug'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'status'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'season'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'episodeCount'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'subtype'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'youtubeTrailerVideoId'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'titles'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'original'),
+              name: NameNode(value: 'id'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'canonical'),
+              name: NameNode(value: 'startDate'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'alternatives'),
+              name: NameNode(value: 'endDate'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'translated'),
+              name: NameNode(value: 'slug'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: '__typename'),
+              name: NameNode(value: 'status'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: 'categories'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-              name: NameNode(value: 'first'),
-              value: IntValueNode(value: '5'),
-            )
-          ],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
             FieldNode(
-              name: NameNode(value: 'nodes'),
+              name: NameNode(value: 'season'),
               alias: null,
               arguments: [],
               directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                  name: NameNode(value: 'slug'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'episodeCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'subtype'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'youtubeTrailerVideoId'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'titles'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'original'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'canonical'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'alternatives'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'translated'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'categories'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                  name: NameNode(value: 'first'),
+                  value: IntValueNode(value: '5'),
                 ),
-                FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-              ]),
+              ],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'nodes'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(
+                      selections: [
+                        FieldNode(
+                          name: NameNode(value: 'slug'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: '__typename'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                      ],
+                    ),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
             ),
             FieldNode(
-              name: NameNode(value: '__typename'),
+              name: NameNode(value: 'episodes'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                  name: NameNode(value: 'first'),
+                  value: IntValueNode(value: '200'),
+                ),
+              ],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'nodes'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(
+                      selections: [
+                        FieldNode(
+                          name: NameNode(value: 'number'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: 'thumbnail'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: SelectionSetNode(
+                            selections: [
+                              FieldNode(
+                                name: NameNode(value: 'original'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: SelectionSetNode(
+                                  selections: [
+                                    FieldNode(
+                                      name: NameNode(value: 'url'),
+                                      alias: null,
+                                      arguments: [],
+                                      directives: [],
+                                      selectionSet: null,
+                                    ),
+                                    FieldNode(
+                                      name: NameNode(value: '__typename'),
+                                      alias: null,
+                                      arguments: [],
+                                      directives: [],
+                                      selectionSet: null,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ],
+                          ),
+                        ),
+                        FieldNode(
+                          name: NameNode(value: 'titles'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: SelectionSetNode(
+                            selections: [
+                              FieldNode(
+                                name: NameNode(value: 'canonical'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ],
+                          ),
+                        ),
+                        FieldNode(
+                          name: NameNode(value: '__typename'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                      ],
+                    ),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'posterImage'),
               alias: null,
               arguments: [],
               directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: 'episodes'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-              name: NameNode(value: 'first'),
-              value: IntValueNode(value: '200'),
-            )
-          ],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'nodes'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                  name: NameNode(value: 'number'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: 'thumbnail'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                      name: NameNode(value: 'original'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: SelectionSetNode(selections: [
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'original'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(
+                      selections: [
                         FieldNode(
                           name: NameNode(value: 'url'),
                           alias: null,
@@ -358,47 +459,59 @@ const fragmentDefinitionkitsuAnimeMedia = FragmentDefinitionNode(
                           directives: [],
                           selectionSet: null,
                         ),
-                      ]),
+                      ],
                     ),
-                    FieldNode(
-                      name: NameNode(value: '__typename'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'bannerImage'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'original'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(
+                      selections: [
+                        FieldNode(
+                          name: NameNode(value: 'url'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: '__typename'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                      ],
                     ),
-                  ]),
-                ),
-                FieldNode(
-                  name: NameNode(value: 'titles'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                      name: NameNode(value: 'canonical'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null,
-                    ),
-                    FieldNode(
-                      name: NameNode(value: '__typename'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null,
-                    ),
-                  ]),
-                ),
-                FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-              ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
             ),
             FieldNode(
               name: NameNode(value: '__typename'),
@@ -407,121 +520,41 @@ const fragmentDefinitionkitsuAnimeMedia = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'posterImage'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'original'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                  name: NameNode(value: 'url'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-              ]),
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: 'bannerImage'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'original'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                  name: NameNode(value: 'url'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-              ]),
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentkitsuAnimeMedia = DocumentNode(definitions: [
-  fragmentDefinitionkitsuAnimeMedia,
-]);
+const documentNodeFragmentkitsuAnimeMedia = DocumentNode(
+  definitions: [
+    fragmentDefinitionkitsuAnimeMedia,
+  ],
+);
 
 extension ClientExtension$Fragment$kitsuAnimeMedia on graphql.GraphQLClient {
   void writeFragment$kitsuAnimeMedia({
     required Fragment$kitsuAnimeMedia data,
     required Map<String, dynamic> idFields,
     bool broadcast = true,
-  }) =>
-      this.writeFragment(
-        graphql.FragmentRequest(
-          idFields: idFields,
-          fragment: const graphql.Fragment(
-            fragmentName: 'kitsuAnimeMedia',
-            document: documentNodeFragmentkitsuAnimeMedia,
-          ),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeFragment(
+    graphql.FragmentRequest(
+      idFields: idFields,
+      fragment: const graphql.Fragment(
+        fragmentName: 'kitsuAnimeMedia',
+        document: documentNodeFragmentkitsuAnimeMedia,
+      ),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Fragment$kitsuAnimeMedia? readFragment$kitsuAnimeMedia({
     required Map<String, dynamic> idFields,
     bool optimistic = true,
@@ -588,19 +621,24 @@ class Fragment$kitsuAnimeMedia$$Anime implements Fragment$kitsuAnimeMedia {
       subtype: fromJson$Enum$AnimeSubtypeEnum((l$subtype as String)),
       youtubeTrailerVideoId: (l$youtubeTrailerVideoId as String?),
       titles: Fragment$kitsuAnimeMedia$$Anime$titles.fromJson(
-          (l$titles as Map<String, dynamic>)),
+        (l$titles as Map<String, dynamic>),
+      ),
       categories: Fragment$kitsuAnimeMedia$$Anime$categories.fromJson(
-          (l$categories as Map<String, dynamic>)),
+        (l$categories as Map<String, dynamic>),
+      ),
       episodes: Fragment$kitsuAnimeMedia$$Anime$episodes.fromJson(
-          (l$episodes as Map<String, dynamic>)),
+        (l$episodes as Map<String, dynamic>),
+      ),
       posterImage: l$posterImage == null
           ? null
           : Fragment$kitsuAnimeMedia$$Anime$posterImage.fromJson(
-              (l$posterImage as Map<String, dynamic>)),
+              (l$posterImage as Map<String, dynamic>),
+            ),
       bannerImage: l$bannerImage == null
           ? null
           : Fragment$kitsuAnimeMedia$$Anime$bannerImage.fromJson(
-              (l$bannerImage as Map<String, dynamic>)),
+              (l$bannerImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -648,8 +686,9 @@ class Fragment$kitsuAnimeMedia$$Anime implements Fragment$kitsuAnimeMedia {
     final l$status = status;
     _resultData['status'] = toJson$Enum$ReleaseStatusEnum(l$status);
     final l$season = season;
-    _resultData['season'] =
-        l$season == null ? null : toJson$Enum$ReleaseSeasonEnum(l$season);
+    _resultData['season'] = l$season == null
+        ? null
+        : toJson$Enum$ReleaseSeasonEnum(l$season);
     final l$episodeCount = episodeCount;
     _resultData['episodeCount'] = l$episodeCount;
     final l$subtype = subtype;
@@ -798,10 +837,10 @@ class Fragment$kitsuAnimeMedia$$Anime implements Fragment$kitsuAnimeMedia {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime
     on Fragment$kitsuAnimeMedia$$Anime {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime<Fragment$kitsuAnimeMedia$$Anime>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime<TRes> {
@@ -866,86 +905,98 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime<TRes>
     Object? posterImage = _undefined,
     Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        startDate: startDate == _undefined
-            ? _instance.startDate
-            : (startDate as String?),
-        endDate:
-            endDate == _undefined ? _instance.endDate : (endDate as String?),
-        slug: slug == _undefined || slug == null
-            ? _instance.slug
-            : (slug as String),
-        status: status == _undefined || status == null
-            ? _instance.status
-            : (status as Enum$ReleaseStatusEnum),
-        season: season == _undefined
-            ? _instance.season
-            : (season as Enum$ReleaseSeasonEnum?),
-        episodeCount: episodeCount == _undefined
-            ? _instance.episodeCount
-            : (episodeCount as int?),
-        subtype: subtype == _undefined || subtype == null
-            ? _instance.subtype
-            : (subtype as Enum$AnimeSubtypeEnum),
-        youtubeTrailerVideoId: youtubeTrailerVideoId == _undefined
-            ? _instance.youtubeTrailerVideoId
-            : (youtubeTrailerVideoId as String?),
-        titles: titles == _undefined || titles == null
-            ? _instance.titles
-            : (titles as Fragment$kitsuAnimeMedia$$Anime$titles),
-        categories: categories == _undefined || categories == null
-            ? _instance.categories
-            : (categories as Fragment$kitsuAnimeMedia$$Anime$categories),
-        episodes: episodes == _undefined || episodes == null
-            ? _instance.episodes
-            : (episodes as Fragment$kitsuAnimeMedia$$Anime$episodes),
-        posterImage: posterImage == _undefined
-            ? _instance.posterImage
-            : (posterImage as Fragment$kitsuAnimeMedia$$Anime$posterImage?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as Fragment$kitsuAnimeMedia$$Anime$bannerImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime(
+      id: id == _undefined || id == null ? _instance.id : (id as String),
+      startDate: startDate == _undefined
+          ? _instance.startDate
+          : (startDate as String?),
+      endDate: endDate == _undefined ? _instance.endDate : (endDate as String?),
+      slug: slug == _undefined || slug == null
+          ? _instance.slug
+          : (slug as String),
+      status: status == _undefined || status == null
+          ? _instance.status
+          : (status as Enum$ReleaseStatusEnum),
+      season: season == _undefined
+          ? _instance.season
+          : (season as Enum$ReleaseSeasonEnum?),
+      episodeCount: episodeCount == _undefined
+          ? _instance.episodeCount
+          : (episodeCount as int?),
+      subtype: subtype == _undefined || subtype == null
+          ? _instance.subtype
+          : (subtype as Enum$AnimeSubtypeEnum),
+      youtubeTrailerVideoId: youtubeTrailerVideoId == _undefined
+          ? _instance.youtubeTrailerVideoId
+          : (youtubeTrailerVideoId as String?),
+      titles: titles == _undefined || titles == null
+          ? _instance.titles
+          : (titles as Fragment$kitsuAnimeMedia$$Anime$titles),
+      categories: categories == _undefined || categories == null
+          ? _instance.categories
+          : (categories as Fragment$kitsuAnimeMedia$$Anime$categories),
+      episodes: episodes == _undefined || episodes == null
+          ? _instance.episodes
+          : (episodes as Fragment$kitsuAnimeMedia$$Anime$episodes),
+      posterImage: posterImage == _undefined
+          ? _instance.posterImage
+          : (posterImage as Fragment$kitsuAnimeMedia$$Anime$posterImage?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as Fragment$kitsuAnimeMedia$$Anime$bannerImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles<TRes> get titles {
     final local$titles = _instance.titles;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles(
-        local$titles, (e) => call(titles: e));
+      local$titles,
+      (e) => call(titles: e),
+    );
   }
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories<TRes> get categories {
     final local$categories = _instance.categories;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories(
-        local$categories, (e) => call(categories: e));
+      local$categories,
+      (e) => call(categories: e),
+    );
   }
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes> get episodes {
     final local$episodes = _instance.episodes;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes(
-        local$episodes, (e) => call(episodes: e));
+      local$episodes,
+      (e) => call(episodes: e),
+    );
   }
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes> get posterImage {
     final local$posterImage = _instance.posterImage;
     return local$posterImage == null
         ? CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage(
-            local$posterImage, (e) => call(posterImage: e));
+            local$posterImage,
+            (e) => call(posterImage: e),
+          );
   }
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes> get bannerImage {
     final local$bannerImage = _instance.bannerImage;
     return local$bannerImage == null
         ? CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage(
-            local$bannerImage, (e) => call(bannerImage: e));
+            local$bannerImage,
+            (e) => call(bannerImage: e),
+          );
   }
 }
 
@@ -971,8 +1022,7 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime<TRes>
     Fragment$kitsuAnimeMedia$$Anime$posterImage? posterImage,
     Fragment$kitsuAnimeMedia$$Anime$bannerImage? bannerImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles<TRes> get titles =>
       CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles.stub(_res);
@@ -1000,7 +1050,8 @@ class Fragment$kitsuAnimeMedia$$Anime$titles {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$titles.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$original = json['original'];
     final l$canonical = json['canonical'];
     final l$alternatives = json['alternatives'];
@@ -1112,11 +1163,12 @@ class Fragment$kitsuAnimeMedia$$Anime$titles {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$titles
     on Fragment$kitsuAnimeMedia$$Anime$titles {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles<
-          Fragment$kitsuAnimeMedia$$Anime$titles>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$titles
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$titles<TRes> {
@@ -1156,23 +1208,25 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$titles<TRes>
     Object? alternatives = _undefined,
     Object? translated = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$titles(
-        original:
-            original == _undefined ? _instance.original : (original as String?),
-        canonical: canonical == _undefined || canonical == null
-            ? _instance.canonical
-            : (canonical as String),
-        alternatives: alternatives == _undefined
-            ? _instance.alternatives
-            : (alternatives as List<String>?),
-        translated: translated == _undefined
-            ? _instance.translated
-            : (translated as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$titles(
+      original: original == _undefined
+          ? _instance.original
+          : (original as String?),
+      canonical: canonical == _undefined || canonical == null
+          ? _instance.canonical
+          : (canonical as String),
+      alternatives: alternatives == _undefined
+          ? _instance.alternatives
+          : (alternatives as List<String>?),
+      translated: translated == _undefined
+          ? _instance.translated
+          : (translated as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$titles<TRes>
@@ -1187,8 +1241,7 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$titles<TRes>
     List<String>? alternatives,
     String? translated,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$categories {
@@ -1198,15 +1251,19 @@ class Fragment$kitsuAnimeMedia$$Anime$categories {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$categories.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$categories(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$kitsuAnimeMedia$$Anime$categories$nodes.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$kitsuAnimeMedia$$Anime$categories$nodes.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1272,11 +1329,12 @@ class Fragment$kitsuAnimeMedia$$Anime$categories {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$categories
     on Fragment$kitsuAnimeMedia$$Anime$categories {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories<
-          Fragment$kitsuAnimeMedia$$Anime$categories>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$categories
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories<TRes> {
@@ -1293,11 +1351,15 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories<TRes> {
     String? $__typename,
   });
   TRes nodes(
-      Iterable<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>? Function(
-              Iterable<
-                  CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<
-                      Fragment$kitsuAnimeMedia$$Anime$categories$nodes>?>?)
-          _fn);
+    Iterable<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<
+          Fragment$kitsuAnimeMedia$$Anime$categories$nodes
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$categories<TRes>
@@ -1316,30 +1378,38 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$categories<TRes>
   TRes call({
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$categories(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes
-                as List<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$categories(
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes nodes(
-          Iterable<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<
-                          Fragment$kitsuAnimeMedia$$Anime$categories$nodes>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<
+          Fragment$kitsuAnimeMedia$$Anime$categories$nodes
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories<TRes>
@@ -1351,8 +1421,7 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories<TRes>
   call({
     List<Fragment$kitsuAnimeMedia$$Anime$categories$nodes?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   nodes(_fn) => _res;
 }
@@ -1364,7 +1433,8 @@ class Fragment$kitsuAnimeMedia$$Anime$categories$nodes {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$categories$nodes.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$slug = json['slug'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
@@ -1422,11 +1492,12 @@ class Fragment$kitsuAnimeMedia$$Anime$categories$nodes {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$categories$nodes
     on Fragment$kitsuAnimeMedia$$Anime$categories$nodes {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<
-          Fragment$kitsuAnimeMedia$$Anime$categories$nodes>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$categories$nodes
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<TRes> {
@@ -1436,8 +1507,8 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<TRes> {
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$categories$nodes.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes;
 
   TRes call({
     String? slug,
@@ -1461,15 +1532,16 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<TRes>
   TRes call({
     Object? slug = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
-        slug: slug == _undefined || slug == null
-            ? _instance.slug
-            : (slug as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$categories$nodes(
+      slug: slug == _undefined || slug == null
+          ? _instance.slug
+          : (slug as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<TRes>
@@ -1481,8 +1553,7 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$categories$nodes<TRes>
   call({
     String? slug,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$episodes {
@@ -1492,15 +1563,19 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$episodes.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$episodes(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$kitsuAnimeMedia$$Anime$episodes$nodes.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$kitsuAnimeMedia$$Anime$episodes$nodes.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1566,11 +1641,12 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$episodes
     on Fragment$kitsuAnimeMedia$$Anime$episodes {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes<
-          Fragment$kitsuAnimeMedia$$Anime$episodes>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$episodes
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes> {
@@ -1587,11 +1663,15 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes> {
     String? $__typename,
   });
   TRes nodes(
-      Iterable<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>? Function(
-              Iterable<
-                  CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<
-                      Fragment$kitsuAnimeMedia$$Anime$episodes$nodes>?>?)
-          _fn);
+    Iterable<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<
+          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes>
@@ -1610,29 +1690,38 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes>
   TRes call({
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$episodes(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$episodes(
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes nodes(
-          Iterable<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<
-                          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<
+          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes>
@@ -1644,8 +1733,7 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes<TRes>
   call({
     List<Fragment$kitsuAnimeMedia$$Anime$episodes$nodes?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   nodes(_fn) => _res;
 }
@@ -1659,7 +1747,8 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$episodes$nodes.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$number = json['number'];
     final l$thumbnail = json['thumbnail'];
     final l$titles = json['titles'];
@@ -1669,9 +1758,11 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes {
       thumbnail: l$thumbnail == null
           ? null
           : Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail.fromJson(
-              (l$thumbnail as Map<String, dynamic>)),
+              (l$thumbnail as Map<String, dynamic>),
+            ),
       titles: Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles.fromJson(
-          (l$titles as Map<String, dynamic>)),
+        (l$titles as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1747,11 +1838,12 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes
     on Fragment$kitsuAnimeMedia$$Anime$episodes$nodes {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<
-          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes> {
@@ -1761,8 +1853,8 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes> {
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes;
 
   TRes call({
     int? number,
@@ -1771,9 +1863,9 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes> {
     String? $__typename,
   });
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<TRes>
-      get thumbnail;
+  get thumbnail;
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<TRes>
-      get titles;
+  get titles;
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes>
@@ -1794,38 +1886,44 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes>
     Object? thumbnail = _undefined,
     Object? titles = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
-        number: number == _undefined || number == null
-            ? _instance.number
-            : (number as int),
-        thumbnail: thumbnail == _undefined
-            ? _instance.thumbnail
-            : (thumbnail
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes(
+      number: number == _undefined || number == null
+          ? _instance.number
+          : (number as int),
+      thumbnail: thumbnail == _undefined
+          ? _instance.thumbnail
+          : (thumbnail
                 as Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail?),
-        titles: titles == _undefined || titles == null
-            ? _instance.titles
-            : (titles as Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      titles: titles == _undefined || titles == null
+          ? _instance.titles
+          : (titles as Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<TRes>
-      get thumbnail {
+  get thumbnail {
     final local$thumbnail = _instance.thumbnail;
     return local$thumbnail == null
-        ? CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail
-            .stub(_then(_instance))
+        ? CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail.stub(
+            _then(_instance),
+          )
         : CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
-            local$thumbnail, (e) => call(thumbnail: e));
+            local$thumbnail,
+            (e) => call(thumbnail: e),
+          );
   }
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<TRes>
-      get titles {
+  get titles {
     final local$titles = _instance.titles;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
-        local$titles, (e) => call(titles: e));
+      local$titles,
+      (e) => call(titles: e),
+    );
   }
 }
 
@@ -1840,18 +1938,17 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes<TRes>
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail? thumbnail,
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles? titles,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<TRes>
-      get thumbnail =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail
-              .stub(_res);
+  get thumbnail =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail.stub(
+        _res,
+      );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<TRes>
-      get titles =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles.stub(
-              _res);
+  get titles =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles.stub(_res);
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail {
@@ -1861,19 +1958,21 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$original = json['original'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
       original:
-          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
-              .fromJson((l$original as Map<String, dynamic>)),
+          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original.fromJson(
+            (l$original as Map<String, dynamic>),
+          ),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
-      original;
+  original;
 
   final String $__typename;
 
@@ -1922,39 +2021,45 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail
     on Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail>
-      get copyWith =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail
+  >
+  get copyWith =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail instance,
     TRes Function(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail)
-        then,
+    then,
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail;
 
   TRes call({
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original? original,
     String? $__typename,
   });
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-      TRes> get original;
+    TRes
+  >
+  get original;
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
     this._instance,
     this._then,
@@ -1963,53 +2068,62 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
   final Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail _instance;
 
   final TRes Function(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? original = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
-        original: original == _undefined || original == null
-            ? _instance.original
-            : (original
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
+      original: original == _undefined || original == null
+          ? _instance.original
+          : (original
                 as Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-      TRes> get original {
+    TRes
+  >
+  get original {
     final local$original = _instance.original;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
-        local$original, (e) => call(original: e));
+      local$original,
+      (e) => call(original: e),
+    );
   }
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original? original,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-          TRes>
-      get original =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
-              .stub(_res);
+    TRes
+  >
+  get original =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original.stub(
+        _res,
+      );
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original {
@@ -2019,7 +2133,8 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
@@ -2078,26 +2193,29 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
     on Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original>
-      get copyWith =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
+  >
+  get copyWith =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original instance,
     TRes Function(
-            Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original)
-        then,
+      Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original,
+    )
+    then,
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original;
 
   TRes call({
     String? url,
@@ -2106,50 +2224,57 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
     this._instance,
     this._then,
   );
 
   final Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original
-      _instance;
+  _instance;
 
   final TRes Function(
-      Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original) _then;
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? url = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
-        url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
+      url: url == _undefined || url == null ? _instance.url : (url as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$thumbnail$original(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     String? url,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles {
@@ -2159,7 +2284,8 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$canonical = json['canonical'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
@@ -2217,24 +2343,26 @@ class Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles
     on Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<
-          Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles>
-      get copyWith =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles
+  >
+  get copyWith =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
     Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles instance,
     TRes Function(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles) then,
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles;
 
   TRes call({
     String? canonical,
@@ -2253,38 +2381,40 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<TRes>
   final Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles _instance;
 
   final TRes Function(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? canonical = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
-        canonical: canonical == _undefined || canonical == null
-            ? _instance.canonical
-            : (canonical as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
+      canonical: canonical == _undefined || canonical == null
+          ? _instance.canonical
+          : (canonical as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles<TRes> {
   _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$episodes$nodes$titles(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     String? canonical,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$posterImage {
@@ -2294,12 +2424,14 @@ class Fragment$kitsuAnimeMedia$$Anime$posterImage {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$posterImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$original = json['original'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$posterImage(
       original: Fragment$kitsuAnimeMedia$$Anime$posterImage$original.fromJson(
-          (l$original as Map<String, dynamic>)),
+        (l$original as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2353,11 +2485,12 @@ class Fragment$kitsuAnimeMedia$$Anime$posterImage {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$posterImage
     on Fragment$kitsuAnimeMedia$$Anime$posterImage {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage<
-          Fragment$kitsuAnimeMedia$$Anime$posterImage>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$posterImage
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes> {
@@ -2374,7 +2507,7 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes> {
     String? $__typename,
   });
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<TRes>
-      get original;
+  get original;
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes>
@@ -2393,22 +2526,24 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes>
   TRes call({
     Object? original = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$posterImage(
-        original: original == _undefined || original == null
-            ? _instance.original
-            : (original
-                as Fragment$kitsuAnimeMedia$$Anime$posterImage$original),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$posterImage(
+      original: original == _undefined || original == null
+          ? _instance.original
+          : (original as Fragment$kitsuAnimeMedia$$Anime$posterImage$original),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<TRes>
-      get original {
+  get original {
     final local$original = _instance.original;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
-        local$original, (e) => call(original: e));
+      local$original,
+      (e) => call(original: e),
+    );
   }
 }
 
@@ -2421,13 +2556,11 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage<TRes>
   call({
     Fragment$kitsuAnimeMedia$$Anime$posterImage$original? original,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<TRes>
-      get original =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original.stub(
-              _res);
+  get original =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original.stub(_res);
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$posterImage$original {
@@ -2437,7 +2570,8 @@ class Fragment$kitsuAnimeMedia$$Anime$posterImage$original {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$posterImage$original.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
@@ -2495,24 +2629,25 @@ class Fragment$kitsuAnimeMedia$$Anime$posterImage$original {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$posterImage$original
     on Fragment$kitsuAnimeMedia$$Anime$posterImage$original {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<
-          Fragment$kitsuAnimeMedia$$Anime$posterImage$original>
-      get copyWith =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$posterImage$original
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
     Fragment$kitsuAnimeMedia$$Anime$posterImage$original instance,
     TRes Function(Fragment$kitsuAnimeMedia$$Anime$posterImage$original) then,
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original;
 
   TRes call({
     String? url,
@@ -2531,36 +2666,38 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<TRes>
   final Fragment$kitsuAnimeMedia$$Anime$posterImage$original _instance;
 
   final TRes Function(Fragment$kitsuAnimeMedia$$Anime$posterImage$original)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? url = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
-        url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
+      url: url == _undefined || url == null ? _instance.url : (url as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$posterImage$original<TRes> {
   _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$posterImage$original(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     String? url,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$bannerImage {
@@ -2570,12 +2707,14 @@ class Fragment$kitsuAnimeMedia$$Anime$bannerImage {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$bannerImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$original = json['original'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$bannerImage(
       original: Fragment$kitsuAnimeMedia$$Anime$bannerImage$original.fromJson(
-          (l$original as Map<String, dynamic>)),
+        (l$original as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2629,11 +2768,12 @@ class Fragment$kitsuAnimeMedia$$Anime$bannerImage {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$bannerImage
     on Fragment$kitsuAnimeMedia$$Anime$bannerImage {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage<
-          Fragment$kitsuAnimeMedia$$Anime$bannerImage>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$bannerImage
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes> {
@@ -2650,7 +2790,7 @@ abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes> {
     String? $__typename,
   });
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<TRes>
-      get original;
+  get original;
 }
 
 class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes>
@@ -2669,22 +2809,24 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes>
   TRes call({
     Object? original = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$bannerImage(
-        original: original == _undefined || original == null
-            ? _instance.original
-            : (original
-                as Fragment$kitsuAnimeMedia$$Anime$bannerImage$original),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$bannerImage(
+      original: original == _undefined || original == null
+          ? _instance.original
+          : (original as Fragment$kitsuAnimeMedia$$Anime$bannerImage$original),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<TRes>
-      get original {
+  get original {
     final local$original = _instance.original;
     return CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
-        local$original, (e) => call(original: e));
+      local$original,
+      (e) => call(original: e),
+    );
   }
 }
 
@@ -2697,13 +2839,11 @@ class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage<TRes>
   call({
     Fragment$kitsuAnimeMedia$$Anime$bannerImage$original? original,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<TRes>
-      get original =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original.stub(
-              _res);
+  get original =>
+      CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original.stub(_res);
 }
 
 class Fragment$kitsuAnimeMedia$$Anime$bannerImage$original {
@@ -2713,7 +2853,8 @@ class Fragment$kitsuAnimeMedia$$Anime$bannerImage$original {
   });
 
   factory Fragment$kitsuAnimeMedia$$Anime$bannerImage$original.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
@@ -2771,24 +2912,25 @@ class Fragment$kitsuAnimeMedia$$Anime$bannerImage$original {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original
     on Fragment$kitsuAnimeMedia$$Anime$bannerImage$original {
   CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<
-          Fragment$kitsuAnimeMedia$$Anime$bannerImage$original>
-      get copyWith =>
-          CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
-            this,
-            (i) => i,
-          );
+    Fragment$kitsuAnimeMedia$$Anime$bannerImage$original
+  >
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
     Fragment$kitsuAnimeMedia$$Anime$bannerImage$original instance,
     TRes Function(Fragment$kitsuAnimeMedia$$Anime$bannerImage$original) then,
   ) = _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original;
 
   factory CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original;
 
   TRes call({
     String? url,
@@ -2807,36 +2949,38 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<TRes>
   final Fragment$kitsuAnimeMedia$$Anime$bannerImage$original _instance;
 
   final TRes Function(Fragment$kitsuAnimeMedia$$Anime$bannerImage$original)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? url = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
-        url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
+      url: url == _undefined || url == null ? _instance.url : (url as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original<TRes> {
   _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Anime$bannerImage$original(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
   call({
     String? url,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$kitsuAnimeMedia$$Manga implements Fragment$kitsuAnimeMedia {
@@ -2845,7 +2989,8 @@ class Fragment$kitsuAnimeMedia$$Manga implements Fragment$kitsuAnimeMedia {
   factory Fragment$kitsuAnimeMedia$$Manga.fromJson(Map<String, dynamic> json) {
     final l$$__typename = json['__typename'];
     return Fragment$kitsuAnimeMedia$$Manga(
-        $__typename: (l$$__typename as String));
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String $__typename;
@@ -2884,10 +3029,10 @@ class Fragment$kitsuAnimeMedia$$Manga implements Fragment$kitsuAnimeMedia {
 extension UtilityExtension$Fragment$kitsuAnimeMedia$$Manga
     on Fragment$kitsuAnimeMedia$$Manga {
   CopyWith$Fragment$kitsuAnimeMedia$$Manga<Fragment$kitsuAnimeMedia$$Manga>
-      get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Manga(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$kitsuAnimeMedia$$Manga(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuAnimeMedia$$Manga<TRes> {
@@ -2915,11 +3060,13 @@ class _CopyWithImpl$Fragment$kitsuAnimeMedia$$Manga<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Fragment$kitsuAnimeMedia$$Manga(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Fragment$kitsuAnimeMedia$$Manga(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$kitsuAnimeMedia$$Manga<TRes>

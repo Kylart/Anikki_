@@ -9,14 +9,14 @@ class MainPicture extends Equatable {
   const MainPicture({this.medium, this.large});
 
   factory MainPicture.fromMap(Map<String, dynamic> data) => MainPicture(
-        medium: data['medium'] as String?,
-        large: data['large'] as String?,
-      );
+    medium: data['medium'] as String?,
+    large: data['large'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'medium': medium,
-        'large': large,
-      };
+    'medium': medium,
+    'large': large,
+  };
 
   /// `dart:convert`
   ///

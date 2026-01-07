@@ -5,8 +5,8 @@ import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$Search {
   factory Variables$Query$Search({String? search}) => Variables$Query$Search._({
-        if (search != null) r'search': search,
-      });
+    if (search != null) r'search': search,
+  });
 
   Variables$Query$Search._(this._$data);
 
@@ -89,10 +89,12 @@ class _CopyWithImpl$Variables$Query$Search<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? search = _undefined}) => _then(Variables$Query$Search._({
-        ..._instance._$data,
-        if (search != _undefined) 'search': (search as String?),
-      }));
+  TRes call({Object? search = _undefined}) => _then(
+    Variables$Query$Search._({
+      ..._instance._$data,
+      if (search != _undefined) 'search': (search as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Search<TRes>
@@ -124,7 +126,8 @@ class Query$Search {
       characters: l$characters == null
           ? null
           : Query$Search$characters.fromJson(
-              (l$characters as Map<String, dynamic>)),
+              (l$characters as Map<String, dynamic>),
+            ),
       staff: l$staff == null
           ? null
           : Query$Search$staff.fromJson((l$staff as Map<String, dynamic>)),
@@ -201,9 +204,9 @@ class Query$Search {
 
 extension UtilityExtension$Query$Search on Query$Search {
   CopyWith$Query$Search<Query$Search> get copyWith => CopyWith$Query$Search(
-        this,
-        (i) => i,
-      );
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search<TRes> {
@@ -242,21 +245,22 @@ class _CopyWithImpl$Query$Search<TRes> implements CopyWith$Query$Search<TRes> {
     Object? characters = _undefined,
     Object? staff = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search(
-        anime: anime == _undefined
-            ? _instance.anime
-            : (anime as Query$Search$anime?),
-        characters: characters == _undefined
-            ? _instance.characters
-            : (characters as Query$Search$characters?),
-        staff: staff == _undefined
-            ? _instance.staff
-            : (staff as Query$Search$staff?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search(
+      anime: anime == _undefined
+          ? _instance.anime
+          : (anime as Query$Search$anime?),
+      characters: characters == _undefined
+          ? _instance.characters
+          : (characters as Query$Search$characters?),
+      staff: staff == _undefined
+          ? _instance.staff
+          : (staff as Query$Search$staff?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$anime<TRes> get anime {
     final local$anime = _instance.anime;
@@ -270,7 +274,9 @@ class _CopyWithImpl$Query$Search<TRes> implements CopyWith$Query$Search<TRes> {
     return local$characters == null
         ? CopyWith$Query$Search$characters.stub(_then(_instance))
         : CopyWith$Query$Search$characters(
-            local$characters, (e) => call(characters: e));
+            local$characters,
+            (e) => call(characters: e),
+          );
   }
 
   CopyWith$Query$Search$staff<TRes> get staff {
@@ -292,8 +298,7 @@ class _CopyWithStubImpl$Query$Search<TRes>
     Query$Search$characters? characters,
     Query$Search$staff? staff,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$anime<TRes> get anime =>
       CopyWith$Query$Search$anime.stub(_res);
@@ -305,83 +310,402 @@ class _CopyWithStubImpl$Query$Search<TRes>
       CopyWith$Query$Search$staff.stub(_res);
 }
 
-const documentNodeQuerySearch = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Search'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+const documentNodeQuerySearch = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Search'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'anime'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '12'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: NameNode(value: 'results'),
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'anime'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: EnumValueNode(name: NameNode(value: 'ANIME')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '12'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'media'),
-                directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: NameNode(value: 'results'),
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: EnumValueNode(name: NameNode(value: 'ANIME')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'media'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'characters'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '12'),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'characters'),
+                  alias: NameNode(value: 'results'),
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'siteUrl'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'description'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'full'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'native'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'image'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'large'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'medium'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'staff'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '12'),
               ),
-            ]),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'staff'),
+                  alias: NameNode(value: 'results'),
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'siteUrl'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'primaryOccupations'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'full'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'native'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'image'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'large'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'medium'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -390,307 +714,19 @@ const documentNodeQuerySearch = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'characters'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '12'),
-          )
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'characters'),
-            alias: NameNode(value: 'results'),
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
-              )
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'siteUrl'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'description'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'full'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'native'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'image'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'large'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'medium'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
       ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'staff'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '12'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'staff'),
-            alias: NameNode(value: 'results'),
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
-              )
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'siteUrl'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'primaryOccupations'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'full'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'native'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'image'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'large'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'medium'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
+    ),
+    fragmentDefinitionmedia,
+  ],
+);
 Query$Search _parserFn$Query$Search(Map<String, dynamic> data) =>
     Query$Search.fromJson(data);
-typedef OnQueryComplete$Query$Search = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$Search?,
-);
+typedef OnQueryComplete$Query$Search =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$Search?,
+    );
 
 class Options$Query$Search extends graphql.QueryOptions<Query$Search> {
   Options$Query$Search({
@@ -705,36 +741,36 @@ class Options$Query$Search extends graphql.QueryOptions<Query$Search> {
     graphql.Context? context,
     OnQueryComplete$Query$Search? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$Search(data),
-                  ),
-          onError: onError,
-          document: documentNodeQuerySearch,
-          parserFn: _parserFn$Query$Search,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$Search(data),
+               ),
+         onError: onError,
+         document: documentNodeQuerySearch,
+         parserFn: _parserFn$Query$Search,
+       );
 
   final OnQueryComplete$Query$Search? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$Search
@@ -753,20 +789,20 @@ class WatchOptions$Query$Search
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQuerySearch,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$Search,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQuerySearch,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$Search,
+       );
 }
 
 class FetchMoreOptions$Query$Search extends graphql.FetchMoreOptions {
@@ -774,32 +810,31 @@ class FetchMoreOptions$Query$Search extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$Search? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQuerySearch,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQuerySearch,
+       );
 }
 
 extension ClientExtension$Query$Search on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$Search>> query$Search(
-          [Options$Query$Search? options]) async =>
-      await this.query(options ?? Options$Query$Search());
-  graphql.ObservableQuery<Query$Search> watchQuery$Search(
-          [WatchOptions$Query$Search? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$Search());
+  Future<graphql.QueryResult<Query$Search>> query$Search([
+    Options$Query$Search? options,
+  ]) async => await this.query(options ?? Options$Query$Search());
+  graphql.ObservableQuery<Query$Search> watchQuery$Search([
+    WatchOptions$Query$Search? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$Search());
   void writeQuery$Search({
     required Query$Search data,
     Variables$Query$Search? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(document: documentNodeQuerySearch),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQuerySearch),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$Search? readQuery$Search({
     Variables$Query$Search? variables,
     bool optimistic = true,
@@ -830,11 +865,14 @@ class Query$Search$anime {
       pageInfo: l$pageInfo == null
           ? null
           : Query$Search$anime$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       results: (l$results as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$media.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$media.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -931,9 +969,11 @@ abstract class CopyWith$Query$Search$anime<TRes> {
   });
   CopyWith$Query$Search$anime$pageInfo<TRes> get pageInfo;
   TRes results(
-      Iterable<Fragment$media?>? Function(
-              Iterable<CopyWith$Fragment$media<Fragment$media>?>?)
-          _fn);
+    Iterable<Fragment$media?>? Function(
+      Iterable<CopyWith$Fragment$media<Fragment$media>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Search$anime<TRes>
@@ -953,38 +993,47 @@ class _CopyWithImpl$Query$Search$anime<TRes>
     Object? pageInfo = _undefined,
     Object? results = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$anime(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$Search$anime$pageInfo?),
-        results: results == _undefined
-            ? _instance.results
-            : (results as List<Fragment$media?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$anime(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$Search$anime$pageInfo?),
+      results: results == _undefined
+          ? _instance.results
+          : (results as List<Fragment$media?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$anime$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$Search$anime$pageInfo.stub(_then(_instance))
         : CopyWith$Query$Search$anime$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes results(
-          Iterable<Fragment$media?>? Function(
-                  Iterable<CopyWith$Fragment$media<Fragment$media>?>?)
-              _fn) =>
-      call(
-          results: _fn(_instance.results?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$media(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$media?>? Function(
+      Iterable<CopyWith$Fragment$media<Fragment$media>?>?,
+    )
+    _fn,
+  ) => call(
+    results: _fn(
+      _instance.results?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$media(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$anime<TRes>
@@ -997,8 +1046,7 @@ class _CopyWithStubImpl$Query$Search$anime<TRes>
     Query$Search$anime$pageInfo? pageInfo,
     List<Fragment$media?>? results,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$anime$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$Search$anime$pageInfo.stub(_res);
@@ -1070,10 +1118,10 @@ class Query$Search$anime$pageInfo {
 extension UtilityExtension$Query$Search$anime$pageInfo
     on Query$Search$anime$pageInfo {
   CopyWith$Query$Search$anime$pageInfo<Query$Search$anime$pageInfo>
-      get copyWith => CopyWith$Query$Search$anime$pageInfo(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$anime$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$anime$pageInfo<TRes> {
@@ -1107,13 +1155,14 @@ class _CopyWithImpl$Query$Search$anime$pageInfo<TRes>
   TRes call({
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$anime$pageInfo(
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$anime$pageInfo(
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$anime$pageInfo<TRes>
@@ -1125,8 +1174,7 @@ class _CopyWithStubImpl$Query$Search$anime$pageInfo<TRes>
   call({
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$characters {
@@ -1144,12 +1192,16 @@ class Query$Search$characters {
       pageInfo: l$pageInfo == null
           ? null
           : Query$Search$characters$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       results: (l$results as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Search$characters$results.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Search$characters$results.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1246,11 +1298,15 @@ abstract class CopyWith$Query$Search$characters<TRes> {
   });
   CopyWith$Query$Search$characters$pageInfo<TRes> get pageInfo;
   TRes results(
-      Iterable<Query$Search$characters$results?>? Function(
-              Iterable<
-                  CopyWith$Query$Search$characters$results<
-                      Query$Search$characters$results>?>?)
-          _fn);
+    Iterable<Query$Search$characters$results?>? Function(
+      Iterable<
+        CopyWith$Query$Search$characters$results<
+          Query$Search$characters$results
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Search$characters<TRes>
@@ -1270,40 +1326,51 @@ class _CopyWithImpl$Query$Search$characters<TRes>
     Object? pageInfo = _undefined,
     Object? results = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$characters(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$Search$characters$pageInfo?),
-        results: results == _undefined
-            ? _instance.results
-            : (results as List<Query$Search$characters$results?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$characters(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$Search$characters$pageInfo?),
+      results: results == _undefined
+          ? _instance.results
+          : (results as List<Query$Search$characters$results?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$characters$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$Search$characters$pageInfo.stub(_then(_instance))
         : CopyWith$Query$Search$characters$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes results(
-          Iterable<Query$Search$characters$results?>? Function(
-                  Iterable<
-                      CopyWith$Query$Search$characters$results<
-                          Query$Search$characters$results>?>?)
-              _fn) =>
-      call(
-          results: _fn(_instance.results?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Search$characters$results(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Search$characters$results?>? Function(
+      Iterable<
+        CopyWith$Query$Search$characters$results<
+          Query$Search$characters$results
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    results: _fn(
+      _instance.results?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Search$characters$results(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$characters<TRes>
@@ -1316,8 +1383,7 @@ class _CopyWithStubImpl$Query$Search$characters<TRes>
     Query$Search$characters$pageInfo? pageInfo,
     List<Query$Search$characters$results?>? results,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$characters$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$Search$characters$pageInfo.stub(_res);
@@ -1389,10 +1455,10 @@ class Query$Search$characters$pageInfo {
 extension UtilityExtension$Query$Search$characters$pageInfo
     on Query$Search$characters$pageInfo {
   CopyWith$Query$Search$characters$pageInfo<Query$Search$characters$pageInfo>
-      get copyWith => CopyWith$Query$Search$characters$pageInfo(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$characters$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$characters$pageInfo<TRes> {
@@ -1426,13 +1492,14 @@ class _CopyWithImpl$Query$Search$characters$pageInfo<TRes>
   TRes call({
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$characters$pageInfo(
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$characters$pageInfo(
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$characters$pageInfo<TRes>
@@ -1444,8 +1511,7 @@ class _CopyWithStubImpl$Query$Search$characters$pageInfo<TRes>
   call({
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$characters$results {
@@ -1472,11 +1538,13 @@ class Query$Search$characters$results {
       name: l$name == null
           ? null
           : Query$Search$characters$results$name.fromJson(
-              (l$name as Map<String, dynamic>)),
+              (l$name as Map<String, dynamic>),
+            ),
       image: l$image == null
           ? null
           : Query$Search$characters$results$image.fromJson(
-              (l$image as Map<String, dynamic>)),
+              (l$image as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1574,10 +1642,10 @@ class Query$Search$characters$results {
 extension UtilityExtension$Query$Search$characters$results
     on Query$Search$characters$results {
   CopyWith$Query$Search$characters$results<Query$Search$characters$results>
-      get copyWith => CopyWith$Query$Search$characters$results(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$characters$results(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$characters$results<TRes> {
@@ -1621,31 +1689,33 @@ class _CopyWithImpl$Query$Search$characters$results<TRes>
     Object? name = _undefined,
     Object? image = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$characters$results(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        siteUrl:
-            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        name: name == _undefined
-            ? _instance.name
-            : (name as Query$Search$characters$results$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image as Query$Search$characters$results$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$characters$results(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      siteUrl: siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      name: name == _undefined
+          ? _instance.name
+          : (name as Query$Search$characters$results$name?),
+      image: image == _undefined
+          ? _instance.image
+          : (image as Query$Search$characters$results$image?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$characters$results$name<TRes> get name {
     final local$name = _instance.name;
     return local$name == null
         ? CopyWith$Query$Search$characters$results$name.stub(_then(_instance))
         : CopyWith$Query$Search$characters$results$name(
-            local$name, (e) => call(name: e));
+            local$name,
+            (e) => call(name: e),
+          );
   }
 
   CopyWith$Query$Search$characters$results$image<TRes> get image {
@@ -1653,7 +1723,9 @@ class _CopyWithImpl$Query$Search$characters$results<TRes>
     return local$image == null
         ? CopyWith$Query$Search$characters$results$image.stub(_then(_instance))
         : CopyWith$Query$Search$characters$results$image(
-            local$image, (e) => call(image: e));
+            local$image,
+            (e) => call(image: e),
+          );
   }
 }
 
@@ -1670,8 +1742,7 @@ class _CopyWithStubImpl$Query$Search$characters$results<TRes>
     Query$Search$characters$results$name? name,
     Query$Search$characters$results$image? image,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$characters$results$name<TRes> get name =>
       CopyWith$Query$Search$characters$results$name.stub(_res);
@@ -1688,7 +1759,8 @@ class Query$Search$characters$results$name {
   });
 
   factory Query$Search$characters$results$name.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$full = json['full'];
     final l$native = json['native'];
     final l$$__typename = json['__typename'];
@@ -1759,11 +1831,12 @@ class Query$Search$characters$results$name {
 extension UtilityExtension$Query$Search$characters$results$name
     on Query$Search$characters$results$name {
   CopyWith$Query$Search$characters$results$name<
-          Query$Search$characters$results$name>
-      get copyWith => CopyWith$Query$Search$characters$results$name(
-            this,
-            (i) => i,
-          );
+    Query$Search$characters$results$name
+  >
+  get copyWith => CopyWith$Query$Search$characters$results$name(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$characters$results$name<TRes> {
@@ -1799,14 +1872,15 @@ class _CopyWithImpl$Query$Search$characters$results$name<TRes>
     Object? full = _undefined,
     Object? native = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$characters$results$name(
-        full: full == _undefined ? _instance.full : (full as String?),
-        native: native == _undefined ? _instance.native : (native as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$characters$results$name(
+      full: full == _undefined ? _instance.full : (full as String?),
+      native: native == _undefined ? _instance.native : (native as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$characters$results$name<TRes>
@@ -1819,8 +1893,7 @@ class _CopyWithStubImpl$Query$Search$characters$results$name<TRes>
     String? full,
     String? native,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$characters$results$image {
@@ -1831,7 +1904,8 @@ class Query$Search$characters$results$image {
   });
 
   factory Query$Search$characters$results$image.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$large = json['large'];
     final l$medium = json['medium'];
     final l$$__typename = json['__typename'];
@@ -1902,11 +1976,12 @@ class Query$Search$characters$results$image {
 extension UtilityExtension$Query$Search$characters$results$image
     on Query$Search$characters$results$image {
   CopyWith$Query$Search$characters$results$image<
-          Query$Search$characters$results$image>
-      get copyWith => CopyWith$Query$Search$characters$results$image(
-            this,
-            (i) => i,
-          );
+    Query$Search$characters$results$image
+  >
+  get copyWith => CopyWith$Query$Search$characters$results$image(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$characters$results$image<TRes> {
@@ -1942,14 +2017,15 @@ class _CopyWithImpl$Query$Search$characters$results$image<TRes>
     Object? large = _undefined,
     Object? medium = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$characters$results$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        medium: medium == _undefined ? _instance.medium : (medium as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$characters$results$image(
+      large: large == _undefined ? _instance.large : (large as String?),
+      medium: medium == _undefined ? _instance.medium : (medium as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$characters$results$image<TRes>
@@ -1962,8 +2038,7 @@ class _CopyWithStubImpl$Query$Search$characters$results$image<TRes>
     String? large,
     String? medium,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$staff {
@@ -1981,12 +2056,16 @@ class Query$Search$staff {
       pageInfo: l$pageInfo == null
           ? null
           : Query$Search$staff$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       results: (l$results as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Search$staff$results.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Search$staff$results.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2083,11 +2162,13 @@ abstract class CopyWith$Query$Search$staff<TRes> {
   });
   CopyWith$Query$Search$staff$pageInfo<TRes> get pageInfo;
   TRes results(
-      Iterable<Query$Search$staff$results?>? Function(
-              Iterable<
-                  CopyWith$Query$Search$staff$results<
-                      Query$Search$staff$results>?>?)
-          _fn);
+    Iterable<Query$Search$staff$results?>? Function(
+      Iterable<
+        CopyWith$Query$Search$staff$results<Query$Search$staff$results>?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Search$staff<TRes>
@@ -2107,40 +2188,49 @@ class _CopyWithImpl$Query$Search$staff<TRes>
     Object? pageInfo = _undefined,
     Object? results = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$staff(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$Search$staff$pageInfo?),
-        results: results == _undefined
-            ? _instance.results
-            : (results as List<Query$Search$staff$results?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$staff(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$Search$staff$pageInfo?),
+      results: results == _undefined
+          ? _instance.results
+          : (results as List<Query$Search$staff$results?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$staff$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$Search$staff$pageInfo.stub(_then(_instance))
         : CopyWith$Query$Search$staff$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes results(
-          Iterable<Query$Search$staff$results?>? Function(
-                  Iterable<
-                      CopyWith$Query$Search$staff$results<
-                          Query$Search$staff$results>?>?)
-              _fn) =>
-      call(
-          results: _fn(_instance.results?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Search$staff$results(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Search$staff$results?>? Function(
+      Iterable<
+        CopyWith$Query$Search$staff$results<Query$Search$staff$results>?
+      >?,
+    )
+    _fn,
+  ) => call(
+    results: _fn(
+      _instance.results?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Search$staff$results(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$staff<TRes>
@@ -2153,8 +2243,7 @@ class _CopyWithStubImpl$Query$Search$staff<TRes>
     Query$Search$staff$pageInfo? pageInfo,
     List<Query$Search$staff$results?>? results,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$staff$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$Search$staff$pageInfo.stub(_res);
@@ -2226,10 +2315,10 @@ class Query$Search$staff$pageInfo {
 extension UtilityExtension$Query$Search$staff$pageInfo
     on Query$Search$staff$pageInfo {
   CopyWith$Query$Search$staff$pageInfo<Query$Search$staff$pageInfo>
-      get copyWith => CopyWith$Query$Search$staff$pageInfo(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$staff$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$staff$pageInfo<TRes> {
@@ -2263,13 +2352,14 @@ class _CopyWithImpl$Query$Search$staff$pageInfo<TRes>
   TRes call({
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$staff$pageInfo(
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$staff$pageInfo(
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$staff$pageInfo<TRes>
@@ -2281,8 +2371,7 @@ class _CopyWithStubImpl$Query$Search$staff$pageInfo<TRes>
   call({
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$staff$results {
@@ -2311,11 +2400,13 @@ class Query$Search$staff$results {
       name: l$name == null
           ? null
           : Query$Search$staff$results$name.fromJson(
-              (l$name as Map<String, dynamic>)),
+              (l$name as Map<String, dynamic>),
+            ),
       image: l$image == null
           ? null
           : Query$Search$staff$results$image.fromJson(
-              (l$image as Map<String, dynamic>)),
+              (l$image as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2339,8 +2430,9 @@ class Query$Search$staff$results {
     final l$siteUrl = siteUrl;
     _resultData['siteUrl'] = l$siteUrl;
     final l$primaryOccupations = primaryOccupations;
-    _resultData['primaryOccupations'] =
-        l$primaryOccupations?.map((e) => e).toList();
+    _resultData['primaryOccupations'] = l$primaryOccupations
+        ?.map((e) => e)
+        .toList();
     final l$name = name;
     _resultData['name'] = l$name?.toJson();
     final l$image = image;
@@ -2427,10 +2519,10 @@ class Query$Search$staff$results {
 extension UtilityExtension$Query$Search$staff$results
     on Query$Search$staff$results {
   CopyWith$Query$Search$staff$results<Query$Search$staff$results>
-      get copyWith => CopyWith$Query$Search$staff$results(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$staff$results(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$staff$results<TRes> {
@@ -2474,31 +2566,33 @@ class _CopyWithImpl$Query$Search$staff$results<TRes>
     Object? name = _undefined,
     Object? image = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$staff$results(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        siteUrl:
-            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        primaryOccupations: primaryOccupations == _undefined
-            ? _instance.primaryOccupations
-            : (primaryOccupations as List<String?>?),
-        name: name == _undefined
-            ? _instance.name
-            : (name as Query$Search$staff$results$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image as Query$Search$staff$results$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$staff$results(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      siteUrl: siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+      primaryOccupations: primaryOccupations == _undefined
+          ? _instance.primaryOccupations
+          : (primaryOccupations as List<String?>?),
+      name: name == _undefined
+          ? _instance.name
+          : (name as Query$Search$staff$results$name?),
+      image: image == _undefined
+          ? _instance.image
+          : (image as Query$Search$staff$results$image?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Search$staff$results$name<TRes> get name {
     final local$name = _instance.name;
     return local$name == null
         ? CopyWith$Query$Search$staff$results$name.stub(_then(_instance))
         : CopyWith$Query$Search$staff$results$name(
-            local$name, (e) => call(name: e));
+            local$name,
+            (e) => call(name: e),
+          );
   }
 
   CopyWith$Query$Search$staff$results$image<TRes> get image {
@@ -2506,7 +2600,9 @@ class _CopyWithImpl$Query$Search$staff$results<TRes>
     return local$image == null
         ? CopyWith$Query$Search$staff$results$image.stub(_then(_instance))
         : CopyWith$Query$Search$staff$results$image(
-            local$image, (e) => call(image: e));
+            local$image,
+            (e) => call(image: e),
+          );
   }
 }
 
@@ -2523,8 +2619,7 @@ class _CopyWithStubImpl$Query$Search$staff$results<TRes>
     Query$Search$staff$results$name? name,
     Query$Search$staff$results$image? image,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Search$staff$results$name<TRes> get name =>
       CopyWith$Query$Search$staff$results$name.stub(_res);
@@ -2611,10 +2706,10 @@ class Query$Search$staff$results$name {
 extension UtilityExtension$Query$Search$staff$results$name
     on Query$Search$staff$results$name {
   CopyWith$Query$Search$staff$results$name<Query$Search$staff$results$name>
-      get copyWith => CopyWith$Query$Search$staff$results$name(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$staff$results$name(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$staff$results$name<TRes> {
@@ -2650,14 +2745,15 @@ class _CopyWithImpl$Query$Search$staff$results$name<TRes>
     Object? full = _undefined,
     Object? native = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$staff$results$name(
-        full: full == _undefined ? _instance.full : (full as String?),
-        native: native == _undefined ? _instance.native : (native as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$staff$results$name(
+      full: full == _undefined ? _instance.full : (full as String?),
+      native: native == _undefined ? _instance.native : (native as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$staff$results$name<TRes>
@@ -2670,8 +2766,7 @@ class _CopyWithStubImpl$Query$Search$staff$results$name<TRes>
     String? full,
     String? native,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search$staff$results$image {
@@ -2752,10 +2847,10 @@ class Query$Search$staff$results$image {
 extension UtilityExtension$Query$Search$staff$results$image
     on Query$Search$staff$results$image {
   CopyWith$Query$Search$staff$results$image<Query$Search$staff$results$image>
-      get copyWith => CopyWith$Query$Search$staff$results$image(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Search$staff$results$image(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Search$staff$results$image<TRes> {
@@ -2791,14 +2886,15 @@ class _CopyWithImpl$Query$Search$staff$results$image<TRes>
     Object? large = _undefined,
     Object? medium = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$staff$results$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        medium: medium == _undefined ? _instance.medium : (medium as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$staff$results$image(
+      large: large == _undefined ? _instance.large : (large as String?),
+      medium: medium == _undefined ? _instance.medium : (medium as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$staff$results$image<TRes>
@@ -2811,6 +2907,5 @@ class _CopyWithStubImpl$Query$Search$staff$results$image<TRes>
     String? large,
     String? medium,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

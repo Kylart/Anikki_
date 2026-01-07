@@ -6,7 +6,8 @@ import 'package:anikki/data/data.dart';
 
 class ConsumetRepository {
   ConsumetRepository({List<AnimeProvider>? providers}) {
-    this.providers = providers ??
+    this.providers =
+        providers ??
         [
           Hianimez(),
           Anify(),

@@ -29,8 +29,9 @@ mixin MediaImages on IMedia {
 
     /// If the media is a season we need to find the appropriate poster image for this season
     if (title != null && tmdbInfo?.seasons?.isNotEmpty == true) {
-      final season = tmdbInfo?.seasons
-          ?.firstWhereOrNull((season) => season.seasonNumber == seasonNumber);
+      final season = tmdbInfo?.seasons?.firstWhereOrNull(
+        (season) => season.seasonNumber == seasonNumber,
+      );
 
       if (season != null && season.posterPath != null) {
         return getTmdbImageUrl(season.posterPath!);

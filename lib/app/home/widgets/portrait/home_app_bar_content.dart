@@ -12,11 +12,10 @@ class HomeAppBarContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final connected = BlocProvider.of<WatchListBloc>(context, listen: true)
-        .state
-        .connected
-        .values
-        .any((value) => value);
+    final connected = BlocProvider.of<WatchListBloc>(
+      context,
+      listen: true,
+    ).state.connected.values.any((value) => value);
 
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
@@ -28,8 +27,10 @@ class HomeAppBarContent extends StatelessWidget {
             for (final type in HomeMediaType.values.where(
               (value) =>
                   connected ||
-                  [HomeMediaType.trending, HomeMediaType.recommendations]
-                      .contains(value),
+                  [
+                    HomeMediaType.trending,
+                    HomeMediaType.recommendations,
+                  ].contains(value),
             ))
               ButtonSegment(
                 value: type,

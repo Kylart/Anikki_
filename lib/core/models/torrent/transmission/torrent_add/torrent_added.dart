@@ -10,16 +10,16 @@ class TorrentAdded extends Equatable {
   const TorrentAdded({this.hashString, this.id, this.name});
 
   factory TorrentAdded.fromMap(Map<String, dynamic> data) => TorrentAdded(
-        hashString: data['hashString'] as String?,
-        id: data['id'] as int?,
-        name: data['name'] as String?,
-      );
+    hashString: data['hashString'] as String?,
+    id: data['id'] as int?,
+    name: data['name'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'hashString': hashString,
-        'id': id,
-        'name': name,
-      };
+    'hashString': hashString,
+    'id': id,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

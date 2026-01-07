@@ -14,8 +14,8 @@ class WatchListRequested extends WatchListEvent {
 
   @override
   List<Object> get props => [
-        provider,
-      ];
+    provider,
+  ];
 }
 
 class WatchListCurrentProviderUpdated extends WatchListEvent {
@@ -25,8 +25,8 @@ class WatchListCurrentProviderUpdated extends WatchListEvent {
 
   @override
   List<Object> get props => [
-        provider,
-      ];
+    provider,
+  ];
 }
 
 class WatchListAuthUpdated extends WatchListEvent {
@@ -40,9 +40,9 @@ class WatchListAuthUpdated extends WatchListEvent {
 
   @override
   List<Object> get props => [
-        connected,
-        provider,
-      ];
+    connected,
+    provider,
+  ];
 }
 
 class WatchListWatched extends WatchListEvent {
@@ -56,9 +56,9 @@ class WatchListWatched extends WatchListEvent {
 
   @override
   List<Object?> get props => [
-        media,
-        episode,
-      ];
+    media,
+    episode,
+  ];
 }
 
 class WatchListRemoveMedia extends WatchListEvent {
@@ -81,6 +81,6 @@ class WatchListToggleFavourite extends WatchListEvent {
 
   @override
   List<Object?> get props => [
-        media,
-      ];
+    media,
+  ];
 }

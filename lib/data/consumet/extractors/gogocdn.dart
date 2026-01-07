@@ -41,8 +41,10 @@ class GogoCDN extends Extractor {
     final page = await client.get(uri);
     final document = parse(page.body);
 
-    final encyptedParams =
-        _generateEncryptedAjaxParams(document, uri.queryParameters['id'] ?? '');
+    final encyptedParams = _generateEncryptedAjaxParams(
+      document,
+      uri.queryParameters['id'] ?? '',
+    );
 
     final encryptedData = await client.get(
       Uri(

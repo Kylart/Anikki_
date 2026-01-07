@@ -5,8 +5,8 @@ import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$Trending {
   factory Variables$Query$Trending({int? page}) => Variables$Query$Trending._({
-        if (page != null) r'page': page,
-      });
+    if (page != null) r'page': page,
+  });
 
   Variables$Query$Trending._(this._$data);
 
@@ -90,10 +90,12 @@ class _CopyWithImpl$Variables$Query$Trending<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined}) => _then(Variables$Query$Trending._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? page = _undefined}) => _then(
+    Variables$Query$Trending._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Trending<TRes>
@@ -207,15 +209,16 @@ class _CopyWithImpl$Query$Trending<TRes>
   TRes call({
     Object? Page = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Trending(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$Trending$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Trending(
+      Page: Page == _undefined
+          ? _instance.Page
+          : (Page as Query$Trending$Page?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Trending$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -234,110 +237,128 @@ class _CopyWithStubImpl$Query$Trending<TRes>
   call({
     Query$Trending$Page? Page,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Trending$Page<TRes> get Page =>
       CopyWith$Query$Trending$Page.stub(_res);
 }
 
-const documentNodeQueryTrending = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Trending'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'hasNextPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+const documentNodeQueryTrending = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Trending'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'mediaTrends'),
+            name: NameNode(value: 'Page'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
+              ),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'trending'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'media'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'hasNextPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'mediaTrends'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'trending'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'media'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -346,25 +367,19 @@ const documentNodeQueryTrending = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
+    ),
+    fragmentDefinitionmedia,
+  ],
+);
 Query$Trending _parserFn$Query$Trending(Map<String, dynamic> data) =>
     Query$Trending.fromJson(data);
-typedef OnQueryComplete$Query$Trending = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$Trending?,
-);
+typedef OnQueryComplete$Query$Trending =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$Trending?,
+    );
 
 class Options$Query$Trending extends graphql.QueryOptions<Query$Trending> {
   Options$Query$Trending({
@@ -379,36 +394,36 @@ class Options$Query$Trending extends graphql.QueryOptions<Query$Trending> {
     graphql.Context? context,
     OnQueryComplete$Query$Trending? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$Trending(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryTrending,
-          parserFn: _parserFn$Query$Trending,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$Trending(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryTrending,
+         parserFn: _parserFn$Query$Trending,
+       );
 
   final OnQueryComplete$Query$Trending? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$Trending
@@ -427,20 +442,20 @@ class WatchOptions$Query$Trending
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryTrending,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$Trending,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryTrending,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$Trending,
+       );
 }
 
 class FetchMoreOptions$Query$Trending extends graphql.FetchMoreOptions {
@@ -448,32 +463,31 @@ class FetchMoreOptions$Query$Trending extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$Trending? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryTrending,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryTrending,
+       );
 }
 
 extension ClientExtension$Query$Trending on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$Trending>> query$Trending(
-          [Options$Query$Trending? options]) async =>
-      await this.query(options ?? Options$Query$Trending());
-  graphql.ObservableQuery<Query$Trending> watchQuery$Trending(
-          [WatchOptions$Query$Trending? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$Trending());
+  Future<graphql.QueryResult<Query$Trending>> query$Trending([
+    Options$Query$Trending? options,
+  ]) async => await this.query(options ?? Options$Query$Trending());
+  graphql.ObservableQuery<Query$Trending> watchQuery$Trending([
+    WatchOptions$Query$Trending? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$Trending());
   void writeQuery$Trending({
     required Query$Trending data,
     Variables$Query$Trending? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryTrending),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryTrending),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$Trending? readQuery$Trending({
     Variables$Query$Trending? variables,
     bool optimistic = true,
@@ -504,12 +518,16 @@ class Query$Trending$Page {
       pageInfo: l$pageInfo == null
           ? null
           : Query$Trending$Page$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       mediaTrends: (l$mediaTrends as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Trending$Page$mediaTrends.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Trending$Page$mediaTrends.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -526,8 +544,9 @@ class Query$Trending$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$mediaTrends = mediaTrends;
-    _resultData['mediaTrends'] =
-        l$mediaTrends?.map((e) => e?.toJson()).toList();
+    _resultData['mediaTrends'] = l$mediaTrends
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -609,11 +628,15 @@ abstract class CopyWith$Query$Trending$Page<TRes> {
   });
   CopyWith$Query$Trending$Page$pageInfo<TRes> get pageInfo;
   TRes mediaTrends(
-      Iterable<Query$Trending$Page$mediaTrends?>? Function(
-              Iterable<
-                  CopyWith$Query$Trending$Page$mediaTrends<
-                      Query$Trending$Page$mediaTrends>?>?)
-          _fn);
+    Iterable<Query$Trending$Page$mediaTrends?>? Function(
+      Iterable<
+        CopyWith$Query$Trending$Page$mediaTrends<
+          Query$Trending$Page$mediaTrends
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Trending$Page<TRes>
@@ -633,40 +656,51 @@ class _CopyWithImpl$Query$Trending$Page<TRes>
     Object? pageInfo = _undefined,
     Object? mediaTrends = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Trending$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$Trending$Page$pageInfo?),
-        mediaTrends: mediaTrends == _undefined
-            ? _instance.mediaTrends
-            : (mediaTrends as List<Query$Trending$Page$mediaTrends?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Trending$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$Trending$Page$pageInfo?),
+      mediaTrends: mediaTrends == _undefined
+          ? _instance.mediaTrends
+          : (mediaTrends as List<Query$Trending$Page$mediaTrends?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Trending$Page$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$Trending$Page$pageInfo.stub(_then(_instance))
         : CopyWith$Query$Trending$Page$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes mediaTrends(
-          Iterable<Query$Trending$Page$mediaTrends?>? Function(
-                  Iterable<
-                      CopyWith$Query$Trending$Page$mediaTrends<
-                          Query$Trending$Page$mediaTrends>?>?)
-              _fn) =>
-      call(
-          mediaTrends: _fn(_instance.mediaTrends?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Trending$Page$mediaTrends(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Trending$Page$mediaTrends?>? Function(
+      Iterable<
+        CopyWith$Query$Trending$Page$mediaTrends<
+          Query$Trending$Page$mediaTrends
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    mediaTrends: _fn(
+      _instance.mediaTrends?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Trending$Page$mediaTrends(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Trending$Page<TRes>
@@ -679,8 +713,7 @@ class _CopyWithStubImpl$Query$Trending$Page<TRes>
     Query$Trending$Page$pageInfo? pageInfo,
     List<Query$Trending$Page$mediaTrends?>? mediaTrends,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Trending$Page$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$Trending$Page$pageInfo.stub(_res);
@@ -766,10 +799,10 @@ class Query$Trending$Page$pageInfo {
 extension UtilityExtension$Query$Trending$Page$pageInfo
     on Query$Trending$Page$pageInfo {
   CopyWith$Query$Trending$Page$pageInfo<Query$Trending$Page$pageInfo>
-      get copyWith => CopyWith$Query$Trending$Page$pageInfo(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Trending$Page$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Trending$Page$pageInfo<TRes> {
@@ -805,16 +838,17 @@ class _CopyWithImpl$Query$Trending$Page$pageInfo<TRes>
     Object? hasNextPage = _undefined,
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Trending$Page$pageInfo(
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Trending$Page$pageInfo(
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Trending$Page$pageInfo<TRes>
@@ -827,8 +861,7 @@ class _CopyWithStubImpl$Query$Trending$Page$pageInfo<TRes>
     bool? hasNextPage,
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Trending$Page$mediaTrends {
@@ -911,10 +944,10 @@ class Query$Trending$Page$mediaTrends {
 extension UtilityExtension$Query$Trending$Page$mediaTrends
     on Query$Trending$Page$mediaTrends {
   CopyWith$Query$Trending$Page$mediaTrends<Query$Trending$Page$mediaTrends>
-      get copyWith => CopyWith$Query$Trending$Page$mediaTrends(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Trending$Page$mediaTrends(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Trending$Page$mediaTrends<TRes> {
@@ -951,17 +984,17 @@ class _CopyWithImpl$Query$Trending$Page$mediaTrends<TRes>
     Object? trending = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Trending$Page$mediaTrends(
-        trending: trending == _undefined || trending == null
-            ? _instance.trending
-            : (trending as int),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Trending$Page$mediaTrends(
+      trending: trending == _undefined || trending == null
+          ? _instance.trending
+          : (trending as int),
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media<TRes> get media {
     final local$media = _instance.media;
@@ -981,8 +1014,7 @@ class _CopyWithStubImpl$Query$Trending$Page$mediaTrends<TRes>
     int? trending,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media<TRes> get media => CopyWith$Fragment$media.stub(_res);
 }

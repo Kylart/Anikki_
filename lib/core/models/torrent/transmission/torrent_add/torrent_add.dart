@@ -12,18 +12,18 @@ class TorrentAdd extends Equatable {
   const TorrentAdd({this.arguments, this.result, this.tag});
 
   factory TorrentAdd.fromMap(Map<String, dynamic> data) => TorrentAdd(
-        arguments: data['arguments'] == null
-            ? null
-            : Arguments.fromMap(data['arguments'] as Map<String, dynamic>),
-        result: data['result'] as String?,
-        tag: data['tag'] as int?,
-      );
+    arguments: data['arguments'] == null
+        ? null
+        : Arguments.fromMap(data['arguments'] as Map<String, dynamic>),
+    result: data['result'] as String?,
+    tag: data['tag'] as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'arguments': arguments?.toMap(),
-        'result': result,
-        'tag': tag,
-      };
+    'arguments': arguments?.toMap(),
+    'result': result,
+    'tag': tag,
+  };
 
   /// `dart:convert`
   ///

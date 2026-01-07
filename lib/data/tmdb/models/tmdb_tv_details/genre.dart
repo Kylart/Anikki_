@@ -9,14 +9,14 @@ class Genre extends Equatable {
   const Genre({this.id, this.name});
 
   factory Genre.fromMap(Map<String, dynamic> data) => Genre(
-        id: data['id'] as int?,
-        name: data['name'] as String?,
-      );
+    id: data['id'] as int?,
+    name: data['name'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'name': name,
-      };
+    'id': id,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

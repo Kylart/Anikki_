@@ -14,8 +14,8 @@ final class HomeCurrentIndexChanged extends HomeEvent {
 
   @override
   List<Object?> get props => [
-        index,
-      ];
+    index,
+  ];
 }
 
 final class HomeCurrentBackgroundUrlChanged extends HomeEvent {
@@ -29,9 +29,9 @@ final class HomeCurrentBackgroundUrlChanged extends HomeEvent {
 
   @override
   List<Object?> get props => [
-        url,
-        resetTimer,
-      ];
+    url,
+    resetTimer,
+  ];
 }
 
 final class HomeRefreshed extends HomeEvent {
@@ -47,8 +47,8 @@ final class HomeRefreshed extends HomeEvent {
 
   @override
   List<Object?> get props => [
-        watchList,
-        requestedType,
-        watchListProvider,
-      ];
+    watchList,
+    requestedType,
+    watchListProvider,
+  ];
 }

@@ -52,8 +52,9 @@ class FeedRepository {
     return [
       for (final entry in entries)
         ScheduleEntry(
-          releaseTime:
-              DateTime.fromMillisecondsSinceEpoch(entry.airingAt * 1000),
+          releaseTime: DateTime.fromMillisecondsSinceEpoch(
+            entry.airingAt * 1000,
+          ),
           media: Media(
             anilistInfo: entry.media,
           ),

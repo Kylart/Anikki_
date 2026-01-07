@@ -19,7 +19,7 @@ class SearchRequested extends SearchEvent {
 
   @override
   List<Object> get props => [
-        term,
-        libraryEntries,
-      ];
+    term,
+    libraryEntries,
+  ];
 }

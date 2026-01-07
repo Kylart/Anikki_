@@ -16,11 +16,11 @@ class AnimeResult extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        title,
-        url,
-        subOrDub,
-      ];
+    id,
+    title,
+    url,
+    subOrDub,
+  ];
 
   @override
   bool get stringify => true;

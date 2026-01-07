@@ -10,15 +10,14 @@ class Arguments extends Equatable {
   const Arguments({this.torrentAdded});
 
   factory Arguments.fromMap(Map<String, dynamic> data) => Arguments(
-        torrentAdded: data['torrent-added'] == null
-            ? null
-            : TorrentAdded.fromMap(
-                data['torrent-added'] as Map<String, dynamic>),
-      );
+    torrentAdded: data['torrent-added'] == null
+        ? null
+        : TorrentAdded.fromMap(data['torrent-added'] as Map<String, dynamic>),
+  );
 
   Map<String, dynamic> toMap() => {
-        'torrent-added': torrentAdded?.toMap(),
-      };
+    'torrent-added': torrentAdded?.toMap(),
+  };
 
   /// `dart:convert`
   ///

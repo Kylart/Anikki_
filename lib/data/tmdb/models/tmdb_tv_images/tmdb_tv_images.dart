@@ -15,24 +15,24 @@ class TmdbTvImages extends Equatable {
   const TmdbTvImages({this.backdrops, this.id, this.logos, this.posters});
 
   factory TmdbTvImages.fromMap(Map<String, dynamic> data) => TmdbTvImages(
-        backdrops: (data['backdrops'] as List<dynamic>?)
-            ?.map((e) => Backdrop.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        id: data['id'] as int?,
-        logos: (data['logos'] as List<dynamic>?)
-            ?.map((e) => Logo.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        posters: (data['posters'] as List<dynamic>?)
-            ?.map((e) => Poster.fromMap(e as Map<String, dynamic>))
-            .toList(),
-      );
+    backdrops: (data['backdrops'] as List<dynamic>?)
+        ?.map((e) => Backdrop.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    id: data['id'] as int?,
+    logos: (data['logos'] as List<dynamic>?)
+        ?.map((e) => Logo.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    posters: (data['posters'] as List<dynamic>?)
+        ?.map((e) => Poster.fromMap(e as Map<String, dynamic>))
+        .toList(),
+  );
 
   Map<String, dynamic> toMap() => {
-        'backdrops': backdrops?.map((e) => e.toMap()).toList(),
-        'id': id,
-        'logos': logos?.map((e) => e.toMap()).toList(),
-        'posters': posters?.map((e) => e.toMap()).toList(),
-      };
+    'backdrops': backdrops?.map((e) => e.toMap()).toList(),
+    'id': id,
+    'logos': logos?.map((e) => e.toMap()).toList(),
+    'posters': posters?.map((e) => e.toMap()).toList(),
+  };
 
   /// `dart:convert`
   ///

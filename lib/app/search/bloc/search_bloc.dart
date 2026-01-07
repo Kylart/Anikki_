@@ -18,7 +18,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _onSearchRequested(
-      SearchRequested event, Emitter<SearchState> emit) async {
+    SearchRequested event,
+    Emitter<SearchState> emit,
+  ) async {
     final term = event.term;
 
     if (term.isEmpty) {

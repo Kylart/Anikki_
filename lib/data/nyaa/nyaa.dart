@@ -59,17 +59,24 @@ class Nyaa {
 
       torrents.add(
         TorrentSource(
-          id: element.children[1].children[0].attributes['href']
-                  ?.replaceAll('/view/', '') ??
+          id:
+              element.children[1].children[0].attributes['href']?.replaceAll(
+                '/view/',
+                '',
+              ) ??
               '000',
           name: name,
-          date: (int.parse((element.children[4].attributes['data-timestamp'] ??
-                      '0')) *
-                  1000)
-              .toString(),
+          date:
+              (int.parse(
+                        (element.children[4].attributes['data-timestamp'] ??
+                            '0'),
+                      ) *
+                      1000)
+                  .toString(),
           filesize: element.children[3].text,
           magnet: element.children[2].children.last.attributes['href'] ?? '',
-          torrent: baseUrl +
+          torrent:
+              baseUrl +
               (element.children[2].children.first.attributes['href'] ?? ''),
           seeders: element.children[5].text,
           leechers: element.children[6].text,
@@ -102,7 +109,7 @@ class Nyaa {
       'p': page?.toString() ?? '1',
       's': 'id',
       'o': 'desc',
-      'q': term ?? ''
+      'q': term ?? '',
     };
 
     try {

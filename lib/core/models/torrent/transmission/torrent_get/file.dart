@@ -10,16 +10,16 @@ class File extends Equatable {
   const File({this.bytesCompleted, this.length, this.name});
 
   factory File.fromMap(Map<String, dynamic> data) => File(
-        bytesCompleted: data['bytesCompleted'] as int?,
-        length: data['length'] as int?,
-        name: data['name'] as String?,
-      );
+    bytesCompleted: data['bytesCompleted'] as int?,
+    length: data['length'] as int?,
+    name: data['name'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'bytesCompleted': bytesCompleted,
-        'length': length,
-        'name': name,
-      };
+    'bytesCompleted': bytesCompleted,
+    'length': length,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

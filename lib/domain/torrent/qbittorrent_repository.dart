@@ -54,16 +54,16 @@ class QBitTorrentRepository extends TorrentRepository {
 
   @override
   Uri get defaultUri => Uri(
-        scheme: 'http',
-        host: 'localhost',
-        port: 8080,
-      );
+    scheme: 'http',
+    host: 'localhost',
+    port: 8080,
+  );
 
   String _cookie = 'no-cookie';
 
   Map<String, String> get headers => {
-        'Cookie': _cookie,
-      };
+    'Cookie': _cookie,
+  };
 
   void _handleStatusCode(int status) {
     if (status == 403) {
@@ -165,8 +165,10 @@ class QBitTorrentRepository extends TorrentRepository {
   /// Doc: https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#get-torrent-list
   @override
   Future<List<Torrent>> getTorrents() async {
-    final response =
-        await _get(ApiName.torrents, qbit.TorrentsMethod.info.name);
+    final response = await _get(
+      ApiName.torrents,
+      qbit.TorrentsMethod.info.name,
+    );
 
     final rawResult = jsonDecode(response) as List;
     final List<qbit.Torrent> result = [];
@@ -190,8 +192,9 @@ class QBitTorrentRepository extends TorrentRepository {
             ratio: e.ratio,
             leechers: e.numLeechs,
             seeders: e.numSeeds,
-            estimatedTimeToFinish:
-                e.eta != null ? Duration(seconds: e.eta!) : null,
+            estimatedTimeToFinish: e.eta != null
+                ? Duration(seconds: e.eta!)
+                : null,
           ),
         )
         .toList();
@@ -215,7 +218,8 @@ class QBitTorrentRepository extends TorrentRepository {
     final torrents = await getTorrents();
     final hash = Uri.parse(magnet).queryParameters['xt'];
     final torrent = torrents.firstWhere(
-        (element) => Uri.parse(element.magnet).queryParameters['xt'] == hash);
+      (element) => Uri.parse(element.magnet).queryParameters['xt'] == hash,
+    );
 
     return torrent;
   }
@@ -224,8 +228,10 @@ class QBitTorrentRepository extends TorrentRepository {
   ///
   /// Doc: https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#delete-torrents
   @override
-  Future<bool> removeTorrent(Torrent torrent,
-      [bool deleteLocal = false]) async {
+  Future<bool> removeTorrent(
+    Torrent torrent, [
+    bool deleteLocal = false,
+  ]) async {
     await _post(
       ApiName.torrents,
       qbit.TorrentsMethod.delete.name,

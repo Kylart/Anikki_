@@ -20,22 +20,22 @@ class ListStatus extends Equatable {
   });
 
   factory ListStatus.fromMap(Map<String, dynamic> data) => ListStatus(
-        status: data['status'] as String?,
-        score: data['score'] as int?,
-        numEpisodesWatched: data['num_episodes_watched'] as int?,
-        isRewatching: data['is_rewatching'] as bool?,
-        updatedAt: data['updated_at'] as String?,
-        startDate: data['start_date'] as String?,
-      );
+    status: data['status'] as String?,
+    score: data['score'] as int?,
+    numEpisodesWatched: data['num_episodes_watched'] as int?,
+    isRewatching: data['is_rewatching'] as bool?,
+    updatedAt: data['updated_at'] as String?,
+    startDate: data['start_date'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'status': status,
-        'score': score,
-        'num_episodes_watched': numEpisodesWatched,
-        'is_rewatching': isRewatching,
-        'updated_at': updatedAt,
-        'start_date': startDate,
-      };
+    'status': status,
+    'score': score,
+    'num_episodes_watched': numEpisodesWatched,
+    'is_rewatching': isRewatching,
+    'updated_at': updatedAt,
+    'start_date': startDate,
+  };
 
   /// `dart:convert`
   ///

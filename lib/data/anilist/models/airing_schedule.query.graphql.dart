@@ -8,12 +8,11 @@ class Variables$Query$AiringSchedule {
     int? start,
     int? end,
     int? page,
-  }) =>
-      Variables$Query$AiringSchedule._({
-        if (start != null) r'start': start,
-        if (end != null) r'end': end,
-        if (page != null) r'page': page,
-      });
+  }) => Variables$Query$AiringSchedule._({
+    if (start != null) r'start': start,
+    if (end != null) r'end': end,
+    if (page != null) r'page': page,
+  });
 
   Variables$Query$AiringSchedule._(this._$data);
 
@@ -60,10 +59,10 @@ class Variables$Query$AiringSchedule {
   }
 
   CopyWith$Variables$Query$AiringSchedule<Variables$Query$AiringSchedule>
-      get copyWith => CopyWith$Variables$Query$AiringSchedule(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$AiringSchedule(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -147,13 +146,14 @@ class _CopyWithImpl$Variables$Query$AiringSchedule<TRes>
     Object? start = _undefined,
     Object? end = _undefined,
     Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$AiringSchedule._({
-        ..._instance._$data,
-        if (start != _undefined) 'start': (start as int?),
-        if (end != _undefined) 'end': (end as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  }) => _then(
+    Variables$Query$AiringSchedule._({
+      ..._instance._$data,
+      if (start != _undefined) 'start': (start as int?),
+      if (end != _undefined) 'end': (end as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$AiringSchedule<TRes>
@@ -166,8 +166,7 @@ class _CopyWithStubImpl$Variables$Query$AiringSchedule<TRes>
     int? start,
     int? end,
     int? page,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$AiringSchedule {
@@ -183,7 +182,8 @@ class Query$AiringSchedule {
       Page: l$Page == null
           ? null
           : Query$AiringSchedule$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -273,15 +273,16 @@ class _CopyWithImpl$Query$AiringSchedule<TRes>
   TRes call({
     Object? Page = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringSchedule(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$AiringSchedule$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringSchedule(
+      Page: Page == _undefined
+          ? _instance.Page
+          : (Page as Query$AiringSchedule$Page?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$AiringSchedule$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -300,155 +301,173 @@ class _CopyWithStubImpl$Query$AiringSchedule<TRes>
   call({
     Query$AiringSchedule$Page? Page,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$AiringSchedule$Page<TRes> get Page =>
       CopyWith$Query$AiringSchedule$Page.stub(_res);
 }
 
-const documentNodeQueryAiringSchedule = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'AiringSchedule'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'start')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'end')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'hasNextPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+const documentNodeQueryAiringSchedule = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'AiringSchedule'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'start')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'end')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'airingSchedules'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'airingAt_greater'),
-                value: VariableNode(name: NameNode(value: 'start')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'airingAt_lesser'),
-                value: VariableNode(name: NameNode(value: 'end')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'TIME_DESC')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'episode'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'airingAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'media'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'hasNextPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'airingSchedules'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_greater'),
+                      value: VariableNode(name: NameNode(value: 'start')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_lesser'),
+                      value: VariableNode(name: NameNode(value: 'end')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'TIME_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'episode'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'airingAt'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'media'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -457,26 +476,20 @@ const documentNodeQueryAiringSchedule = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
-Query$AiringSchedule _parserFn$Query$AiringSchedule(
-        Map<String, dynamic> data) =>
-    Query$AiringSchedule.fromJson(data);
-typedef OnQueryComplete$Query$AiringSchedule = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$AiringSchedule?,
+    ),
+    fragmentDefinitionmedia,
+  ],
 );
+Query$AiringSchedule _parserFn$Query$AiringSchedule(
+  Map<String, dynamic> data,
+) => Query$AiringSchedule.fromJson(data);
+typedef OnQueryComplete$Query$AiringSchedule =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$AiringSchedule?,
+    );
 
 class Options$Query$AiringSchedule
     extends graphql.QueryOptions<Query$AiringSchedule> {
@@ -492,36 +505,36 @@ class Options$Query$AiringSchedule
     graphql.Context? context,
     OnQueryComplete$Query$AiringSchedule? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$AiringSchedule(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryAiringSchedule,
-          parserFn: _parserFn$Query$AiringSchedule,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$AiringSchedule(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryAiringSchedule,
+         parserFn: _parserFn$Query$AiringSchedule,
+       );
 
   final OnQueryComplete$Query$AiringSchedule? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$AiringSchedule
@@ -540,20 +553,20 @@ class WatchOptions$Query$AiringSchedule
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryAiringSchedule,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$AiringSchedule,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryAiringSchedule,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$AiringSchedule,
+       );
 }
 
 class FetchMoreOptions$Query$AiringSchedule extends graphql.FetchMoreOptions {
@@ -561,33 +574,31 @@ class FetchMoreOptions$Query$AiringSchedule extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$AiringSchedule? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryAiringSchedule,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryAiringSchedule,
+       );
 }
 
 extension ClientExtension$Query$AiringSchedule on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$AiringSchedule>> query$AiringSchedule(
-          [Options$Query$AiringSchedule? options]) async =>
-      await this.query(options ?? Options$Query$AiringSchedule());
-  graphql.ObservableQuery<Query$AiringSchedule> watchQuery$AiringSchedule(
-          [WatchOptions$Query$AiringSchedule? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$AiringSchedule());
+  Future<graphql.QueryResult<Query$AiringSchedule>> query$AiringSchedule([
+    Options$Query$AiringSchedule? options,
+  ]) async => await this.query(options ?? Options$Query$AiringSchedule());
+  graphql.ObservableQuery<Query$AiringSchedule> watchQuery$AiringSchedule([
+    WatchOptions$Query$AiringSchedule? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$AiringSchedule());
   void writeQuery$AiringSchedule({
     required Query$AiringSchedule data,
     Variables$Query$AiringSchedule? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryAiringSchedule),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryAiringSchedule),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$AiringSchedule? readQuery$AiringSchedule({
     Variables$Query$AiringSchedule? variables,
     bool optimistic = true,
@@ -618,12 +629,16 @@ class Query$AiringSchedule$Page {
       pageInfo: l$pageInfo == null
           ? null
           : Query$AiringSchedule$Page$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       airingSchedules: (l$airingSchedules as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$AiringSchedule$Page$airingSchedules.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$AiringSchedule$Page$airingSchedules.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -640,8 +655,9 @@ class Query$AiringSchedule$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$airingSchedules = airingSchedules;
-    _resultData['airingSchedules'] =
-        l$airingSchedules?.map((e) => e?.toJson()).toList();
+    _resultData['airingSchedules'] = l$airingSchedules
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -725,11 +741,15 @@ abstract class CopyWith$Query$AiringSchedule$Page<TRes> {
   });
   CopyWith$Query$AiringSchedule$Page$pageInfo<TRes> get pageInfo;
   TRes airingSchedules(
-      Iterable<Query$AiringSchedule$Page$airingSchedules?>? Function(
-              Iterable<
-                  CopyWith$Query$AiringSchedule$Page$airingSchedules<
-                      Query$AiringSchedule$Page$airingSchedules>?>?)
-          _fn);
+    Iterable<Query$AiringSchedule$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$AiringSchedule$Page$airingSchedules<
+          Query$AiringSchedule$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$AiringSchedule$Page<TRes>
@@ -749,41 +769,52 @@ class _CopyWithImpl$Query$AiringSchedule$Page<TRes>
     Object? pageInfo = _undefined,
     Object? airingSchedules = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringSchedule$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$AiringSchedule$Page$pageInfo?),
-        airingSchedules: airingSchedules == _undefined
-            ? _instance.airingSchedules
-            : (airingSchedules
+  }) => _then(
+    Query$AiringSchedule$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$AiringSchedule$Page$pageInfo?),
+      airingSchedules: airingSchedules == _undefined
+          ? _instance.airingSchedules
+          : (airingSchedules
                 as List<Query$AiringSchedule$Page$airingSchedules?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$AiringSchedule$Page$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$AiringSchedule$Page$pageInfo.stub(_then(_instance))
         : CopyWith$Query$AiringSchedule$Page$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes airingSchedules(
-          Iterable<Query$AiringSchedule$Page$airingSchedules?>? Function(
-                  Iterable<
-                      CopyWith$Query$AiringSchedule$Page$airingSchedules<
-                          Query$AiringSchedule$Page$airingSchedules>?>?)
-              _fn) =>
-      call(
-          airingSchedules: _fn(_instance.airingSchedules?.map((e) => e == null
-              ? null
-              : CopyWith$Query$AiringSchedule$Page$airingSchedules(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$AiringSchedule$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$AiringSchedule$Page$airingSchedules<
+          Query$AiringSchedule$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    airingSchedules: _fn(
+      _instance.airingSchedules?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$AiringSchedule$Page$airingSchedules(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$AiringSchedule$Page<TRes>
@@ -796,8 +827,7 @@ class _CopyWithStubImpl$Query$AiringSchedule$Page<TRes>
     Query$AiringSchedule$Page$pageInfo? pageInfo,
     List<Query$AiringSchedule$Page$airingSchedules?>? airingSchedules,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$AiringSchedule$Page$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$AiringSchedule$Page$pageInfo.stub(_res);
@@ -813,7 +843,8 @@ class Query$AiringSchedule$Page$pageInfo {
   });
 
   factory Query$AiringSchedule$Page$pageInfo.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$hasNextPage = json['hasNextPage'];
     final l$total = json['total'];
     final l$$__typename = json['__typename'];
@@ -884,11 +915,12 @@ class Query$AiringSchedule$Page$pageInfo {
 extension UtilityExtension$Query$AiringSchedule$Page$pageInfo
     on Query$AiringSchedule$Page$pageInfo {
   CopyWith$Query$AiringSchedule$Page$pageInfo<
-          Query$AiringSchedule$Page$pageInfo>
-      get copyWith => CopyWith$Query$AiringSchedule$Page$pageInfo(
-            this,
-            (i) => i,
-          );
+    Query$AiringSchedule$Page$pageInfo
+  >
+  get copyWith => CopyWith$Query$AiringSchedule$Page$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringSchedule$Page$pageInfo<TRes> {
@@ -924,16 +956,17 @@ class _CopyWithImpl$Query$AiringSchedule$Page$pageInfo<TRes>
     Object? hasNextPage = _undefined,
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringSchedule$Page$pageInfo(
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringSchedule$Page$pageInfo(
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$AiringSchedule$Page$pageInfo<TRes>
@@ -946,8 +979,7 @@ class _CopyWithStubImpl$Query$AiringSchedule$Page$pageInfo<TRes>
     bool? hasNextPage,
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$AiringSchedule$Page$airingSchedules {
@@ -960,7 +992,8 @@ class Query$AiringSchedule$Page$airingSchedules {
   });
 
   factory Query$AiringSchedule$Page$airingSchedules.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$episode = json['episode'];
     final l$airingAt = json['airingAt'];
@@ -1059,11 +1092,12 @@ class Query$AiringSchedule$Page$airingSchedules {
 extension UtilityExtension$Query$AiringSchedule$Page$airingSchedules
     on Query$AiringSchedule$Page$airingSchedules {
   CopyWith$Query$AiringSchedule$Page$airingSchedules<
-          Query$AiringSchedule$Page$airingSchedules>
-      get copyWith => CopyWith$Query$AiringSchedule$Page$airingSchedules(
-            this,
-            (i) => i,
-          );
+    Query$AiringSchedule$Page$airingSchedules
+  >
+  get copyWith => CopyWith$Query$AiringSchedule$Page$airingSchedules(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringSchedule$Page$airingSchedules<TRes> {
@@ -1104,21 +1138,21 @@ class _CopyWithImpl$Query$AiringSchedule$Page$airingSchedules<TRes>
     Object? airingAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringSchedule$Page$airingSchedules(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringSchedule$Page$airingSchedules(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media<TRes> get media {
     final local$media = _instance.media;
@@ -1140,8 +1174,7 @@ class _CopyWithStubImpl$Query$AiringSchedule$Page$airingSchedules<TRes>
     int? airingAt,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media<TRes> get media => CopyWith$Fragment$media.stub(_res);
 }
@@ -1152,18 +1185,18 @@ class Variables$Query$AiringScheduleWithIds {
     int? end,
     int? page,
     List<int?>? ids,
-  }) =>
-      Variables$Query$AiringScheduleWithIds._({
-        if (start != null) r'start': start,
-        if (end != null) r'end': end,
-        if (page != null) r'page': page,
-        if (ids != null) r'ids': ids,
-      });
+  }) => Variables$Query$AiringScheduleWithIds._({
+    if (start != null) r'start': start,
+    if (end != null) r'end': end,
+    if (page != null) r'page': page,
+    if (ids != null) r'ids': ids,
+  });
 
   Variables$Query$AiringScheduleWithIds._(this._$data);
 
   factory Variables$Query$AiringScheduleWithIds.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('start')) {
       final l$start = data['start'];
@@ -1179,8 +1212,9 @@ class Variables$Query$AiringScheduleWithIds {
     }
     if (data.containsKey('ids')) {
       final l$ids = data['ids'];
-      result$data['ids'] =
-          (l$ids as List<dynamic>?)?.map((e) => (e as int?)).toList();
+      result$data['ids'] = (l$ids as List<dynamic>?)
+          ?.map((e) => (e as int?))
+          .toList();
     }
     return Variables$Query$AiringScheduleWithIds._(result$data);
   }
@@ -1217,11 +1251,12 @@ class Variables$Query$AiringScheduleWithIds {
   }
 
   CopyWith$Variables$Query$AiringScheduleWithIds<
-          Variables$Query$AiringScheduleWithIds>
-      get copyWith => CopyWith$Variables$Query$AiringScheduleWithIds(
-            this,
-            (i) => i,
-          );
+    Variables$Query$AiringScheduleWithIds
+  >
+  get copyWith => CopyWith$Variables$Query$AiringScheduleWithIds(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -1290,8 +1325,8 @@ class Variables$Query$AiringScheduleWithIds {
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('ids')
           ? l$ids == null
-              ? null
-              : Object.hashAll(l$ids.map((v) => v))
+                ? null
+                : Object.hashAll(l$ids.map((v) => v))
           : const {},
     ]);
   }
@@ -1332,14 +1367,15 @@ class _CopyWithImpl$Variables$Query$AiringScheduleWithIds<TRes>
     Object? end = _undefined,
     Object? page = _undefined,
     Object? ids = _undefined,
-  }) =>
-      _then(Variables$Query$AiringScheduleWithIds._({
-        ..._instance._$data,
-        if (start != _undefined) 'start': (start as int?),
-        if (end != _undefined) 'end': (end as int?),
-        if (page != _undefined) 'page': (page as int?),
-        if (ids != _undefined) 'ids': (ids as List<int?>?),
-      }));
+  }) => _then(
+    Variables$Query$AiringScheduleWithIds._({
+      ..._instance._$data,
+      if (start != _undefined) 'start': (start as int?),
+      if (end != _undefined) 'end': (end as int?),
+      if (page != _undefined) 'page': (page as int?),
+      if (ids != _undefined) 'ids': (ids as List<int?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$AiringScheduleWithIds<TRes>
@@ -1353,8 +1389,7 @@ class _CopyWithStubImpl$Variables$Query$AiringScheduleWithIds<TRes>
     int? end,
     int? page,
     List<int?>? ids,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$AiringScheduleWithIds {
@@ -1370,7 +1405,8 @@ class Query$AiringScheduleWithIds {
       Page: l$Page == null
           ? null
           : Query$AiringScheduleWithIds$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1424,10 +1460,10 @@ class Query$AiringScheduleWithIds {
 extension UtilityExtension$Query$AiringScheduleWithIds
     on Query$AiringScheduleWithIds {
   CopyWith$Query$AiringScheduleWithIds<Query$AiringScheduleWithIds>
-      get copyWith => CopyWith$Query$AiringScheduleWithIds(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$AiringScheduleWithIds(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringScheduleWithIds<TRes> {
@@ -1462,22 +1498,25 @@ class _CopyWithImpl$Query$AiringScheduleWithIds<TRes>
   TRes call({
     Object? Page = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringScheduleWithIds(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$AiringScheduleWithIds$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringScheduleWithIds(
+      Page: Page == _undefined
+          ? _instance.Page
+          : (Page as Query$AiringScheduleWithIds$Page?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$AiringScheduleWithIds$Page<TRes> get Page {
     final local$Page = _instance.Page;
     return local$Page == null
         ? CopyWith$Query$AiringScheduleWithIds$Page.stub(_then(_instance))
         : CopyWith$Query$AiringScheduleWithIds$Page(
-            local$Page, (e) => call(Page: e));
+            local$Page,
+            (e) => call(Page: e),
+          );
   }
 }
 
@@ -1490,171 +1529,189 @@ class _CopyWithStubImpl$Query$AiringScheduleWithIds<TRes>
   call({
     Query$AiringScheduleWithIds$Page? Page,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$AiringScheduleWithIds$Page<TRes> get Page =>
       CopyWith$Query$AiringScheduleWithIds$Page.stub(_res);
 }
 
-const documentNodeQueryAiringScheduleWithIds = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'AiringScheduleWithIds'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'start')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'end')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'ids')),
-        type: ListTypeNode(
+const documentNodeQueryAiringScheduleWithIds = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'AiringScheduleWithIds'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'start')),
           type: NamedTypeNode(
             name: NameNode(value: 'Int'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'hasNextPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'end')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'ids')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'Int'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'airingSchedules'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'mediaId_in'),
-                value: VariableNode(name: NameNode(value: 'ids')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'airingAt_greater'),
-                value: VariableNode(name: NameNode(value: 'start')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'airingAt_lesser'),
-                value: VariableNode(name: NameNode(value: 'end')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'TIME_DESC')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'episode'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'airingAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'media'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'hasNextPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'airingSchedules'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'mediaId_in'),
+                      value: VariableNode(name: NameNode(value: 'ids')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_greater'),
+                      value: VariableNode(name: NameNode(value: 'start')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_lesser'),
+                      value: VariableNode(name: NameNode(value: 'end')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'TIME_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'episode'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'airingAt'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'media'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1663,26 +1720,20 @@ const documentNodeQueryAiringScheduleWithIds = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
-Query$AiringScheduleWithIds _parserFn$Query$AiringScheduleWithIds(
-        Map<String, dynamic> data) =>
-    Query$AiringScheduleWithIds.fromJson(data);
-typedef OnQueryComplete$Query$AiringScheduleWithIds = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$AiringScheduleWithIds?,
+    ),
+    fragmentDefinitionmedia,
+  ],
 );
+Query$AiringScheduleWithIds _parserFn$Query$AiringScheduleWithIds(
+  Map<String, dynamic> data,
+) => Query$AiringScheduleWithIds.fromJson(data);
+typedef OnQueryComplete$Query$AiringScheduleWithIds =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$AiringScheduleWithIds?,
+    );
 
 class Options$Query$AiringScheduleWithIds
     extends graphql.QueryOptions<Query$AiringScheduleWithIds> {
@@ -1698,38 +1749,38 @@ class Options$Query$AiringScheduleWithIds
     graphql.Context? context,
     OnQueryComplete$Query$AiringScheduleWithIds? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$AiringScheduleWithIds(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryAiringScheduleWithIds,
-          parserFn: _parserFn$Query$AiringScheduleWithIds,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null
+                     ? null
+                     : _parserFn$Query$AiringScheduleWithIds(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryAiringScheduleWithIds,
+         parserFn: _parserFn$Query$AiringScheduleWithIds,
+       );
 
   final OnQueryComplete$Query$AiringScheduleWithIds? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$AiringScheduleWithIds
@@ -1748,20 +1799,20 @@ class WatchOptions$Query$AiringScheduleWithIds
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryAiringScheduleWithIds,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$AiringScheduleWithIds,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryAiringScheduleWithIds,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$AiringScheduleWithIds,
+       );
 }
 
 class FetchMoreOptions$Query$AiringScheduleWithIds
@@ -1770,43 +1821,45 @@ class FetchMoreOptions$Query$AiringScheduleWithIds
     required graphql.UpdateQuery updateQuery,
     Variables$Query$AiringScheduleWithIds? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryAiringScheduleWithIds,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryAiringScheduleWithIds,
+       );
 }
 
 extension ClientExtension$Query$AiringScheduleWithIds on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$AiringScheduleWithIds>>
-      query$AiringScheduleWithIds(
-              [Options$Query$AiringScheduleWithIds? options]) async =>
-          await this.query(options ?? Options$Query$AiringScheduleWithIds());
-  graphql.ObservableQuery<
-      Query$AiringScheduleWithIds> watchQuery$AiringScheduleWithIds(
-          [WatchOptions$Query$AiringScheduleWithIds? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$AiringScheduleWithIds());
+  query$AiringScheduleWithIds([
+    Options$Query$AiringScheduleWithIds? options,
+  ]) async =>
+      await this.query(options ?? Options$Query$AiringScheduleWithIds());
+  graphql.ObservableQuery<Query$AiringScheduleWithIds>
+  watchQuery$AiringScheduleWithIds([
+    WatchOptions$Query$AiringScheduleWithIds? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$AiringScheduleWithIds());
   void writeQuery$AiringScheduleWithIds({
     required Query$AiringScheduleWithIds data,
     Variables$Query$AiringScheduleWithIds? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryAiringScheduleWithIds),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(
+        document: documentNodeQueryAiringScheduleWithIds,
+      ),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$AiringScheduleWithIds? readQuery$AiringScheduleWithIds({
     Variables$Query$AiringScheduleWithIds? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryAiringScheduleWithIds),
+        operation: graphql.Operation(
+          document: documentNodeQueryAiringScheduleWithIds,
+        ),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -1830,12 +1883,16 @@ class Query$AiringScheduleWithIds$Page {
       pageInfo: l$pageInfo == null
           ? null
           : Query$AiringScheduleWithIds$Page$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       airingSchedules: (l$airingSchedules as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$AiringScheduleWithIds$Page$airingSchedules.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$AiringScheduleWithIds$Page$airingSchedules.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1844,7 +1901,7 @@ class Query$AiringScheduleWithIds$Page {
   final Query$AiringScheduleWithIds$Page$pageInfo? pageInfo;
 
   final List<Query$AiringScheduleWithIds$Page$airingSchedules?>?
-      airingSchedules;
+  airingSchedules;
 
   final String $__typename;
 
@@ -1853,8 +1910,9 @@ class Query$AiringScheduleWithIds$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$airingSchedules = airingSchedules;
-    _resultData['airingSchedules'] =
-        l$airingSchedules?.map((e) => e?.toJson()).toList();
+    _resultData['airingSchedules'] = l$airingSchedules
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1916,10 +1974,10 @@ class Query$AiringScheduleWithIds$Page {
 extension UtilityExtension$Query$AiringScheduleWithIds$Page
     on Query$AiringScheduleWithIds$Page {
   CopyWith$Query$AiringScheduleWithIds$Page<Query$AiringScheduleWithIds$Page>
-      get copyWith => CopyWith$Query$AiringScheduleWithIds$Page(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$AiringScheduleWithIds$Page(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringScheduleWithIds$Page<TRes> {
@@ -1938,11 +1996,15 @@ abstract class CopyWith$Query$AiringScheduleWithIds$Page<TRes> {
   });
   CopyWith$Query$AiringScheduleWithIds$Page$pageInfo<TRes> get pageInfo;
   TRes airingSchedules(
-      Iterable<Query$AiringScheduleWithIds$Page$airingSchedules?>? Function(
-              Iterable<
-                  CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<
-                      Query$AiringScheduleWithIds$Page$airingSchedules>?>?)
-          _fn);
+    Iterable<Query$AiringScheduleWithIds$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<
+          Query$AiringScheduleWithIds$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$AiringScheduleWithIds$Page<TRes>
@@ -1962,42 +2024,54 @@ class _CopyWithImpl$Query$AiringScheduleWithIds$Page<TRes>
     Object? pageInfo = _undefined,
     Object? airingSchedules = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringScheduleWithIds$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$AiringScheduleWithIds$Page$pageInfo?),
-        airingSchedules: airingSchedules == _undefined
-            ? _instance.airingSchedules
-            : (airingSchedules
+  }) => _then(
+    Query$AiringScheduleWithIds$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$AiringScheduleWithIds$Page$pageInfo?),
+      airingSchedules: airingSchedules == _undefined
+          ? _instance.airingSchedules
+          : (airingSchedules
                 as List<Query$AiringScheduleWithIds$Page$airingSchedules?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$AiringScheduleWithIds$Page$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$AiringScheduleWithIds$Page$pageInfo.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$AiringScheduleWithIds$Page$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes airingSchedules(
-          Iterable<Query$AiringScheduleWithIds$Page$airingSchedules?>? Function(
-                  Iterable<
-                      CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<
-                          Query$AiringScheduleWithIds$Page$airingSchedules>?>?)
-              _fn) =>
-      call(
-          airingSchedules: _fn(_instance.airingSchedules?.map((e) => e == null
-              ? null
-              : CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$AiringScheduleWithIds$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<
+          Query$AiringScheduleWithIds$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    airingSchedules: _fn(
+      _instance.airingSchedules?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$AiringScheduleWithIds$Page<TRes>
@@ -2010,8 +2084,7 @@ class _CopyWithStubImpl$Query$AiringScheduleWithIds$Page<TRes>
     Query$AiringScheduleWithIds$Page$pageInfo? pageInfo,
     List<Query$AiringScheduleWithIds$Page$airingSchedules?>? airingSchedules,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$AiringScheduleWithIds$Page$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$AiringScheduleWithIds$Page$pageInfo.stub(_res);
@@ -2027,7 +2100,8 @@ class Query$AiringScheduleWithIds$Page$pageInfo {
   });
 
   factory Query$AiringScheduleWithIds$Page$pageInfo.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$hasNextPage = json['hasNextPage'];
     final l$total = json['total'];
     final l$$__typename = json['__typename'];
@@ -2098,11 +2172,12 @@ class Query$AiringScheduleWithIds$Page$pageInfo {
 extension UtilityExtension$Query$AiringScheduleWithIds$Page$pageInfo
     on Query$AiringScheduleWithIds$Page$pageInfo {
   CopyWith$Query$AiringScheduleWithIds$Page$pageInfo<
-          Query$AiringScheduleWithIds$Page$pageInfo>
-      get copyWith => CopyWith$Query$AiringScheduleWithIds$Page$pageInfo(
-            this,
-            (i) => i,
-          );
+    Query$AiringScheduleWithIds$Page$pageInfo
+  >
+  get copyWith => CopyWith$Query$AiringScheduleWithIds$Page$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringScheduleWithIds$Page$pageInfo<TRes> {
@@ -2138,16 +2213,17 @@ class _CopyWithImpl$Query$AiringScheduleWithIds$Page$pageInfo<TRes>
     Object? hasNextPage = _undefined,
     Object? total = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringScheduleWithIds$Page$pageInfo(
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        total: total == _undefined ? _instance.total : (total as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringScheduleWithIds$Page$pageInfo(
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      total: total == _undefined ? _instance.total : (total as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$AiringScheduleWithIds$Page$pageInfo<TRes>
@@ -2160,8 +2236,7 @@ class _CopyWithStubImpl$Query$AiringScheduleWithIds$Page$pageInfo<TRes>
     bool? hasNextPage,
     int? total,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$AiringScheduleWithIds$Page$airingSchedules {
@@ -2174,7 +2249,8 @@ class Query$AiringScheduleWithIds$Page$airingSchedules {
   });
 
   factory Query$AiringScheduleWithIds$Page$airingSchedules.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$episode = json['episode'];
     final l$airingAt = json['airingAt'];
@@ -2273,11 +2349,12 @@ class Query$AiringScheduleWithIds$Page$airingSchedules {
 extension UtilityExtension$Query$AiringScheduleWithIds$Page$airingSchedules
     on Query$AiringScheduleWithIds$Page$airingSchedules {
   CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<
-          Query$AiringScheduleWithIds$Page$airingSchedules>
-      get copyWith => CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules(
-            this,
-            (i) => i,
-          );
+    Query$AiringScheduleWithIds$Page$airingSchedules
+  >
+  get copyWith => CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<TRes> {
@@ -2287,8 +2364,8 @@ abstract class CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules<TRes> {
   ) = _CopyWithImpl$Query$AiringScheduleWithIds$Page$airingSchedules;
 
   factory CopyWith$Query$AiringScheduleWithIds$Page$airingSchedules.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$AiringScheduleWithIds$Page$airingSchedules;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$AiringScheduleWithIds$Page$airingSchedules;
 
   TRes call({
     int? id,
@@ -2319,21 +2396,21 @@ class _CopyWithImpl$Query$AiringScheduleWithIds$Page$airingSchedules<TRes>
     Object? airingAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$AiringScheduleWithIds$Page$airingSchedules(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$AiringScheduleWithIds$Page$airingSchedules(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media<TRes> get media {
     final local$media = _instance.media;
@@ -2355,8 +2432,7 @@ class _CopyWithStubImpl$Query$AiringScheduleWithIds$Page$airingSchedules<TRes>
     int? airingAt,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media<TRes> get media => CopyWith$Fragment$media.stub(_res);
 }

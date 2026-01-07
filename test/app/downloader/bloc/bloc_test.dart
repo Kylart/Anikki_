@@ -42,7 +42,7 @@ void main() {
               filteredTorrents: torrentMocks,
               filter: filter,
               media: media,
-            )
+            ),
           ],
           setUp: () {
             repository = TorrentSearchRepositoryMock();
@@ -78,7 +78,7 @@ void main() {
               filteredTorrents: const [],
               filter: filter,
               media: media,
-            )
+            ),
           ],
           setUp: () {
             repository = TorrentSearchRepositoryMock();
@@ -108,7 +108,7 @@ void main() {
           expect: () => [
             DownloaderShow(term),
             DownloaderLoading(term),
-            DownloaderError(term: term, message: Exception('error').toString())
+            DownloaderError(term: term, message: Exception('error').toString()),
           ],
           setUp: () {
             repository = TorrentSearchRepositoryMock();
@@ -121,8 +121,9 @@ void main() {
                 title: null,
               ),
             ).thenReturn(term);
-            when(() => repository.searchNyaa(term))
-                .thenThrow(Exception('error'));
+            when(
+              () => repository.searchNyaa(term),
+            ).thenThrow(Exception('error'));
 
             bloc = DownloaderBloc(repository)..filter = filter;
           },
@@ -206,10 +207,12 @@ void main() {
           ),
         ],
         setUp: () {
-          filter = const DownloaderFilter(qualities: [
-            Quality.high,
-            Quality.medium,
-          ]);
+          filter = const DownloaderFilter(
+            qualities: [
+              Quality.high,
+              Quality.medium,
+            ],
+          );
 
           repository = TorrentSearchRepositoryMock();
 
@@ -295,7 +298,7 @@ void main() {
             filteredTorrents: torrentMocks,
             filter: filter,
             media: media,
-          )
+          ),
         ],
         setUp: () {
           filter = const DownloaderFilter(showAll: true);

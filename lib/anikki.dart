@@ -25,10 +25,10 @@ class _AnikkiState extends State<Anikki>
       title: 'Anikki',
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: BlocProvider.of<SettingsBloc>(context, listen: true)
-          .state
-          .settings
-          .theme,
+      themeMode: BlocProvider.of<SettingsBloc>(
+        context,
+        listen: true,
+      ).state.settings.theme,
       home: Scaffold(
         body: SafeArea(
           /// This BlocBuilder is necessary to instanciate the [ConnectivityBloc]

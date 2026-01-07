@@ -16,10 +16,10 @@ class WatchListBloc extends AutoRefreshBloc<WatchListEvent, WatchListState> {
   WatchListBloc(
     this.repository,
   ) : super(
-          WatchListInitial(
-            currentProvider: WatchListProvider.values.first,
-          ),
-        ) {
+        WatchListInitial(
+          currentProvider: WatchListProvider.values.first,
+        ),
+      ) {
     on<WatchListRequested>(_onRequested);
     on<WatchListWatched>(_onWatched);
     on<WatchListRemoveMedia>(_onRemoveMedia);

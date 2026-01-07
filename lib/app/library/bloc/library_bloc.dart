@@ -61,9 +61,11 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
   }
 
   Future<void> _onUpdateRequested(
-      LibraryUpdateRequested event, Emitter<LibraryState> emit) async {
-    final path = event.path ??
-
+    LibraryUpdateRequested event,
+    Emitter<LibraryState> emit,
+  ) async {
+    final path =
+        event.path ??
         /// Cannot mock `getDirecotryPath` method...
         (Platform.environment.containsKey('FLUTTER_TEST')
             ? null
@@ -110,8 +112,10 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
     /// Find `file` in existing entries if any
     final currentState = state as LibraryLoaded;
 
-    final newEntries =
-        repository.removeFileFromEntries(currentState.entries, file);
+    final newEntries = repository.removeFileFromEntries(
+      currentState.entries,
+      file,
+    );
 
     if (newEntries == null) return;
 
@@ -129,7 +133,9 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
   }
 
   Future<void> _onFileAdded(
-      LibraryFileAdded event, Emitter<LibraryState> emit) async {
+    LibraryFileAdded event,
+    Emitter<LibraryState> emit,
+  ) async {
     if (state.runtimeType != LibraryLoaded) return;
 
     /// Find `file` in existing entries if any
@@ -149,12 +155,16 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
   }
 
   Future<void> _onFileDeleteRequested(
-      LibraryFileDeleteRequested event, Emitter<LibraryState> emit) async {
+    LibraryFileDeleteRequested event,
+    Emitter<LibraryState> emit,
+  ) async {
     await repository.deleteFile(event.file);
   }
 
   Future<void> _onFilePlayRequested(
-      LibraryFilePlayRequested event, Emitter<LibraryState> emit) async {
+    LibraryFilePlayRequested event,
+    Emitter<LibraryState> emit,
+  ) async {
     await VideoPlayerRepository.playFile(
       context: event.context,
       file: event.file,

@@ -22,24 +22,24 @@ class PeersFrom extends Equatable {
   });
 
   factory PeersFrom.fromMap(Map<String, dynamic> data) => PeersFrom(
-        fromCache: data['fromCache'] as int?,
-        fromDht: data['fromDht'] as int?,
-        fromIncoming: data['fromIncoming'] as int?,
-        fromLpd: data['fromLpd'] as int?,
-        fromLtep: data['fromLtep'] as int?,
-        fromPex: data['fromPex'] as int?,
-        fromTracker: data['fromTracker'] as int?,
-      );
+    fromCache: data['fromCache'] as int?,
+    fromDht: data['fromDht'] as int?,
+    fromIncoming: data['fromIncoming'] as int?,
+    fromLpd: data['fromLpd'] as int?,
+    fromLtep: data['fromLtep'] as int?,
+    fromPex: data['fromPex'] as int?,
+    fromTracker: data['fromTracker'] as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'fromCache': fromCache,
-        'fromDht': fromDht,
-        'fromIncoming': fromIncoming,
-        'fromLpd': fromLpd,
-        'fromLtep': fromLtep,
-        'fromPex': fromPex,
-        'fromTracker': fromTracker,
-      };
+    'fromCache': fromCache,
+    'fromDht': fromDht,
+    'fromIncoming': fromIncoming,
+    'fromLpd': fromLpd,
+    'fromLtep': fromLtep,
+    'fromPex': fromPex,
+    'fromTracker': fromTracker,
+  };
 
   /// `dart:convert`
   ///

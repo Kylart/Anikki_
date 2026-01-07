@@ -65,84 +65,83 @@ class DrawerAction {
 }
 
 List<DrawerAction> _buildLinks(Media? media) => [
-      if (media?.anilistInfo?.id != null && media?.anilistInfo?.id != 0)
-        DrawerAction(
-          onPressed: (context) => openInBrowser(
-            'https://anilist.co/anime/${media!.anilistInfo?.id}',
-          ),
-          label: 'See on AniList',
-          icon: SimpleIcons.anilist,
-        ),
-      if (media?.malId != null)
-        DrawerAction(
-          onPressed: (context) => openInBrowser(
-            'https://myanimelist.net/anime/${media!.malId}',
-          ),
-          label: 'See on MyAnimeList',
-          icon: SimpleIcons.myanimelist,
-        ),
-      if (media?.kitsuInfo?.slug != null)
-        DrawerAction(
-          onPressed: (context) => openInBrowser(
-            'https://kitsu.app/anime/${media?.kitsuInfo?.slug}',
-          ),
-          label: 'See on Kitsu',
-          icon: SimpleIcons.kitsu,
-        ),
-      if (media?.tmdbInfo?.id != null)
-        DrawerAction(
-          onPressed: (context) => openInBrowser(
-            'https://www.themoviedb.org/tv/${media!.tmdbInfo?.id}',
-          ),
-          label: 'See on TMDB',
-          icon: SimpleIcons.themoviedatabase,
-        ),
-    ];
+  if (media?.anilistInfo?.id != null && media?.anilistInfo?.id != 0)
+    DrawerAction(
+      onPressed: (context) => openInBrowser(
+        'https://anilist.co/anime/${media!.anilistInfo?.id}',
+      ),
+      label: 'See on AniList',
+      icon: SimpleIcons.anilist,
+    ),
+  if (media?.malId != null)
+    DrawerAction(
+      onPressed: (context) => openInBrowser(
+        'https://myanimelist.net/anime/${media!.malId}',
+      ),
+      label: 'See on MyAnimeList',
+      icon: SimpleIcons.myanimelist,
+    ),
+  if (media?.kitsuInfo?.slug != null)
+    DrawerAction(
+      onPressed: (context) => openInBrowser(
+        'https://kitsu.app/anime/${media?.kitsuInfo?.slug}',
+      ),
+      label: 'See on Kitsu',
+      icon: SimpleIcons.kitsu,
+    ),
+  if (media?.tmdbInfo?.id != null)
+    DrawerAction(
+      onPressed: (context) => openInBrowser(
+        'https://www.themoviedb.org/tv/${media!.tmdbInfo?.id}',
+      ),
+      label: 'See on TMDB',
+      icon: SimpleIcons.themoviedatabase,
+    ),
+];
 
 List<DrawerAction> _buildActions({
   Media? media,
   LibraryEntry? libraryEntry,
-}) =>
-    [
-      if (media?.youtubeId != null)
-        DrawerAction(
-          onPressed: (context) => showAdaptiveDialog(
-            barrierDismissible: true,
-            context: context,
-            builder: (context) => Dialog(
-              child: YoutubeVideoPlayer(
-                id: media!.youtubeId!,
-              ),
-            ),
-          ),
-          label: 'Watch trailer',
-          icon: HugeIcons.strokeRoundedVideoReplay,
-        ),
-      DrawerAction(
-        onPressed: (context) {},
-        label: 'Update list entry',
-        icon: HugeIcons.strokeRoundedTaskEdit01,
-      ),
-      DrawerAction(
-        onPressed: (context) => BlocProvider.of<DownloaderBloc>(context).add(
-          DownloaderRequested(
-            media: media,
-            entry: libraryEntry,
+}) => [
+  if (media?.youtubeId != null)
+    DrawerAction(
+      onPressed: (context) => showAdaptiveDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) => Dialog(
+          child: YoutubeVideoPlayer(
+            id: media!.youtubeId!,
           ),
         ),
-        label: 'Download',
-        icon: HugeIcons.strokeRoundedDownload04,
       ),
-      DrawerAction(
-        type: DrawerActionType.full,
-        onPressed: (context) => VideoPlayerRepository.playAnyway(
-          context: context,
-          media: media,
-        ),
-        label: 'Watch',
-        icon: HugeIcons.strokeRoundedPlay,
+      label: 'Watch trailer',
+      icon: HugeIcons.strokeRoundedVideoReplay,
+    ),
+  DrawerAction(
+    onPressed: (context) {},
+    label: 'Update list entry',
+    icon: HugeIcons.strokeRoundedTaskEdit01,
+  ),
+  DrawerAction(
+    onPressed: (context) => BlocProvider.of<DownloaderBloc>(context).add(
+      DownloaderRequested(
+        media: media,
+        entry: libraryEntry,
       ),
-    ];
+    ),
+    label: 'Download',
+    icon: HugeIcons.strokeRoundedDownload04,
+  ),
+  DrawerAction(
+    type: DrawerActionType.full,
+    onPressed: (context) => VideoPlayerRepository.playAnyway(
+      context: context,
+      media: media,
+    ),
+    label: 'Watch',
+    icon: HugeIcons.strokeRoundedPlay,
+  ),
+];
 
 class DrawerContent extends StatelessWidget {
   const DrawerContent({super.key});
@@ -206,26 +205,27 @@ class DrawerContent extends StatelessWidget {
             }
 
             return FutureBuilder<Media>(
-                future: tmdb.hydrateMediaWithTmdb(drawerMedia!),
-                builder: (context, snapshot) {
-                  final media = snapshot.data ?? drawerMedia;
+              future: tmdb.hydrateMediaWithTmdb(drawerMedia!),
+              builder: (context, snapshot) {
+                final media = snapshot.data ?? drawerMedia;
 
-                  return BlocBuilder<LayoutBloc, LayoutState>(
-                    builder: (context, state) {
-                      return state is LayoutPortrait
-                          ? _DrawerContentPortrait(
-                              media: media,
-                              libraryEntry: libraryEntry,
-                              isInWatchList: isInWatchList,
-                            )
-                          : _DrawerContentLandscape(
-                              media: media,
-                              libraryEntry: libraryEntry,
-                              isInWatchList: isInWatchList,
-                            );
-                    },
-                  );
-                });
+                return BlocBuilder<LayoutBloc, LayoutState>(
+                  builder: (context, state) {
+                    return state is LayoutPortrait
+                        ? _DrawerContentPortrait(
+                            media: media,
+                            libraryEntry: libraryEntry,
+                            isInWatchList: isInWatchList,
+                          )
+                        : _DrawerContentLandscape(
+                            media: media,
+                            libraryEntry: libraryEntry,
+                            isInWatchList: isInWatchList,
+                          );
+                  },
+                );
+              },
+            );
           },
         );
       },

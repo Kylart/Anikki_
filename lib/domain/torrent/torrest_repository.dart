@@ -41,8 +41,7 @@ Future<String> _getWindowsArchitecture() async {
       PROCESSOR_ARCHITECTURE_AMD64 ||
       PROCESSOR_ARCHITECTURE_ARM64 ||
       PROCESSOR_ARCHITECTURE_ARM ||
-      PROCESSOR_ARCHITECTURE_IA64 =>
-        'x64',
+      PROCESSOR_ARCHITECTURE_IA64 => 'x64',
       PROCESSOR_ARCHITECTURE_INTEL => 'x86',
 
       /// We set default to x86 on Winodows becuase it can also run on x64
@@ -125,10 +124,10 @@ class TorrestRepository extends TorrentRepository {
 
   @override
   Uri get defaultUri => Uri(
-        scheme: 'http',
-        host: 'localhost',
-        port: 15666,
-      );
+    scheme: 'http',
+    host: 'localhost',
+    port: 15666,
+  );
 
   Future<dynamic> _get(
     String path, {
@@ -232,9 +231,12 @@ class TorrestRepository extends TorrentRepository {
 
   @override
   Future<List<Torrent>> getTorrents() async {
-    final torrents = await _get('/torrents', queryParameters: {
-      'status': 'true',
-    });
+    final torrents = await _get(
+      '/torrents',
+      queryParameters: {
+        'status': 'true',
+      },
+    );
 
     return (torrents as List<dynamic>).map(_parseTorrent).toList();
   }
@@ -268,9 +270,12 @@ class TorrestRepository extends TorrentRepository {
     Torrent torrent, [
     bool deleteLocal = false,
   ]) async {
-    await _delete('/torrents/${torrent.hash}', queryParameters: {
-      'delete': deleteLocal.toString(),
-    });
+    await _delete(
+      '/torrents/${torrent.hash}',
+      queryParameters: {
+        'delete': deleteLocal.toString(),
+      },
+    );
 
     return true;
   }
@@ -326,8 +331,12 @@ class TorrestRepository extends TorrentRepository {
     final downloadDir = (await getDownloadsDirectory())?.path ?? 'downloads';
 
     final logsPath = join(baseDir.path, 'anikki', 'torrest', 'logs.json');
-    final settingsPath =
-        join(baseDir.path, 'anikki', 'torrest', 'settings.json');
+    final settingsPath = join(
+      baseDir.path,
+      'anikki',
+      'torrest',
+      'settings.json',
+    );
 
     /// Creates default settings file if it does not exist
     final settingsFile = File(settingsPath);
@@ -371,7 +380,7 @@ class TorrestRepository extends TorrentRepository {
             "torrents_path": "$downloadDir/torrents",
             "tuned_storage": false,
             "user_agent": "",
-            "write_mode": 0
+            "write_mode": 0,
           },
         ),
       );

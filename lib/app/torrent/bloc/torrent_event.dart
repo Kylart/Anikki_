@@ -16,24 +16,36 @@ class TorrentSettingsUpdated extends TorrentEvent {
     this.torrestSettings,
   }) {
     if (transmissionSettings != null) {
-      assert(qBitTorrentSettings == null,
-          'Cannot have transmission and qbittorrent settings at the same time.');
-      assert(torrestSettings == null,
-          'Cannot have transmission and torrest settings at the same time.');
+      assert(
+        qBitTorrentSettings == null,
+        'Cannot have transmission and qbittorrent settings at the same time.',
+      );
+      assert(
+        torrestSettings == null,
+        'Cannot have transmission and torrest settings at the same time.',
+      );
     }
 
     if (qBitTorrentSettings != null) {
-      assert(transmissionSettings == null,
-          'Cannot have transmission and qbittorrent settings at the same time.');
-      assert(torrestSettings == null,
-          'Cannot have transmission and torrest settings at the same time.');
+      assert(
+        transmissionSettings == null,
+        'Cannot have transmission and qbittorrent settings at the same time.',
+      );
+      assert(
+        torrestSettings == null,
+        'Cannot have transmission and torrest settings at the same time.',
+      );
     }
 
     if (torrestSettings != null) {
-      assert(transmissionSettings == null,
-          'Cannot have transmission and torrest settings at the same time.');
-      assert(qBitTorrentSettings == null,
-          'Cannot have qbittorrent and torrest settings at the same time.');
+      assert(
+        transmissionSettings == null,
+        'Cannot have transmission and torrest settings at the same time.',
+      );
+      assert(
+        qBitTorrentSettings == null,
+        'Cannot have qbittorrent and torrest settings at the same time.',
+      );
     }
   }
 
@@ -43,10 +55,10 @@ class TorrentSettingsUpdated extends TorrentEvent {
 
   @override
   List<Object> get props => [
-        if (transmissionSettings != null) transmissionSettings!,
-        if (qBitTorrentSettings != null) qBitTorrentSettings!,
-        if (torrestSettings != null) torrestSettings!,
-      ];
+    if (transmissionSettings != null) transmissionSettings!,
+    if (qBitTorrentSettings != null) qBitTorrentSettings!,
+    if (torrestSettings != null) torrestSettings!,
+  ];
 }
 
 class TorrentPauseTorrent extends TorrentEvent {
@@ -75,9 +87,9 @@ class TorrentRemoveTorrent extends TorrentEvent {
 
   @override
   List<Object> get props => [
-        torrent,
-        removeFile,
-      ];
+    torrent,
+    removeFile,
+  ];
 }
 
 class TorrentAddTorrent extends TorrentEvent {
@@ -93,7 +105,7 @@ class TorrentAddTorrent extends TorrentEvent {
 
   @override
   List<Object> get props => [
-        magnet,
-        stream,
-      ];
+    magnet,
+    stream,
+  ];
 }

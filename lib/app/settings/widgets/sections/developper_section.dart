@@ -12,9 +12,11 @@ class DevelopperSection extends AbstractSettingsSection {
           leading: const Icon(HugeIcons.strokeRoundedMessage01),
           title: const Text('Show logs'),
           onPressed: (context) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => TalkerScreen(talker: logger),
-            ));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TalkerScreen(talker: logger),
+              ),
+            );
           },
         ),
       ],

@@ -172,7 +172,7 @@ class _DrawerContentPortraitState extends State<_DrawerContentPortrait> {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -7,8 +7,8 @@ sealed class HistoryState extends Equatable {
 
   @override
   List<Object> get props => [
-        entries,
-      ];
+    entries,
+  ];
 }
 
 final class HistoryInitial extends HistoryState {
@@ -30,7 +30,7 @@ final class HistoryError extends HistoryState {
 
   @override
   List<Object> get props => [
-        entries,
-        message,
-      ];
+    entries,
+    message,
+  ];
 }

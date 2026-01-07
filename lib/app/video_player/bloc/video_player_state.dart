@@ -16,11 +16,11 @@ final class VideoPlayerState extends Equatable {
 
   @override
   List<Object> get props => [
-        hideControls,
-        displayTapped,
-        controlsHovered,
-        fullscreen,
-      ];
+    hideControls,
+    displayTapped,
+    controlsHovered,
+    fullscreen,
+  ];
 
   VideoPlayerState copyWith({
     bool? hideControls,

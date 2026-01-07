@@ -10,8 +10,9 @@ class PlayerControlsTitle extends StatelessWidget {
     return StreamBuilder<Playlist>(
       stream: player.stream.playlist,
       builder: (BuildContext context, AsyncSnapshot<Playlist> snapshot) {
-        final currentMedia = player.state.playlist.medias
-            .elementAtOrNull(player.state.playlist.index);
+        final currentMedia = player.state.playlist.medias.elementAtOrNull(
+          player.state.playlist.index,
+        );
         final String? title = currentMedia?.extras?['title'] ?? 'N/A';
 
         if (title == null) return const SizedBox();

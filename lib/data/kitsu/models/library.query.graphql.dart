@@ -31,10 +31,10 @@ class Variables$Query$KitsuLibrary {
   }
 
   CopyWith$Variables$Query$KitsuLibrary<Variables$Query$KitsuLibrary>
-      get copyWith => CopyWith$Variables$Query$KitsuLibrary(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$KitsuLibrary(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -85,11 +85,12 @@ class _CopyWithImpl$Variables$Query$KitsuLibrary<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? limit = _undefined}) =>
-      _then(Variables$Query$KitsuLibrary._({
-        ..._instance._$data,
-        if (limit != _undefined && limit != null) 'limit': (limit as int),
-      }));
+  TRes call({Object? limit = _undefined}) => _then(
+    Variables$Query$KitsuLibrary._({
+      ..._instance._$data,
+      if (limit != _undefined && limit != null) 'limit': (limit as int),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$KitsuLibrary<TRes>
@@ -114,7 +115,8 @@ class Query$KitsuLibrary {
       currentProfile: l$currentProfile == null
           ? null
           : Query$KitsuLibrary$currentProfile.fromJson(
-              (l$currentProfile as Map<String, dynamic>)),
+              (l$currentProfile as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -204,22 +206,25 @@ class _CopyWithImpl$Query$KitsuLibrary<TRes>
   TRes call({
     Object? currentProfile = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuLibrary(
-        currentProfile: currentProfile == _undefined
-            ? _instance.currentProfile
-            : (currentProfile as Query$KitsuLibrary$currentProfile?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuLibrary(
+      currentProfile: currentProfile == _undefined
+          ? _instance.currentProfile
+          : (currentProfile as Query$KitsuLibrary$currentProfile?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuLibrary$currentProfile<TRes> get currentProfile {
     final local$currentProfile = _instance.currentProfile;
     return local$currentProfile == null
         ? CopyWith$Query$KitsuLibrary$currentProfile.stub(_then(_instance))
         : CopyWith$Query$KitsuLibrary$currentProfile(
-            local$currentProfile, (e) => call(currentProfile: e));
+            local$currentProfile,
+            (e) => call(currentProfile: e),
+          );
   }
 }
 
@@ -232,76 +237,124 @@ class _CopyWithStubImpl$Query$KitsuLibrary<TRes>
   call({
     Query$KitsuLibrary$currentProfile? currentProfile,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuLibrary$currentProfile<TRes> get currentProfile =>
       CopyWith$Query$KitsuLibrary$currentProfile.stub(_res);
 }
 
-const documentNodeQueryKitsuLibrary = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'KitsuLibrary'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'limit')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
+const documentNodeQueryKitsuLibrary = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'KitsuLibrary'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'limit')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: true,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'currentProfile'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'library'),
+            name: NameNode(value: 'currentProfile'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'all'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'mediaType'),
-                    value: EnumValueNode(name: NameNode(value: 'ANIME')),
-                  ),
-                  ArgumentNode(
-                    name: NameNode(value: 'first'),
-                    value: VariableNode(name: NameNode(value: 'limit')),
-                  ),
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'library'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FieldNode(
-                        name: NameNode(value: 'endCursor'),
+                        name: NameNode(value: 'all'),
                         alias: null,
-                        arguments: [],
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'mediaType'),
+                            value: EnumValueNode(
+                              name: NameNode(value: 'ANIME'),
+                            ),
+                          ),
+                          ArgumentNode(
+                            name: NameNode(value: 'first'),
+                            value: VariableNode(name: NameNode(value: 'limit')),
+                          ),
+                        ],
                         directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'hasNextPage'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'endCursor'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'hasNextPage'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'kitsuLibraryEntry'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -310,44 +363,18 @@ const documentNodeQueryKitsuLibrary = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'kitsuLibraryEntry'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -356,26 +383,20 @@ const documentNodeQueryKitsuLibrary = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionkitsuLibraryEntry,
-  fragmentDefinitionkitsuAnimeMedia,
-]);
+    ),
+    fragmentDefinitionkitsuLibraryEntry,
+    fragmentDefinitionkitsuAnimeMedia,
+  ],
+);
 Query$KitsuLibrary _parserFn$Query$KitsuLibrary(Map<String, dynamic> data) =>
     Query$KitsuLibrary.fromJson(data);
-typedef OnQueryComplete$Query$KitsuLibrary = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$KitsuLibrary?,
-);
+typedef OnQueryComplete$Query$KitsuLibrary =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$KitsuLibrary?,
+    );
 
 class Options$Query$KitsuLibrary
     extends graphql.QueryOptions<Query$KitsuLibrary> {
@@ -391,36 +412,36 @@ class Options$Query$KitsuLibrary
     graphql.Context? context,
     OnQueryComplete$Query$KitsuLibrary? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$KitsuLibrary(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryKitsuLibrary,
-          parserFn: _parserFn$Query$KitsuLibrary,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$KitsuLibrary(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryKitsuLibrary,
+         parserFn: _parserFn$Query$KitsuLibrary,
+       );
 
   final OnQueryComplete$Query$KitsuLibrary? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$KitsuLibrary
@@ -439,20 +460,20 @@ class WatchOptions$Query$KitsuLibrary
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryKitsuLibrary,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$KitsuLibrary,
-        );
+         variables: variables.toJson(),
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryKitsuLibrary,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$KitsuLibrary,
+       );
 }
 
 class FetchMoreOptions$Query$KitsuLibrary extends graphql.FetchMoreOptions {
@@ -460,32 +481,31 @@ class FetchMoreOptions$Query$KitsuLibrary extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     required Variables$Query$KitsuLibrary variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQueryKitsuLibrary,
-        );
+         updateQuery: updateQuery,
+         variables: variables.toJson(),
+         document: documentNodeQueryKitsuLibrary,
+       );
 }
 
 extension ClientExtension$Query$KitsuLibrary on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$KitsuLibrary>> query$KitsuLibrary(
-          Options$Query$KitsuLibrary options) async =>
-      await this.query(options);
+    Options$Query$KitsuLibrary options,
+  ) async => await this.query(options);
   graphql.ObservableQuery<Query$KitsuLibrary> watchQuery$KitsuLibrary(
-          WatchOptions$Query$KitsuLibrary options) =>
-      this.watchQuery(options);
+    WatchOptions$Query$KitsuLibrary options,
+  ) => this.watchQuery(options);
   void writeQuery$KitsuLibrary({
     required Query$KitsuLibrary data,
     required Variables$Query$KitsuLibrary variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryKitsuLibrary),
-          variables: variables.toJson(),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryKitsuLibrary),
+      variables: variables.toJson(),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$KitsuLibrary? readQuery$KitsuLibrary({
     required Variables$Query$KitsuLibrary variables,
     bool optimistic = true,
@@ -508,12 +528,14 @@ class Query$KitsuLibrary$currentProfile {
   });
 
   factory Query$KitsuLibrary$currentProfile.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$library = json['library'];
     final l$$__typename = json['__typename'];
     return Query$KitsuLibrary$currentProfile(
       $library: Query$KitsuLibrary$currentProfile$library.fromJson(
-          (l$$library as Map<String, dynamic>)),
+        (l$$library as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -567,10 +589,10 @@ class Query$KitsuLibrary$currentProfile {
 extension UtilityExtension$Query$KitsuLibrary$currentProfile
     on Query$KitsuLibrary$currentProfile {
   CopyWith$Query$KitsuLibrary$currentProfile<Query$KitsuLibrary$currentProfile>
-      get copyWith => CopyWith$Query$KitsuLibrary$currentProfile(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$KitsuLibrary$currentProfile(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$KitsuLibrary$currentProfile<TRes> {
@@ -605,20 +627,23 @@ class _CopyWithImpl$Query$KitsuLibrary$currentProfile<TRes>
   TRes call({
     Object? $library = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuLibrary$currentProfile(
-        $library: $library == _undefined || $library == null
-            ? _instance.$library
-            : ($library as Query$KitsuLibrary$currentProfile$library),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuLibrary$currentProfile(
+      $library: $library == _undefined || $library == null
+          ? _instance.$library
+          : ($library as Query$KitsuLibrary$currentProfile$library),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuLibrary$currentProfile$library<TRes> get $library {
     final local$$library = _instance.$library;
     return CopyWith$Query$KitsuLibrary$currentProfile$library(
-        local$$library, (e) => call($library: e));
+      local$$library,
+      (e) => call($library: e),
+    );
   }
 }
 
@@ -631,8 +656,7 @@ class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile<TRes>
   call({
     Query$KitsuLibrary$currentProfile$library? $library,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuLibrary$currentProfile$library<TRes> get $library =>
       CopyWith$Query$KitsuLibrary$currentProfile$library.stub(_res);
@@ -645,12 +669,14 @@ class Query$KitsuLibrary$currentProfile$library {
   });
 
   factory Query$KitsuLibrary$currentProfile$library.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$all = json['all'];
     final l$$__typename = json['__typename'];
     return Query$KitsuLibrary$currentProfile$library(
       all: Query$KitsuLibrary$currentProfile$library$all.fromJson(
-          (l$all as Map<String, dynamic>)),
+        (l$all as Map<String, dynamic>),
+      ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -704,11 +730,12 @@ class Query$KitsuLibrary$currentProfile$library {
 extension UtilityExtension$Query$KitsuLibrary$currentProfile$library
     on Query$KitsuLibrary$currentProfile$library {
   CopyWith$Query$KitsuLibrary$currentProfile$library<
-          Query$KitsuLibrary$currentProfile$library>
-      get copyWith => CopyWith$Query$KitsuLibrary$currentProfile$library(
-            this,
-            (i) => i,
-          );
+    Query$KitsuLibrary$currentProfile$library
+  >
+  get copyWith => CopyWith$Query$KitsuLibrary$currentProfile$library(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$KitsuLibrary$currentProfile$library<TRes> {
@@ -743,20 +770,23 @@ class _CopyWithImpl$Query$KitsuLibrary$currentProfile$library<TRes>
   TRes call({
     Object? all = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuLibrary$currentProfile$library(
-        all: all == _undefined || all == null
-            ? _instance.all
-            : (all as Query$KitsuLibrary$currentProfile$library$all),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuLibrary$currentProfile$library(
+      all: all == _undefined || all == null
+          ? _instance.all
+          : (all as Query$KitsuLibrary$currentProfile$library$all),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuLibrary$currentProfile$library$all<TRes> get all {
     final local$all = _instance.all;
     return CopyWith$Query$KitsuLibrary$currentProfile$library$all(
-        local$all, (e) => call(all: e));
+      local$all,
+      (e) => call(all: e),
+    );
   }
 }
 
@@ -769,8 +799,7 @@ class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library<TRes>
   call({
     Query$KitsuLibrary$currentProfile$library$all? all,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuLibrary$currentProfile$library$all<TRes> get all =>
       CopyWith$Query$KitsuLibrary$currentProfile$library$all.stub(_res);
@@ -784,18 +813,23 @@ class Query$KitsuLibrary$currentProfile$library$all {
   });
 
   factory Query$KitsuLibrary$currentProfile$library$all.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$KitsuLibrary$currentProfile$library$all(
       pageInfo: Query$KitsuLibrary$currentProfile$library$all$pageInfo.fromJson(
-          (l$pageInfo as Map<String, dynamic>)),
+        (l$pageInfo as Map<String, dynamic>),
+      ),
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$kitsuLibraryEntry.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$kitsuLibraryEntry.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -872,11 +906,12 @@ class Query$KitsuLibrary$currentProfile$library$all {
 extension UtilityExtension$Query$KitsuLibrary$currentProfile$library$all
     on Query$KitsuLibrary$currentProfile$library$all {
   CopyWith$Query$KitsuLibrary$currentProfile$library$all<
-          Query$KitsuLibrary$currentProfile$library$all>
-      get copyWith => CopyWith$Query$KitsuLibrary$currentProfile$library$all(
-            this,
-            (i) => i,
-          );
+    Query$KitsuLibrary$currentProfile$library$all
+  >
+  get copyWith => CopyWith$Query$KitsuLibrary$currentProfile$library$all(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$KitsuLibrary$currentProfile$library$all<TRes> {
@@ -886,8 +921,8 @@ abstract class CopyWith$Query$KitsuLibrary$currentProfile$library$all<TRes> {
   ) = _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all;
 
   factory CopyWith$Query$KitsuLibrary$currentProfile$library$all.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all;
 
   TRes call({
     Query$KitsuLibrary$currentProfile$library$all$pageInfo? pageInfo,
@@ -895,13 +930,15 @@ abstract class CopyWith$Query$KitsuLibrary$currentProfile$library$all<TRes> {
     String? $__typename,
   });
   CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes>
-      get pageInfo;
+  get pageInfo;
   TRes nodes(
-      Iterable<Fragment$kitsuLibraryEntry?>? Function(
-              Iterable<
-                  CopyWith$Fragment$kitsuLibraryEntry<
-                      Fragment$kitsuLibraryEntry>?>?)
-          _fn);
+    Iterable<Fragment$kitsuLibraryEntry?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuLibraryEntry<Fragment$kitsuLibraryEntry>?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all<TRes>
@@ -921,40 +958,49 @@ class _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all<TRes>
     Object? pageInfo = _undefined,
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuLibrary$currentProfile$library$all(
-        pageInfo: pageInfo == _undefined || pageInfo == null
-            ? _instance.pageInfo
-            : (pageInfo
+  }) => _then(
+    Query$KitsuLibrary$currentProfile$library$all(
+      pageInfo: pageInfo == _undefined || pageInfo == null
+          ? _instance.pageInfo
+          : (pageInfo
                 as Query$KitsuLibrary$currentProfile$library$all$pageInfo),
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$kitsuLibraryEntry?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Fragment$kitsuLibraryEntry?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes>
-      get pageInfo {
+  get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo(
-        local$pageInfo, (e) => call(pageInfo: e));
+      local$pageInfo,
+      (e) => call(pageInfo: e),
+    );
   }
 
   TRes nodes(
-          Iterable<Fragment$kitsuLibraryEntry?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$kitsuLibraryEntry<
-                          Fragment$kitsuLibraryEntry>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$kitsuLibraryEntry(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$kitsuLibraryEntry?>? Function(
+      Iterable<
+        CopyWith$Fragment$kitsuLibraryEntry<Fragment$kitsuLibraryEntry>?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$kitsuLibraryEntry(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all<TRes>
@@ -967,13 +1013,13 @@ class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all<TRes>
     Query$KitsuLibrary$currentProfile$library$all$pageInfo? pageInfo,
     List<Fragment$kitsuLibraryEntry?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes>
-      get pageInfo =>
-          CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo.stub(
-              _res);
+  get pageInfo =>
+      CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo.stub(
+        _res,
+      );
 
   nodes(_fn) => _res;
 }
@@ -986,7 +1032,8 @@ class Query$KitsuLibrary$currentProfile$library$all$pageInfo {
   });
 
   factory Query$KitsuLibrary$currentProfile$library$all$pageInfo.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$endCursor = json['endCursor'];
     final l$hasNextPage = json['hasNextPage'];
     final l$$__typename = json['__typename'];
@@ -1057,24 +1104,26 @@ class Query$KitsuLibrary$currentProfile$library$all$pageInfo {
 extension UtilityExtension$Query$KitsuLibrary$currentProfile$library$all$pageInfo
     on Query$KitsuLibrary$currentProfile$library$all$pageInfo {
   CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<
-          Query$KitsuLibrary$currentProfile$library$all$pageInfo>
-      get copyWith =>
-          CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo(
-            this,
-            (i) => i,
-          );
+    Query$KitsuLibrary$currentProfile$library$all$pageInfo
+  >
+  get copyWith =>
+      CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo(
     Query$KitsuLibrary$currentProfile$library$all$pageInfo instance,
     TRes Function(Query$KitsuLibrary$currentProfile$library$all$pageInfo) then,
   ) = _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo;
 
   factory CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo;
 
   TRes call({
     String? endCursor,
@@ -1094,7 +1143,7 @@ class _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes>
   final Query$KitsuLibrary$currentProfile$library$all$pageInfo _instance;
 
   final TRes Function(Query$KitsuLibrary$currentProfile$library$all$pageInfo)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1102,26 +1151,29 @@ class _CopyWithImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes>
     Object? endCursor = _undefined,
     Object? hasNextPage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$KitsuLibrary$currentProfile$library$all$pageInfo(
-        endCursor: endCursor == _undefined
-            ? _instance.endCursor
-            : (endCursor as String?),
-        hasNextPage: hasNextPage == _undefined || hasNextPage == null
-            ? _instance.hasNextPage
-            : (hasNextPage as bool),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$KitsuLibrary$currentProfile$library$all$pageInfo(
+      endCursor: endCursor == _undefined
+          ? _instance.endCursor
+          : (endCursor as String?),
+      hasNextPage: hasNextPage == _undefined || hasNextPage == null
+          ? _instance.hasNextPage
+          : (hasNextPage as bool),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$KitsuLibrary$currentProfile$library$all$pageInfo<TRes> {
   _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1129,6 +1181,5 @@ class _CopyWithStubImpl$Query$KitsuLibrary$currentProfile$library$all$pageInfo<
     String? endCursor,
     bool? hasNextPage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

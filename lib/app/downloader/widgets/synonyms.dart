@@ -24,12 +24,12 @@ class _SynonymsState extends State<Synonyms> {
   String? currentSelection;
 
   List<String> get synonyms => {
-        /// Anitomy parsed name
-        widget.state.entry?.entries.first.title,
+    /// Anitomy parsed name
+    widget.state.entry?.entries.first.title,
 
-        ...(widget.state.media?.synonyms ?? []),
-        ...(widget.state.entry?.media?.synonyms ?? []),
-      }.whereType<String>().toList();
+    ...(widget.state.media?.synonyms ?? []),
+    ...(widget.state.entry?.media?.synonyms ?? []),
+  }.whereType<String>().toList();
 
   @override
   Widget build(BuildContext context) {
@@ -77,41 +77,43 @@ class _SynonymsState extends State<Synonyms> {
         onPressed: () {
           if (Platform.isIOS) {
             showCupertinoModalPopup(
-                context: context,
-                builder: (context) {
-                  return CupertinoActionSheet(
-                    title: const Text('Other names'),
-                    actions: synonyms
+              context: context,
+              builder: (context) {
+                return CupertinoActionSheet(
+                  title: const Text('Other names'),
+                  actions: synonyms
+                      .map(
+                        (e) => CupertinoActionSheetAction(
+                          child: Text(e),
+                          onPressed: () => onSelected(e),
+                        ),
+                      )
+                      .toList(),
+                );
+              },
+            );
+          } else {
+            showModalBottomSheet(
+              enableDrag: false,
+              context: context,
+              builder: (context) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: synonyms
                         .map(
-                          (e) => CupertinoActionSheetAction(
-                            child: Text(e),
-                            onPressed: () => onSelected(e),
+                          (e) => ListTile(
+                            title: Text(e),
+                            onTap: () => onSelected(e),
                           ),
                         )
                         .toList(),
-                  );
-                });
-          } else {
-            showModalBottomSheet(
-                enableDrag: false,
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ListView(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: synonyms
-                          .map(
-                            (e) => ListTile(
-                              title: Text(e),
-                              onTap: () => onSelected(e),
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  );
-                });
+                  ),
+                );
+              },
+            );
           }
         },
         icon: const Icon(HugeIcons.strokeRoundedArrowReloadHorizontal),

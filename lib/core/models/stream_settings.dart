@@ -43,11 +43,13 @@ class StreamSettings extends Equatable {
 
   factory StreamSettings.fromMap(Map<String, dynamic> map) {
     return StreamSettings(
-      streamRequestType: StreamRequestType.values.firstWhereOrNull(
+      streamRequestType:
+          StreamRequestType.values.firstWhereOrNull(
             (element) => element.toString() == map['streamRequestType'],
           ) ??
           StreamRequestType.choose,
-      videoType: SubOrDub.values.firstWhereOrNull(
+      videoType:
+          SubOrDub.values.firstWhereOrNull(
             (element) => element.toString() == map['videoType'],
           ) ??
           SubOrDub.sub,

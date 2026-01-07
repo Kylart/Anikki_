@@ -63,8 +63,9 @@ class ProviderAuthBloc extends Bloc<ProviderAuthEvent, ProviderAuthState> {
             ? null
             : state.anilistUser,
         malUser: event.provider == WatchListProvider.mal ? null : state.malUser,
-        kitsuUser:
-            event.provider == WatchListProvider.kitsu ? null : state.kitsuUser,
+        kitsuUser: event.provider == WatchListProvider.kitsu
+            ? null
+            : state.kitsuUser,
       ),
     );
   }

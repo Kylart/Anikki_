@@ -136,14 +136,13 @@ String decryptSrc2(String src, String clientKey, String megacloudKey) {
       return (seed % BigInt.from(arg)).toInt();
     }
 
-    decSrc =
-        decSrc.split('').map((char) {
-          final idx = charArray.indexOf(char);
-          if (idx == -1) return char;
-          final randNum = seedRand(95);
-          final newCharIndex = (idx - randNum + 95) % 95;
-          return charArray[newCharIndex];
-        }).join();
+    decSrc = decSrc.split('').map((char) {
+      final idx = charArray.indexOf(char);
+      if (idx == -1) return char;
+      final randNum = seedRand(95);
+      final newCharIndex = (idx - randNum + 95) % 95;
+      return charArray[newCharIndex];
+    }).join();
 
     decSrc = columnarCipher2(decSrc, layerKey);
 
@@ -252,11 +251,12 @@ String columnarCipher2(String src, String iKey) {
 
   final keyMap = List.generate(iKey.length, (i) => {'char': iKey[i], 'idx': i});
 
-  final sortedMap = List<Map<String, dynamic>>.from(keyMap)..sort(
-    (a, b) =>
-        (a['char'] as String).codeUnitAt(0) -
-        (b['char'] as String).codeUnitAt(0),
-  );
+  final sortedMap = List<Map<String, dynamic>>.from(keyMap)
+    ..sort(
+      (a, b) =>
+          (a['char'] as String).codeUnitAt(0) -
+          (b['char'] as String).codeUnitAt(0),
+    );
 
   int srcIndex = 0;
   for (final map in sortedMap) {
@@ -338,17 +338,16 @@ class MegaCloud extends Extractor {
           introEnd: rawSourceData['intro']?['end'],
           outroStart: rawSourceData['outro']?['start'],
           outroEnd: rawSourceData['outro']?['end'],
-          subtitles:
-              (rawSourceData['tracks'] as List?)
-                  ?.where((track) => track['kind'] == 'captions')
-                  .map(
-                    (track) => VideoSubtitle(
-                      url: track['file'],
-                      lang: track['label'],
-                      isDefault: track['default'] == true,
-                    ),
-                  )
-                  .toList(),
+          subtitles: (rawSourceData['tracks'] as List?)
+              ?.where((track) => track['kind'] == 'captions')
+              .map(
+                (track) => VideoSubtitle(
+                  url: track['file'],
+                  lang: track['label'],
+                  isDefault: track['default'] == true,
+                ),
+              )
+              .toList(),
         ),
       ];
     } on CannotExtractClientKeyException {

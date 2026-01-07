@@ -11,9 +11,9 @@ sealed class StreamHandlerEvent extends Equatable {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-      ];
+    media,
+    minEpisode,
+  ];
 }
 
 class StreamHandlerShowRequested extends StreamHandlerEvent {
@@ -29,11 +29,11 @@ class StreamHandlerShowRequested extends StreamHandlerEvent {
 
   @override
   List<Object?> get props => [
-        media,
-        entry,
-        minEpisode,
-        type,
-      ];
+    media,
+    entry,
+    minEpisode,
+    type,
+  ];
 }
 
 class StreamHandlerCloseRequested extends StreamHandlerEvent {
@@ -54,8 +54,8 @@ class StreamHandlerRequested extends StreamHandlerEvent {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-        videoType,
-      ];
+    media,
+    minEpisode,
+    videoType,
+  ];
 }

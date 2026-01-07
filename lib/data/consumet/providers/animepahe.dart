@@ -13,10 +13,10 @@ class Animepahe extends AnimeProvider {
   final client = Client();
 
   Map<String, String> get baseHeaders => {
-        'Referer': baseUrl,
-        'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
-      };
+    'Referer': baseUrl,
+    'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+  };
 
   Future<Map<String, String>> _getCookies(String url) async {
     final res = await client.get(
@@ -96,13 +96,15 @@ class Animepahe extends AnimeProvider {
       final data = body['data'];
       lastPage = int.parse(body['last_page']);
 
-      result.addAll(data.map(
-        (item) => AnimeEpisode(
-          number: item['episode'],
-          id: '${id.split('/')[1]}/${item['session']}',
-          url: '$baseUrl/play/${id.split('/')[1]}/${item['session']}',
+      result.addAll(
+        data.map(
+          (item) => AnimeEpisode(
+            number: item['episode'],
+            id: '${id.split('/')[1]}/${item['session']}',
+            url: '$baseUrl/play/${id.split('/')[1]}/${item['session']}',
+          ),
         ),
-      ));
+      );
 
       page++;
     } while (page < lastPage);
@@ -131,7 +133,9 @@ class Animepahe extends AnimeProvider {
     final document = parse(res.body);
     List<VideoSource> sources = [];
 
-    final links = document.querySelectorAll('div#resolutionMenu > button').map(
+    final links = document
+        .querySelectorAll('div#resolutionMenu > button')
+        .map(
           (element) => {
             'url': element.attributes['data-src'],
             'quality': element.text,

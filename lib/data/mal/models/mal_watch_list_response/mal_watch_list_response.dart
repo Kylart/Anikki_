@@ -23,16 +23,17 @@ class MalWatchListResponse extends Equatable {
   }
 
   Map<String, dynamic> toMap() => {
-        'node': node?.toMap(),
-        'list_status': listStatus?.toMap(),
-      };
+    'node': node?.toMap(),
+    'list_status': listStatus?.toMap(),
+  };
 
   /// `dart:convert`
   ///
   /// Parses the string and returns the resulting Json object as [MalWatchListResponse].
   factory MalWatchListResponse.fromJson(String data) {
     return MalWatchListResponse.fromMap(
-        json.decode(data) as Map<String, dynamic>);
+      json.decode(data) as Map<String, dynamic>,
+    );
   }
 
   /// `dart:convert`

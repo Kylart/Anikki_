@@ -42,22 +42,21 @@ class _EntryTileState<T> extends State<EntryTile> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image:
-            media.anilistInfo?.bannerImage != null
-                ? DecorationImage(
-                  opacity: 0.25,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                  image: CachedNetworkImageProvider(
-                    media.anilistInfo!.bannerImage!,
-                  ),
-                )
-                : const DecorationImage(
-                  alignment: Alignment.topCenter,
-                  opacity: 0.25,
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/cover_placeholder.jpg'),
+        image: media.anilistInfo?.bannerImage != null
+            ? DecorationImage(
+                opacity: 0.25,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                image: CachedNetworkImageProvider(
+                  media.anilistInfo!.bannerImage!,
                 ),
+              )
+            : const DecorationImage(
+                alignment: Alignment.topCenter,
+                opacity: 0.25,
+                fit: BoxFit.cover,
+                image: AssetImage('assets/images/cover_placeholder.jpg'),
+              ),
       ),
       child: ListTile(
         onTap: () {
@@ -68,14 +67,13 @@ class _EntryTileState<T> extends State<EntryTile> {
           Scaffold.of(context).openEndDrawer();
         },
         title: AutoSizeText(title, maxLines: 2),
-        leading:
-            media.coverImage != null
-                ? CircleAvatar(
-                  backgroundImage: CachedNetworkImageProvider(
-                    media.coverImage!,
-                  ),
-                )
-                : null,
+        leading: media.coverImage != null
+            ? CircleAvatar(
+                backgroundImage: CachedNetworkImageProvider(
+                  media.coverImage!,
+                ),
+              )
+            : null,
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

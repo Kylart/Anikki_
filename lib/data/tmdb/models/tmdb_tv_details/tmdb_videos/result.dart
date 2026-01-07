@@ -28,34 +28,34 @@ class Result extends Equatable {
   });
 
   factory Result.fromMap(Map<String, dynamic> data) => Result(
-        iso6391: data['iso_639_1'] as String?,
-        iso31661: data['iso_3166_1'] as String?,
-        name: data['name'] as String?,
-        key: data['key'] as String?,
-        site: data['site'] as String?,
-        size: data['size'] as int?,
-        type: data['type'] as String?,
-        official: data['official'] as bool?,
-        publishedAt: data['published_at'] == null
-            ? null
-            : DateTime.tryParse(
-                data['published_at'].replaceAll(' UTC', '') as String,
-              ),
-        id: data['id'] as String?,
-      );
+    iso6391: data['iso_639_1'] as String?,
+    iso31661: data['iso_3166_1'] as String?,
+    name: data['name'] as String?,
+    key: data['key'] as String?,
+    site: data['site'] as String?,
+    size: data['size'] as int?,
+    type: data['type'] as String?,
+    official: data['official'] as bool?,
+    publishedAt: data['published_at'] == null
+        ? null
+        : DateTime.tryParse(
+            data['published_at'].replaceAll(' UTC', '') as String,
+          ),
+    id: data['id'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'iso_639_1': iso6391,
-        'iso_3166_1': iso31661,
-        'name': name,
-        'key': key,
-        'site': site,
-        'size': size,
-        'type': type,
-        'official': official,
-        'published_at': publishedAt?.toIso8601String(),
-        'id': id,
-      };
+    'iso_639_1': iso6391,
+    'iso_3166_1': iso31661,
+    'name': name,
+    'key': key,
+    'site': site,
+    'size': size,
+    'type': type,
+    'official': official,
+    'published_at': publishedAt?.toIso8601String(),
+    'id': id,
+  };
 
   /// `dart:convert`
   ///

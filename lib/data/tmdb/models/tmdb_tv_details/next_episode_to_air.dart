@@ -52,20 +52,20 @@ class NextEpisodeToAir extends Equatable {
   }
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'name': name,
-        'overview': overview,
-        'vote_average': voteAverage,
-        'vote_count': voteCount,
-        'air_date': airDate,
-        'episode_number': episodeNumber,
-        'episode_type': episodeType,
-        'production_code': productionCode,
-        'runtime': runtime,
-        'season_number': seasonNumber,
-        'show_id': showId,
-        'still_path': stillPath,
-      };
+    'id': id,
+    'name': name,
+    'overview': overview,
+    'vote_average': voteAverage,
+    'vote_count': voteCount,
+    'air_date': airDate,
+    'episode_number': episodeNumber,
+    'episode_type': episodeType,
+    'production_code': productionCode,
+    'runtime': runtime,
+    'season_number': seasonNumber,
+    'show_id': showId,
+    'still_path': stillPath,
+  };
 
   /// `dart:convert`
   ///

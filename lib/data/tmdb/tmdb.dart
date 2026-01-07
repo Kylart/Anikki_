@@ -26,7 +26,8 @@ class Tmdb {
   Tmdb([
     TMDB? tmdb,
   ]) {
-    _tmdb = tmdb ??
+    _tmdb =
+        tmdb ??
         TMDB(
           ApiKeys(
             dotenv.env['TMDB_ACCESS_KEY']!,
@@ -44,9 +45,11 @@ class Tmdb {
       return TmdbTvDetails.fromMap(cachedDetailsRaw);
     }
 
-    final rawSearch = await _tmdb.v3.search.queryTvShows(
-      name,
-    ) as Map<String, dynamic>;
+    final rawSearch =
+        await _tmdb.v3.search.queryTvShows(
+              name,
+            )
+            as Map<String, dynamic>;
     final search = TmdbSearch.fromMap(rawSearch);
 
     final firstResult = search.results
@@ -58,19 +61,24 @@ class Tmdb {
 
     final seasonsToQuery = 15;
 
-    final rawTmdbInfo = await _tmdb.v3.tv.getDetails(
-      firstResultId,
-      appendToResponse: [
-        'images',
-        'videos',
-        for (final index in List.generate(seasonsToQuery, (index) => index))
-          'season/$index',
-      ].join(','),
-      includeImageLanguage: 'en,ja,null',
-    ) as Map<String, dynamic>;
+    final rawTmdbInfo =
+        await _tmdb.v3.tv.getDetails(
+              firstResultId,
+              appendToResponse: [
+                'images',
+                'videos',
+                for (final index in List.generate(
+                  seasonsToQuery,
+                  (index) => index,
+                ))
+                  'season/$index',
+              ].join(','),
+              includeImageLanguage: 'en,ja,null',
+            )
+            as Map<String, dynamic>;
     final tmdbSeasons = [
       for (final index in List.generate(seasonsToQuery, (index) => index))
-        rawTmdbInfo['season/$index']
+        rawTmdbInfo['season/$index'],
     ].whereType<Map>().toList();
     final tmdbInfo = TmdbTvDetails.fromMap({
       ...rawTmdbInfo,

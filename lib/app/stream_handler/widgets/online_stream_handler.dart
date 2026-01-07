@@ -25,8 +25,9 @@ class _OnlineStreamHandlerState extends State<OnlineStreamHandler> {
   void initState() {
     super.initState();
 
-    final settings =
-        BlocProvider.of<SettingsBloc>(context).state.settings.streamSettings;
+    final settings = BlocProvider.of<SettingsBloc>(
+      context,
+    ).state.settings.streamSettings;
 
     BlocProvider.of<StreamHandlerBloc>(context).add(
       StreamHandlerRequested(
@@ -67,14 +68,14 @@ class _OnlineStreamHandlerState extends State<OnlineStreamHandler> {
           padding: const EdgeInsets.all(16.0),
           child: switch (state) {
             StreamHandlerError() => CustomErrorWidget(
-                height: 275,
-                title: 'Something went wrong, please try again later.',
-                description: state.error,
-              ),
+              height: 275,
+              title: 'Something went wrong, please try again later.',
+              description: state.error,
+            ),
             _ => const LoadingWidget(
-                title: 'Retrieving the best videos...',
-                height: 275,
-              ),
+              title: 'Retrieving the best videos...',
+              height: 275,
+            ),
           },
         ),
       ),

@@ -38,7 +38,7 @@ class HomeTitle extends StatelessWidget {
         final minWidth = switch (entry.media.images?.backdrops?.length) {
           1 => 246.0,
           2 => 418.0,
-          _ => 583.0
+          _ => 583.0,
         };
 
         return AnimatedSwitcher(
@@ -54,7 +54,7 @@ class HomeTitle extends StatelessWidget {
                   children: [
                     ...previousChildren.map(
                       (e) => Flexible(child: e),
-                    )
+                    ),
                   ],
                 ),
                 if (currentChild != null)

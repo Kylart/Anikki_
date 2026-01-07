@@ -9,14 +9,14 @@ class Studio extends Equatable {
   const Studio({this.id, this.name});
 
   factory Studio.fromMap(Map<String, dynamic> data) => Studio(
-        id: data['id'] as int?,
-        name: data['name'] as String?,
-      );
+    id: data['id'] as int?,
+    name: data['name'] as String?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'name': name,
-      };
+    'id': id,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

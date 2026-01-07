@@ -37,15 +37,17 @@ class _LayoutViewState extends State<LayoutView> {
             );
 
             final portrait = state is LayoutPortrait;
-            final settings =
-                BlocProvider.of<SettingsBloc>(context, listen: true)
-                    .state
-                    .settings;
+            final settings = BlocProvider.of<SettingsBloc>(
+              context,
+              listen: true,
+            ).state.settings;
             final connected =
                 BlocProvider.of<ConnectivityBloc>(context, listen: true).state
                     is ConnectivityOnline;
-            final watchListState =
-                BlocProvider.of<WatchListBloc>(context, listen: true).state;
+            final watchListState = BlocProvider.of<WatchListBloc>(
+              context,
+              listen: true,
+            ).state;
 
             final pages = [
               AnikkiPage(

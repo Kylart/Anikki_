@@ -60,15 +60,16 @@ class _EntryCardState extends State<EntryCard>
       reverseDuration: const Duration(milliseconds: 250),
     );
 
-    animation = Tween(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: scaleController,
-        curve: Curves.decelerate,
-      ),
-    );
+    animation =
+        Tween(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: scaleController,
+            curve: Curves.decelerate,
+          ),
+        );
   }
 
   @override
@@ -127,9 +128,9 @@ class _EntryCardState extends State<EntryCard>
             });
           },
           onExit: (event) {
-            scaleController
-                .reverse()
-                .then((value) => setState(() => hovered = false));
+            scaleController.reverse().then(
+              (value) => setState(() => hovered = false),
+            );
           },
           child: _EntryCardScaleAnimation(
             controller: animation,

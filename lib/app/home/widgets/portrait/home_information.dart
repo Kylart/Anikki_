@@ -46,8 +46,9 @@ class _HomeInformation extends StatelessWidget {
                 dense: true,
                 title: AutoSizeText(
                   media!.season?.name.capitalize() ?? '',
-                  style:
-                      context.textTheme.headlineSmall?.copyWith(fontSize: 18),
+                  style: context.textTheme.headlineSmall?.copyWith(
+                    fontSize: 18,
+                  ),
                   textAlign: TextAlign.center,
                   maxLines: 1,
                 ),

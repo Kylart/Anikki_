@@ -37,22 +37,22 @@ class _NavigationRailItemState extends State<_NavigationRailItem>
   bool hovered = false;
 
   Widget _buildIcon(IconData icon) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-        child: Icon(
-          icon,
-          size: 20,
-          color: widget.selected ? context.colorScheme.primary : null,
-        ),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+    child: Icon(
+      icon,
+      size: 20,
+      color: widget.selected ? context.colorScheme.primary : null,
+    ),
+  );
 
   Widget _buildImage(String imageUrl) => Padding(
-        padding: const EdgeInsets.only(left: 2.0),
-        child: CircleAvatar(
-          backgroundImage: imageUrl.startsWith('http')
-              ? CachedNetworkImageProvider(imageUrl)
-              : AssetImage(imageUrl),
-        ),
-      );
+    padding: const EdgeInsets.only(left: 2.0),
+    child: CircleAvatar(
+      backgroundImage: imageUrl.startsWith('http')
+          ? CachedNetworkImageProvider(imageUrl)
+          : AssetImage(imageUrl),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -90,24 +90,27 @@ class _NavigationRailItemState extends State<_NavigationRailItem>
                         children: [
                           Text(
                             widget.text,
-                            style: (widget.isTitle
-                                    ? context.textTheme.headlineSmall
-                                    : context.textTheme.bodyMedium)
-                                ?.copyWith(
-                              color: widget.selected
-                                  ? context.colorScheme.primary
-                                  : null,
-                              fontWeight: hovered ? FontWeight.bold : null,
-                            ),
+                            style:
+                                (widget.isTitle
+                                        ? context.textTheme.headlineSmall
+                                        : context.textTheme.bodyMedium)
+                                    ?.copyWith(
+                                      color: widget.selected
+                                          ? context.colorScheme.primary
+                                          : null,
+                                      fontWeight: hovered
+                                          ? FontWeight.bold
+                                          : null,
+                                    ),
                           ),
                         ],
                       ),
                     ),
                   ),
                 ).animate().fade(
-                      begin: widget.expanded ? 0 : 1,
-                      end: widget.expanded ? 1 : 0,
-                    ),
+                  begin: widget.expanded ? 0 : 1,
+                  end: widget.expanded ? 1 : 0,
+                ),
             ],
           ),
         ),

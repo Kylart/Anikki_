@@ -52,8 +52,9 @@ void main() {
           medias: [media.anilistInfo!],
         );
 
-        when(() => repository.search(term))
-            .thenAnswer((_) async => searchResult);
+        when(
+          () => repository.search(term),
+        ).thenAnswer((_) async => searchResult);
 
         bloc = SearchBloc(repository);
       },

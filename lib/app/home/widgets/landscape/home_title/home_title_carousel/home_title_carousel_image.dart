@@ -29,8 +29,8 @@ class _HomeTitleCarouselImageState extends State<_HomeTitleCarouselImage> {
     return widget.selected
         ? context.colorScheme.secondary
         : hovered
-            ? context.colorScheme.secondary.withValues(alpha: 0.7)
-            : context.colorScheme.outline.withValues(alpha: 0.3);
+        ? context.colorScheme.secondary.withValues(alpha: 0.7)
+        : context.colorScheme.outline.withValues(alpha: 0.3);
   }
 
   @override
@@ -65,11 +65,11 @@ class _HomeTitleCarouselImageState extends State<_HomeTitleCarouselImage> {
               },
               placeholder: (context, childurl) {
                 return AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Container(
-                    color: Colors.blueGrey,
-                  ),
-                )
+                      aspectRatio: 16 / 9,
+                      child: Container(
+                        color: Colors.blueGrey,
+                      ),
+                    )
                     .animate(
                       onPlay: (controller) => controller.repeat(),
                     )

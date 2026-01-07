@@ -22,24 +22,24 @@ class Logo extends Equatable {
   });
 
   factory Logo.fromMap(Map<String, dynamic> data) => Logo(
-        aspectRatio: (data['aspect_ratio'] as num?)?.toDouble(),
-        height: data['height'] as int?,
-        iso6391: data['iso_639_1'] as String?,
-        filePath: data['file_path'] as String?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-        voteCount: data['vote_count'] as int?,
-        width: data['width'] as int?,
-      );
+    aspectRatio: (data['aspect_ratio'] as num?)?.toDouble(),
+    height: data['height'] as int?,
+    iso6391: data['iso_639_1'] as String?,
+    filePath: data['file_path'] as String?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+    voteCount: data['vote_count'] as int?,
+    width: data['width'] as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'aspect_ratio': aspectRatio,
-        'height': height,
-        'iso_639_1': iso6391,
-        'file_path': filePath,
-        'vote_average': voteAverage,
-        'vote_count': voteCount,
-        'width': width,
-      };
+    'aspect_ratio': aspectRatio,
+    'height': height,
+    'iso_639_1': iso6391,
+    'file_path': filePath,
+    'vote_average': voteAverage,
+    'vote_count': voteCount,
+    'width': width,
+  };
 
   /// `dart:convert`
   ///

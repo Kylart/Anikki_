@@ -17,14 +17,16 @@ void main() {
   group('unit test: Anilist', () {
     group('[getSchedule] method', () {
       test('gets a news schedule if no error occurs', () async {
-        final result =
-            generateMockQuery<Query$AiringSchedule>(mockGraphQLClient);
+        final result = generateMockQuery<Query$AiringSchedule>(
+          mockGraphQLClient,
+        );
         when(() => result.hasException).thenReturn(false);
         when(() => result.parsedData).thenReturn(airingScheduleMock);
 
         final anilist = Anilist(client: mockGraphQLClient);
         final schedule = await anilist.getSchedule(
-            DateTimeRange(start: DateTime.now(), end: DateTime.now()));
+          DateTimeRange(start: DateTime.now(), end: DateTime.now()),
+        );
 
         expect(
           schedule.length,
@@ -33,8 +35,9 @@ void main() {
       });
 
       test('throws an error if rquery fails ', () async {
-        final result =
-            generateMockQuery<Query$AiringSchedule>(mockGraphQLClient);
+        final result = generateMockQuery<Query$AiringSchedule>(
+          mockGraphQLClient,
+        );
         when(() => result.hasException).thenReturn(true);
         when(() => result.exception).thenReturn(OperationException());
 
@@ -42,7 +45,8 @@ void main() {
 
         try {
           await anilist.getSchedule(
-              DateTimeRange(start: DateTime.now(), end: DateTime.now()));
+            DateTimeRange(start: DateTime.now(), end: DateTime.now()),
+          );
 
           fail('Error was not thrown');
         } catch (e) {
@@ -116,9 +120,11 @@ void main() {
         const name = 'Kylart';
         final result = generateMockQuery<Query$Viewer>(mockGraphQLClient);
         when(() => result.hasException).thenReturn(false);
-        when(() => result.parsedData).thenReturn(Query$Viewer(
-          Viewer: Query$Viewer$Viewer(name: name, id: 0),
-        ));
+        when(() => result.parsedData).thenReturn(
+          Query$Viewer(
+            Viewer: Query$Viewer$Viewer(name: name, id: 0),
+          ),
+        );
 
         final anilist = Anilist(client: mockGraphQLClient);
         final viewer = await anilist.getMe();
@@ -162,25 +168,30 @@ void main() {
 
         final result = generateMockQuery<Query$GetLists>(mockGraphQLClient);
         when(() => result.hasException).thenReturn(false);
-        when(() => result.parsedData).thenReturn(Query$GetLists(
-            MediaListCollection: Query$GetLists$MediaListCollection(lists: [
-          Query$GetLists$MediaListCollection$lists(
-            entries: [
-              Query$GetLists$MediaListCollection$lists$entries(
-                status: Enum$MediaListStatus.COMPLETED,
-                media: media.anilistInfo,
-              ),
-            ],
+        when(() => result.parsedData).thenReturn(
+          Query$GetLists(
+            MediaListCollection: Query$GetLists$MediaListCollection(
+              lists: [
+                Query$GetLists$MediaListCollection$lists(
+                  entries: [
+                    Query$GetLists$MediaListCollection$lists$entries(
+                      status: Enum$MediaListStatus.COMPLETED,
+                      media: media.anilistInfo,
+                    ),
+                  ],
+                ),
+                Query$GetLists$MediaListCollection$lists(
+                  entries: [
+                    Query$GetLists$MediaListCollection$lists$entries(
+                      status: Enum$MediaListStatus.CURRENT,
+                      media: media.anilistInfo,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-          Query$GetLists$MediaListCollection$lists(
-            entries: [
-              Query$GetLists$MediaListCollection$lists$entries(
-                status: Enum$MediaListStatus.CURRENT,
-                media: media.anilistInfo,
-              ),
-            ],
-          ),
-        ])));
+        );
 
         final anilist = Anilist(client: mockGraphQLClient);
         final lists = await anilist.getWatchLists();

@@ -15,20 +15,19 @@ class Variables$Mutation$UpdateEntry {
     bool? hiddenFromStatusLists,
     Input$FuzzyDateInput? startedAt,
     Input$FuzzyDateInput? completedAt,
-  }) =>
-      Variables$Mutation$UpdateEntry._({
-        if (mediaId != null) r'mediaId': mediaId,
-        if (status != null) r'status': status,
-        if (score != null) r'score': score,
-        if (progress != null) r'progress': progress,
-        if (repeat != null) r'repeat': repeat,
-        if (private != null) r'private': private,
-        if (notes != null) r'notes': notes,
-        if (hiddenFromStatusLists != null)
-          r'hiddenFromStatusLists': hiddenFromStatusLists,
-        if (startedAt != null) r'startedAt': startedAt,
-        if (completedAt != null) r'completedAt': completedAt,
-      });
+  }) => Variables$Mutation$UpdateEntry._({
+    if (mediaId != null) r'mediaId': mediaId,
+    if (status != null) r'status': status,
+    if (score != null) r'score': score,
+    if (progress != null) r'progress': progress,
+    if (repeat != null) r'repeat': repeat,
+    if (private != null) r'private': private,
+    if (notes != null) r'notes': notes,
+    if (hiddenFromStatusLists != null)
+      r'hiddenFromStatusLists': hiddenFromStatusLists,
+    if (startedAt != null) r'startedAt': startedAt,
+    if (completedAt != null) r'completedAt': completedAt,
+  });
 
   Variables$Mutation$UpdateEntry._(this._$data);
 
@@ -73,14 +72,16 @@ class Variables$Mutation$UpdateEntry {
       result$data['startedAt'] = l$startedAt == null
           ? null
           : Input$FuzzyDateInput.fromJson(
-              (l$startedAt as Map<String, dynamic>));
+              (l$startedAt as Map<String, dynamic>),
+            );
     }
     if (data.containsKey('completedAt')) {
       final l$completedAt = data['completedAt'];
       result$data['completedAt'] = l$completedAt == null
           ? null
           : Input$FuzzyDateInput.fromJson(
-              (l$completedAt as Map<String, dynamic>));
+              (l$completedAt as Map<String, dynamic>),
+            );
     }
     return Variables$Mutation$UpdateEntry._(result$data);
   }
@@ -118,8 +119,9 @@ class Variables$Mutation$UpdateEntry {
     }
     if (_$data.containsKey('status')) {
       final l$status = status;
-      result$data['status'] =
-          l$status == null ? null : toJson$Enum$MediaListStatus(l$status);
+      result$data['status'] = l$status == null
+          ? null
+          : toJson$Enum$MediaListStatus(l$status);
     }
     if (_$data.containsKey('score')) {
       final l$score = score;
@@ -157,10 +159,10 @@ class Variables$Mutation$UpdateEntry {
   }
 
   CopyWith$Variables$Mutation$UpdateEntry<Variables$Mutation$UpdateEntry>
-      get copyWith => CopyWith$Variables$Mutation$UpdateEntry(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Mutation$UpdateEntry(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -334,23 +336,24 @@ class _CopyWithImpl$Variables$Mutation$UpdateEntry<TRes>
     Object? hiddenFromStatusLists = _undefined,
     Object? startedAt = _undefined,
     Object? completedAt = _undefined,
-  }) =>
-      _then(Variables$Mutation$UpdateEntry._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (status != _undefined) 'status': (status as Enum$MediaListStatus?),
-        if (score != _undefined) 'score': (score as double?),
-        if (progress != _undefined) 'progress': (progress as int?),
-        if (repeat != _undefined) 'repeat': (repeat as int?),
-        if (private != _undefined) 'private': (private as bool?),
-        if (notes != _undefined) 'notes': (notes as String?),
-        if (hiddenFromStatusLists != _undefined)
-          'hiddenFromStatusLists': (hiddenFromStatusLists as bool?),
-        if (startedAt != _undefined)
-          'startedAt': (startedAt as Input$FuzzyDateInput?),
-        if (completedAt != _undefined)
-          'completedAt': (completedAt as Input$FuzzyDateInput?),
-      }));
+  }) => _then(
+    Variables$Mutation$UpdateEntry._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (status != _undefined) 'status': (status as Enum$MediaListStatus?),
+      if (score != _undefined) 'score': (score as double?),
+      if (progress != _undefined) 'progress': (progress as int?),
+      if (repeat != _undefined) 'repeat': (repeat as int?),
+      if (private != _undefined) 'private': (private as bool?),
+      if (notes != _undefined) 'notes': (notes as String?),
+      if (hiddenFromStatusLists != _undefined)
+        'hiddenFromStatusLists': (hiddenFromStatusLists as bool?),
+      if (startedAt != _undefined)
+        'startedAt': (startedAt as Input$FuzzyDateInput?),
+      if (completedAt != _undefined)
+        'completedAt': (completedAt as Input$FuzzyDateInput?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateEntry<TRes>
@@ -370,8 +373,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateEntry<TRes>
     bool? hiddenFromStatusLists,
     Input$FuzzyDateInput? startedAt,
     Input$FuzzyDateInput? completedAt,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$UpdateEntry {
@@ -387,7 +389,8 @@ class Mutation$UpdateEntry {
       SaveMediaListEntry: l$SaveMediaListEntry == null
           ? null
           : Mutation$UpdateEntry$SaveMediaListEntry.fromJson(
-              (l$SaveMediaListEntry as Map<String, dynamic>)),
+              (l$SaveMediaListEntry as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -477,24 +480,28 @@ class _CopyWithImpl$Mutation$UpdateEntry<TRes>
   TRes call({
     Object? SaveMediaListEntry = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UpdateEntry(
-        SaveMediaListEntry: SaveMediaListEntry == _undefined
-            ? _instance.SaveMediaListEntry
-            : (SaveMediaListEntry as Mutation$UpdateEntry$SaveMediaListEntry?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$UpdateEntry(
+      SaveMediaListEntry: SaveMediaListEntry == _undefined
+          ? _instance.SaveMediaListEntry
+          : (SaveMediaListEntry as Mutation$UpdateEntry$SaveMediaListEntry?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$UpdateEntry$SaveMediaListEntry<TRes>
-      get SaveMediaListEntry {
+  get SaveMediaListEntry {
     final local$SaveMediaListEntry = _instance.SaveMediaListEntry;
     return local$SaveMediaListEntry == null
         ? CopyWith$Mutation$UpdateEntry$SaveMediaListEntry.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Mutation$UpdateEntry$SaveMediaListEntry(
-            local$SaveMediaListEntry, (e) => call(SaveMediaListEntry: e));
+            local$SaveMediaListEntry,
+            (e) => call(SaveMediaListEntry: e),
+          );
   }
 }
 
@@ -507,165 +514,181 @@ class _CopyWithStubImpl$Mutation$UpdateEntry<TRes>
   call({
     Mutation$UpdateEntry$SaveMediaListEntry? SaveMediaListEntry,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$UpdateEntry$SaveMediaListEntry<TRes>
-      get SaveMediaListEntry =>
-          CopyWith$Mutation$UpdateEntry$SaveMediaListEntry.stub(_res);
+  get SaveMediaListEntry =>
+      CopyWith$Mutation$UpdateEntry$SaveMediaListEntry.stub(_res);
 }
 
-const documentNodeMutationUpdateEntry = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'UpdateEntry'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'status')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaListStatus'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'score')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Float'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'progress')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'repeat')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'private')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'notes')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'hiddenFromStatusLists')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'startedAt')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'FuzzyDateInput'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'completedAt')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'FuzzyDateInput'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'SaveMediaListEntry'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'mediaId'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
+const documentNodeMutationUpdateEntry = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'UpdateEntry'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'status'),
-            value: VariableNode(name: NameNode(value: 'status')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'status')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaListStatus'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'score'),
-            value: VariableNode(name: NameNode(value: 'score')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'score')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Float'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'progress'),
-            value: VariableNode(name: NameNode(value: 'progress')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'progress')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'repeat'),
-            value: VariableNode(name: NameNode(value: 'repeat')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'repeat')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'private'),
-            value: VariableNode(name: NameNode(value: 'private')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'private')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'notes'),
-            value: VariableNode(name: NameNode(value: 'notes')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'notes')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
-          ArgumentNode(
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
             name: NameNode(value: 'hiddenFromStatusLists'),
-            value: VariableNode(name: NameNode(value: 'hiddenFromStatusLists')),
           ),
-          ArgumentNode(
-            name: NameNode(value: 'startedAt'),
-            value: VariableNode(name: NameNode(value: 'startedAt')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'completedAt'),
-            value: VariableNode(name: NameNode(value: 'completedAt')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'startedAt')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'FuzzyDateInput'),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'completedAt')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'FuzzyDateInput'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
+            name: NameNode(value: 'SaveMediaListEntry'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'mediaId'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'status'),
+                value: VariableNode(name: NameNode(value: 'status')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'score'),
+                value: VariableNode(name: NameNode(value: 'score')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'progress'),
+                value: VariableNode(name: NameNode(value: 'progress')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'repeat'),
+                value: VariableNode(name: NameNode(value: 'repeat')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'private'),
+                value: VariableNode(name: NameNode(value: 'private')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'notes'),
+                value: VariableNode(name: NameNode(value: 'notes')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'hiddenFromStatusLists'),
+                value: VariableNode(
+                  name: NameNode(value: 'hiddenFromStatusLists'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'startedAt'),
+                value: VariableNode(name: NameNode(value: 'startedAt')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'completedAt'),
+                value: VariableNode(name: NameNode(value: 'completedAt')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -674,25 +697,19 @@ const documentNodeMutationUpdateEntry = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
-Mutation$UpdateEntry _parserFn$Mutation$UpdateEntry(
-        Map<String, dynamic> data) =>
-    Mutation$UpdateEntry.fromJson(data);
-typedef OnMutationCompleted$Mutation$UpdateEntry = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Mutation$UpdateEntry?,
+    ),
+  ],
 );
+Mutation$UpdateEntry _parserFn$Mutation$UpdateEntry(
+  Map<String, dynamic> data,
+) => Mutation$UpdateEntry.fromJson(data);
+typedef OnMutationCompleted$Mutation$UpdateEntry =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Mutation$UpdateEntry?,
+    );
 
 class Options$Mutation$UpdateEntry
     extends graphql.MutationOptions<Mutation$UpdateEntry> {
@@ -708,36 +725,36 @@ class Options$Mutation$UpdateEntry
     OnMutationCompleted$Mutation$UpdateEntry? onCompleted,
     graphql.OnMutationUpdate<Mutation$UpdateEntry>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null ? null : _parserFn$Mutation$UpdateEntry(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationUpdateEntry,
-          parserFn: _parserFn$Mutation$UpdateEntry,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null ? null : _parserFn$Mutation$UpdateEntry(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationUpdateEntry,
+         parserFn: _parserFn$Mutation$UpdateEntry,
+       );
 
   final OnMutationCompleted$Mutation$UpdateEntry? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
 class WatchOptions$Mutation$UpdateEntry
@@ -756,29 +773,29 @@ class WatchOptions$Mutation$UpdateEntry
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeMutationUpdateEntry,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$UpdateEntry,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeMutationUpdateEntry,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Mutation$UpdateEntry,
+       );
 }
 
 extension ClientExtension$Mutation$UpdateEntry on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$UpdateEntry>> mutate$UpdateEntry(
-          [Options$Mutation$UpdateEntry? options]) async =>
-      await this.mutate(options ?? Options$Mutation$UpdateEntry());
-  graphql.ObservableQuery<Mutation$UpdateEntry> watchMutation$UpdateEntry(
-          [WatchOptions$Mutation$UpdateEntry? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$UpdateEntry());
+  Future<graphql.QueryResult<Mutation$UpdateEntry>> mutate$UpdateEntry([
+    Options$Mutation$UpdateEntry? options,
+  ]) async => await this.mutate(options ?? Options$Mutation$UpdateEntry());
+  graphql.ObservableQuery<Mutation$UpdateEntry> watchMutation$UpdateEntry([
+    WatchOptions$Mutation$UpdateEntry? options,
+  ]) => this.watchMutation(options ?? WatchOptions$Mutation$UpdateEntry());
 }
 
 class Mutation$UpdateEntry$SaveMediaListEntry {
@@ -788,7 +805,8 @@ class Mutation$UpdateEntry$SaveMediaListEntry {
   });
 
   factory Mutation$UpdateEntry$SaveMediaListEntry.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Mutation$UpdateEntry$SaveMediaListEntry(
@@ -846,11 +864,12 @@ class Mutation$UpdateEntry$SaveMediaListEntry {
 extension UtilityExtension$Mutation$UpdateEntry$SaveMediaListEntry
     on Mutation$UpdateEntry$SaveMediaListEntry {
   CopyWith$Mutation$UpdateEntry$SaveMediaListEntry<
-          Mutation$UpdateEntry$SaveMediaListEntry>
-      get copyWith => CopyWith$Mutation$UpdateEntry$SaveMediaListEntry(
-            this,
-            (i) => i,
-          );
+    Mutation$UpdateEntry$SaveMediaListEntry
+  >
+  get copyWith => CopyWith$Mutation$UpdateEntry$SaveMediaListEntry(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Mutation$UpdateEntry$SaveMediaListEntry<TRes> {
@@ -884,13 +903,14 @@ class _CopyWithImpl$Mutation$UpdateEntry$SaveMediaListEntry<TRes>
   TRes call({
     Object? id = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UpdateEntry$SaveMediaListEntry(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$UpdateEntry$SaveMediaListEntry(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$UpdateEntry$SaveMediaListEntry<TRes>
@@ -902,6 +922,5 @@ class _CopyWithStubImpl$Mutation$UpdateEntry$SaveMediaListEntry<TRes>
   call({
     int? id,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

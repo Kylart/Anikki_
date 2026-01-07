@@ -27,7 +27,8 @@ class NewsEntry {
   }
 
   factory NewsEntry.fromAnilistSchedule(
-      Query$AiringSchedule$Page$airingSchedules entry) {
+    Query$AiringSchedule$Page$airingSchedules entry,
+  ) {
     return NewsEntry(
       media: Media(anilistInfo: entry.media),
       airingAt: DateTime.fromMillisecondsSinceEpoch(entry.airingAt * 1000),

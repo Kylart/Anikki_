@@ -18,10 +18,10 @@ class ScheduleEntry extends Equatable {
 
   @override
   List<Object?> get props => [
-        releaseTime,
-        media,
-        episodeNumber,
-      ];
+    releaseTime,
+    media,
+    episodeNumber,
+  ];
 
   @override
   bool get stringify => true;

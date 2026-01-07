@@ -24,7 +24,7 @@ class HomeBackgroundImage extends StatelessWidget {
                   children: [
                     ...previousChildren.map(
                       (e) => Expanded(child: e),
-                    )
+                    ),
                   ],
                 ),
                 if (currentChild != null)

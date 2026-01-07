@@ -3,12 +3,11 @@ class Input$AiringScheduleInput {
     int? airingAt,
     int? episode,
     int? timeUntilAiring,
-  }) =>
-      Input$AiringScheduleInput._({
-        if (airingAt != null) r'airingAt': airingAt,
-        if (episode != null) r'episode': episode,
-        if (timeUntilAiring != null) r'timeUntilAiring': timeUntilAiring,
-      });
+  }) => Input$AiringScheduleInput._({
+    if (airingAt != null) r'airingAt': airingAt,
+    if (episode != null) r'episode': episode,
+    if (timeUntilAiring != null) r'timeUntilAiring': timeUntilAiring,
+  });
 
   Input$AiringScheduleInput._(this._$data);
 
@@ -144,14 +143,15 @@ class _CopyWithImpl$Input$AiringScheduleInput<TRes>
     Object? airingAt = _undefined,
     Object? episode = _undefined,
     Object? timeUntilAiring = _undefined,
-  }) =>
-      _then(Input$AiringScheduleInput._({
-        ..._instance._$data,
-        if (airingAt != _undefined) 'airingAt': (airingAt as int?),
-        if (episode != _undefined) 'episode': (episode as int?),
-        if (timeUntilAiring != _undefined)
-          'timeUntilAiring': (timeUntilAiring as int?),
-      }));
+  }) => _then(
+    Input$AiringScheduleInput._({
+      ..._instance._$data,
+      if (airingAt != _undefined) 'airingAt': (airingAt as int?),
+      if (episode != _undefined) 'episode': (episode as int?),
+      if (timeUntilAiring != _undefined)
+        'timeUntilAiring': (timeUntilAiring as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AiringScheduleInput<TRes>
@@ -164,19 +164,17 @@ class _CopyWithStubImpl$Input$AiringScheduleInput<TRes>
     int? airingAt,
     int? episode,
     int? timeUntilAiring,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$AniChartHighlightInput {
   factory Input$AniChartHighlightInput({
     int? mediaId,
     String? highlight,
-  }) =>
-      Input$AniChartHighlightInput._({
-        if (mediaId != null) r'mediaId': mediaId,
-        if (highlight != null) r'highlight': highlight,
-      });
+  }) => Input$AniChartHighlightInput._({
+    if (mediaId != null) r'mediaId': mediaId,
+    if (highlight != null) r'highlight': highlight,
+  });
 
   Input$AniChartHighlightInput._(this._$data);
 
@@ -213,10 +211,10 @@ class Input$AniChartHighlightInput {
   }
 
   CopyWith$Input$AniChartHighlightInput<Input$AniChartHighlightInput>
-      get copyWith => CopyWith$Input$AniChartHighlightInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$AniChartHighlightInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -289,12 +287,13 @@ class _CopyWithImpl$Input$AniChartHighlightInput<TRes>
   TRes call({
     Object? mediaId = _undefined,
     Object? highlight = _undefined,
-  }) =>
-      _then(Input$AniChartHighlightInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (highlight != _undefined) 'highlight': (highlight as String?),
-      }));
+  }) => _then(
+    Input$AniChartHighlightInput._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (highlight != _undefined) 'highlight': (highlight as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AniChartHighlightInput<TRes>
@@ -306,8 +305,7 @@ class _CopyWithStubImpl$Input$AniChartHighlightInput<TRes>
   call({
     int? mediaId,
     String? highlight,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$CharacterNameInput {
@@ -318,16 +316,14 @@ class Input$CharacterNameInput {
     String? native,
     List<String?>? alternative,
     List<String?>? alternativeSpoiler,
-  }) =>
-      Input$CharacterNameInput._({
-        if (first != null) r'first': first,
-        if (middle != null) r'middle': middle,
-        if (last != null) r'last': last,
-        if (native != null) r'native': native,
-        if (alternative != null) r'alternative': alternative,
-        if (alternativeSpoiler != null)
-          r'alternativeSpoiler': alternativeSpoiler,
-      });
+  }) => Input$CharacterNameInput._({
+    if (first != null) r'first': first,
+    if (middle != null) r'middle': middle,
+    if (last != null) r'last': last,
+    if (native != null) r'native': native,
+    if (alternative != null) r'alternative': alternative,
+    if (alternativeSpoiler != null) r'alternativeSpoiler': alternativeSpoiler,
+  });
 
   Input$CharacterNameInput._(this._$data);
 
@@ -404,8 +400,9 @@ class Input$CharacterNameInput {
     }
     if (_$data.containsKey('alternativeSpoiler')) {
       final l$alternativeSpoiler = alternativeSpoiler;
-      result$data['alternativeSpoiler'] =
-          l$alternativeSpoiler?.map((e) => e).toList();
+      result$data['alternativeSpoiler'] = l$alternativeSpoiler
+          ?.map((e) => e)
+          .toList();
     }
     return result$data;
   }
@@ -515,13 +512,13 @@ class Input$CharacterNameInput {
       _$data.containsKey('native') ? l$native : const {},
       _$data.containsKey('alternative')
           ? l$alternative == null
-              ? null
-              : Object.hashAll(l$alternative.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternative.map((v) => v))
           : const {},
       _$data.containsKey('alternativeSpoiler')
           ? l$alternativeSpoiler == null
-              ? null
-              : Object.hashAll(l$alternativeSpoiler.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternativeSpoiler.map((v) => v))
           : const {},
     ]);
   }
@@ -566,18 +563,19 @@ class _CopyWithImpl$Input$CharacterNameInput<TRes>
     Object? native = _undefined,
     Object? alternative = _undefined,
     Object? alternativeSpoiler = _undefined,
-  }) =>
-      _then(Input$CharacterNameInput._({
-        ..._instance._$data,
-        if (first != _undefined) 'first': (first as String?),
-        if (middle != _undefined) 'middle': (middle as String?),
-        if (last != _undefined) 'last': (last as String?),
-        if (native != _undefined) 'native': (native as String?),
-        if (alternative != _undefined)
-          'alternative': (alternative as List<String?>?),
-        if (alternativeSpoiler != _undefined)
-          'alternativeSpoiler': (alternativeSpoiler as List<String?>?),
-      }));
+  }) => _then(
+    Input$CharacterNameInput._({
+      ..._instance._$data,
+      if (first != _undefined) 'first': (first as String?),
+      if (middle != _undefined) 'middle': (middle as String?),
+      if (last != _undefined) 'last': (last as String?),
+      if (native != _undefined) 'native': (native as String?),
+      if (alternative != _undefined)
+        'alternative': (alternative as List<String?>?),
+      if (alternativeSpoiler != _undefined)
+        'alternativeSpoiler': (alternativeSpoiler as List<String?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CharacterNameInput<TRes>
@@ -593,8 +591,7 @@ class _CopyWithStubImpl$Input$CharacterNameInput<TRes>
     String? native,
     List<String?>? alternative,
     List<String?>? alternativeSpoiler,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$FuzzyDateInput {
@@ -602,12 +599,11 @@ class Input$FuzzyDateInput {
     int? year,
     int? month,
     int? day,
-  }) =>
-      Input$FuzzyDateInput._({
-        if (year != null) r'year': year,
-        if (month != null) r'month': month,
-        if (day != null) r'day': day,
-      });
+  }) => Input$FuzzyDateInput._({
+    if (year != null) r'year': year,
+    if (month != null) r'month': month,
+    if (day != null) r'day': day,
+  });
 
   Input$FuzzyDateInput._(this._$data);
 
@@ -740,13 +736,14 @@ class _CopyWithImpl$Input$FuzzyDateInput<TRes>
     Object? year = _undefined,
     Object? month = _undefined,
     Object? day = _undefined,
-  }) =>
-      _then(Input$FuzzyDateInput._({
-        ..._instance._$data,
-        if (year != _undefined) 'year': (year as int?),
-        if (month != _undefined) 'month': (month as int?),
-        if (day != _undefined) 'day': (day as int?),
-      }));
+  }) => _then(
+    Input$FuzzyDateInput._({
+      ..._instance._$data,
+      if (year != _undefined) 'year': (year as int?),
+      if (month != _undefined) 'month': (month as int?),
+      if (day != _undefined) 'day': (day as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$FuzzyDateInput<TRes>
@@ -759,19 +756,17 @@ class _CopyWithStubImpl$Input$FuzzyDateInput<TRes>
     int? year,
     int? month,
     int? day,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$ListActivityOptionInput {
   factory Input$ListActivityOptionInput({
     bool? disabled,
     Enum$MediaListStatus? type,
-  }) =>
-      Input$ListActivityOptionInput._({
-        if (disabled != null) r'disabled': disabled,
-        if (type != null) r'type': type,
-      });
+  }) => Input$ListActivityOptionInput._({
+    if (disabled != null) r'disabled': disabled,
+    if (type != null) r'type': type,
+  });
 
   Input$ListActivityOptionInput._(this._$data);
 
@@ -804,17 +799,18 @@ class Input$ListActivityOptionInput {
     }
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$MediaListStatus(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$MediaListStatus(l$type);
     }
     return result$data;
   }
 
   CopyWith$Input$ListActivityOptionInput<Input$ListActivityOptionInput>
-      get copyWith => CopyWith$Input$ListActivityOptionInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$ListActivityOptionInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -887,12 +883,13 @@ class _CopyWithImpl$Input$ListActivityOptionInput<TRes>
   TRes call({
     Object? disabled = _undefined,
     Object? type = _undefined,
-  }) =>
-      _then(Input$ListActivityOptionInput._({
-        ..._instance._$data,
-        if (disabled != _undefined) 'disabled': (disabled as bool?),
-        if (type != _undefined) 'type': (type as Enum$MediaListStatus?),
-      }));
+  }) => _then(
+    Input$ListActivityOptionInput._({
+      ..._instance._$data,
+      if (disabled != _undefined) 'disabled': (disabled as bool?),
+      if (type != _undefined) 'type': (type as Enum$MediaListStatus?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$ListActivityOptionInput<TRes>
@@ -904,8 +901,7 @@ class _CopyWithStubImpl$Input$ListActivityOptionInput<TRes>
   call({
     bool? disabled,
     Enum$MediaListStatus? type,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaExternalLinkInput {
@@ -913,12 +909,11 @@ class Input$MediaExternalLinkInput {
     required int id,
     required String url,
     required String site,
-  }) =>
-      Input$MediaExternalLinkInput._({
-        r'id': id,
-        r'url': url,
-        r'site': site,
-      });
+  }) => Input$MediaExternalLinkInput._({
+    r'id': id,
+    r'url': url,
+    r'site': site,
+  });
 
   Input$MediaExternalLinkInput._(this._$data);
 
@@ -953,10 +948,10 @@ class Input$MediaExternalLinkInput {
   }
 
   CopyWith$Input$MediaExternalLinkInput<Input$MediaExternalLinkInput>
-      get copyWith => CopyWith$Input$MediaExternalLinkInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaExternalLinkInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -1031,13 +1026,14 @@ class _CopyWithImpl$Input$MediaExternalLinkInput<TRes>
     Object? id = _undefined,
     Object? url = _undefined,
     Object? site = _undefined,
-  }) =>
-      _then(Input$MediaExternalLinkInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as int),
-        if (url != _undefined && url != null) 'url': (url as String),
-        if (site != _undefined && site != null) 'site': (site as String),
-      }));
+  }) => _then(
+    Input$MediaExternalLinkInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as int),
+      if (url != _undefined && url != null) 'url': (url as String),
+      if (site != _undefined && site != null) 'site': (site as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaExternalLinkInput<TRes>
@@ -1050,8 +1046,7 @@ class _CopyWithStubImpl$Input$MediaExternalLinkInput<TRes>
     int? id,
     String? url,
     String? site,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaListOptionsInput {
@@ -1062,17 +1057,16 @@ class Input$MediaListOptionsInput {
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? theme,
-  }) =>
-      Input$MediaListOptionsInput._({
-        if (sectionOrder != null) r'sectionOrder': sectionOrder,
-        if (splitCompletedSectionByFormat != null)
-          r'splitCompletedSectionByFormat': splitCompletedSectionByFormat,
-        if (customLists != null) r'customLists': customLists,
-        if (advancedScoring != null) r'advancedScoring': advancedScoring,
-        if (advancedScoringEnabled != null)
-          r'advancedScoringEnabled': advancedScoringEnabled,
-        if (theme != null) r'theme': theme,
-      });
+  }) => Input$MediaListOptionsInput._({
+    if (sectionOrder != null) r'sectionOrder': sectionOrder,
+    if (splitCompletedSectionByFormat != null)
+      r'splitCompletedSectionByFormat': splitCompletedSectionByFormat,
+    if (customLists != null) r'customLists': customLists,
+    if (advancedScoring != null) r'advancedScoring': advancedScoring,
+    if (advancedScoringEnabled != null)
+      r'advancedScoringEnabled': advancedScoringEnabled,
+    if (theme != null) r'theme': theme,
+  });
 
   Input$MediaListOptionsInput._(this._$data);
 
@@ -1148,8 +1142,9 @@ class Input$MediaListOptionsInput {
     }
     if (_$data.containsKey('advancedScoring')) {
       final l$advancedScoring = advancedScoring;
-      result$data['advancedScoring'] =
-          l$advancedScoring?.map((e) => e).toList();
+      result$data['advancedScoring'] = l$advancedScoring
+          ?.map((e) => e)
+          .toList();
     }
     if (_$data.containsKey('advancedScoringEnabled')) {
       final l$advancedScoringEnabled = advancedScoringEnabled;
@@ -1163,10 +1158,10 @@ class Input$MediaListOptionsInput {
   }
 
   CopyWith$Input$MediaListOptionsInput<Input$MediaListOptionsInput>
-      get copyWith => CopyWith$Input$MediaListOptionsInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaListOptionsInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -1279,21 +1274,21 @@ class Input$MediaListOptionsInput {
     return Object.hashAll([
       _$data.containsKey('sectionOrder')
           ? l$sectionOrder == null
-              ? null
-              : Object.hashAll(l$sectionOrder.map((v) => v))
+                ? null
+                : Object.hashAll(l$sectionOrder.map((v) => v))
           : const {},
       _$data.containsKey('splitCompletedSectionByFormat')
           ? l$splitCompletedSectionByFormat
           : const {},
       _$data.containsKey('customLists')
           ? l$customLists == null
-              ? null
-              : Object.hashAll(l$customLists.map((v) => v))
+                ? null
+                : Object.hashAll(l$customLists.map((v) => v))
           : const {},
       _$data.containsKey('advancedScoring')
           ? l$advancedScoring == null
-              ? null
-              : Object.hashAll(l$advancedScoring.map((v) => v))
+                ? null
+                : Object.hashAll(l$advancedScoring.map((v) => v))
           : const {},
       _$data.containsKey('advancedScoringEnabled')
           ? l$advancedScoringEnabled
@@ -1342,22 +1337,23 @@ class _CopyWithImpl$Input$MediaListOptionsInput<TRes>
     Object? advancedScoring = _undefined,
     Object? advancedScoringEnabled = _undefined,
     Object? theme = _undefined,
-  }) =>
-      _then(Input$MediaListOptionsInput._({
-        ..._instance._$data,
-        if (sectionOrder != _undefined)
-          'sectionOrder': (sectionOrder as List<String?>?),
-        if (splitCompletedSectionByFormat != _undefined)
-          'splitCompletedSectionByFormat':
-              (splitCompletedSectionByFormat as bool?),
-        if (customLists != _undefined)
-          'customLists': (customLists as List<String?>?),
-        if (advancedScoring != _undefined)
-          'advancedScoring': (advancedScoring as List<String?>?),
-        if (advancedScoringEnabled != _undefined)
-          'advancedScoringEnabled': (advancedScoringEnabled as bool?),
-        if (theme != _undefined) 'theme': (theme as String?),
-      }));
+  }) => _then(
+    Input$MediaListOptionsInput._({
+      ..._instance._$data,
+      if (sectionOrder != _undefined)
+        'sectionOrder': (sectionOrder as List<String?>?),
+      if (splitCompletedSectionByFormat != _undefined)
+        'splitCompletedSectionByFormat':
+            (splitCompletedSectionByFormat as bool?),
+      if (customLists != _undefined)
+        'customLists': (customLists as List<String?>?),
+      if (advancedScoring != _undefined)
+        'advancedScoring': (advancedScoring as List<String?>?),
+      if (advancedScoringEnabled != _undefined)
+        'advancedScoringEnabled': (advancedScoringEnabled as bool?),
+      if (theme != _undefined) 'theme': (theme as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaListOptionsInput<TRes>
@@ -1373,8 +1369,7 @@ class _CopyWithStubImpl$Input$MediaListOptionsInput<TRes>
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? theme,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaTitleInput {
@@ -1382,12 +1377,11 @@ class Input$MediaTitleInput {
     String? romaji,
     String? english,
     String? native,
-  }) =>
-      Input$MediaTitleInput._({
-        if (romaji != null) r'romaji': romaji,
-        if (english != null) r'english': english,
-        if (native != null) r'native': native,
-      });
+  }) => Input$MediaTitleInput._({
+    if (romaji != null) r'romaji': romaji,
+    if (english != null) r'english': english,
+    if (native != null) r'native': native,
+  });
 
   Input$MediaTitleInput._(this._$data);
 
@@ -1520,13 +1514,14 @@ class _CopyWithImpl$Input$MediaTitleInput<TRes>
     Object? romaji = _undefined,
     Object? english = _undefined,
     Object? native = _undefined,
-  }) =>
-      _then(Input$MediaTitleInput._({
-        ..._instance._$data,
-        if (romaji != _undefined) 'romaji': (romaji as String?),
-        if (english != _undefined) 'english': (english as String?),
-        if (native != _undefined) 'native': (native as String?),
-      }));
+  }) => _then(
+    Input$MediaTitleInput._({
+      ..._instance._$data,
+      if (romaji != _undefined) 'romaji': (romaji as String?),
+      if (english != _undefined) 'english': (english as String?),
+      if (native != _undefined) 'native': (native as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaTitleInput<TRes>
@@ -1539,19 +1534,17 @@ class _CopyWithStubImpl$Input$MediaTitleInput<TRes>
     String? romaji,
     String? english,
     String? native,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$NotificationOptionInput {
   factory Input$NotificationOptionInput({
     Enum$NotificationType? type,
     bool? enabled,
-  }) =>
-      Input$NotificationOptionInput._({
-        if (type != null) r'type': type,
-        if (enabled != null) r'enabled': enabled,
-      });
+  }) => Input$NotificationOptionInput._({
+    if (type != null) r'type': type,
+    if (enabled != null) r'enabled': enabled,
+  });
 
   Input$NotificationOptionInput._(this._$data);
 
@@ -1580,8 +1573,9 @@ class Input$NotificationOptionInput {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$NotificationType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$NotificationType(l$type);
     }
     if (_$data.containsKey('enabled')) {
       final l$enabled = enabled;
@@ -1591,10 +1585,10 @@ class Input$NotificationOptionInput {
   }
 
   CopyWith$Input$NotificationOptionInput<Input$NotificationOptionInput>
-      get copyWith => CopyWith$Input$NotificationOptionInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$NotificationOptionInput(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -1666,12 +1660,13 @@ class _CopyWithImpl$Input$NotificationOptionInput<TRes>
   TRes call({
     Object? type = _undefined,
     Object? enabled = _undefined,
-  }) =>
-      _then(Input$NotificationOptionInput._({
-        ..._instance._$data,
-        if (type != _undefined) 'type': (type as Enum$NotificationType?),
-        if (enabled != _undefined) 'enabled': (enabled as bool?),
-      }));
+  }) => _then(
+    Input$NotificationOptionInput._({
+      ..._instance._$data,
+      if (type != _undefined) 'type': (type as Enum$NotificationType?),
+      if (enabled != _undefined) 'enabled': (enabled as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$NotificationOptionInput<TRes>
@@ -1683,8 +1678,7 @@ class _CopyWithStubImpl$Input$NotificationOptionInput<TRes>
   call({
     Enum$NotificationType? type,
     bool? enabled,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$StaffNameInput {
@@ -1694,14 +1688,13 @@ class Input$StaffNameInput {
     String? last,
     String? native,
     List<String?>? alternative,
-  }) =>
-      Input$StaffNameInput._({
-        if (first != null) r'first': first,
-        if (middle != null) r'middle': middle,
-        if (last != null) r'last': last,
-        if (native != null) r'native': native,
-        if (alternative != null) r'alternative': alternative,
-      });
+  }) => Input$StaffNameInput._({
+    if (first != null) r'first': first,
+    if (middle != null) r'middle': middle,
+    if (last != null) r'last': last,
+    if (native != null) r'native': native,
+    if (alternative != null) r'alternative': alternative,
+  });
 
   Input$StaffNameInput._(this._$data);
 
@@ -1852,8 +1845,8 @@ class Input$StaffNameInput {
       _$data.containsKey('native') ? l$native : const {},
       _$data.containsKey('alternative')
           ? l$alternative == null
-              ? null
-              : Object.hashAll(l$alternative.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternative.map((v) => v))
           : const {},
     ]);
   }
@@ -1896,16 +1889,17 @@ class _CopyWithImpl$Input$StaffNameInput<TRes>
     Object? last = _undefined,
     Object? native = _undefined,
     Object? alternative = _undefined,
-  }) =>
-      _then(Input$StaffNameInput._({
-        ..._instance._$data,
-        if (first != _undefined) 'first': (first as String?),
-        if (middle != _undefined) 'middle': (middle as String?),
-        if (last != _undefined) 'last': (last as String?),
-        if (native != _undefined) 'native': (native as String?),
-        if (alternative != _undefined)
-          'alternative': (alternative as List<String?>?),
-      }));
+  }) => _then(
+    Input$StaffNameInput._({
+      ..._instance._$data,
+      if (first != _undefined) 'first': (first as String?),
+      if (middle != _undefined) 'middle': (middle as String?),
+      if (last != _undefined) 'last': (last as String?),
+      if (native != _undefined) 'native': (native as String?),
+      if (alternative != _undefined)
+        'alternative': (alternative as List<String?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$StaffNameInput<TRes>
@@ -1920,8 +1914,7 @@ class _CopyWithStubImpl$Input$StaffNameInput<TRes>
     String? last,
     String? native,
     List<String?>? alternative,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 enum Enum$ActivitySort {

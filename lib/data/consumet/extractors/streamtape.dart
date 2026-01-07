@@ -12,8 +12,9 @@ class StreamTape extends Extractor {
     final res = await client.get(uri);
     final document = parse(res.body);
 
-    final match = RegExp(r"robotlink'\).innerHTML = (.*)'")
-        .firstMatch(document.outerHtml);
+    final match = RegExp(
+      r"robotlink'\).innerHTML = (.*)'",
+    ).firstMatch(document.outerHtml);
 
     if (match == null) throw 'Could not find robotlink';
 

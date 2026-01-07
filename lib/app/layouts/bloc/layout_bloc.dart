@@ -12,17 +12,21 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
   LayoutBloc() : super(const LayoutLandscape()) {
     on<LayoutSizeChanged>((event, emit) {
       if (event.constraints.maxWidth >= kWidthBreakpoint) {
-        emit(LayoutLandscape(
-          drawerMedia: state.drawerMedia,
-          drawerLibraryEntry: state.drawerLibraryEntry,
-          leftDrawerType: state.leftDrawerType,
-        ));
+        emit(
+          LayoutLandscape(
+            drawerMedia: state.drawerMedia,
+            drawerLibraryEntry: state.drawerLibraryEntry,
+            leftDrawerType: state.leftDrawerType,
+          ),
+        );
       } else {
-        emit(LayoutPortrait(
-          drawerMedia: state.drawerMedia,
-          drawerLibraryEntry: state.drawerLibraryEntry,
-          leftDrawerType: state.leftDrawerType,
-        ));
+        emit(
+          LayoutPortrait(
+            drawerMedia: state.drawerMedia,
+            drawerLibraryEntry: state.drawerLibraryEntry,
+            leftDrawerType: state.leftDrawerType,
+          ),
+        );
       }
     });
 
@@ -30,15 +34,15 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
       emit(
         switch (state) {
           LayoutLandscape() => LayoutLandscape(
-              drawerMedia: event.media,
-              drawerLibraryEntry: event.libraryEntry,
-              leftDrawerType: state.leftDrawerType,
-            ),
+            drawerMedia: event.media,
+            drawerLibraryEntry: event.libraryEntry,
+            leftDrawerType: state.leftDrawerType,
+          ),
           LayoutPortrait() => LayoutPortrait(
-              drawerMedia: event.media,
-              drawerLibraryEntry: event.libraryEntry,
-              leftDrawerType: state.leftDrawerType,
-            ),
+            drawerMedia: event.media,
+            drawerLibraryEntry: event.libraryEntry,
+            leftDrawerType: state.leftDrawerType,
+          ),
         },
       );
     });
@@ -47,15 +51,15 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
       emit(
         switch (state) {
           LayoutLandscape() => LayoutLandscape(
-              drawerMedia: state.drawerMedia,
-              drawerLibraryEntry: state.drawerLibraryEntry,
-              leftDrawerType: event.type,
-            ),
+            drawerMedia: state.drawerMedia,
+            drawerLibraryEntry: state.drawerLibraryEntry,
+            leftDrawerType: event.type,
+          ),
           LayoutPortrait() => LayoutPortrait(
-              drawerMedia: state.drawerMedia,
-              drawerLibraryEntry: state.drawerLibraryEntry,
-              leftDrawerType: event.type,
-            ),
+            drawerMedia: state.drawerMedia,
+            drawerLibraryEntry: state.drawerLibraryEntry,
+            leftDrawerType: event.type,
+          ),
         },
       );
 

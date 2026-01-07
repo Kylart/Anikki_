@@ -90,72 +90,74 @@ class TmdbTvDetails extends Equatable {
   });
 
   factory TmdbTvDetails.fromMap(Map<String, dynamic> data) => TmdbTvDetails(
-        images: data['images'] == null
-            ? null
-            : TmdbTvImages.fromMap(data['images'] as Map<String, dynamic>),
-        adult: data['adult'] as bool?,
-        backdropPath: data['backdrop_path'] as String?,
-        createdBy: data['created_by'] as List<dynamic>?,
-        episodeRunTime: data['episode_run_time']?.cast<int>() as List<int>?,
-        firstAirDate: data['first_air_date'] as String?,
-        genres: (data['genres'] as List<dynamic>?)
-            ?.map((e) => Genre.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        homepage: data['homepage'] as String?,
-        id: data['id']?.toInt() as int?,
-        inProduction: data['in_production'] as bool?,
-        languages: data['languages']?.cast<String>() as List<String>?,
-        lastAirDate: data['last_air_date'] as String?,
-        lastEpisodeToAir: data['last_episode_to_air'] == null
-            ? null
-            : LastEpisodeToAir.fromMap(
-                data['last_episode_to_air'] as Map<String, dynamic>),
-        name: data['name'] as String?,
-        nextEpisodeToAir: data['next_episode_to_air'] == null
-            ? null
-            : NextEpisodeToAir.fromMap(
-                data['next_episode_to_air'] as Map<String, dynamic>),
-        networks: (data['networks'] as List<dynamic>?)
-            ?.map((e) => Network.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        numberOfEpisodes: data['number_of_episodes']?.toInt() as int?,
-        numberOfSeasons: data['number_of_seasons']?.toInt() as int?,
-        originCountry: data['origin_country']?.cast<String>() as List<String>?,
-        originalLanguage: data['original_language'] as String?,
-        originalName: data['original_name'] as String?,
-        overview: data['overview'] as String?,
-        popularity: (data['popularity'] as num?)?.toDouble(),
-        posterPath: data['poster_path'] as String?,
-        productionCompanies: (data['production_companies'] as List<dynamic>?)
-            ?.map((e) => ProductionCompany.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        productionCountries: (data['production_countries'] as List<dynamic>?)
-            ?.map((e) => ProductionCountry.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        seasons: (data['seasons'] as List<dynamic>?)
-            ?.map((e) => Season.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        spokenLanguages: (data['spoken_languages'] as List<dynamic>?)
-            ?.map((e) => SpokenLanguage.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        status: data['status'] as String?,
-        tagline: data['tagline'] as String?,
-        type: data['type'] as String?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-        voteCount: data['vote_count']?.toInt() as int?,
-        tmdbSeasons: data['tmdbSeasons'] != null
-            ? List<TmdbSeason>.from(
-                (data['tmdbSeasons'] as List).map<TmdbSeason?>(
-                  (x) => TmdbSeason.fromMap(x as Map<String, dynamic>),
-                ),
-              )
-            : null,
-        tmdbVideos: data['videos'] != null
-            ? TmdbVideos.fromMap(
-                data['videos'],
-              )
-            : null,
-      );
+    images: data['images'] == null
+        ? null
+        : TmdbTvImages.fromMap(data['images'] as Map<String, dynamic>),
+    adult: data['adult'] as bool?,
+    backdropPath: data['backdrop_path'] as String?,
+    createdBy: data['created_by'] as List<dynamic>?,
+    episodeRunTime: data['episode_run_time']?.cast<int>() as List<int>?,
+    firstAirDate: data['first_air_date'] as String?,
+    genres: (data['genres'] as List<dynamic>?)
+        ?.map((e) => Genre.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    homepage: data['homepage'] as String?,
+    id: data['id']?.toInt() as int?,
+    inProduction: data['in_production'] as bool?,
+    languages: data['languages']?.cast<String>() as List<String>?,
+    lastAirDate: data['last_air_date'] as String?,
+    lastEpisodeToAir: data['last_episode_to_air'] == null
+        ? null
+        : LastEpisodeToAir.fromMap(
+            data['last_episode_to_air'] as Map<String, dynamic>,
+          ),
+    name: data['name'] as String?,
+    nextEpisodeToAir: data['next_episode_to_air'] == null
+        ? null
+        : NextEpisodeToAir.fromMap(
+            data['next_episode_to_air'] as Map<String, dynamic>,
+          ),
+    networks: (data['networks'] as List<dynamic>?)
+        ?.map((e) => Network.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    numberOfEpisodes: data['number_of_episodes']?.toInt() as int?,
+    numberOfSeasons: data['number_of_seasons']?.toInt() as int?,
+    originCountry: data['origin_country']?.cast<String>() as List<String>?,
+    originalLanguage: data['original_language'] as String?,
+    originalName: data['original_name'] as String?,
+    overview: data['overview'] as String?,
+    popularity: (data['popularity'] as num?)?.toDouble(),
+    posterPath: data['poster_path'] as String?,
+    productionCompanies: (data['production_companies'] as List<dynamic>?)
+        ?.map((e) => ProductionCompany.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    productionCountries: (data['production_countries'] as List<dynamic>?)
+        ?.map((e) => ProductionCountry.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    seasons: (data['seasons'] as List<dynamic>?)
+        ?.map((e) => Season.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    spokenLanguages: (data['spoken_languages'] as List<dynamic>?)
+        ?.map((e) => SpokenLanguage.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    status: data['status'] as String?,
+    tagline: data['tagline'] as String?,
+    type: data['type'] as String?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+    voteCount: data['vote_count']?.toInt() as int?,
+    tmdbSeasons: data['tmdbSeasons'] != null
+        ? List<TmdbSeason>.from(
+            (data['tmdbSeasons'] as List).map<TmdbSeason?>(
+              (x) => TmdbSeason.fromMap(x as Map<String, dynamic>),
+            ),
+          )
+        : null,
+    tmdbVideos: data['videos'] != null
+        ? TmdbVideos.fromMap(
+            data['videos'],
+          )
+        : null,
+  );
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -182,10 +184,12 @@ class TmdbTvDetails extends Equatable {
       'overview': overview,
       'popularity': popularity,
       'posterPath': posterPath,
-      'productionCompanies':
-          productionCompanies?.map((x) => x.toMap()).toList(),
-      'productionCountries':
-          productionCountries?.map((x) => x.toMap()).toList(),
+      'productionCompanies': productionCompanies
+          ?.map((x) => x.toMap())
+          .toList(),
+      'productionCountries': productionCountries
+          ?.map((x) => x.toMap())
+          .toList(),
       'seasons': seasons?.map((x) => x.toMap()).toList(),
       'spokenLanguages': spokenLanguages?.map((x) => x.toMap()).toList(),
       'status': status,

@@ -14,8 +14,8 @@ class LayoutSizeChanged extends LayoutEvent {
 
   @override
   List<Object?> get props => [
-        constraints,
-      ];
+    constraints,
+  ];
 }
 
 final class LayoutDrawerMediaChanged extends LayoutEvent {
@@ -29,9 +29,9 @@ final class LayoutDrawerMediaChanged extends LayoutEvent {
 
   @override
   List<Object?> get props => [
-        media,
-        libraryEntry,
-      ];
+    media,
+    libraryEntry,
+  ];
 }
 
 final class LayoutLeftDrawerTypeChanged extends LayoutEvent {
@@ -45,7 +45,7 @@ final class LayoutLeftDrawerTypeChanged extends LayoutEvent {
 
   @override
   List<Object?> get props => [
-        type,
-        callback,
-      ];
+    type,
+    callback,
+  ];
 }

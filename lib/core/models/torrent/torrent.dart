@@ -118,21 +118,21 @@ class Torrent extends Equatable {
 
   @override
   List<Object?> get props => [
-        media,
-        magnet,
-        id,
-        hash,
-        progress,
-        status,
-        path,
-        name,
-        sizeDownloaded,
-        totalSize,
-        ratio,
-        leechers,
-        seeders,
-        estimatedTimeToFinish,
-      ];
+    media,
+    magnet,
+    id,
+    hash,
+    progress,
+    status,
+    path,
+    name,
+    sizeDownloaded,
+    totalSize,
+    ratio,
+    leechers,
+    seeders,
+    estimatedTimeToFinish,
+  ];
 
   @override
   bool get stringify => true;

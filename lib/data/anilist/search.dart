@@ -22,18 +22,20 @@ mixin AnilistSearch on AnilistClient {
             'Could not retrieve list';
       }
 
-      result[AnilistSearchPart.animes] = query.parsedData?.anime?.results
+      result[AnilistSearchPart.animes] =
+          query.parsedData?.anime?.results
               ?.whereType<Fragment$media>()
               .toList() ??
           [];
 
-      result[AnilistSearchPart.characters] = query
-              .parsedData?.characters?.results
+      result[AnilistSearchPart.characters] =
+          query.parsedData?.characters?.results
               ?.whereType<Query$Search$characters$results>()
               .toList() ??
           [];
 
-      result[AnilistSearchPart.staffs] = query.parsedData?.staff?.results
+      result[AnilistSearchPart.staffs] =
+          query.parsedData?.staff?.results
               ?.whereType<Query$Search$staff$results>()
               .toList() ??
           [];

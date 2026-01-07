@@ -54,8 +54,8 @@ class _StreamPlaceholderState extends State<StreamPlaceholder> {
           extras: {
             'title': parsedTitle.episode != null
                 ? widget.media
-                    ?.getEpisodeInfo(parsedTitle.episode!)
-                    ?.formattedTitle
+                      ?.getEpisodeInfo(parsedTitle.episode!)
+                      ?.formattedTitle
                 : widget.torrent.name,
             'episodeNumber': parsedTitle.episode,
           },
@@ -93,10 +93,10 @@ class _StreamPlaceholderState extends State<StreamPlaceholder> {
     final minProgress = torrentBloc.isTransmission
         ? 0.1
         : torrentBloc.isQBitTorrent
-            ? 0.03
-            : torrentBloc.isTorrest
-                ? 0.05
-                : 1;
+        ? 0.03
+        : torrentBloc.isTorrest
+        ? 0.05
+        : 1;
 
     if (torrent.progress < minProgress) return;
 

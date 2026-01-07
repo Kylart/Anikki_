@@ -36,38 +36,38 @@ class Result extends Equatable {
   });
 
   factory Result.fromMap(Map<String, dynamic> data) => Result(
-        adult: data['adult'] as bool?,
-        backdropPath: data['backdrop_path'] as String?,
-        genreIds: data['genre_ids'].cast<int>() as List<int>?,
-        id: data['id'] as int?,
-        originCountry: data['origin_country'].cast<String>() as List<String>?,
-        originalLanguage: data['original_language'] as String?,
-        originalName: data['original_name'] as String?,
-        overview: data['overview'] as String?,
-        popularity: (data['popularity'] as num?)?.toDouble(),
-        posterPath: data['poster_path'] as String?,
-        firstAirDate: data['first_air_date'] as String?,
-        name: data['name'] as String?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-        voteCount: data['vote_count']?.toInt() as int?,
-      );
+    adult: data['adult'] as bool?,
+    backdropPath: data['backdrop_path'] as String?,
+    genreIds: data['genre_ids'].cast<int>() as List<int>?,
+    id: data['id'] as int?,
+    originCountry: data['origin_country'].cast<String>() as List<String>?,
+    originalLanguage: data['original_language'] as String?,
+    originalName: data['original_name'] as String?,
+    overview: data['overview'] as String?,
+    popularity: (data['popularity'] as num?)?.toDouble(),
+    posterPath: data['poster_path'] as String?,
+    firstAirDate: data['first_air_date'] as String?,
+    name: data['name'] as String?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+    voteCount: data['vote_count']?.toInt() as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'adult': adult,
-        'backdrop_path': backdropPath,
-        'genre_ids': genreIds,
-        'id': id,
-        'origin_country': originCountry,
-        'original_language': originalLanguage,
-        'original_name': originalName,
-        'overview': overview,
-        'popularity': popularity,
-        'poster_path': posterPath,
-        'first_air_date': firstAirDate,
-        'name': name,
-        'vote_average': voteAverage,
-        'vote_count': voteCount,
-      };
+    'adult': adult,
+    'backdrop_path': backdropPath,
+    'genre_ids': genreIds,
+    'id': id,
+    'origin_country': originCountry,
+    'original_language': originalLanguage,
+    'original_name': originalName,
+    'overview': overview,
+    'popularity': popularity,
+    'poster_path': posterPath,
+    'first_air_date': firstAirDate,
+    'name': name,
+    'vote_average': voteAverage,
+    'vote_count': voteCount,
+  };
 
   /// `dart:convert`
   ///

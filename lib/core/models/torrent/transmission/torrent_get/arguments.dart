@@ -10,14 +10,14 @@ class Arguments extends Equatable {
   const Arguments({this.torrents});
 
   factory Arguments.fromMap(Map<String, dynamic> data) => Arguments(
-        torrents: (data['torrents'] as List<dynamic>?)
-            ?.map((e) => Torrent.fromMap(e as Map<String, dynamic>))
-            .toList(),
-      );
+    torrents: (data['torrents'] as List<dynamic>?)
+        ?.map((e) => Torrent.fromMap(e as Map<String, dynamic>))
+        .toList(),
+  );
 
   Map<String, dynamic> toMap() => {
-        'torrents': torrents?.map((e) => e.toMap()).toList(),
-      };
+    'torrents': torrents?.map((e) => e.toMap()).toList(),
+  };
 
   /// `dart:convert`
   ///

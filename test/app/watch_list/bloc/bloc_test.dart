@@ -93,8 +93,9 @@ void main() {
         setUp: () {
           repository = UserListRepositoryMock();
 
-          when(() => repository.getList(WatchListProvider.anilist))
-              .thenAnswer((_) async => watchListClassMock);
+          when(
+            () => repository.getList(WatchListProvider.anilist),
+          ).thenAnswer((_) async => watchListClassMock);
 
           bloc = WatchListBloc(repository);
         },
@@ -119,8 +120,9 @@ void main() {
         setUp: () {
           repository = UserListRepositoryMock();
 
-          when(() => repository.getList(WatchListProvider.anilist))
-              .thenThrow(AnilistGetListException(error: 'error'));
+          when(
+            () => repository.getList(WatchListProvider.anilist),
+          ).thenThrow(AnilistGetListException(error: 'error'));
 
           bloc = WatchListBloc(repository);
         },
@@ -129,15 +131,16 @@ void main() {
 
     group('on [WatchListWatched]', () {
       WatchListState makeSeedState(bool connected) => WatchListLoaded(
-            watchLists: {
-              WatchListProvider.anilist:
-                  WatchList(provider: WatchListProvider.anilist),
-            },
-            currentProvider: WatchListProvider.anilist,
-            connected: {
-              WatchListProvider.anilist: connected,
-            },
-          );
+        watchLists: {
+          WatchListProvider.anilist: WatchList(
+            provider: WatchListProvider.anilist,
+          ),
+        },
+        currentProvider: WatchListProvider.anilist,
+        connected: {
+          WatchListProvider.anilist: connected,
+        },
+      );
 
       blocTest<WatchListBloc, WatchListState>(
         'emits [WatchListLoading, WatchListComplete] when [WatchListWatched] is added',
@@ -164,8 +167,9 @@ void main() {
             ),
           ).thenAnswer((_) async => true);
 
-          when(() => repository.getList(WatchListProvider.anilist))
-              .thenAnswer((_) async => watchListClassMock);
+          when(
+            () => repository.getList(WatchListProvider.anilist),
+          ).thenAnswer((_) async => watchListClassMock);
 
           bloc = WatchListBloc(repository);
         },
@@ -331,8 +335,9 @@ void main() {
         setUp: () {
           repository = UserListRepositoryMock();
 
-          when(() => repository.getList(WatchListProvider.anilist))
-              .thenAnswer((_) async => watchListClassMock);
+          when(
+            () => repository.getList(WatchListProvider.anilist),
+          ).thenAnswer((_) async => watchListClassMock);
 
           bloc = WatchListBloc(repository);
         },

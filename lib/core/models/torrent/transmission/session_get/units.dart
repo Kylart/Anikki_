@@ -20,28 +20,28 @@ class Units extends Equatable {
   });
 
   factory Units.fromMap(Map<String, dynamic> data) => Units(
-        memoryBytes: data['memory-bytes'] as int?,
-        memoryUnits: data['memory-units'] == null
-            ? null
-            : List<String>.from(data['memory-units']),
-        sizeBytes: data['size-bytes'] as int?,
-        sizeUnits: data['size-units'] == null
-            ? null
-            : List<String>.from(data['size-units']),
-        speedBytes: data['speed-bytes'] as int?,
-        speedUnits: data['speed-units'] == null
-            ? null
-            : List<String>.from(data['speed-units']),
-      );
+    memoryBytes: data['memory-bytes'] as int?,
+    memoryUnits: data['memory-units'] == null
+        ? null
+        : List<String>.from(data['memory-units']),
+    sizeBytes: data['size-bytes'] as int?,
+    sizeUnits: data['size-units'] == null
+        ? null
+        : List<String>.from(data['size-units']),
+    speedBytes: data['speed-bytes'] as int?,
+    speedUnits: data['speed-units'] == null
+        ? null
+        : List<String>.from(data['speed-units']),
+  );
 
   Map<String, dynamic> toMap() => {
-        'memory-bytes': memoryBytes,
-        'memory-units': memoryUnits,
-        'size-bytes': sizeBytes,
-        'size-units': sizeUnits,
-        'speed-bytes': speedBytes,
-        'speed-units': speedUnits,
-      };
+    'memory-bytes': memoryBytes,
+    'memory-units': memoryUnits,
+    'size-bytes': sizeBytes,
+    'size-units': sizeUnits,
+    'speed-bytes': speedBytes,
+    'speed-units': speedUnits,
+  };
 
   /// `dart:convert`
   ///

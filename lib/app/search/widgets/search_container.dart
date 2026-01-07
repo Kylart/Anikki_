@@ -15,19 +15,21 @@ class SearchViewContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LayoutBloc, LayoutState>(builder: (context, state) {
-      final landscape = state is LayoutLandscape;
-      if (landscape) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 32.0),
-          child: child,
-        );
-      } else {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: child,
-        );
-      }
-    });
+    return BlocBuilder<LayoutBloc, LayoutState>(
+      builder: (context, state) {
+        final landscape = state is LayoutLandscape;
+        if (landscape) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 32.0),
+            child: child,
+          );
+        } else {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: child,
+          );
+        }
+      },
+    );
   }
 }

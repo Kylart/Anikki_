@@ -19,9 +19,9 @@ final class DownloaderShow extends DownloaderState {
 
   @override
   List<Object> get props => [
-        term,
-        alreadyShow,
-      ];
+    term,
+    alreadyShow,
+  ];
 }
 
 final class DownloaderLoading extends DownloaderState {
@@ -31,8 +31,8 @@ final class DownloaderLoading extends DownloaderState {
 
   @override
   List<Object> get props => [
-        term,
-      ];
+    term,
+  ];
 }
 
 final class DownloaderError extends DownloaderState {
@@ -43,9 +43,9 @@ final class DownloaderError extends DownloaderState {
 
   @override
   List<Object> get props => [
-        message,
-        term,
-      ];
+    message,
+    term,
+  ];
 }
 
 final class DownloaderSuccess extends DownloaderState {
@@ -86,15 +86,15 @@ final class DownloaderSuccess extends DownloaderState {
 
   @override
   List<Object> get props => [
-        term,
-        torrents,
-        filteredTorrents,
-        filter,
-        if (media != null) media!,
-        if (entry != null) entry!,
-        if (episode != null) episode!,
-        isStreaming,
-      ];
+    term,
+    torrents,
+    filteredTorrents,
+    filter,
+    if (media != null) media!,
+    if (entry != null) entry!,
+    if (episode != null) episode!,
+    isStreaming,
+  ];
 
   @override
   String toString() {

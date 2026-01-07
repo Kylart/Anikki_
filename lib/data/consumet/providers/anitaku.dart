@@ -22,9 +22,13 @@ class Anitaku implements AnimeProvider {
   }) async {
     final List<AnimeResult> results = [];
 
-    final res = await client.get(Uri.parse(baseUrl).replace(queryParameters: {
-      's': dubbed ? '$query (Dub)' : query,
-    }));
+    final res = await client.get(
+      Uri.parse(baseUrl).replace(
+        queryParameters: {
+          's': dubbed ? '$query (Dub)' : query,
+        },
+      ),
+    );
     final document = parse(res.body);
 
     document.querySelectorAll('a.tip').forEach(
@@ -62,7 +66,8 @@ class Anitaku implements AnimeProvider {
         .querySelectorAll('.eplister li>a')
         .map(
           (element) => AnimeEpisode(
-            id: element.attributes['href']
+            id:
+                element.attributes['href']
                     ?.substring(
                       0,
                       (element.attributes['href']?.length ?? 1) - 1,

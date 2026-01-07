@@ -123,7 +123,8 @@ class _SearchResultsState extends State<SearchResults>
                       onTap: () => openInBrowser(item.siteUrl),
                       leading: CircleAvatar(
                         backgroundImage: CachedNetworkImageProvider(
-                            item.image?.large ?? item.image?.medium ?? ''),
+                          item.image?.large ?? item.image?.medium ?? '',
+                        ),
                       ),
                     );
                   },
@@ -145,7 +146,8 @@ class _SearchResultsState extends State<SearchResults>
                       onTap: () => openInBrowser(item.siteUrl),
                       leading: CircleAvatar(
                         backgroundImage: CachedNetworkImageProvider(
-                            item.image?.large ?? item.image?.medium ?? ''),
+                          item.image?.large ?? item.image?.medium ?? '',
+                        ),
                       ),
                     );
                   },

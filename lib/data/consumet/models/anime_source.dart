@@ -13,10 +13,10 @@ class AnimeSource extends Equatable {
 
   @override
   List<Object> get props => [
-        headers,
-        sources,
-        download,
-      ];
+    headers,
+    sources,
+    download,
+  ];
 
   @override
   bool get stringify => true;

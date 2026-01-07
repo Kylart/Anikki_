@@ -38,10 +38,13 @@ class DrawerEpisodes extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final currentLibraryEntry = libraryEntry ??
+        final currentLibraryEntry =
+            libraryEntry ??
             (state is LibraryLoaded
-                ? state.entries.firstWhereOrNull((entry) =>
-                    media?.id != null && entry.media?.id == media?.id)
+                ? state.entries.firstWhereOrNull(
+                    (entry) =>
+                        media?.id != null && entry.media?.id == media?.id,
+                  )
                 : null);
 
         return Padding(
@@ -69,21 +72,23 @@ class DrawerEpisodes extends StatelessWidget {
                     itemCount: (numberOfEpisodes - (page * kPaginatedPerPage))
                         .clamp(0, kPaginatedPerPage),
                     itemBuilder: (context, realIndex) {
-                      var episodeNumber = numberOfEpisodes -
+                      var episodeNumber =
+                          numberOfEpisodes -
                           realIndex -
                           (page * kPaginatedPerPage);
 
                       if (episodeNumber < 1) return const SizedBox();
 
-                      var localFile =
-                          currentLibraryEntry?.entries.firstWhereOrNull(
-                        (entry) => entry.episode == episodeNumber,
-                      );
+                      var localFile = currentLibraryEntry?.entries
+                          .firstWhereOrNull(
+                            (entry) => entry.episode == episodeNumber,
+                          );
 
                       if (media?.isEmpty == true &&
                           currentLibraryEntry != null) {
-                        localFile = currentLibraryEntry.entries
-                            .elementAtOrNull(realIndex);
+                        localFile = currentLibraryEntry.entries.elementAtOrNull(
+                          realIndex,
+                        );
                         episodeNumber = localFile?.episode ?? episodeNumber;
                       }
 

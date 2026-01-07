@@ -23,7 +23,9 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
   }
 
   FutureOr<void> _onDownloaderRequest(
-      DownloaderRequested event, Emitter<DownloaderState> emit) async {
+    DownloaderRequested event,
+    Emitter<DownloaderState> emit,
+  ) async {
     final String term = repository.makeTerm(
       media: event.media,
       entry: event.entry,
@@ -79,12 +81,16 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
   }
 
   FutureOr<void> _onDownloaderClose(
-      DownloaderClosed event, Emitter<DownloaderState> emit) async {
+    DownloaderClosed event,
+    Emitter<DownloaderState> emit,
+  ) async {
     emit(const DownloaderClose());
   }
 
   FutureOr<void> _onDownloaderFilter(
-      DownloaderFiltered event, Emitter<DownloaderState> emit) async {
+    DownloaderFiltered event,
+    Emitter<DownloaderState> emit,
+  ) async {
     if (state is! DownloaderSuccess) return;
 
     final currentState = state as DownloaderSuccess;
@@ -120,8 +126,9 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
     }
 
     if (filter.qualities.isNotEmpty) {
-      final qualityRegex =
-          RegExp('(${filter.qualities.map((e) => e.value).join('|')})');
+      final qualityRegex = RegExp(
+        '(${filter.qualities.map((e) => e.value).join('|')})',
+      );
 
       result = result
           .where((element) => qualityRegex.hasMatch(element.name))

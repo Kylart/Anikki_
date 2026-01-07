@@ -11,18 +11,19 @@ class AlternativeTitles extends Equatable {
 
   factory AlternativeTitles.fromMap(Map<String, dynamic> data) {
     return AlternativeTitles(
-      synonyms:
-          data['synonyms'] == null ? null : List<String>.from(data['synonyms']),
+      synonyms: data['synonyms'] == null
+          ? null
+          : List<String>.from(data['synonyms']),
       en: data['en'] as String?,
       ja: data['ja'] as String?,
     );
   }
 
   Map<String, dynamic> toMap() => {
-        'synonyms': synonyms,
-        'en': en,
-        'ja': ja,
-      };
+    'synonyms': synonyms,
+    'en': en,
+    'ja': ja,
+  };
 
   /// `dart:convert`
   ///

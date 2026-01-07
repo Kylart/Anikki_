@@ -19,9 +19,9 @@ class VideoPlayerBloc extends Bloc<VideoPlayerEvent, VideoPlayerState> {
   final VideoPlayerRepository repository;
 
   VideoPlayerBloc(this.repository)
-      : super(
-          const VideoPlayerState(),
-        ) {
+    : super(
+        const VideoPlayerState(),
+      ) {
     on<VideoPlayerPlayRequested>((event, emit) {
       Navigator.of(event.context).push(
         FadeOverlay(
@@ -43,9 +43,11 @@ class VideoPlayerBloc extends Bloc<VideoPlayerEvent, VideoPlayerState> {
     });
 
     on<VideoPlayerDisplayTapped>((event, emit) {
-      emit(state.copyWith(
-        hideControls: !state.hideControls,
-      ));
+      emit(
+        state.copyWith(
+          hideControls: !state.hideControls,
+        ),
+      );
 
       if (!state.hideControls) restartShowTimer(emit);
     });

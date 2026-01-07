@@ -18,10 +18,10 @@ class SpokenLanguage extends Equatable {
   }
 
   Map<String, dynamic> toMap() => {
-        'english_name': englishName,
-        'iso_639_1': iso6391,
-        'name': name,
-      };
+    'english_name': englishName,
+    'iso_639_1': iso6391,
+    'name': name,
+  };
 
   /// `dart:convert`
   ///

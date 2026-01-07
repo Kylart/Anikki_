@@ -149,8 +149,9 @@ class Mal {
 
           final parsedBody = jsonDecode(response.body);
           final paging = parsedBody['paging'];
-          final data = (parsedBody['data'] as List)
-              .map((e) => MalWatchListResponse.fromMap(e));
+          final data = (parsedBody['data'] as List).map(
+            (e) => MalWatchListResponse.fromMap(e),
+          );
 
           for (final entry in data) {
             currentList.add(
@@ -194,7 +195,7 @@ class Mal {
 
           final currentOffset =
               int.tryParse(nextUrl.queryParameters['offset'] ?? '') ??
-                  currentList.length;
+              currentList.length;
 
           offset = currentOffset;
         } catch (e) {

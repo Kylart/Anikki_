@@ -45,7 +45,8 @@ class ScheduleEntries extends StatelessWidget {
           },
           contentsBuilder: (context, index) {
             final currentEntries = entries.where(
-                (entry) => entry.releaseTime == currentReleaseTimes[index]);
+              (entry) => entry.releaseTime == currentReleaseTimes[index],
+            );
 
             return Wrap(
               runSpacing: 8,

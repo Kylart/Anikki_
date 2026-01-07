@@ -8,11 +8,10 @@ class Variables$Query$GetActivities {
   factory Variables$Query$GetActivities({
     int? userId,
     int? page,
-  }) =>
-      Variables$Query$GetActivities._({
-        if (userId != null) r'userId': userId,
-        if (page != null) r'page': page,
-      });
+  }) => Variables$Query$GetActivities._({
+    if (userId != null) r'userId': userId,
+    if (page != null) r'page': page,
+  });
 
   Variables$Query$GetActivities._(this._$data);
 
@@ -49,10 +48,10 @@ class Variables$Query$GetActivities {
   }
 
   CopyWith$Variables$Query$GetActivities<Variables$Query$GetActivities>
-      get copyWith => CopyWith$Variables$Query$GetActivities(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$GetActivities(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -124,12 +123,13 @@ class _CopyWithImpl$Variables$Query$GetActivities<TRes>
   TRes call({
     Object? userId = _undefined,
     Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$GetActivities._({
-        ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  }) => _then(
+    Variables$Query$GetActivities._({
+      ..._instance._$data,
+      if (userId != _undefined) 'userId': (userId as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$GetActivities<TRes>
@@ -141,8 +141,7 @@ class _CopyWithStubImpl$Variables$Query$GetActivities<TRes>
   call({
     int? userId,
     int? page,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$GetActivities {
@@ -247,15 +246,16 @@ class _CopyWithImpl$Query$GetActivities<TRes>
   TRes call({
     Object? Page = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$GetActivities$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetActivities(
+      Page: Page == _undefined
+          ? _instance.Page
+          : (Page as Query$GetActivities$Page?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$GetActivities$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -274,173 +274,93 @@ class _CopyWithStubImpl$Query$GetActivities<TRes>
   call({
     Query$GetActivities$Page? Page,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$GetActivities$Page<TRes> get Page =>
       CopyWith$Query$GetActivities$Page.stub(_res);
 }
 
-const documentNodeQueryGetActivities = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GetActivities'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'perPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'currentPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'lastPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'hasNextPage'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+const documentNodeQueryGetActivities = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GetActivities'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userId')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'activities'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'ANIME_LIST'))
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'status'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'progress'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'media'),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'total'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'perPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'currentPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'lastPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'hasNextPage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -449,25 +369,128 @@ const documentNodeQueryGetActivities = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'activities'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type_in'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ListActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'status'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'progress'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'media'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -476,25 +499,19 @@ const documentNodeQueryGetActivities = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionmedia,
-]);
+    ),
+    fragmentDefinitionmedia,
+  ],
+);
 Query$GetActivities _parserFn$Query$GetActivities(Map<String, dynamic> data) =>
     Query$GetActivities.fromJson(data);
-typedef OnQueryComplete$Query$GetActivities = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Query$GetActivities?,
-);
+typedef OnQueryComplete$Query$GetActivities =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Query$GetActivities?,
+    );
 
 class Options$Query$GetActivities
     extends graphql.QueryOptions<Query$GetActivities> {
@@ -510,36 +527,36 @@ class Options$Query$GetActivities
     graphql.Context? context,
     OnQueryComplete$Query$GetActivities? onComplete,
     graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
-          context: context,
-          onComplete: onComplete == null
-              ? null
-              : (data) => onComplete(
-                    data,
-                    data == null ? null : _parserFn$Query$GetActivities(data),
-                  ),
-          onError: onError,
-          document: documentNodeQueryGetActivities,
-          parserFn: _parserFn$Query$GetActivities,
-        );
+  }) : onCompleteWithParsed = onComplete,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         pollInterval: pollInterval,
+         context: context,
+         onComplete: onComplete == null
+             ? null
+             : (data) => onComplete(
+                 data,
+                 data == null ? null : _parserFn$Query$GetActivities(data),
+               ),
+         onError: onError,
+         document: documentNodeQueryGetActivities,
+         parserFn: _parserFn$Query$GetActivities,
+       );
 
   final OnQueryComplete$Query$GetActivities? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
-      ];
+    ...super.onComplete == null
+        ? super.properties
+        : super.properties.where((property) => property != onComplete),
+    onCompleteWithParsed,
+  ];
 }
 
 class WatchOptions$Query$GetActivities
@@ -558,20 +575,20 @@ class WatchOptions$Query$GetActivities
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeQueryGetActivities,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GetActivities,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeQueryGetActivities,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Query$GetActivities,
+       );
 }
 
 class FetchMoreOptions$Query$GetActivities extends graphql.FetchMoreOptions {
@@ -579,33 +596,31 @@ class FetchMoreOptions$Query$GetActivities extends graphql.FetchMoreOptions {
     required graphql.UpdateQuery updateQuery,
     Variables$Query$GetActivities? variables,
   }) : super(
-          updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
-          document: documentNodeQueryGetActivities,
-        );
+         updateQuery: updateQuery,
+         variables: variables?.toJson() ?? {},
+         document: documentNodeQueryGetActivities,
+       );
 }
 
 extension ClientExtension$Query$GetActivities on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetActivities>> query$GetActivities(
-          [Options$Query$GetActivities? options]) async =>
-      await this.query(options ?? Options$Query$GetActivities());
-  graphql.ObservableQuery<Query$GetActivities> watchQuery$GetActivities(
-          [WatchOptions$Query$GetActivities? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$GetActivities());
+  Future<graphql.QueryResult<Query$GetActivities>> query$GetActivities([
+    Options$Query$GetActivities? options,
+  ]) async => await this.query(options ?? Options$Query$GetActivities());
+  graphql.ObservableQuery<Query$GetActivities> watchQuery$GetActivities([
+    WatchOptions$Query$GetActivities? options,
+  ]) => this.watchQuery(options ?? WatchOptions$Query$GetActivities());
   void writeQuery$GetActivities({
     required Query$GetActivities data,
     Variables$Query$GetActivities? variables,
     bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryGetActivities),
-          variables: variables?.toJson() ?? const {},
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeQuery(
+    graphql.Request(
+      operation: graphql.Operation(document: documentNodeQueryGetActivities),
+      variables: variables?.toJson() ?? const {},
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Query$GetActivities? readQuery$GetActivities({
     Variables$Query$GetActivities? variables,
     bool optimistic = true,
@@ -636,12 +651,16 @@ class Query$GetActivities$Page {
       pageInfo: l$pageInfo == null
           ? null
           : Query$GetActivities$Page$pageInfo.fromJson(
-              (l$pageInfo as Map<String, dynamic>)),
+              (l$pageInfo as Map<String, dynamic>),
+            ),
       activities: (l$activities as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$GetActivities$Page$activities.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$GetActivities$Page$activities.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -740,11 +759,15 @@ abstract class CopyWith$Query$GetActivities$Page<TRes> {
   });
   CopyWith$Query$GetActivities$Page$pageInfo<TRes> get pageInfo;
   TRes activities(
-      Iterable<Query$GetActivities$Page$activities?>? Function(
-              Iterable<
-                  CopyWith$Query$GetActivities$Page$activities<
-                      Query$GetActivities$Page$activities>?>?)
-          _fn);
+    Iterable<Query$GetActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$GetActivities$Page$activities<
+          Query$GetActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$GetActivities$Page<TRes>
@@ -764,40 +787,51 @@ class _CopyWithImpl$Query$GetActivities$Page<TRes>
     Object? pageInfo = _undefined,
     Object? activities = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetActivities$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Query$GetActivities$Page$pageInfo?),
-        activities: activities == _undefined
-            ? _instance.activities
-            : (activities as List<Query$GetActivities$Page$activities?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetActivities$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Query$GetActivities$Page$pageInfo?),
+      activities: activities == _undefined
+          ? _instance.activities
+          : (activities as List<Query$GetActivities$Page$activities?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$GetActivities$Page$pageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
         ? CopyWith$Query$GetActivities$Page$pageInfo.stub(_then(_instance))
         : CopyWith$Query$GetActivities$Page$pageInfo(
-            local$pageInfo, (e) => call(pageInfo: e));
+            local$pageInfo,
+            (e) => call(pageInfo: e),
+          );
   }
 
   TRes activities(
-          Iterable<Query$GetActivities$Page$activities?>? Function(
-                  Iterable<
-                      CopyWith$Query$GetActivities$Page$activities<
-                          Query$GetActivities$Page$activities>?>?)
-              _fn) =>
-      call(
-          activities: _fn(_instance.activities?.map((e) => e == null
-              ? null
-              : CopyWith$Query$GetActivities$Page$activities(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$GetActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$GetActivities$Page$activities<
+          Query$GetActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    activities: _fn(
+      _instance.activities?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$GetActivities$Page$activities(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetActivities$Page<TRes>
@@ -810,8 +844,7 @@ class _CopyWithStubImpl$Query$GetActivities$Page<TRes>
     Query$GetActivities$Page$pageInfo? pageInfo,
     List<Query$GetActivities$Page$activities?>? activities,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$GetActivities$Page$pageInfo<TRes> get pageInfo =>
       CopyWith$Query$GetActivities$Page$pageInfo.stub(_res);
@@ -830,7 +863,8 @@ class Query$GetActivities$Page$pageInfo {
   });
 
   factory Query$GetActivities$Page$pageInfo.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$total = json['total'];
     final l$perPage = json['perPage'];
     final l$currentPage = json['currentPage'];
@@ -940,10 +974,10 @@ class Query$GetActivities$Page$pageInfo {
 extension UtilityExtension$Query$GetActivities$Page$pageInfo
     on Query$GetActivities$Page$pageInfo {
   CopyWith$Query$GetActivities$Page$pageInfo<Query$GetActivities$Page$pageInfo>
-      get copyWith => CopyWith$Query$GetActivities$Page$pageInfo(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$GetActivities$Page$pageInfo(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetActivities$Page$pageInfo<TRes> {
@@ -985,22 +1019,24 @@ class _CopyWithImpl$Query$GetActivities$Page$pageInfo<TRes>
     Object? lastPage = _undefined,
     Object? hasNextPage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetActivities$Page$pageInfo(
-        total: total == _undefined ? _instance.total : (total as int?),
-        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
-        currentPage: currentPage == _undefined
-            ? _instance.currentPage
-            : (currentPage as int?),
-        lastPage:
-            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetActivities$Page$pageInfo(
+      total: total == _undefined ? _instance.total : (total as int?),
+      perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+      currentPage: currentPage == _undefined
+          ? _instance.currentPage
+          : (currentPage as int?),
+      lastPage: lastPage == _undefined
+          ? _instance.lastPage
+          : (lastPage as int?),
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetActivities$Page$pageInfo<TRes>
@@ -1016,15 +1052,15 @@ class _CopyWithStubImpl$Query$GetActivities$Page$pageInfo<TRes>
     int? lastPage,
     bool? hasNextPage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$GetActivities$Page$activities {
   Query$GetActivities$Page$activities({required this.$__typename});
 
   factory Query$GetActivities$Page$activities.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "ListActivity":
         return Query$GetActivities$Page$activities$$ListActivity.fromJson(json);
@@ -1034,12 +1070,14 @@ class Query$GetActivities$Page$activities {
 
       case "MessageActivity":
         return Query$GetActivities$Page$activities$$MessageActivity.fromJson(
-            json);
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$GetActivities$Page$activities(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -1079,32 +1117,36 @@ class Query$GetActivities$Page$activities {
 extension UtilityExtension$Query$GetActivities$Page$activities
     on Query$GetActivities$Page$activities {
   CopyWith$Query$GetActivities$Page$activities<
-          Query$GetActivities$Page$activities>
-      get copyWith => CopyWith$Query$GetActivities$Page$activities(
-            this,
-            (i) => i,
-          );
+    Query$GetActivities$Page$activities
+  >
+  get copyWith => CopyWith$Query$GetActivities$Page$activities(
+    this,
+    (i) => i,
+  );
   _T when<_T>({
     required _T Function(Query$GetActivities$Page$activities$$ListActivity)
-        listActivity,
+    listActivity,
     required _T Function(Query$GetActivities$Page$activities$$TextActivity)
-        textActivity,
+    textActivity,
     required _T Function(Query$GetActivities$Page$activities$$MessageActivity)
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "ListActivity":
         return listActivity(
-            this as Query$GetActivities$Page$activities$$ListActivity);
+          this as Query$GetActivities$Page$activities$$ListActivity,
+        );
 
       case "TextActivity":
         return textActivity(
-            this as Query$GetActivities$Page$activities$$TextActivity);
+          this as Query$GetActivities$Page$activities$$TextActivity,
+        );
 
       case "MessageActivity":
         return messageActivity(
-            this as Query$GetActivities$Page$activities$$MessageActivity);
+          this as Query$GetActivities$Page$activities$$MessageActivity,
+        );
 
       default:
         return orElse();
@@ -1113,18 +1155,19 @@ extension UtilityExtension$Query$GetActivities$Page$activities
 
   _T maybeWhen<_T>({
     _T Function(Query$GetActivities$Page$activities$$ListActivity)?
-        listActivity,
+    listActivity,
     _T Function(Query$GetActivities$Page$activities$$TextActivity)?
-        textActivity,
+    textActivity,
     _T Function(Query$GetActivities$Page$activities$$MessageActivity)?
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "ListActivity":
         if (listActivity != null) {
           return listActivity(
-              this as Query$GetActivities$Page$activities$$ListActivity);
+            this as Query$GetActivities$Page$activities$$ListActivity,
+          );
         } else {
           return orElse();
         }
@@ -1132,7 +1175,8 @@ extension UtilityExtension$Query$GetActivities$Page$activities
       case "TextActivity":
         if (textActivity != null) {
           return textActivity(
-              this as Query$GetActivities$Page$activities$$TextActivity);
+            this as Query$GetActivities$Page$activities$$TextActivity,
+          );
         } else {
           return orElse();
         }
@@ -1140,7 +1184,8 @@ extension UtilityExtension$Query$GetActivities$Page$activities
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as Query$GetActivities$Page$activities$$MessageActivity);
+            this as Query$GetActivities$Page$activities$$MessageActivity,
+          );
         } else {
           return orElse();
         }
@@ -1176,11 +1221,13 @@ class _CopyWithImpl$Query$GetActivities$Page$activities<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$GetActivities$Page$activities(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$GetActivities$Page$activities(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetActivities$Page$activities<TRes>
@@ -1205,7 +1252,8 @@ class Query$GetActivities$Page$activities$$ListActivity
   });
 
   factory Query$GetActivities$Page$activities$$ListActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$status = json['status'];
@@ -1247,8 +1295,9 @@ class Query$GetActivities$Page$activities$$ListActivity
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$status = status;
     _resultData['status'] = l$status;
     final l$progress = progress;
@@ -1333,24 +1382,25 @@ class Query$GetActivities$Page$activities$$ListActivity
 extension UtilityExtension$Query$GetActivities$Page$activities$$ListActivity
     on Query$GetActivities$Page$activities$$ListActivity {
   CopyWith$Query$GetActivities$Page$activities$$ListActivity<
-          Query$GetActivities$Page$activities$$ListActivity>
-      get copyWith =>
-          CopyWith$Query$GetActivities$Page$activities$$ListActivity(
-            this,
-            (i) => i,
-          );
+    Query$GetActivities$Page$activities$$ListActivity
+  >
+  get copyWith => CopyWith$Query$GetActivities$Page$activities$$ListActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetActivities$Page$activities$$ListActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetActivities$Page$activities$$ListActivity(
     Query$GetActivities$Page$activities$$ListActivity instance,
     TRes Function(Query$GetActivities$Page$activities$$ListActivity) then,
   ) = _CopyWithImpl$Query$GetActivities$Page$activities$$ListActivity;
 
   factory CopyWith$Query$GetActivities$Page$activities$$ListActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetActivities$Page$activities$$ListActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetActivities$Page$activities$$ListActivity;
 
   TRes call({
     int? id,
@@ -1386,23 +1436,23 @@ class _CopyWithImpl$Query$GetActivities$Page$activities$$ListActivity<TRes>
     Object? createdAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetActivities$Page$activities$$ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        media:
-            media == _undefined ? _instance.media : (media as Fragment$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GetActivities$Page$activities$$ListActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      status: status == _undefined ? _instance.status : (status as String?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as String?),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      media: media == _undefined ? _instance.media : (media as Fragment$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$media<TRes> get media {
     final local$media = _instance.media;
@@ -1416,7 +1466,8 @@ class _CopyWithStubImpl$Query$GetActivities$Page$activities$$ListActivity<TRes>
     implements
         CopyWith$Query$GetActivities$Page$activities$$ListActivity<TRes> {
   _CopyWithStubImpl$Query$GetActivities$Page$activities$$ListActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1428,22 +1479,24 @@ class _CopyWithStubImpl$Query$GetActivities$Page$activities$$ListActivity<TRes>
     int? createdAt,
     Fragment$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$media<TRes> get media => CopyWith$Fragment$media.stub(_res);
 }
 
 class Query$GetActivities$Page$activities$$TextActivity
     implements Query$GetActivities$Page$activities {
-  Query$GetActivities$Page$activities$$TextActivity(
-      {this.$__typename = 'TextActivity'});
+  Query$GetActivities$Page$activities$$TextActivity({
+    this.$__typename = 'TextActivity',
+  });
 
   factory Query$GetActivities$Page$activities$$TextActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     return Query$GetActivities$Page$activities$$TextActivity(
-        $__typename: (l$$__typename as String));
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String $__typename;
@@ -1482,24 +1535,25 @@ class Query$GetActivities$Page$activities$$TextActivity
 extension UtilityExtension$Query$GetActivities$Page$activities$$TextActivity
     on Query$GetActivities$Page$activities$$TextActivity {
   CopyWith$Query$GetActivities$Page$activities$$TextActivity<
-          Query$GetActivities$Page$activities$$TextActivity>
-      get copyWith =>
-          CopyWith$Query$GetActivities$Page$activities$$TextActivity(
-            this,
-            (i) => i,
-          );
+    Query$GetActivities$Page$activities$$TextActivity
+  >
+  get copyWith => CopyWith$Query$GetActivities$Page$activities$$TextActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetActivities$Page$activities$$TextActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetActivities$Page$activities$$TextActivity(
     Query$GetActivities$Page$activities$$TextActivity instance,
     TRes Function(Query$GetActivities$Page$activities$$TextActivity) then,
   ) = _CopyWithImpl$Query$GetActivities$Page$activities$$TextActivity;
 
   factory CopyWith$Query$GetActivities$Page$activities$$TextActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetActivities$Page$activities$$TextActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetActivities$Page$activities$$TextActivity;
 
   TRes call({String? $__typename});
 }
@@ -1518,18 +1572,21 @@ class _CopyWithImpl$Query$GetActivities$Page$activities$$TextActivity<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$GetActivities$Page$activities$$TextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$GetActivities$Page$activities$$TextActivity(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetActivities$Page$activities$$TextActivity<TRes>
     implements
         CopyWith$Query$GetActivities$Page$activities$$TextActivity<TRes> {
   _CopyWithStubImpl$Query$GetActivities$Page$activities$$TextActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1538,14 +1595,17 @@ class _CopyWithStubImpl$Query$GetActivities$Page$activities$$TextActivity<TRes>
 
 class Query$GetActivities$Page$activities$$MessageActivity
     implements Query$GetActivities$Page$activities {
-  Query$GetActivities$Page$activities$$MessageActivity(
-      {this.$__typename = 'MessageActivity'});
+  Query$GetActivities$Page$activities$$MessageActivity({
+    this.$__typename = 'MessageActivity',
+  });
 
   factory Query$GetActivities$Page$activities$$MessageActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     return Query$GetActivities$Page$activities$$MessageActivity(
-        $__typename: (l$$__typename as String));
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String $__typename;
@@ -1584,24 +1644,25 @@ class Query$GetActivities$Page$activities$$MessageActivity
 extension UtilityExtension$Query$GetActivities$Page$activities$$MessageActivity
     on Query$GetActivities$Page$activities$$MessageActivity {
   CopyWith$Query$GetActivities$Page$activities$$MessageActivity<
-          Query$GetActivities$Page$activities$$MessageActivity>
-      get copyWith =>
-          CopyWith$Query$GetActivities$Page$activities$$MessageActivity(
-            this,
-            (i) => i,
-          );
+    Query$GetActivities$Page$activities$$MessageActivity
+  >
+  get copyWith => CopyWith$Query$GetActivities$Page$activities$$MessageActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$GetActivities$Page$activities$$MessageActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$GetActivities$Page$activities$$MessageActivity(
     Query$GetActivities$Page$activities$$MessageActivity instance,
     TRes Function(Query$GetActivities$Page$activities$$MessageActivity) then,
   ) = _CopyWithImpl$Query$GetActivities$Page$activities$$MessageActivity;
 
   factory CopyWith$Query$GetActivities$Page$activities$$MessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GetActivities$Page$activities$$MessageActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$GetActivities$Page$activities$$MessageActivity;
 
   TRes call({String? $__typename});
 }
@@ -1617,23 +1678,27 @@ class _CopyWithImpl$Query$GetActivities$Page$activities$$MessageActivity<TRes>
   final Query$GetActivities$Page$activities$$MessageActivity _instance;
 
   final TRes Function(Query$GetActivities$Page$activities$$MessageActivity)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$GetActivities$Page$activities$$MessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$GetActivities$Page$activities$$MessageActivity(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GetActivities$Page$activities$$MessageActivity<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$GetActivities$Page$activities$$MessageActivity<TRes> {
   _CopyWithStubImpl$Query$GetActivities$Page$activities$$MessageActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 

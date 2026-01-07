@@ -18,20 +18,20 @@ class TmdbSearch extends Equatable {
   });
 
   factory TmdbSearch.fromMap(Map<String, dynamic> data) => TmdbSearch(
-        page: data['page']?.toInt() as int?,
-        results: (data['results'] as List<dynamic>?)
-            ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        totalPages: data['total_pages']?.toInt() as int?,
-        totalResults: data['total_results']?.toInt() as int?,
-      );
+    page: data['page']?.toInt() as int?,
+    results: (data['results'] as List<dynamic>?)
+        ?.map((e) => Result.fromMap(e as Map<String, dynamic>))
+        .toList(),
+    totalPages: data['total_pages']?.toInt() as int?,
+    totalResults: data['total_results']?.toInt() as int?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'page': page,
-        'results': results?.map((e) => e.toMap()).toList(),
-        'total_pages': totalPages,
-        'total_results': totalResults,
-      };
+    'page': page,
+    'results': results?.map((e) => e.toMap()).toList(),
+    'total_pages': totalPages,
+    'total_results': totalResults,
+  };
 
   /// `dart:convert`
   ///

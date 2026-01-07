@@ -20,10 +20,10 @@ class AnikkiPage extends Equatable {
 
   @override
   List<Object?> get props => [
-        child,
-        name,
-        icon,
-        selectedIcon,
-        error,
-      ];
+    child,
+    name,
+    icon,
+    selectedIcon,
+    error,
+  ];
 }

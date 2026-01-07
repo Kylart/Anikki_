@@ -24,26 +24,26 @@ class Season extends Equatable {
   });
 
   factory Season.fromMap(Map<String, dynamic> data) => Season(
-        airDate: data['air_date'] as String?,
-        episodeCount: data['episode_count'] as int?,
-        id: data['id'] as int?,
-        name: data['name'] as String?,
-        overview: data['overview'] as String?,
-        posterPath: data['poster_path'] as String?,
-        seasonNumber: data['season_number'] as int?,
-        voteAverage: (data['vote_average'] as num?)?.toDouble(),
-      );
+    airDate: data['air_date'] as String?,
+    episodeCount: data['episode_count'] as int?,
+    id: data['id'] as int?,
+    name: data['name'] as String?,
+    overview: data['overview'] as String?,
+    posterPath: data['poster_path'] as String?,
+    seasonNumber: data['season_number'] as int?,
+    voteAverage: (data['vote_average'] as num?)?.toDouble(),
+  );
 
   Map<String, dynamic> toMap() => {
-        'air_date': airDate,
-        'episode_count': episodeCount,
-        'id': id,
-        'name': name,
-        'overview': overview,
-        'poster_path': posterPath,
-        'season_number': seasonNumber,
-        'vote_average': voteAverage,
-      };
+    'air_date': airDate,
+    'episode_count': episodeCount,
+    'id': id,
+    'name': name,
+    'overview': overview,
+    'poster_path': posterPath,
+    'season_number': seasonNumber,
+    'vote_average': voteAverage,
+  };
 
   /// `dart:convert`
   ///

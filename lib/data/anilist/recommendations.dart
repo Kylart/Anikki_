@@ -2,7 +2,7 @@ part of 'anilist.dart';
 
 mixin AnilistRecommendations on AnilistClient {
   Future<List<Query$Recommendations$Page$recommendations>>
-      getRecommendations() async {
+  getRecommendations() async {
     try {
       final result = await client.query$Recommendations(
         Options$Query$Recommendations(

@@ -40,8 +40,9 @@ class Fragment$kitsuLibraryEntry {
       createdAt: (l$createdAt as String),
       progressedAt: (l$progressedAt as String?),
       finishedAt: (l$finishedAt as String?),
-      media:
-          Fragment$kitsuAnimeMedia.fromJson((l$media as Map<String, dynamic>)),
+      media: Fragment$kitsuAnimeMedia.fromJson(
+        (l$media as Map<String, dynamic>),
+      ),
       id: (l$id as String),
       nsfw: (l$nsfw as bool),
       status: fromJson$Enum$LibraryEntryStatusEnum((l$status as String)),
@@ -236,10 +237,10 @@ class Fragment$kitsuLibraryEntry {
 extension UtilityExtension$Fragment$kitsuLibraryEntry
     on Fragment$kitsuLibraryEntry {
   CopyWith$Fragment$kitsuLibraryEntry<Fragment$kitsuLibraryEntry>
-      get copyWith => CopyWith$Fragment$kitsuLibraryEntry(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$kitsuLibraryEntry(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$kitsuLibraryEntry<TRes> {
@@ -298,50 +299,53 @@ class _CopyWithImpl$Fragment$kitsuLibraryEntry<TRes>
     Object? private = _undefined,
     Object? progress = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$kitsuLibraryEntry(
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as String),
-        progressedAt: progressedAt == _undefined
-            ? _instance.progressedAt
-            : (progressedAt as String?),
-        finishedAt: finishedAt == _undefined
-            ? _instance.finishedAt
-            : (finishedAt as String?),
-        media: media == _undefined || media == null
-            ? _instance.media
-            : (media as Fragment$kitsuAnimeMedia),
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        nsfw: nsfw == _undefined || nsfw == null
-            ? _instance.nsfw
-            : (nsfw as bool),
-        status: status == _undefined || status == null
-            ? _instance.status
-            : (status as Enum$LibraryEntryStatusEnum),
-        reconsuming: reconsuming == _undefined || reconsuming == null
-            ? _instance.reconsuming
-            : (reconsuming as bool),
-        reconsumeCount: reconsumeCount == _undefined || reconsumeCount == null
-            ? _instance.reconsumeCount
-            : (reconsumeCount as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        notes: notes == _undefined ? _instance.notes : (notes as String?),
-        private: private == _undefined || private == null
-            ? _instance.private
-            : (private as bool),
-        progress: progress == _undefined || progress == null
-            ? _instance.progress
-            : (progress as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$kitsuLibraryEntry(
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as String),
+      progressedAt: progressedAt == _undefined
+          ? _instance.progressedAt
+          : (progressedAt as String?),
+      finishedAt: finishedAt == _undefined
+          ? _instance.finishedAt
+          : (finishedAt as String?),
+      media: media == _undefined || media == null
+          ? _instance.media
+          : (media as Fragment$kitsuAnimeMedia),
+      id: id == _undefined || id == null ? _instance.id : (id as String),
+      nsfw: nsfw == _undefined || nsfw == null
+          ? _instance.nsfw
+          : (nsfw as bool),
+      status: status == _undefined || status == null
+          ? _instance.status
+          : (status as Enum$LibraryEntryStatusEnum),
+      reconsuming: reconsuming == _undefined || reconsuming == null
+          ? _instance.reconsuming
+          : (reconsuming as bool),
+      reconsumeCount: reconsumeCount == _undefined || reconsumeCount == null
+          ? _instance.reconsumeCount
+          : (reconsumeCount as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      notes: notes == _undefined ? _instance.notes : (notes as String?),
+      private: private == _undefined || private == null
+          ? _instance.private
+          : (private as bool),
+      progress: progress == _undefined || progress == null
+          ? _instance.progress
+          : (progress as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$kitsuAnimeMedia<TRes> get media {
     final local$media = _instance.media;
     return CopyWith$Fragment$kitsuAnimeMedia(
-        local$media, (e) => call(media: e));
+      local$media,
+      (e) => call(media: e),
+    );
   }
 }
 
@@ -366,8 +370,7 @@ class _CopyWithStubImpl$Fragment$kitsuLibraryEntry<TRes>
     bool? private,
     int? progress,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$kitsuAnimeMedia<TRes> get media =>
       CopyWith$Fragment$kitsuAnimeMedia.stub(_res);
@@ -376,146 +379,152 @@ class _CopyWithStubImpl$Fragment$kitsuLibraryEntry<TRes>
 const fragmentDefinitionkitsuLibraryEntry = FragmentDefinitionNode(
   name: NameNode(value: 'kitsuLibraryEntry'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'LibraryEntry'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'LibraryEntry'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'progressedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'finishedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'media'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'kitsuAnimeMedia'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'progressedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'finishedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'media'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'kitsuAnimeMedia'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'nsfw'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'reconsuming'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'reconsumeCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'rating'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'notes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'private'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'progress'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'nsfw'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'reconsuming'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'reconsumeCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'rating'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'notes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'private'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'progress'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentkitsuLibraryEntry = DocumentNode(definitions: [
-  fragmentDefinitionkitsuLibraryEntry,
-  fragmentDefinitionkitsuAnimeMedia,
-]);
+const documentNodeFragmentkitsuLibraryEntry = DocumentNode(
+  definitions: [
+    fragmentDefinitionkitsuLibraryEntry,
+    fragmentDefinitionkitsuAnimeMedia,
+  ],
+);
 
 extension ClientExtension$Fragment$kitsuLibraryEntry on graphql.GraphQLClient {
   void writeFragment$kitsuLibraryEntry({
     required Fragment$kitsuLibraryEntry data,
     required Map<String, dynamic> idFields,
     bool broadcast = true,
-  }) =>
-      this.writeFragment(
-        graphql.FragmentRequest(
-          idFields: idFields,
-          fragment: const graphql.Fragment(
-            fragmentName: 'kitsuLibraryEntry',
-            document: documentNodeFragmentkitsuLibraryEntry,
-          ),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
+  }) => this.writeFragment(
+    graphql.FragmentRequest(
+      idFields: idFields,
+      fragment: const graphql.Fragment(
+        fragmentName: 'kitsuLibraryEntry',
+        document: documentNodeFragmentkitsuLibraryEntry,
+      ),
+    ),
+    data: data.toJson(),
+    broadcast: broadcast,
+  );
   Fragment$kitsuLibraryEntry? readFragment$kitsuLibraryEntry({
     required Map<String, dynamic> idFields,
     bool optimistic = true,

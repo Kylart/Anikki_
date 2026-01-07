@@ -11,8 +11,8 @@ final class ProviderAuthLogoutRequested extends ProviderAuthEvent {
 
   @override
   List<Object> get props => [
-        provider,
-      ];
+    provider,
+  ];
 
   @override
   bool? get stringify => true;
@@ -25,8 +25,8 @@ final class ProviderAuthLoginRequested extends ProviderAuthEvent {
 
   @override
   List<Object> get props => [
-        provider,
-      ];
+    provider,
+  ];
 
   @override
   bool? get stringify => true;

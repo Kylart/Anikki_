@@ -29,10 +29,10 @@ sealed class WatchListState extends Equatable {
 
   @override
   List<Object?> get props => [
-        connected,
-        watchList,
-        currentProvider,
-      ];
+    connected,
+    watchList,
+    currentProvider,
+  ];
 
   @override
   String toString() {
@@ -152,13 +152,13 @@ final class WatchListNotify extends WatchListState {
 
   @override
   List<Object?> get props => [
-        title,
-        currentProvider,
-        description,
-        isError,
-        connected,
-        watchList,
-      ];
+    title,
+    currentProvider,
+    description,
+    isError,
+    connected,
+    watchList,
+  ];
 }
 
 final class WatchListError extends WatchListState {
@@ -188,9 +188,9 @@ final class WatchListError extends WatchListState {
 
   @override
   List<Object?> get props => [
-        message,
-        connected,
-        currentProvider,
-        watchList,
-      ];
+    message,
+    connected,
+    currentProvider,
+    watchList,
+  ];
 }

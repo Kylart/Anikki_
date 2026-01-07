@@ -31,9 +31,9 @@ class DownloaderFilter extends Equatable {
 
   @override
   List<Object?> get props => [
-        smartFilter,
-        qualities,
-        showAll,
-        more,
-      ];
+    smartFilter,
+    qualities,
+    showAll,
+    more,
+  ];
 }

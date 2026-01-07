@@ -15,9 +15,9 @@ class LibraryUpdateRequested extends LibraryEvent {
 
   @override
   List<Object?> get props => [
-        path,
-        onUpdated,
-      ];
+    path,
+    onUpdated,
+  ];
 }
 
 class LibraryFileDeleted extends LibraryEvent {
@@ -44,8 +44,8 @@ class LibraryFileDeleteRequested extends LibraryEvent {
 
   @override
   List<Object> get props => [
-        file,
-      ];
+    file,
+  ];
 }
 
 class LibraryFilePlayRequested extends LibraryEvent {
@@ -59,7 +59,7 @@ class LibraryFilePlayRequested extends LibraryEvent {
 
   @override
   List<Object> get props => [
-        file,
-        context,
-      ];
+    file,
+    context,
+  ];
 }

@@ -33,10 +33,10 @@ class Variables$Mutation$DeleteEntry {
   }
 
   CopyWith$Variables$Mutation$DeleteEntry<Variables$Mutation$DeleteEntry>
-      get copyWith => CopyWith$Variables$Mutation$DeleteEntry(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Mutation$DeleteEntry(
+    this,
+    (i) => i,
+  );
 
   @override
   bool operator ==(Object other) {
@@ -61,8 +61,9 @@ class Variables$Mutation$DeleteEntry {
   @override
   int get hashCode {
     final l$mediaId = mediaId;
-    return Object.hashAll(
-        [_$data.containsKey('mediaId') ? l$mediaId : const {}]);
+    return Object.hashAll([
+      _$data.containsKey('mediaId') ? l$mediaId : const {},
+    ]);
   }
 }
 
@@ -91,11 +92,12 @@ class _CopyWithImpl$Variables$Mutation$DeleteEntry<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mediaId = _undefined}) =>
-      _then(Variables$Mutation$DeleteEntry._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-      }));
+  TRes call({Object? mediaId = _undefined}) => _then(
+    Variables$Mutation$DeleteEntry._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$DeleteEntry<TRes>
@@ -120,7 +122,8 @@ class Mutation$DeleteEntry {
       DeleteMediaListEntry: l$DeleteMediaListEntry == null
           ? null
           : Mutation$DeleteEntry$DeleteMediaListEntry.fromJson(
-              (l$DeleteMediaListEntry as Map<String, dynamic>)),
+              (l$DeleteMediaListEntry as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -192,7 +195,7 @@ abstract class CopyWith$Mutation$DeleteEntry<TRes> {
     String? $__typename,
   });
   CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
-      get DeleteMediaListEntry;
+  get DeleteMediaListEntry;
 }
 
 class _CopyWithImpl$Mutation$DeleteEntry<TRes>
@@ -211,25 +214,29 @@ class _CopyWithImpl$Mutation$DeleteEntry<TRes>
   TRes call({
     Object? DeleteMediaListEntry = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$DeleteEntry(
-        DeleteMediaListEntry: DeleteMediaListEntry == _undefined
-            ? _instance.DeleteMediaListEntry
-            : (DeleteMediaListEntry
+  }) => _then(
+    Mutation$DeleteEntry(
+      DeleteMediaListEntry: DeleteMediaListEntry == _undefined
+          ? _instance.DeleteMediaListEntry
+          : (DeleteMediaListEntry
                 as Mutation$DeleteEntry$DeleteMediaListEntry?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
-      get DeleteMediaListEntry {
+  get DeleteMediaListEntry {
     final local$DeleteMediaListEntry = _instance.DeleteMediaListEntry;
     return local$DeleteMediaListEntry == null
         ? CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry(
-            local$DeleteMediaListEntry, (e) => call(DeleteMediaListEntry: e));
+            local$DeleteMediaListEntry,
+            (e) => call(DeleteMediaListEntry: e),
+          );
   }
 }
 
@@ -242,48 +249,60 @@ class _CopyWithStubImpl$Mutation$DeleteEntry<TRes>
   call({
     Mutation$DeleteEntry$DeleteMediaListEntry? DeleteMediaListEntry,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
-      get DeleteMediaListEntry =>
-          CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry.stub(_res);
+  get DeleteMediaListEntry =>
+      CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry.stub(_res);
 }
 
-const documentNodeMutationDeleteEntry = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'DeleteEntry'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeMutationDeleteEntry = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'DeleteEntry'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Int'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'DeleteMediaListEntry'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'deleted'),
+            name: NameNode(value: 'DeleteMediaListEntry'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'deleted'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -292,25 +311,19 @@ const documentNodeMutationDeleteEntry = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
-Mutation$DeleteEntry _parserFn$Mutation$DeleteEntry(
-        Map<String, dynamic> data) =>
-    Mutation$DeleteEntry.fromJson(data);
-typedef OnMutationCompleted$Mutation$DeleteEntry = FutureOr<void> Function(
-  Map<String, dynamic>?,
-  Mutation$DeleteEntry?,
+    ),
+  ],
 );
+Mutation$DeleteEntry _parserFn$Mutation$DeleteEntry(
+  Map<String, dynamic> data,
+) => Mutation$DeleteEntry.fromJson(data);
+typedef OnMutationCompleted$Mutation$DeleteEntry =
+    FutureOr<void> Function(
+      Map<String, dynamic>?,
+      Mutation$DeleteEntry?,
+    );
 
 class Options$Mutation$DeleteEntry
     extends graphql.MutationOptions<Mutation$DeleteEntry> {
@@ -326,36 +339,36 @@ class Options$Mutation$DeleteEntry
     OnMutationCompleted$Mutation$DeleteEntry? onCompleted,
     graphql.OnMutationUpdate<Mutation$DeleteEntry>? update,
     graphql.OnError? onError,
-  })  : onCompletedWithParsed = onCompleted,
-        super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          onCompleted: onCompleted == null
-              ? null
-              : (data) => onCompleted(
-                    data,
-                    data == null ? null : _parserFn$Mutation$DeleteEntry(data),
-                  ),
-          update: update,
-          onError: onError,
-          document: documentNodeMutationDeleteEntry,
-          parserFn: _parserFn$Mutation$DeleteEntry,
-        );
+  }) : onCompletedWithParsed = onCompleted,
+       super(
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         onCompleted: onCompleted == null
+             ? null
+             : (data) => onCompleted(
+                 data,
+                 data == null ? null : _parserFn$Mutation$DeleteEntry(data),
+               ),
+         update: update,
+         onError: onError,
+         document: documentNodeMutationDeleteEntry,
+         parserFn: _parserFn$Mutation$DeleteEntry,
+       );
 
   final OnMutationCompleted$Mutation$DeleteEntry? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
-        onCompletedWithParsed,
-      ];
+    ...super.onCompleted == null
+        ? super.properties
+        : super.properties.where((property) => property != onCompleted),
+    onCompletedWithParsed,
+  ];
 }
 
 class WatchOptions$Mutation$DeleteEntry
@@ -374,29 +387,29 @@ class WatchOptions$Mutation$DeleteEntry
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
-          operationName: operationName,
-          fetchPolicy: fetchPolicy,
-          errorPolicy: errorPolicy,
-          cacheRereadPolicy: cacheRereadPolicy,
-          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          context: context,
-          document: documentNodeMutationDeleteEntry,
-          pollInterval: pollInterval,
-          eagerlyFetchResults: eagerlyFetchResults,
-          carryForwardDataOnException: carryForwardDataOnException,
-          fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$DeleteEntry,
-        );
+         variables: variables?.toJson() ?? {},
+         operationName: operationName,
+         fetchPolicy: fetchPolicy,
+         errorPolicy: errorPolicy,
+         cacheRereadPolicy: cacheRereadPolicy,
+         optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+         context: context,
+         document: documentNodeMutationDeleteEntry,
+         pollInterval: pollInterval,
+         eagerlyFetchResults: eagerlyFetchResults,
+         carryForwardDataOnException: carryForwardDataOnException,
+         fetchResults: fetchResults,
+         parserFn: _parserFn$Mutation$DeleteEntry,
+       );
 }
 
 extension ClientExtension$Mutation$DeleteEntry on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$DeleteEntry>> mutate$DeleteEntry(
-          [Options$Mutation$DeleteEntry? options]) async =>
-      await this.mutate(options ?? Options$Mutation$DeleteEntry());
-  graphql.ObservableQuery<Mutation$DeleteEntry> watchMutation$DeleteEntry(
-          [WatchOptions$Mutation$DeleteEntry? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$DeleteEntry());
+  Future<graphql.QueryResult<Mutation$DeleteEntry>> mutate$DeleteEntry([
+    Options$Mutation$DeleteEntry? options,
+  ]) async => await this.mutate(options ?? Options$Mutation$DeleteEntry());
+  graphql.ObservableQuery<Mutation$DeleteEntry> watchMutation$DeleteEntry([
+    WatchOptions$Mutation$DeleteEntry? options,
+  ]) => this.watchMutation(options ?? WatchOptions$Mutation$DeleteEntry());
 }
 
 class Mutation$DeleteEntry$DeleteMediaListEntry {
@@ -406,7 +419,8 @@ class Mutation$DeleteEntry$DeleteMediaListEntry {
   });
 
   factory Mutation$DeleteEntry$DeleteMediaListEntry.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$deleted = json['deleted'];
     final l$$__typename = json['__typename'];
     return Mutation$DeleteEntry$DeleteMediaListEntry(
@@ -464,11 +478,12 @@ class Mutation$DeleteEntry$DeleteMediaListEntry {
 extension UtilityExtension$Mutation$DeleteEntry$DeleteMediaListEntry
     on Mutation$DeleteEntry$DeleteMediaListEntry {
   CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry<
-          Mutation$DeleteEntry$DeleteMediaListEntry>
-      get copyWith => CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry(
-            this,
-            (i) => i,
-          );
+    Mutation$DeleteEntry$DeleteMediaListEntry
+  >
+  get copyWith => CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Mutation$DeleteEntry$DeleteMediaListEntry<TRes> {
@@ -502,13 +517,14 @@ class _CopyWithImpl$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
   TRes call({
     Object? deleted = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$DeleteEntry$DeleteMediaListEntry(
-        deleted: deleted == _undefined ? _instance.deleted : (deleted as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$DeleteEntry$DeleteMediaListEntry(
+      deleted: deleted == _undefined ? _instance.deleted : (deleted as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
@@ -520,6 +536,5 @@ class _CopyWithStubImpl$Mutation$DeleteEntry$DeleteMediaListEntry<TRes>
   call({
     bool? deleted,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

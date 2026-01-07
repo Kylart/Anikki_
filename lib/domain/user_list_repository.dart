@@ -70,8 +70,7 @@ class UserListRepository {
           episode,
         )) {
           Enum$MediaListStatus.CURRENT ||
-          Enum$MediaListStatus.REPEATING =>
-            'watching',
+          Enum$MediaListStatus.REPEATING => 'watching',
           Enum$MediaListStatus.PLANNING => 'plan_to_watch',
           Enum$MediaListStatus.COMPLETED => 'completed',
           Enum$MediaListStatus.DROPPED => 'dropped',
@@ -124,8 +123,8 @@ class UserListRepository {
   Future<WatchList?> getList(WatchListProvider provider) async {
     return switch (provider) {
       WatchListProvider.anilist => WatchList.fromAnilistWatchList(
-          await anilist.getWatchLists(),
-        ),
+        await anilist.getWatchLists(),
+      ),
       WatchListProvider.mal => await mal.getWatchList(),
       WatchListProvider.kitsu => await kitsu.getWatchList(),
     };
@@ -134,22 +133,26 @@ class UserListRepository {
   Future<List<MediaListEntry>> getContinueList(
     WatchList watchList,
   ) async {
-    final entries = {
-      ...watchList.current,
-      ...watchList.repeating,
-    }.where(
-      (element) {
-        final progress = element.progress ?? 0;
-        final nextEpisode = element.media.nextAiringEpisode;
-        final nbEpisodes = element.media.numberOfEpisodes ?? double.infinity;
+    final entries =
+        {
+              ...watchList.current,
+              ...watchList.repeating,
+            }
+            .where(
+              (element) {
+                final progress = element.progress ?? 0;
+                final nextEpisode = element.media.nextAiringEpisode;
+                final nbEpisodes =
+                    element.media.numberOfEpisodes ?? double.infinity;
 
-        return nextEpisode != null
-            ? progress < nextEpisode - 1
-            : progress < nbEpisodes;
-      },
-    ).sorted(
-      (a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0),
-    );
+                return nextEpisode != null
+                    ? progress < nextEpisode - 1
+                    : progress < nbEpisodes;
+              },
+            )
+            .sorted(
+              (a, b) => (b.updatedAt ?? 0).compareTo(a.updatedAt ?? 0),
+            );
 
     return [
       for (final entry in entries)
@@ -180,8 +183,9 @@ class UserListRepository {
           element.progress == 0;
     });
 
-    final entries =
-        seasonEntries.isNotEmpty ? seasonEntries : watchList.planning;
+    final entries = seasonEntries.isNotEmpty
+        ? seasonEntries
+        : watchList.planning;
 
     return [
       for (final entry in entries)

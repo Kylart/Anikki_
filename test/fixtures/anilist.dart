@@ -215,7 +215,8 @@ final watchListMock = Query$GetLists(
   ),
 );
 
-final completedEntriesMock = watchListMock.MediaListCollection?.lists
+final completedEntriesMock =
+    watchListMock.MediaListCollection?.lists
         ?.firstWhere(
           (element) =>
               element?.entries?.first?.status == Enum$MediaListStatus.COMPLETED,
@@ -224,7 +225,8 @@ final completedEntriesMock = watchListMock.MediaListCollection?.lists
         ?.whereType<Query$GetLists$MediaListCollection$lists$entries>()
         .toList() ??
     [];
-final plannedEntriesMock = watchListMock.MediaListCollection?.lists
+final plannedEntriesMock =
+    watchListMock.MediaListCollection?.lists
         ?.firstWhere(
           (element) =>
               element?.entries?.first?.status == Enum$MediaListStatus.PLANNING,
@@ -233,7 +235,8 @@ final plannedEntriesMock = watchListMock.MediaListCollection?.lists
         ?.whereType<Query$GetLists$MediaListCollection$lists$entries>()
         .toList() ??
     [];
-final currentEntriesMock = watchListMock.MediaListCollection?.lists
+final currentEntriesMock =
+    watchListMock.MediaListCollection?.lists
         ?.firstWhere(
           (element) =>
               element?.entries?.first?.status == Enum$MediaListStatus.CURRENT,
@@ -242,7 +245,8 @@ final currentEntriesMock = watchListMock.MediaListCollection?.lists
         ?.whereType<Query$GetLists$MediaListCollection$lists$entries>()
         .toList() ??
     [];
-final droppedEntriesMock = watchListMock.MediaListCollection?.lists
+final droppedEntriesMock =
+    watchListMock.MediaListCollection?.lists
         ?.firstWhere(
           (element) =>
               element?.entries?.first?.status == Enum$MediaListStatus.DROPPED,
@@ -251,7 +255,8 @@ final droppedEntriesMock = watchListMock.MediaListCollection?.lists
         ?.whereType<Query$GetLists$MediaListCollection$lists$entries>()
         .toList() ??
     [];
-final pausedEntriesMock = watchListMock.MediaListCollection?.lists
+final pausedEntriesMock =
+    watchListMock.MediaListCollection?.lists
         ?.firstWhere(
           (element) =>
               element?.entries?.first?.status == Enum$MediaListStatus.PAUSED,
@@ -272,12 +277,14 @@ final anilistWatchListClassMock = AnilistWatchList(
 
 final watchListClassMock = WatchList(
   provider: WatchListProvider.anilist,
-  completed:
-      completedEntriesMock.map(MediaListEntry.fromAnilistListEntry).toList(),
+  completed: completedEntriesMock
+      .map(MediaListEntry.fromAnilistListEntry)
+      .toList(),
   current: currentEntriesMock.map(MediaListEntry.fromAnilistListEntry).toList(),
   dropped: droppedEntriesMock.map(MediaListEntry.fromAnilistListEntry).toList(),
-  planning:
-      plannedEntriesMock.map(MediaListEntry.fromAnilistListEntry).toList(),
+  planning: plannedEntriesMock
+      .map(MediaListEntry.fromAnilistListEntry)
+      .toList(),
   paused: pausedEntriesMock.map(MediaListEntry.fromAnilistListEntry).toList(),
   repeating: const [],
 );
@@ -298,7 +305,8 @@ final staffMock = Query$Search$staff$results(
 
 final searchResultMock = {
   AnilistSearchPart.animes: List<Fragment$media>.from([media.anilistInfo]),
-  AnilistSearchPart.characters:
-      List<Query$Search$characters$results>.from([characterMock]),
+  AnilistSearchPart.characters: List<Query$Search$characters$results>.from([
+    characterMock,
+  ]),
   AnilistSearchPart.staffs: List<Query$Search$staff$results>.from([staffMock]),
 };

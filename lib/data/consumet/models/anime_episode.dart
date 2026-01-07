@@ -17,12 +17,12 @@ class AnimeEpisode extends Equatable {
 
   @override
   List<Object?> get props => [
-        number,
-        id,
-        url,
-        title,
-        mediaId,
-      ];
+    number,
+    id,
+    url,
+    title,
+    mediaId,
+  ];
 
   @override
   bool get stringify => true;

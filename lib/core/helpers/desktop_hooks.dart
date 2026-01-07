@@ -18,8 +18,9 @@ Future<void> setUpDesktop() async {
   WindowOptions windowOptions = WindowOptions(
     title: 'Anikki',
     backgroundColor: Colors.transparent,
-    titleBarStyle:
-        Platform.isMacOS ? TitleBarStyle.hidden : TitleBarStyle.normal,
+    titleBarStyle: Platform.isMacOS
+        ? TitleBarStyle.hidden
+        : TitleBarStyle.normal,
     minimumSize: const Size(0, 550),
     size: const Size(1400, 900),
     center: true,

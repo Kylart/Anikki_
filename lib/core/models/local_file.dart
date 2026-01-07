@@ -74,8 +74,8 @@ class LocalFile extends Equatable {
   /// identified by its path.
   @override
   List<Object?> get props => [
-        path,
-      ];
+    path,
+  ];
 
   ///
   /// Create a [LocalFile] and tries to search for its media on Anilsit
@@ -135,6 +135,6 @@ class LocalFile extends Equatable {
   String toJson() => json.encode(toMap());
 
   factory LocalFile.fromJson(String source) => LocalFile.fromMap(
-        json.decode(source),
-      );
+    json.decode(source),
+  );
 }

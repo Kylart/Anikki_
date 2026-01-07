@@ -124,7 +124,8 @@ mixin AnilistInfo on AnilistClient {
     for (final name in names) {
       final String id = getId(name: name);
 
-      query += '''
+      query +=
+          '''
         $id: Page(page: 1, perPage: 1) {
           media(search: "$name", type: ANIME) {
             ...media
@@ -133,7 +134,8 @@ mixin AnilistInfo on AnilistClient {
       ''';
     }
 
-    query = '''
+    query =
+        '''
       query {
         $query
       }

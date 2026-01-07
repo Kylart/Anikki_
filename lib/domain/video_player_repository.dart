@@ -36,7 +36,8 @@ void _onVideoComplete({
 
   final episode = mkMedia?.extras?['episodeNumber'] as int? ?? file?.episode;
 
-  final text = mkMedia?.extras?['title'] ??
+  final text =
+      mkMedia?.extras?['title'] ??
       media.getEpisodeInfo(episode)?.formattedTitle ??
       [
         media.title,
@@ -115,9 +116,11 @@ class VideoPlayerRepository {
               (source) => source.copyWith(
                 extras: {
                   ...source.extras ?? {},
-                  'title': media
+                  'title':
+                      media
                           .getEpisodeInfo(
-                              source.extras?['episodeNumber'] as int?)
+                            source.extras?['episodeNumber'] as int?,
+                          )
                           ?.formattedTitle ??
                       media.title,
                 },
@@ -184,10 +187,9 @@ class VideoPlayerRepository {
     Media? media,
     Torrent? torrent,
   }) async {
-    final settings = BlocProvider.of<SettingsBloc>(context)
-        .state
-        .settings
-        .videoPlayerSettings;
+    final settings = BlocProvider.of<SettingsBloc>(
+      context,
+    ).state.settings.videoPlayerSettings;
 
     if (!settings.inside) {
       final path = file?.path ?? playlist.first.uri;
@@ -284,7 +286,8 @@ class VideoPlayerRepository {
     /// Requesting stream
     BlocProvider.of<StreamHandlerBloc>(context).add(
       StreamHandlerShowRequested(
-        media: media ??
+        media:
+            media ??
             Media(
               anilistInfo: AnilistUtils.getEmptyMedia(
                 title: entry?.entries.first.title,

@@ -13,10 +13,10 @@ sealed class StreamHandlerState extends Equatable {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-        videoType,
-      ];
+    media,
+    minEpisode,
+    videoType,
+  ];
 }
 
 final class StreamHandlerInitial extends StreamHandlerState {
@@ -49,11 +49,11 @@ final class StreamHandlerShowed extends StreamHandlerState {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-        type,
-        entry,
-      ];
+    media,
+    minEpisode,
+    type,
+    entry,
+  ];
 }
 
 final class StreamHandlerLoading extends StreamHandlerState {
@@ -76,10 +76,10 @@ final class StreamHandlerSuccess extends StreamHandlerState {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-        sources,
-      ];
+    media,
+    minEpisode,
+    sources,
+  ];
 }
 
 final class StreamHandlerError extends StreamHandlerState {
@@ -94,8 +94,8 @@ final class StreamHandlerError extends StreamHandlerState {
 
   @override
   List<Object?> get props => [
-        media,
-        minEpisode,
-        error,
-      ];
+    media,
+    minEpisode,
+    error,
+  ];
 }

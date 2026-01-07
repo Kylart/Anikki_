@@ -17,10 +17,10 @@ class ProviderAuthState extends Equatable {
 
   @override
   List<Object?> get props => [
-        anilistUser,
-        malUser,
-        kitsuUser,
-      ];
+    anilistUser,
+    malUser,
+    kitsuUser,
+  ];
 
   @override
   String toString() {

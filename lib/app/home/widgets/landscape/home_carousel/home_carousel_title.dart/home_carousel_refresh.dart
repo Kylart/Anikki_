@@ -42,8 +42,9 @@ class HomeCarouselRefresh extends StatelessWidget {
           },
           icon: const Icon(HugeIcons.strokeRoundedRefresh),
         ),
-        crossFadeState:
-            loading ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        crossFadeState: loading
+            ? CrossFadeState.showFirst
+            : CrossFadeState.showSecond,
         duration: const Duration(milliseconds: 200),
       ),
     );

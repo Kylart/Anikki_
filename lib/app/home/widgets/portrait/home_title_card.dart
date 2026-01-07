@@ -20,7 +20,7 @@ class _HomeTitleCard extends StatelessWidget {
               children: [
                 ...previousChildren.map(
                   (e) => Flexible(child: e),
-                )
+                ),
               ],
             ),
             if (currentChild != null)
@@ -35,14 +35,16 @@ class _HomeTitleCard extends StatelessWidget {
       child: Container(
         key: ValueKey(media),
         decoration: BoxDecoration(
-          color: context.colorScheme.surfaceContainerHighest
-              .withValues(alpha: 0.5),
+          color: context.colorScheme.surfaceContainerHighest.withValues(
+            alpha: 0.5,
+          ),
           borderRadius: BorderRadius.all(
             Radius.circular(12.0),
           ),
           border: Border.all(
-            color: context.colorScheme.surfaceContainerHighest
-                .withValues(alpha: 0.7),
+            color: context.colorScheme.surfaceContainerHighest.withValues(
+              alpha: 0.7,
+            ),
             width: 4,
           ),
         ),
@@ -73,7 +75,7 @@ class _HomeTitleCard extends StatelessWidget {
               child: _HomeActions(
                 media: media,
               ),
-            )
+            ),
           ],
         ),
       ),

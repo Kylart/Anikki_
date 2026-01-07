@@ -12,11 +12,11 @@ class _HomeView extends StatelessWidget {
     return BlocBuilder<LayoutBloc, LayoutState>(
       builder: (context, state) => switch (state) {
         LayoutLandscape() => HomeViewLandscape(
-            isWatchListLoading: isWatchListLoading,
-          ),
+          isWatchListLoading: isWatchListLoading,
+        ),
         LayoutPortrait() => HomeViewPortrait(
-            isWatchListLoading: isWatchListLoading,
-          ),
+          isWatchListLoading: isWatchListLoading,
+        ),
       },
     );
   }

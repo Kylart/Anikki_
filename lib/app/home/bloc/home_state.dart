@@ -34,37 +34,40 @@ sealed class HomeState extends Equatable {
       ?.media;
 
   MediaListEntry? get currentEntry => entries.firstWhereOrNull(
-        (e) => switch (watchListProvider) {
-          WatchListProvider.anilist => currentMedia?.anilistInfo?.id != null &&
-              e.media.anilistInfo?.id == currentMedia?.anilistInfo?.id,
-          WatchListProvider.mal => currentMedia?.malInfo?.id != null &&
-              e.media.malInfo?.id == currentMedia?.malInfo?.id,
-          WatchListProvider.kitsu => currentMedia?.kitsuInfo?.id != null &&
-              e.media.kitsuInfo?.id == currentMedia?.kitsuInfo?.id,
-          null => e.media == currentMedia,
-        },
-      );
+    (e) => switch (watchListProvider) {
+      WatchListProvider.anilist =>
+        currentMedia?.anilistInfo?.id != null &&
+            e.media.anilistInfo?.id == currentMedia?.anilistInfo?.id,
+      WatchListProvider.mal =>
+        currentMedia?.malInfo?.id != null &&
+            e.media.malInfo?.id == currentMedia?.malInfo?.id,
+      WatchListProvider.kitsu =>
+        currentMedia?.kitsuInfo?.id != null &&
+            e.media.kitsuInfo?.id == currentMedia?.kitsuInfo?.id,
+      null => e.media == currentMedia,
+    },
+  );
 
   int get currentEntryIndex =>
       currentEntry == null ? 0 : entries.indexOf(currentEntry!);
 
   @override
   List<Object?> get props => [
-        currentIndex,
-        currentBackgroundUrl,
-        entries,
-        type,
-      ];
+    currentIndex,
+    currentBackgroundUrl,
+    entries,
+    type,
+  ];
 
   @override
   String toString() => [
-        'HomeState(',
-        'type: ${type.title}, ',
-        'currentMedia: ${currentMedia?.title}, ',
-        'currentBackgroundUrl: $currentBackgroundUrl, ',
-        '${entries.length} entries',
-        ')'
-      ].join('');
+    'HomeState(',
+    'type: ${type.title}, ',
+    'currentMedia: ${currentMedia?.title}, ',
+    'currentBackgroundUrl: $currentBackgroundUrl, ',
+    '${entries.length} entries',
+    ')',
+  ].join('');
 
   HomeState copyWith({
     int? currentIndex,
@@ -172,11 +175,11 @@ final class HomeError extends HomeState {
 
   @override
   List<Object?> get props => [
-        entries,
-        message,
-        type,
-        currentBackgroundUrl,
-      ];
+    entries,
+    message,
+    type,
+    currentBackgroundUrl,
+  ];
 
   @override
   HomeError copyWith({

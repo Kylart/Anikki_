@@ -48,7 +48,8 @@ class WatchListView extends StatelessWidget {
                     onPressed: () async {
                       BlocProvider.of<WatchListBloc>(context).add(
                         WatchListRequested(
-                          provider: state.currentProvider ??
+                          provider:
+                              state.currentProvider ??
                               WatchListProvider.values.first,
                         ),
                       );
@@ -64,19 +65,20 @@ class WatchListView extends StatelessWidget {
                   child: IconButton(
                     tooltip: 'Logout of ${provider.title}',
                     onPressed: () => logoutFromProvider(provider, context),
-                    icon:
-                        const AnikkiIcon(icon: HugeIcons.strokeRoundedLogout02),
+                    icon: const AnikkiIcon(
+                      icon: HugeIcons.strokeRoundedLogout02,
+                    ),
                   ),
                 ),
               ToggleButtons(
                 borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                 isSelected:
                     state.connected.values.every((value) => value == false) &&
-                            state.currentProvider == null
-                        ? [true, false, false]
-                        : WatchListProvider.values
-                            .map((value) => value == provider)
-                            .toList(),
+                        state.currentProvider == null
+                    ? [true, false, false]
+                    : WatchListProvider.values
+                          .map((value) => value == provider)
+                          .toList(),
                 onPressed: (index) {
                   BlocProvider.of<WatchListBloc>(context).add(
                     WatchListCurrentProviderUpdated(

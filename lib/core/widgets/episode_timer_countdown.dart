@@ -23,8 +23,8 @@ class _EpisodeTimerCountdownState extends State<EpisodeTimerCountdown> {
   Timer? interval;
 
   DateTime get date => DateTime.fromMillisecondsSinceEpoch(
-        widget.airingAt * 1000,
-      );
+    widget.airingAt * 1000,
+  );
   Duration timeUntilDate = Duration.zero;
 
   String get timeUntilDateLabel => timeUntilDate.isNegative

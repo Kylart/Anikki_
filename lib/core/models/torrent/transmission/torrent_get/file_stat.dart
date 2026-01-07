@@ -10,16 +10,16 @@ class FileStat extends Equatable {
   const FileStat({this.bytesCompleted, this.priority, this.wanted});
 
   factory FileStat.fromMap(Map<String, dynamic> data) => FileStat(
-        bytesCompleted: data['bytesCompleted'] as int?,
-        priority: data['priority'] as int?,
-        wanted: data['wanted'] as bool?,
-      );
+    bytesCompleted: data['bytesCompleted'] as int?,
+    priority: data['priority'] as int?,
+    wanted: data['wanted'] as bool?,
+  );
 
   Map<String, dynamic> toMap() => {
-        'bytesCompleted': bytesCompleted,
-        'priority': priority,
-        'wanted': wanted,
-      };
+    'bytesCompleted': bytesCompleted,
+    'priority': priority,
+    'wanted': wanted,
+  };
 
   /// `dart:convert`
   ///

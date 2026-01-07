@@ -28,12 +28,12 @@ class DownloaderRequested extends DownloaderEvent {
 
   @override
   List<Object?> get props => [
-        media,
-        entry,
-        episode,
-        title,
-        isStreaming,
-      ];
+    media,
+    entry,
+    episode,
+    title,
+    isStreaming,
+  ];
 }
 
 class DownloaderFiltered extends DownloaderEvent {
@@ -43,6 +43,6 @@ class DownloaderFiltered extends DownloaderEvent {
 
   @override
   List<Object?> get props => [
-        filter,
-      ];
+    filter,
+  ];
 }

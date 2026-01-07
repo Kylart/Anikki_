@@ -18,23 +18,22 @@ class StreamHandlerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final type = state.type ??
-        BlocProvider.of<SettingsBloc>(context)
-            .state
-            .settings
-            .streamSettings
-            .streamRequestType;
+    final type =
+        state.type ??
+        BlocProvider.of<SettingsBloc>(
+          context,
+        ).state.settings.streamSettings.streamRequestType;
 
     return switch (type) {
       StreamRequestType.torrent => TorrentStreamHandler(
-          state: state,
-        ),
+        state: state,
+      ),
       StreamRequestType.online => OnlineStreamHandler(
-          state: state,
-        ),
+        state: state,
+      ),
       StreamRequestType.choose => ChooseStreamHandler(
-          state: state,
-        ),
+        state: state,
+      ),
     };
   }
 }

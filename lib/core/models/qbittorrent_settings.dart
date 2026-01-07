@@ -19,12 +19,12 @@ class QBitTorrentSettings extends Equatable {
 
   @override
   List<Object> get props => [
-        port,
-        scheme,
-        host,
-        if (username != null) username!,
-        if (password != null) password!,
-      ];
+    port,
+    scheme,
+    host,
+    if (username != null) username!,
+    if (password != null) password!,
+  ];
 
   QBitTorrentSettings copyWith({
     int? port,
