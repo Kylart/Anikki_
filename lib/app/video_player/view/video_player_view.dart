@@ -34,6 +34,8 @@ class VideoPlayerView extends StatefulWidget {
 
 class _VideoPlayerViewState extends State<VideoPlayerView>
     with WidgetsBindingObserver {
+  var hasOpenedOriginalUrl = false;
+
   final Player player = Player(
     configuration: const PlayerConfiguration(
       libass: true,
@@ -67,8 +69,10 @@ class _VideoPlayerViewState extends State<VideoPlayerView>
           widget.sources.first.extras?['originalUrl'] is String) {
         final url = widget.sources.first.extras?['originalUrl'] as String;
 
-        if (mounted && context.mounted) {
-          core.logger.error(
+        if (mounted && context.mounted && !hasOpenedOriginalUrl) {
+          hasOpenedOriginalUrl = true;
+
+          core.logger.warning(
             'Player error: $error, opening original url: $url',
           );
 
