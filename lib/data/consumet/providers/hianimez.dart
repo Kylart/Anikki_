@@ -11,7 +11,7 @@ import 'package:anikki/core/core.dart';
 import '../models/models.dart';
 
 class Hianimez implements AnimeProvider {
-  final baseUrl = 'https://hianimez.to';
+  final baseUrl = 'https://aniwatchtv.to';
 
   final client = Client();
 

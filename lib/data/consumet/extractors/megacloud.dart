@@ -19,7 +19,7 @@ Future<String?> getMegaCloudClientKey(String xrax) async {
     final uri = Uri.parse('https://megacloud.blog/embed-2/v3/e-1/$xrax');
     final req = await http.get(
       uri,
-      headers: {'Referer': 'https://hianime.to/'},
+      headers: {'Referer': 'https://aniwatchtv.to/'},
     );
     final text = req.body;
 
@@ -288,7 +288,7 @@ class MegaCloud extends Extractor {
       // Get the megacloudKey from GitHub
       final keyResponse = await http.get(
         Uri.parse(
-          "https://raw.githubusercontent.com/yogesh-hacker/MegacloudKeys/refs/heads/main/keys.json",
+          "https://raw.githubusercontent.com/yogesh-hacker/yogesh-hacker/refs/heads/main/yogesh-hacker/Megacloud/keys.json",
         ),
       );
       final keyData = jsonDecode(keyResponse.body);
