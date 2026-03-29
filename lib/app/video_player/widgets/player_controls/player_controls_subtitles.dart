@@ -53,6 +53,26 @@ class _PlayerControlsSubtitlesState extends State<PlayerControlsSubtitles> {
     loadedMediaSubtitles.add(currentMedia);
   }
 
+  String rawLangtoLanguage(String lang) {
+    return switch (lang) {
+      'en' || 'eng' => 'English',
+      'es' || 'spa' => 'Spanish',
+      'fr' || 'fre' => 'French',
+      'ja' => 'Japanese',
+      'ar' || 'ara' => 'Arabic',
+      'de' || 'ger' => 'German',
+      'zh' || 'chi' => 'Chinese',
+      'thai' || 'tha' => 'Thai',
+      'vn' || 'vie' => 'Vietnamese',
+      'may' => 'Malay',
+      'ind' || 'indonesian' => 'Indonesian',
+      'ru' || 'rus' => 'Russian',
+      'it' || 'ita' => 'Italian',
+      'pt' || 'por' => 'Portuguese',
+      _ => lang.capitalize(),
+    };
+  }
+
   @override
   void initState() {
     super.initState();
@@ -90,9 +110,11 @@ class _PlayerControlsSubtitlesState extends State<PlayerControlsSubtitles> {
       icon: const Icon(HugeIcons.strokeRoundedSubtitle),
       itemBuilder: (context) {
         return available!.map((track) {
-          String title = track.title ?? track.language ?? track.id;
+          String title =
+              '${rawLangtoLanguage(track.language ?? 'unknown')} ${track.title != null ? '- ${track.title}' : ''}'
+                  .trim();
 
-          if (title == 'no') title = 'Disabled';
+          if (track.id == 'no') title = 'Disabled';
 
           return PopupMenuItem(
             child: ListTile(
