@@ -79,7 +79,7 @@ mixin MediaEpisodes on IMedia {
       for (final episode in anilistInfo!.streamingEpisodes!)
         EpisodeInfo(
           media: this as Media,
-          episodeNumber: int.parse(
+          episodeNumber: int.tryParse(
             episode?.title
                     ?.split(' - ')
                     .firstOrNull
