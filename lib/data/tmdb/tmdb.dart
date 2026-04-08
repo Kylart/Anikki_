@@ -36,25 +36,41 @@ class Tmdb {
         );
   }
 
-  Future<TmdbTvDetails?> getDetails(String name) async {
+  Future<TmdbTvDetails?> getDetails(
+    String name, {
+    String? seasonYear,
+  }) async {
     final box = await Hive.openBox(boxName);
-    final cacheKey = 'details_$name';
+    final cacheKey = 'details_$name${seasonYear != null ? '_$seasonYear' : ''}';
     final cachedDetailsRaw = await box.get(cacheKey) as Map<dynamic, dynamic>?;
 
     if (cachedDetailsRaw != null && cachedDetailsRaw is Map<String, dynamic>) {
       return TmdbTvDetails.fromMap(cachedDetailsRaw);
     }
 
-    final rawSearch =
+    var rawSearch =
         await _tmdb.v3.search.queryTvShows(
               name,
+              firstAirDateYear: seasonYear,
             )
             as Map<String, dynamic>;
-    final search = TmdbSearch.fromMap(rawSearch);
+    var search = TmdbSearch.fromMap(rawSearch);
 
-    final firstResult = search.results
-        ?.where((e) => e.genreIds?.contains(_animationGenreId) == true)
+    if (search.results?.isEmpty == true) {
+      rawSearch =
+          await _tmdb.v3.search.queryTvShows(name) as Map<String, dynamic>;
+      search = TmdbSearch.fromMap(rawSearch);
+    }
+
+    final exactMatch = search.results
+        ?.where((e) => e.name?.toLowerCase() == name.toLowerCase())
         .firstOrNull;
+
+    final firstResult =
+        exactMatch ??
+        search.results
+            ?.where((e) => e.genreIds?.contains(_animationGenreId) == true)
+            .firstOrNull;
     final firstResultId = firstResult?.id;
 
     if (firstResultId == null) return null;
@@ -98,11 +114,14 @@ class Tmdb {
       if (initialMedia.title == null) return initialMedia;
 
       final parsedTitle = Anitomy(
-        inputString: initialMedia.title!,
+        inputString: initialMedia.englishTitle ?? initialMedia.title!,
       );
-      final title = searchTitle ?? parsedTitle.title ?? initialMedia.title!;
+      var title = searchTitle ?? parsedTitle.title ?? initialMedia.title!;
 
-      final tmdbInfo = await getDetails(sanitizeName(title));
+      final tmdbInfo = await getDetails(
+        sanitizeName(title),
+        seasonYear: initialMedia.seasonYear?.toString(),
+      );
 
       if (searchTitle != null && tmdbInfo == null) {
         return hydrateMediaWithTmdb(initialMedia);

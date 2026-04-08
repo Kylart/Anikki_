@@ -79,8 +79,14 @@ final class Media extends IMedia with MediaImages, MediaEpisodes {
         ...(synonyms ?? <String>[]),
       }.whereType<String>().fold<int?>(
         null,
-        (value, titleVariation) =>
-            value ?? Anitomy(inputString: titleVariation).season,
+        (value, titleVariation) {
+          if (value != null) {
+            return value;
+          }
+
+          final parsed = Anitomy(inputString: titleVariation);
+          return parsed.season ?? parsed.episode;
+        },
       );
 
   List<String>? get synonyms => <String?>{
