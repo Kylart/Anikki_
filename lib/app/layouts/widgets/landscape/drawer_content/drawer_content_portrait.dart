@@ -82,7 +82,7 @@ class _DrawerContentPortraitState extends State<_DrawerContentPortrait> {
                   ? DecorationImage(
                       opacity: 0.3,
                       alignment: Alignment.topCenter,
-                      image: CachedNetworkImageProvider(
+                      image: CachedImageProvider(
                         widget.media.bannerImage!,
                       ),
                     )

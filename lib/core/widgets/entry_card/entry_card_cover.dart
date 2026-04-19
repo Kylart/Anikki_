@@ -28,7 +28,7 @@ class _EntryCardCover extends StatelessWidget {
     final image = url != null
         ? Hero(
             tag: url!,
-            child: CachedNetworkImage(
+            child: CachedImage(
               imageUrl: url!,
               fit: BoxFit.cover,
               errorWidget: (context, error, stackTrace) => colorContainer,

@@ -85,7 +85,7 @@ class DrawerEpisode extends StatelessWidget {
                                     ? const AssetImage(
                                         'assets/images/cover_placeholder.jpg',
                                       )
-                                    : CachedNetworkImageProvider(
+                                    : CachedImageProvider(
                                         episodeInfo!.thumbnail!,
                                       ))
                                 as ImageProvider,

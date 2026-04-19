@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 import 'package:anikki/core/widgets/entry/entry_tag.dart';
 
 class EntryTile extends StatefulWidget {
@@ -47,7 +47,7 @@ class _EntryTileState<T> extends State<EntryTile> {
                 opacity: 0.25,
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
-                image: CachedNetworkImageProvider(
+                image: CachedImageProvider(
                   media.anilistInfo!.bannerImage!,
                 ),
               )
@@ -69,7 +69,7 @@ class _EntryTileState<T> extends State<EntryTile> {
         title: AutoSizeText(title, maxLines: 2),
         leading: media.coverImage != null
             ? CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(
+                backgroundImage: CachedImageProvider(
                   media.coverImage!,
                 ),
               )

@@ -1,10 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anikki/app/downloader/widgets/torrents_list.dart';
 import 'package:anikki/app/library/widgets/library_card.dart';
 import 'package:anikki/app/search/bloc/search_bloc.dart';
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 import 'package:anikki/core/widgets/entry/entry_tile.dart';
 import 'package:anikki/core/widgets/grid_view/custom_grid_view.dart';
 
@@ -122,7 +122,7 @@ class _SearchResultsState extends State<SearchResults>
                       subtitle: const Text(''),
                       onTap: () => openInBrowser(item.siteUrl),
                       leading: CircleAvatar(
-                        backgroundImage: CachedNetworkImageProvider(
+                        backgroundImage: CachedImageProvider(
                           item.image?.large ?? item.image?.medium ?? '',
                         ),
                       ),
@@ -145,7 +145,7 @@ class _SearchResultsState extends State<SearchResults>
                       subtitle: const Text(''),
                       onTap: () => openInBrowser(item.siteUrl),
                       leading: CircleAvatar(
-                        backgroundImage: CachedNetworkImageProvider(
+                        backgroundImage: CachedImageProvider(
                           item.image?.large ?? item.image?.medium ?? '',
                         ),
                       ),

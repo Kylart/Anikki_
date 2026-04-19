@@ -58,7 +58,7 @@ class _HomeTitleCarouselImageState extends State<_HomeTitleCarouselImage> {
           ),
           child: ClipRRect(
             borderRadius: HomeTitleCarouselContainer.borderRadius,
-            child: CachedNetworkImage(
+            child: CachedImage(
               imageUrl: widget.url,
               errorWidget: (context, error, stackTrace) {
                 return const SizedBox();

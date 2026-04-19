@@ -23,7 +23,7 @@ class DrawerImage extends StatelessWidget {
         ),
         child: Hero(
           tag: media.posterImage!,
-          child: CachedNetworkImage(
+          child: CachedImage(
             imageUrl: media.posterImage!,
           ),
         ),

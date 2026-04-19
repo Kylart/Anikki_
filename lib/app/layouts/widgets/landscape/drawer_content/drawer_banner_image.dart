@@ -19,7 +19,7 @@ class DrawerBannerImage extends StatelessWidget {
         return SizedBox(
           height: state is LayoutLandscape ? 255 : 125,
           width: double.infinity,
-          child: CachedNetworkImage(
+          child: CachedImage(
             imageUrl: image,
             fit: BoxFit.cover,
             alignment: Alignment.center,

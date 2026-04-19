@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 
 class HomeImage extends StatelessWidget {
   const HomeImage({
@@ -23,7 +23,7 @@ class HomeImage extends StatelessWidget {
       child: Image(
         fit: BoxFit.fitHeight,
         image: media.coverImage != null
-            ? CachedNetworkImageProvider(
+            ? CachedImageProvider(
                 media.coverImage!,
               )
             : const AssetImage('assets/images/placeholder.jpg'),

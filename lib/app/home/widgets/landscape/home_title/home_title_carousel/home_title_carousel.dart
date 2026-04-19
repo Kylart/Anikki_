@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -11,6 +10,7 @@ import 'package:super_sliver_list/super_sliver_list.dart';
 
 import 'package:anikki/app/home/bloc/home_bloc.dart';
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 import 'package:anikki/data/data.dart';
 
 part 'home_title_carousel_container.dart';

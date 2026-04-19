@@ -80,7 +80,7 @@ class _HomeCarouselState extends State<_HomeCarousel> {
                 child: entry.media.posterImage != null
                     ? Hero(
                         tag: entry.media.posterImage!,
-                        child: CachedNetworkImage(
+                        child: CachedImage(
                           imageUrl: entry.media.posterImage!,
                           fit: BoxFit.cover,
                           alignment: Alignment.center,

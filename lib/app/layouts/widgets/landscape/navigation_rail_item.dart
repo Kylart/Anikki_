@@ -49,7 +49,7 @@ class _NavigationRailItemState extends State<_NavigationRailItem>
     padding: const EdgeInsets.only(left: 2.0),
     child: CircleAvatar(
       backgroundImage: imageUrl.startsWith('http')
-          ? CachedNetworkImageProvider(imageUrl)
+          ? CachedImageProvider(imageUrl)
           : AssetImage(imageUrl),
     ),
   );

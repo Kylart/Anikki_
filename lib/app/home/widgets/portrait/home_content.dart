@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
@@ -11,8 +9,10 @@ import 'package:super_sliver_list/super_sliver_list.dart';
 
 import 'package:anikki/app/downloader/bloc/downloader_bloc.dart';
 import 'package:anikki/app/home/bloc/home_bloc.dart';
+import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/app/layouts/widgets/landscape/drawer_content/drawer_content.dart';
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 import 'package:anikki/core/widgets/error_widget.dart';
 import 'package:anikki/core/widgets/loading_widget.dart';
 import 'package:anikki/domain/video_player_repository.dart';

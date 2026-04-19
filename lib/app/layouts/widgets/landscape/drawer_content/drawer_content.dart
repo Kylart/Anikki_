@@ -18,6 +18,7 @@ import 'package:anikki/app/layouts/bloc/layout_bloc.dart';
 import 'package:anikki/app/library/bloc/library_bloc.dart';
 import 'package:anikki/app/watch_list/bloc/watch_list_bloc.dart';
 import 'package:anikki/core/core.dart';
+import 'package:anikki/core/widgets/cached_image.dart';
 import 'package:anikki/core/widgets/empty_widget.dart';
 import 'package:anikki/core/widgets/entry/entry_tag.dart';
 import 'package:anikki/core/widgets/paginated.dart';
